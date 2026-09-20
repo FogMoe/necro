@@ -1,0 +1,17 @@
+{
+  "model": "jev-latest",
+  "state": "我昨天买的会员被扣款两次，请帮我退掉重复的一笔。现在还可以正常登录。",
+  "questions": {
+    "department": {
+      "type": "choice",
+      "instructions": "这条请求应由哪个团队处理？",
+      "criteria": {"billing": "支付、账单、退款", "technical": "故障与技术支持", "sales": "购买前咨询"}
+    },
+    "refund": {"type": "noul", "instructions": "用户是否明确要求退款？"},
+    "impact": {
+      "type": "score",
+      "instructions": "用户目前是否能使用服务？",
+      "criteria": ["服务仍可正常使用", "部分功能不可用", "完全无法使用服务"]
+    }
+  }
+}
