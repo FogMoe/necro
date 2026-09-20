@@ -18,4 +18,4 @@ The [2026-09-20 ScarletKc-Necro-0.8b evaluation report](reports/improvement-2026
 
 ## Process records
 
-Training runs, selection rules, design reviews, and follow-up plans are kept in [process records](process/README.md). New records use English. Frozen evidence retains its original text.
+Training runs, selection rules, design reviews, and follow-up plans are kept in [process records](process/README.md).
