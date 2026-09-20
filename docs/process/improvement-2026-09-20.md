@@ -20,7 +20,7 @@ round2 重复 pilot 数据。round3 从 pilot-v1 续训，扩充公开 train 样
 
 pilot 与 expanded 合计呈现 3,330 条训练记录，按上下文去重为 2,432 条，来源组 1,302 个。中英文包含对应翻译，续训再次使用已有样例。标签来自公开标注和代码构造规则。
 
-expanded 的 XNLI Choice 按语言和类别平衡，本轮每组 176 条。取样、转换与排除逻辑见 [训练指南](../training.md#续训与扩充数据)。
+expanded 的 XNLI Choice 按语言和类别平衡，本轮每组 176 条。取样、转换与排除逻辑见 [训练指南](../training.md#continuing-training-and-expanding-data)。
 
 ## 回归
 

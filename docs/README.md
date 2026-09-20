@@ -1,21 +1,21 @@
-# 文档
+# Documentation
 
-第一次运行从 [项目 README](../README.md) 开始。下面按使用任务查找详细说明。
+Start with the [project README](../README.md) for a first run. Use the guides below for specific tasks.
 
-| 要做什么 | 文档 |
+| Task | Guide |
 |---|---|
-| 安装依赖、加载模型、处理启动错误 | [运行与配置](running.md) |
-| 接入 HTTP API、理解概率和评分 | [API](api.md) |
-| 准备评测集、比较结果、校准概率 | [评测](evaluation.md) |
-| 准备训练数据、训练和续训 LoRA | [训练](training.md) |
-| 导出模型、整理材料、上传 Hub | [导出与发布](publishing.md) |
-| 修改项目并运行检查 | [开发](development.md) |
-| 查看上游来源和许可 | [第三方声明](../THIRD_PARTY_NOTICES.md) |
+| Install dependencies, load models, and resolve startup errors | [Setup and configuration](running.md) |
+| Connect to the HTTP API and interpret probabilities | [API](api.md) |
+| Prepare evaluation data, compare results, and calibrate probabilities | [Evaluation](evaluation.md) |
+| Prepare data and train or continue a LoRA adapter | [Training](training.md) |
+| Export a model, assemble its files, and upload to the Hub | [Export and publishing](publishing.md) |
+| Change the project and run checks | [Development](development.md) |
+| Check upstream sources and licenses | [Licensing and third-party notices](../THIRD_PARTY_NOTICES.md) |
 
-## 评测报告
+## Evaluation report
 
-[2026-09-20 ScarletKc-Necro-0.8b 评测报告](reports/improvement-2026-09-20.md)记录导出权重的测试结果、校准、错误和延迟。
+The [2026-09-20 ScarletKc-Necro-0.8b evaluation report](reports/improvement-2026-09-20.md) covers the exported weights, test results, calibration, observed errors, and latency.
 
-## 过程记录
+## Process records
 
-训练轮次、选择规则、设计复审和后续方案集中在 [过程记录](process/README.md)。
+Training runs, selection rules, design reviews, and follow-up plans are kept in [process records](process/README.md). These records are in Chinese.

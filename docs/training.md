@@ -1,10 +1,10 @@
-# LoRA 训练
+# LoRA training
 
-训练脚本使用 PyTorch 和 PEFT，只更新语言骨干中的 LoRA 参数。训练与服务共用提示模板和 tokenizer，监督目标是正确答案的 token。每轮配方和成绩见 [过程记录](process/README.md)。
+The training script uses PyTorch and PEFT to update LoRA parameters in the language backbone. Training and serving share the prompt template and tokenizer, with supervision on the correct answer tokens. Recipes and results for individual runs are kept in the [process records](process/README.md).
 
-## 数据准备
+## Data preparation
 
-先安装训练依赖，并准备旧诊断集和 pilot 数据：
+Install the training dependencies, then prepare the diagnostic set and pilot data:
 
 ```powershell
 uv sync --extra training
@@ -12,17 +12,17 @@ uv run necro prepare-eval
 uv run --extra training python -m necro.training_data
 ```
 
-先生成 `data/baseline.jsonl`，数据准备脚本才会把它纳入重叠排除。pilot 输出包含 `train.jsonl`、`validation.jsonl`、来源缓存和 `manifest.json`。
+Create `data/baseline.jsonl` first so data preparation includes it in overlap removal. Pilot output contains `train.jsonl`, `validation.jsonl`, cached source data, and `manifest.json`.
 
-公开数据来自 XNLI 与 MASSIVE 的中英文 train split。部分 XNLI 转为是否蕴含的 Noul，部分 MASSIVE 转为包含正确类别的小候选集，其余保留完整类别。Choice 选项顺序打乱，再加入代码构造的成对 Noul 和 Score 样例。
+Public records come from the English and Chinese training splits of XNLI and MASSIVE. Some XNLI records become entailment questions in Noul format. Some MASSIVE records use smaller candidate sets containing the correct class, while others keep the complete label set. Choice options are shuffled, and constructed Noul and Score pairs are added.
 
-同一来源组中，只要有上下文与受保护的评测数据重复，就移除整组。取样与转换规则见 [training_data.py](../src/necro/training_data.py) 的 `prepare`、`rule_pairs` 和 `audit_disjoint`。每次实际数量、来源和文件 SHA-256 写入 `manifest.json`。
+If a context overlaps protected evaluation data, its entire source group is removed. Sampling and conversion are defined by `prepare`, `rule_pairs`, and `audit_disjoint` in [training_data.py](../src/necro/training_data.py). Actual counts, sources, and file hashes are written to `manifest.json`.
 
-准备命令会复用已有来源缓存并重写训练文件与 manifest。新实验需要不同数据时，通过 `--output` 指定独立目录。公开数据来源与许可见 [第三方声明](../THIRD_PARTY_NOTICES.md)。
+Preparation reuses cached sources and rewrites the training file and manifest. Use `--output` to select a separate directory for a new dataset. Sources and licenses are listed in [third-party notices](../THIRD_PARTY_NOTICES.md).
 
-## 训练与前后对照
+## Training and before/after evaluation
 
-以下示例从基模开始，固定通用温度，并清除 Choice 校准值：
+This example starts from the base model, fixes the general temperature, and clears the Choice calibration setting:
 
 ```powershell
 $env:NECRO_MODEL = 'Qwen/Qwen3.5-0.8B'
@@ -37,49 +37,49 @@ uv run --extra training necro evaluate data/baseline.jsonl --output results/lora
 uv run --extra training necro evaluate examples/smoke.jsonl --output results/lora-pilot/after-smoke
 ```
 
-训练输出目录已存在时会报错。再次运行使用新的目录名，并为前后评测分别保留结果。
+Training rejects an existing output directory. Use a new directory for each run, and keep before/after evaluation results separate.
 
-每条记录使用 [评测 JSONL 格式](evaluation.md#数据格式与来源)。训练目录同时需要 `train.jsonl` 与 `validation.jsonl`，训练前检查两者隔离。超长记录直接报错，长度限制见 [training.py](../src/necro/training.py) 的 `encode_example`。
+Records use the [evaluation JSONL format](evaluation.md#data-format-and-sources). The training directory must contain both `train.jsonl` and `validation.jsonl`. Their separation is checked before training. Oversized records raise an error. The length limit is defined by `encode_example` in [training.py](../src/necro/training.py).
 
-## 训练方式
+## Training method
 
-基模使用 BF16 并冻结参数，只在语言骨干的 Linear 层加入 LoRA。输入按长度分桶，启用梯度检查点。每次运行一轮，使用 warmup 后线性下降的学习率。
+The base model is frozen and loaded in BF16. LoRA is applied to Linear layers in the language backbone. Inputs are bucketed by length, and gradient checkpointing is enabled. Each run trains for one epoch with warmup followed by linear learning-rate decay.
 
-通过 `--objective` 选择监督目标，prompt 在两种模式下都被屏蔽：
+Select the objective with `--objective`. Both modes mask prompt tokens from the loss.
 
-| 目标 | 计算方式 |
+| Objective | Calculation |
 |---|---|
-| `answer-ce` | 正确答案 token 的全词表交叉熵 |
-| `candidate-ce` | 单 token 答案使用候选内交叉熵，多 token 数字标签使用全词表答案损失 |
+| `answer-ce` | Full-vocabulary cross entropy on correct answer tokens |
+| `candidate-ce` | Cross entropy over candidates for single-token answers, with full-vocabulary answer loss for multi-token numeric labels |
 
-多 token 答案使用 teacher forcing，逐 token 的负对数似然相加。训练开始前运行少量前向和反向以测量耗时，随后更新参数。结束后禁用 adapter，用同一探针检查基模 logits。
+Multi-token answers use teacher forcing, summing token-level negative log likelihoods. A few forward and backward passes are timed before parameter updates begin. After training, the adapter is disabled and base-model logits are checked with the same probe.
 
-默认配方见 [training.py](../src/necro/training.py) 的 `train`，可调整的命令行参数见 `python -m necro.training --help`。实际使用值写入输出目录的 `run_config.json`。
+Default settings are defined by `train` in [training.py](../src/necro/training.py). Run `python -m necro.training --help` for command-line options. The actual settings are saved in `run_config.json`.
 
-| 输出 | 内容 |
+| Output | Contents |
 |---|---|
-| `run_config.json` | 基模 revision、提示指纹、训练参数、数据哈希和续训来源 |
-| `profile.json` | 参数更新前的性能测量 |
-| `training_summary.json` | 训练耗时、loss、显存和基模探针对照 |
-| `adapter/` | LoRA 权重、PEFT 配置、tokenizer 和 `necro_adapter.json` |
+| `run_config.json` | Base revision, prompt fingerprint, training settings, data hashes, and initial adapter |
+| `profile.json` | Performance measurements before parameter updates |
+| `training_summary.json` | Training time, loss, memory use, and base-model probe comparison |
+| `adapter/` | LoRA weights, PEFT configuration, tokenizer, and `necro_adapter.json` |
 
-## 续训与扩充数据
+## Continuing training and expanding data
 
-`--initial-adapter` 从已有 LoRA 继续训练，重新建立优化器。加载时检查基模、revision、rank 和提示契约。
+`--initial-adapter` continues from an existing LoRA adapter with a new optimizer. Loading checks the base model, revision, rank, and prompt contract.
 
-项目中的扩充数据流程以 pilot 数据和旧诊断集为输入：
+The expanded-data workflow uses the pilot data and diagnostic set:
 
 ```powershell
 uv run --extra training python -m necro.experiments
 uv run --extra training python -m necro.probes
 ```
 
-`experiments` 准备扩充训练集、校准集和封存测试文件。它平衡 XNLI 类别，混合不同大小的 MASSIVE 候选集，并加入证据不足样例。来源范围和分组排除规则见 [experiments.py](../src/necro/experiments.py) 的 `download_sources` 与 `prepare_improvement`。已有 expanded 目录时拒绝覆盖。
+`experiments` prepares expanded training data, calibration data, and held-out test files. It balances XNLI classes, mixes MASSIVE candidate-set sizes, and adds insufficient-evidence examples. Source ranges and group exclusion rules are defined by `download_sources` and `prepare_improvement` in [experiments.py](../src/necro/experiments.py). An existing expanded directory is rejected.
 
-`probes` 生成金额、状态、Score 阈值和不同候选数量的边界题。已有文件时拒绝覆盖。历史续训命令与选择规则见 [改进训练记录](process/improvement-2026-09-20.md)。
+`probes` generates boundary questions for amounts, status, Score thresholds, and candidate counts. It rejects an existing output file. Historical continuation commands and selection rules are in the [training record](process/improvement-2026-09-20.md).
 
-## 检查结果
+## Reviewing results
 
-按同一批题比较训练前后结果，同时检查任务、语言和问题类型的变化。保留训练配置、原始预测、校准文件及测试集指纹。
+Compare before/after results on the same questions, including breakdowns by task, language, and question type. Keep the training configuration, raw predictions, calibration files, and test-set fingerprint.
 
-服务加载步骤见 [运行与配置](running.md#加载模型)，概率拟合见 [评测](evaluation.md#概率校准)，权重整理见 [导出与发布](publishing.md)。
+See [model loading](running.md#loading-a-model) to serve an adapter, [probability calibration](evaluation.md#probability-calibration) to fit a temperature, and [export and publishing](publishing.md) to package weights.

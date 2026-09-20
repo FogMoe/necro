@@ -8,7 +8,7 @@ XNLI 与 MASSIVE 的 train split 各取中英文 200 条。四分之一的 XNLI 
 
 另加入 100 对规则样例，每对只翻转一个相关布尔字段。移除与旧诊断集及新验证集重叠的 3 个来源组后，实际训练 994 条，其中 694 Choice、200 Noul、100 Score，中英文各 497 条。
 
-验证集取两个数据源各语言 validation 的第 100–149 行，共 200 题，MASSIVE 保留全部 60 类。转换与隔离方法见 [训练指南](../training.md#数据准备)。
+验证集取两个数据源各语言 validation 的第 100–149 行，共 200 题，MASSIVE 保留全部 60 类。转换与隔离方法见 [训练指南](../training.md#data-preparation)。
 
 ## 配方与成本
 

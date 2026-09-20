@@ -19,4 +19,4 @@ uv run --extra training python -m necro.release_report SELECTED_RUN artifacts/Sc
 - 包内的 `adapter/README.md`、`merged/README.md`：独立模型卡。
 - 包内的 `evaluation/`：汇总、配置、逐题判断和失败样例。
 
-生成后按 [导出与发布](../publishing.md#验证与整理材料)同步文档与运行代码，再更新校验和。
+生成后按 [导出与发布](../publishing.md#validation-and-packaging)同步文档与运行代码，再更新校验和。

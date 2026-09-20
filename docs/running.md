@@ -1,42 +1,42 @@
-# 运行与配置
+# Setup and configuration
 
-Necro 支持基模、本地 LoRA 和合并权重三种加载方式。本页的命令都从项目根目录运行，相对路径也以运行命令的目录为准。
+Necro can load the base model, a local LoRA adapter, or merged weights. Run the commands on this page from the project root. Relative paths are resolved from the working directory.
 
-## 安装
+## Installation
 
-安装 [uv](https://docs.astral.sh/uv/)，然后执行：
+Install [uv](https://docs.astral.sh/uv/), then run:
 
 ```powershell
 uv sync --extra inference
 Copy-Item .env.example .env
 ```
 
-已有 `.env` 时跳过复制。Python 要求见 [pyproject.toml](../pyproject.toml) 的 `project.requires-python`，依赖版本由 `uv.lock` 锁定。PyTorch 使用其中 `pytorch-cu128` 配置的 CUDA 轮子，GPU 推理需要兼容的 NVIDIA 驱动。`NECRO_DEVICE=auto` 会在 CUDA 可用时使用 GPU，否则使用 CPU。训练要求 CUDA。
+Skip the copy step if `.env` already exists. The Python requirement is defined by `project.requires-python` in [pyproject.toml](../pyproject.toml), and `uv.lock` pins dependency versions. PyTorch uses the CUDA wheels configured by `pytorch-cu128`. GPU inference requires a compatible NVIDIA driver. With `NECRO_DEVICE=auto`, inference uses CUDA when available and falls back to CPU. Training requires CUDA.
 
-加载 LoRA 时，把安装和运行命令中的 `--extra inference` 换成 `--extra training`，以安装 PEFT。首次加载远程 checkpoint 会从 Hugging Face 下载模型，也可用 `uv run --extra inference hf download Qwen/Qwen3.5-0.8B` 提前下载。
+To load LoRA adapters, replace `--extra inference` with `--extra training` in installation and runtime commands to include PEFT. Remote checkpoints are downloaded from Hugging Face on first use. You can download the base model ahead of time with `uv run --extra inference hf download Qwen/Qwen3.5-0.8B`.
 
-## 配置来源
+## Configuration sources
 
-进程环境变量优先于 `.env`，未设置的项使用程序默认值。配置示例见 [.env.example](../.env.example)，加载逻辑和完整默认值见 [config.py](../src/necro/config.py) 的 `Settings.from_env` 与 `Settings`。
+Process environment variables take precedence over `.env`. Unset values use the program defaults. See [.env.example](../.env.example) for an example and `Settings.from_env` and `Settings` in [config.py](../src/necro/config.py) for loading behavior and defaults.
 
-| 配置 | 用途 |
+| Setting | Purpose |
 |---|---|
-| `NECRO_MODEL` | Hugging Face checkpoint 或本地合并模型目录 |
-| `NECRO_ADAPTER` | 含 `necro_adapter.json` 的本地 LoRA 目录，留空则不加载 LoRA |
-| `NECRO_DEVICE` | `auto`、`cpu` 或 PyTorch CUDA 设备名，例如 `cuda:0` |
-| `NECRO_API_KEY` | 本地 API 的 Bearer key，不能为空 |
-| `NECRO_BATCH_SIZE`、`NECRO_BATCH_TOKENS` | 问题批量大小和 padding 后的 token 预算 |
-| `NECRO_TEMPERATURE` | 所有问题使用的概率温度 |
-| `NECRO_CHOICE_TEMPERATURE` | 单独覆盖 Choice 温度，留空沿用通用温度 |
-| `TYPESAFE_API_KEY`、`TYPESAFE_BASE_URL` | [Jev 对照评测](evaluation.md#jev-对照)的密钥与地址 |
+| `NECRO_MODEL` | Hugging Face checkpoint or local merged model directory |
+| `NECRO_ADAPTER` | Local LoRA directory containing `necro_adapter.json`. Leave empty to run without an adapter |
+| `NECRO_DEVICE` | `auto`, `cpu`, or a PyTorch CUDA device such as `cuda:0` |
+| `NECRO_API_KEY` | Bearer key for the local API. Must be nonempty |
+| `NECRO_BATCH_SIZE`, `NECRO_BATCH_TOKENS` | Question batch size and token budget after padding |
+| `NECRO_TEMPERATURE` | Probability temperature for all question types |
+| `NECRO_CHOICE_TEMPERATURE` | Choice-specific override. Leave empty to use the general temperature |
+| `TYPESAFE_API_KEY`, `TYPESAFE_BASE_URL` | Key and endpoint for [Jev comparisons](evaluation.md#jev-comparison) |
 
-批量参数必须为正整数，温度必须为大于零的有限数。修改配置后重启服务。`.env` 被 Git 忽略，本地推理不需要 TypeSafe 密钥。
+Batch settings must be positive integers. Temperatures must be finite and greater than zero. Restart the server after changing settings. Git ignores `.env`, and local inference does not require a TypeSafe key.
 
-## 加载模型
+## Loading a model
 
-### 基模
+### Base model
 
-在 `.env` 中设置：
+Set the following in `.env`:
 
 ```dotenv
 NECRO_MODEL=Qwen/Qwen3.5-0.8B
@@ -45,21 +45,21 @@ NECRO_TEMPERATURE=1.0
 NECRO_CHOICE_TEMPERATURE=
 ```
 
-如果终端中已经设置了同名环境变量，也要清除或更新它们，否则它们会覆盖 `.env`。
+Clear or update any matching variables already set in your terminal, since they override `.env`.
 
-### LoRA
+### LoRA adapter
 
-设置 `NECRO_MODEL` 为 adapter 契约中 `checkpoint` 对应的基模，`NECRO_ADAPTER` 为 adapter 目录。使用 `--extra training` 运行。
+Set `NECRO_MODEL` to the base checkpoint named by `checkpoint` in the adapter contract, and `NECRO_ADAPTER` to the adapter directory. Run with `--extra training`.
 
-加载器检查基模名称和提示代码指纹，按 `necro_adapter.json` 中的 `revision` 加载模型与 tokenizer，再将 LoRA 合并到内存。切换 adapter 后需要重启。
+The loader checks the base model name and prompt code fingerprint. It loads the model and tokenizer at the `revision` recorded in `necro_adapter.json`, then merges the adapter in memory. Restart the server to switch adapters.
 
-### 合并权重
+### Merged weights
 
-将 `NECRO_MODEL` 指向含 `necro_model.json` 的本地合并模型目录，并清空 `NECRO_ADAPTER`。使用 `--extra inference` 运行。合并权重已经包含 LoRA 改动，再次叠加 adapter 会报错。
+Set `NECRO_MODEL` to a local directory containing `necro_model.json`, and clear `NECRO_ADAPTER`. Run with `--extra inference`. Merged weights already include the LoRA changes. Applying another adapter raises an error.
 
-### 使用导出包的校准值
+### Applying exported calibration
 
-导出包的 `export.json` 记录 `choice_temperature`，模型契约中也保存了 `recommended_choice_temperature`。需要显式设置 `NECRO_CHOICE_TEMPERATURE` 才会应用该值。例如从项目根目录读取已有包：
+The export's `export.json` records `choice_temperature`. The model contract also stores it as `recommended_choice_temperature`. Set `NECRO_CHOICE_TEMPERATURE` explicitly to apply it. For example, read an existing export from the project root:
 
 ```powershell
 $package = 'artifacts/ScarletKc-Necro-0.8b'
@@ -67,33 +67,33 @@ $metadata = Get-Content "$package/export.json" -Raw | ConvertFrom-Json
 $env:NECRO_CHOICE_TEMPERATURE = $metadata.choice_temperature.ToString([Globalization.CultureInfo]::InvariantCulture)
 ```
 
-从独立模型目录运行时，按该目录模型卡的命令设置路径和温度。
+For a standalone model distribution, use its model card to set paths and temperature.
 
-## 启动和确认
+## Starting the server
 
 ```powershell
 uv run --extra inference necro score examples/request.json
 uv run --extra inference necro serve --host 127.0.0.1 --port 8000
 ```
 
-`score` 读取一个 JSON 请求并在 stdout 输出 JSON 响应。`serve` 先加载模型，再启动 HTTP 服务。主机和端口通过命令行参数设置。
+`score` reads a JSON request and writes a JSON response to stdout. `serve` loads the model before starting the HTTP server. Set the host and port through command-line options.
 
-服务启动后，在另一个终端查看：
+Once the server is running, check it from another terminal:
 
 ```powershell
 Invoke-RestMethod http://127.0.0.1:8000/health
 ```
 
-健康检查返回服务使用的模型 ID。需要确认推理时，发送 [API 示例请求](api.md#发送请求)。交互式接口文档位于服务的 `/docs`。
+The health check returns the model ID used by the server. Send the [example API request](api.md#sending-a-request) to check inference. Interactive API documentation is available at `/docs`.
 
-## 常见问题
+## Troubleshooting
 
-| 现象 | 处理 |
+| Issue | Action |
 |---|---|
-| `CUDA 不可用` | 检查 NVIDIA 驱动及 PyTorch CUDA 环境，或用 `NECRO_DEVICE=cpu` 运行推理 |
-| 缺少 `peft` | 安装并使用 `--extra training` |
-| adapter 基模或提示代码不一致 | 使用 adapter 随附的运行代码和契约指定的基模 |
-| 修改 `.env` 后没有生效 | 检查终端的同名环境变量，并重启服务 |
-| HTTP 401 | 让客户端 Bearer key 与服务的 `NECRO_API_KEY` 一致 |
-| HTTP 422 | 按错误详情检查字段和长度，具体限制见 [API](api.md#错误与输入限制) |
-| HTTP 529 | 缩短输入，或降低批量大小与 token 预算 |
+| CUDA is unavailable | Check the NVIDIA driver and PyTorch CUDA installation, or use `NECRO_DEVICE=cpu` for inference |
+| `peft` is missing | Install and run with `--extra training` |
+| Adapter base model or prompt fingerprint mismatch | Use the runtime shipped with the adapter and the base checkpoint specified in its contract |
+| Changes to `.env` have no effect | Check for matching terminal environment variables and restart the server |
+| HTTP 401 | Match the client Bearer key to the server's `NECRO_API_KEY` |
+| HTTP 422 | Check the error details against the [API input requirements](api.md#errors-and-input-limits) |
+| HTTP 529 | Shorten the input or reduce the batch size and token budget |
