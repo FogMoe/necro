@@ -1,0 +1,130 @@
+{
+  "scope": "Known false-rejection regression fixture extracted from an exposed 720-question condition cohort. The fixture is not an independent test.",
+  "fixture_sha256": "7ba58aa547920ac99c03874cd2ee4484963e8678a775e0a92b4e67d056d8c5c6",
+  "rows": 38,
+  "original_cohort_sha256": "75c818270d76a92b3faab3f9ebc7e8720bc7e405208e7703f9935cbdb2f11b1d",
+  "models": {
+    "candidate": {
+      "model": [
+        "ScarletKc-Necro-0.8b"
+      ],
+      "checkpoint": "Qwen/Qwen3.5-0.8B",
+      "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+      "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+      "choice_temperature": 2.0232388806038446,
+      "noul_temperature": 3.6892647743437563,
+      "score_temperature": 1.109569472067845,
+      "batch_size": 4,
+      "batch_tokens": 8192,
+      "torch": "2.10.0+cu128",
+      "transformers": "5.17.0",
+      "adapter_weights_sha256": "f0ae9537edb9478b26752db9ea3287f61ae8fdf0a8a84d453e04c93679d7d092"
+    },
+    "direct_parent": {
+      "model": [
+        "necro-phase3-instruction-seed2026"
+      ],
+      "checkpoint": "Qwen/Qwen3.5-0.8B",
+      "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+      "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+      "choice_temperature": 1.7817974362806783,
+      "noul_temperature": 2.9966141537533626,
+      "score_temperature": 0.5,
+      "batch_size": 4,
+      "batch_tokens": 8192,
+      "torch": "2.10.0+cu128",
+      "transformers": "5.17.0",
+      "adapter_weights_sha256": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13"
+    }
+  },
+  "source_predictions_sha256": {
+    "candidate": "540f5b858c9557b327378ce9acf103a0f6fd2f2dc6bee6d3cf103af7ba6f6ca5",
+    "direct_parent": "160adaa141a90592dc26a9c25bd16386c22d9b141babfa1d76b9d22019c7203b"
+  },
+  "complete_condition_regression": {
+    "all": {
+      "after_correct": 202,
+      "before_correct": 239,
+      "count": 240,
+      "paired": {
+        "method": "paired, stratified by family, resampling source groups with replacement",
+        "repetitions": 2000,
+        "seed": 20260920,
+        "families": {
+          "numeric_rule": {
+            "source_groups": 12,
+            "accuracy_delta": -0.15416666666666667,
+            "accuracy_delta_95ci": [
+              -0.22083333333333333,
+              -0.09166666666666666
+            ]
+          }
+        },
+        "macro_accuracy_delta_95ci": [
+          -0.22083333333333333,
+          -0.09166666666666666
+        ]
+      }
+    },
+    "en": {
+      "after_correct": 113,
+      "before_correct": 120,
+      "count": 120,
+      "paired": {
+        "method": "paired, stratified by family, resampling source groups with replacement",
+        "repetitions": 2000,
+        "seed": 20260920,
+        "families": {
+          "numeric_rule": {
+            "source_groups": 12,
+            "accuracy_delta": -0.058333333333333334,
+            "accuracy_delta_95ci": [
+              -0.10833333333333334,
+              -0.016666666666666666
+            ]
+          }
+        },
+        "macro_accuracy_delta_95ci": [
+          -0.10833333333333334,
+          -0.016666666666666666
+        ]
+      }
+    },
+    "zh": {
+      "after_correct": 89,
+      "before_correct": 119,
+      "count": 120,
+      "paired": {
+        "method": "paired, stratified by family, resampling source groups with replacement",
+        "repetitions": 2000,
+        "seed": 20260920,
+        "families": {
+          "numeric_rule": {
+            "source_groups": 12,
+            "accuracy_delta": -0.25,
+            "accuracy_delta_95ci": [
+              -0.36666666666666664,
+              -0.13333333333333333
+            ]
+          }
+        },
+        "macro_accuracy_delta_95ci": [
+          -0.36666666666666664,
+          -0.13333333333333333
+        ]
+      }
+    },
+    "complete_errors": {
+      "false_rejection": 38
+    }
+  },
+  "semantic_balance": {
+    "ineligible": 2880,
+    "answer_true": 1600,
+    "gate_false": 640,
+    "answer_false": 1600,
+    "missing": 1920,
+    "eligible": 320,
+    "complete": 640
+  }
+}

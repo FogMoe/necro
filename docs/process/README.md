@@ -20,5 +20,6 @@ Experiment configurations, model selection, investigations, and follow-up plans 
 | [Numeric-rule regression diagnosis](numeric-regression-2026-09-21.md) | Checkpoint comparisons, preconditions, wording, and field-name effects |
 | [Bounded precondition repair](condition-repair-2026-09-21.md) | Balanced conditions, task retention, and selection rules |
 | [Condition repair validation](condition-validation-2026-09-21.md) | Independent condition transfer, task retention, and remaining expression sensitivity |
+| [False-rejection repair handoff](condition-repair-handoff-2026-09-21.md) | Reproduction fixture, semantic sampling imbalance, and bounded repair direction |
 | [Report and model card generation](publishing-2026-09-20.md) | Inputs and output paths for this release |
 | [Open-source implementation references](references.md) | External code and methods |

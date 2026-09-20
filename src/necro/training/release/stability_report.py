@@ -68,7 +68,31 @@ def copy_reproduction(selected, data, target):
                 shutil.copy2(source / filename, folder / filename)
 
 
-def generate(data, selected, final, package):
+def load_before_training(before, final, revision):
+    provenance = read(before / "provenance.json")
+    if provenance["base_revision"] != revision:
+        raise ValueError("Before-training weights must use the same base revision")
+    reports = {}
+    for cohort in ("conditions", "regression"):
+        report = read(before / f"base-{cohort}/summary.json")
+        metadata = report["metadata"]
+        after = read(final / f"local-{cohort}/summary.json")["metadata"]
+        if (
+            metadata.get("backend") != "local"
+            or metadata.get("adapter") is not None
+            or metadata.get("adapter_weights_sha256") is not None
+            or not metadata.get("full_dataset_evaluated")
+            or metadata["dataset_sha256"] != after["dataset_sha256"]
+            or metadata["prompt_version"] != after["prompt_version"]
+            or metadata["checkpoint"] != provenance["base_snapshot"]
+            or any(metadata.get(f"{p}_temperature") != 1 for p in ("choice", "noul", "score"))
+        ):
+            raise ValueError("Before-training results must be complete, unadapted and matched")
+        reports[cohort] = report
+    return reports
+
+
+def generate(data, selected, final, package, before=None):
     selection = read(selected / "selection.json")
     test = verify(data, "test", Path(selection["adapter"]))
     capability = read(final / "capability-review.json")
@@ -76,6 +100,9 @@ def generate(data, selected, final, package):
         raise ValueError("Condition repair and task retention have not passed")
     runtime = read(final / "package-verification.json")
     exported = read(package / "export.json")
+    before = before or final / "before-training"
+    before_reports = load_before_training(before, final, exported["base_revision"])
+    before_slices = read(before / "condition-slices.json")["base"]
     if not runtime["passed"] or not runtime["official_sdk"]["real_model_http"]:
         raise ValueError("Runtime validation has not passed")
     for value in (capability, runtime, exported):
@@ -120,11 +147,11 @@ def generate(data, selected, final, package):
     failures = read_examples(final / "failures.jsonl")
     failure_counts = Counter((r["cohort"], r["family"]) for r in failures)
     tasks = "\n".join(
-        f"| {task} | {v['local']['count']} | {percent(predecessor['families'][task]['reference']['accuracy'])} | {percent(parent['families'][task]['reference']['accuracy'])} | {percent(v['local']['accuracy'])} | {percent(v['reference']['accuracy'])} |"
+        f"| {task} | {v['local']['count']} | {percent(before_reports['regression']['families'][task]['accuracy'])} | {percent(v['local']['accuracy'])} | {percent(v['reference']['accuracy'])} |"
         for task, v in sorted(comparison["families"].items())
     )
     condition_table = "\n".join(
-        f"| {key} | {conditions['local'][key]['count']} | {percent(conditions['predecessor'][key]['accuracy'])} | {percent(conditions['local'][key]['accuracy'])} | {percent(conditions['jev'][key]['accuracy'])} |"
+        f"| {key} | {conditions['local'][key]['count']} | {percent(before_slices[key]['accuracy'])} | {percent(conditions['local'][key]['accuracy'])} | {percent(conditions['jev'][key]['accuracy'])} |"
         for key in ("all", "complete", "gate_false", "missing", "en", "zh")
     )
     legacy_table = "\n".join(
@@ -174,13 +201,15 @@ def generate(data, selected, final, package):
     temperatures = selection["temperatures"]
     report = f"""# {model}: stability evaluation, {date}
 
-The selected release passed the registered condition-repair, task-retention, export, reload and API checks. Independent condition accuracy was **{percent(conditions["local"]["all"]["accuracy"])}**, versus **{percent(conditions["jev"]["all"]["accuracy"])}** for Jev 1.13.0. On the exposed eight-task regression cohort, task-macro accuracy was **{percent(comparison["macro_accuracy"]["local"])}**, versus **{percent(comparison["macro_accuracy"]["reference"])}** for Jev.
+The selected release passed the registered condition-repair, task-retention, export, reload and API checks. Eight-task regression macro accuracy was **{percent(before_reports["regression"]["macro_family_accuracy"])} before training**, **{percent(comparison["macro_accuracy"]["local"])} after training**, and **{percent(comparison["macro_accuracy"]["reference"])} for Jev 1.13.0**. The independent condition results are reported separately below.
+
+Before training means the original Qwen3.5-0.8B checkpoint at the same base revision, with no adapter. All three models answer the same requests; both local models use the same candidate-scoring prompt. The untrained base uses unit temperatures and the trained model uses its frozen calibration. Accuracy compares selected labels. Base predictions were collected after selection for this comparison and did not select the candidate. [Before-training evidence]({{EVIDENCE}}before-training/provenance.json) records the configuration.
 
 ## Independent condition transfer
 
 This cohort contains {registry["partitions"]["test"]["rows"]} questions from {registry["partitions"]["test"]["source_groups"]} source groups. Numerical states, field names and two wording styles are held out from the repair training. English and Chinese translations and paired conditions remain grouped. The candidate, calibration and [validation plan]({{EVIDENCE}}selection/validation-plan.json) were frozen before inference on this cohort.
 
-| Slice | Questions | Predecessor | Release | Jev 1.13.0 |
+| Slice | Questions | Before training | After training | Jev 1.13.0 |
 |---|---:|---:|---:|---:|
 {condition_table}
 
@@ -190,8 +219,8 @@ The paired source-group bootstrap 95% interval for release minus Jev accuracy is
 
 These 1,790 questions were exposed during Phase 3 and subsequent numeric diagnosis. They measure retention after the repair. The independent results above measure transfer on new conditions. The predecessor is the retained Phase 2 adapter; the instruction parent is the Phase 3 model from which repair training started. All models answered identical requests with their recorded calibration.
 
-| Task | Questions | Predecessor | Instruction parent | Release | Jev 1.13.0 |
-|---|---:|---:|---:|---:|---:|
+| Task | Questions | Before training | After training | Jev 1.13.0 |
+|---|---:|---:|---:|---:|
 {tasks}
 
 Every other task remained within the registered two-percentage-point margin of both local baselines. Task-language slices were also reviewed. Source-group 95% intervals for release minus predecessor and release minus instruction-parent macro accuracy are {interval(predecessor["paired_uncertainty"]["macro_accuracy_delta_95ci"])} and {interval(parent["paired_uncertainty"]["macro_accuracy_delta_95ci"])} points. Full retention results are in the [predecessor comparison]({{EVIDENCE}}regression-predecessor-comparison.json) and [instruction-parent comparison]({{EVIDENCE}}regression-instruction-comparison.json).
@@ -256,6 +285,12 @@ Project and fine-tuning contributions use Apache-2.0. The declared training file
 """
     evaluation = package / "evaluation"
     shutil.copytree(final, evaluation, ignore=shutil.ignore_patterns("remote-cache", "*.log"))
+    if before.resolve() != (final / "before-training").resolve():
+        shutil.copytree(
+            before,
+            evaluation / "before-training",
+            ignore=shutil.ignore_patterns("remote-cache", "*.log"),
+        )
     shutil.copytree(selected, evaluation / "selection", ignore=shutil.ignore_patterns("adapter"))
     copy_reproduction(selected, data, evaluation / "reproduction")
 
@@ -372,5 +407,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     for name in ("data", "selected", "final", "package"):
         parser.add_argument(name, type=Path)
+    parser.add_argument("--before", type=Path)
     args = parser.parse_args()
-    generate(args.data, args.selected, args.final, args.package)
+    generate(args.data, args.selected, args.final, args.package, args.before)

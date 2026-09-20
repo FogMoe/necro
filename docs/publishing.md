@@ -50,10 +50,12 @@ For condition-repair candidates, `freeze` in [freeze_candidate.py](../src/necro/
 After the capability review and package verification pass, generate the Hub model card, report, reproduction records and checksums:
 
 ```powershell
-uv run --extra training python -m necro.training.release.stability_report REGISTERED_DATA_DIR SELECTED_DIR FINAL_RESULTS_DIR PACKAGE_DIR
+uv run --extra training python -m necro.training.release.stability_report REGISTERED_DATA_DIR SELECTED_DIR FINAL_RESULTS_DIR PACKAGE_DIR --before BEFORE_RESULTS_DIR
 ```
 
 `generate` in [stability_report.py](../src/necro/training/release/stability_report.py) verifies evidence and weight hashes, then writes `evaluation/report.md`, model cards, `release.json` and `SHA256SUMS`. It requires a new package without an existing report or model card. The [repair process record](process/condition-repair-2026-09-21.md) defines the associated cohorts and selection history.
+
+The report compares the untrained base, trained weights and Jev on identical requests. `--before` supplies the original base's predictions for both cohorts, with no adapter, unit temperatures and the same base revision and scoring prompt. It defaults to `FINAL_RESULTS_DIR/before-training`. `load_before_training` in the generator defines the required records and rejects an adapted model presented as the untrained baseline. Comparisons with intermediate checkpoints remain separate from the before/after table.
 
 For the split-directory layout, synchronize documentation and runtime code into the package's top-level `runtime/` after generating reports, then copy runtime and evaluation files into each standalone model directory:
 
