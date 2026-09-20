@@ -16,5 +16,9 @@ Experiment configurations, model selection, investigations, and follow-up plans 
 | [Phase 3 data workflow](phase3-data.md) | Full Parquet snapshots, historical source exclusion, and class coverage registration |
 | [Phase 3 coverage audit](phase3-coverage-audit.md) | Coverage issues and evidence for sampling from full snapshots |
 | [Phase 3 development record](phase3-development.md) | Coverage correction, Jev development comparisons, calibration objectives, and paired instruction training |
+| [Release criteria](release-criteria-2026-09-21.md) | Condition repair, task retention, runtime verification, and reporting |
+| [Numeric-rule regression diagnosis](numeric-regression-2026-09-21.md) | Checkpoint comparisons, preconditions, wording, and field-name effects |
+| [Bounded precondition repair](condition-repair-2026-09-21.md) | Balanced conditions, task retention, and selection rules |
+| [Condition repair validation](condition-validation-2026-09-21.md) | Independent condition transfer, task retention, and remaining expression sensitivity |
 | [Report and model card generation](publishing-2026-09-20.md) | Inputs and output paths for this release |
 | [Open-source implementation references](references.md) | External code and methods |

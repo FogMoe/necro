@@ -98,7 +98,62 @@ def latency(client, model, questions, repeats=20):
     }
 
 
-def verify_package(package, data, predictions, output, benchmark_jev=False):
+def verify_reload(engine, dataset, predictions, selected):
+    """Compare every response against the frozen adapter's calibrated predictions."""
+    metadata = json.loads((predictions / "summary.json").read_text())["metadata"]
+    if (
+        metadata["dataset_sha256"] != digest(dataset)
+        or metadata.get("adapter_weights_sha256") != selected["weights_sha256"]
+        or not metadata.get("full_dataset_evaluated")
+        or any(metadata.get(f"{p}_temperature") != t for p, t in selected["temperatures"].items())
+    ):
+        raise ValueError("Reload reference must match the complete cohort, weights and calibration")
+    examples, originals = read_examples(dataset), read_examples(predictions / "predictions.jsonl")
+    if [r["id"] for r in examples] != [r["id"] for r in originals]:
+        raise ValueError("重载参考题目不一致。")
+    requests = [EvaluationRequest.model_validate(r["request"]) for r in examples]
+    reloaded = engine.evaluate_many(requests)
+    max_delta, changed = 0.0, 0
+    for old, actual in zip(originals, reloaded, strict=True):
+        expected = EvaluationResponse.model_validate(old["response"])
+        if actual.model != expected.model or actual.answers.keys() != expected.answers.keys():
+            raise ValueError("重载模型身份或问题映射改变。")
+        for key, answer in actual.answers.items():
+            previous = expected.answers[key]
+            if answer.type != previous.type:
+                raise ValueError("重载改变判断类型。")
+            if answer.type != "noul" and list(answer.probabilities) != list(previous.probabilities):
+                raise ValueError("重载改变候选概率键或其顺序。")
+            a, b = probabilities(answer), probabilities(previous)
+            if len(a) != len(b):
+                raise ValueError("重载改变概率数量。")
+            max_delta = max(max_delta, max(abs(x - y) for x, y in zip(a, b, strict=True)))
+            changed += int(np.argmax(a) != np.argmax(b))
+            if answer.type == "choice" and answer.choice != previous.choice:
+                raise ValueError("重载改变 Choice 返回的候选键。")
+            if answer.type == "score" and answer.legend != previous.legend:
+                raise ValueError("重载改变等级说明。")
+    if max_delta > 1e-5 or changed:
+        raise ValueError(f"重载不一致：最大概率误差 {max_delta}，改变 {changed} 个选择。")
+    return {
+        "dataset_sha256": digest(dataset),
+        "examples": len(examples),
+        "full_dataset": True,
+        "max_probability_difference": max_delta,
+        "changed_argmax": changed,
+        "tolerance": 1e-5,
+    }
+
+
+def verify_package(
+    package,
+    data,
+    predictions,
+    output,
+    benchmark_jev=False,
+    regression_data=None,
+    regression_predictions=None,
+):
     import torch
     from typesafe_sdk import TypeSafeClient
 
@@ -106,6 +161,8 @@ def verify_package(package, data, predictions, output, benchmark_jev=False):
 
     if output.exists():
         raise ValueError("导出验证已记录，不可覆盖。")
+    if (regression_data is None) != (regression_predictions is None):
+        raise ValueError("Regression data and predictions must be supplied together")
     selected = json.loads((data / "selection.json").read_text())
     dataset = verify(data, "test", Path(selected["adapter"]))
     exported = json.loads((package / "export.json").read_text())
@@ -138,46 +195,24 @@ def verify_package(package, data, predictions, output, benchmark_jev=False):
     engine = DecisionEngine(scorer)
     loaded_allocated_gib = torch.cuda.memory_allocated() / 2**30
     torch.cuda.reset_peak_memory_stats()
-    examples, originals = read_examples(dataset), read_examples(predictions / "predictions.jsonl")
-    if [r["id"] for r in examples] != [r["id"] for r in originals]:
-        raise ValueError("重载参考题目不一致。")
-    requests = [EvaluationRequest.model_validate(r["request"]) for r in examples]
-    reloaded = engine.evaluate_many(requests)
-    max_delta, changed = 0.0, 0
-    for old, actual in zip(originals, reloaded, strict=True):
-        expected = EvaluationResponse.model_validate(old["response"])
-        if actual.model != expected.model or actual.answers.keys() != expected.answers.keys():
-            raise ValueError("重载模型身份或问题映射改变。")
-        for key, answer in actual.answers.items():
-            previous = expected.answers[key]
-            if answer.type != previous.type:
-                raise ValueError("重载改变判断类型。")
-            if answer.type != "noul" and list(answer.probabilities) != list(previous.probabilities):
-                raise ValueError("重载改变候选概率键或其顺序。")
-            a, b = probabilities(answer), probabilities(previous)
-            if len(a) != len(b):
-                raise ValueError("重载改变概率数量。")
-            max_delta = max(max_delta, max(abs(x - y) for x, y in zip(a, b, strict=True)))
-            changed += int(np.argmax(a) != np.argmax(b))
-            if answer.type == "choice" and answer.choice != previous.choice:
-                raise ValueError("重载改变 Choice 返回的候选键。")
-            if answer.type == "score" and answer.legend != previous.legend:
-                raise ValueError("重载改变等级说明。")
-    if max_delta > 1e-5 or changed:
-        raise ValueError(f"重载不一致：最大概率误差 {max_delta}，改变 {changed} 个选择。")
+    reload = verify_reload(engine, dataset, predictions, selected)
+    regression_reload = None
+    if regression_data is not None:
+        registered = verify(regression_data.parent, "regression")
+        plan = json.loads((Path(selected["adapter"]).parent / "validation-plan.json").read_text())
+        if (
+            registered.resolve() != regression_data.resolve()
+            or digest(registered) != plan["task_regression"]["sha256"]
+        ):
+            raise ValueError("Regression reload does not match the frozen validation plan")
+        regression_reload = verify_reload(engine, registered, regression_predictions, selected)
     checks = {
         "model": scorer.model_id,
         "dataset_sha256": digest(dataset),
         "adapter_weights_sha256": selected["weights_sha256"],
         "merged_weights": exported["merged_weights"],
-        "reload": {
-            "examples": len(examples),
-            "full_dataset": True,
-            "max_probability_difference": max_delta,
-            "changed_argmax": changed,
-            "tolerance": 1e-5,
-            "load_seconds": scorer.load_seconds,
-        },
+        "reload": {**reload, "load_seconds": scorer.load_seconds},
+        "regression_reload": regression_reload,
         "gpu": torch.cuda.get_device_name(),
         "loaded_allocated_gib": loaded_allocated_gib,
         "peak_inference_allocated_gib": torch.cuda.max_memory_allocated() / 2**30,
@@ -288,5 +323,15 @@ if __name__ == "__main__":
     parser.add_argument("predictions", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--benchmark-jev", action="store_true")
+    parser.add_argument("--regression-data", type=Path)
+    parser.add_argument("--regression-predictions", type=Path)
     args = parser.parse_args()
-    verify_package(args.package, args.data, args.predictions, args.output, args.benchmark_jev)
+    verify_package(
+        args.package,
+        args.data,
+        args.predictions,
+        args.output,
+        args.benchmark_jev,
+        args.regression_data,
+        args.regression_predictions,
+    )

@@ -54,9 +54,15 @@ Compare a small repair against the retained baseline. Use paired records that va
 
 Register new development and independent acceptance sources, expression groups and stopping rules before training. The equivalent-wording result is diagnostic evidence. The original test result remains 70.93%. Final selection follows the [release criteria](release-criteria-2026-09-21.md).
 
-## Separate package verification failure
+## Separate package verification failure and resolution
 
 Reloading the merged Phase 3 candidate on all 1,790 test records changed no argmax decisions. The maximum probability difference was 0.00279618, exceeding the registered tolerance of 1e-5, so verification failed. The record is `results/phase3/final-package-verification.log`. Numerical consistency needs separate investigation. SDK and latency checks later in that pipeline did not run.
+
+The investigation compared every saved and reloaded weight tensor, all four named buffers, tokenization across the complete test set, and the two affected inference batches. Tensor values, dtypes, token IDs and module classes matched. The affected batches reproduced the same difference on repeated runs.
+
+The loading paths differed in gradient flags. PEFT merging left parameters frozen, while directly loaded merged weights had 473 parameters with `requires_grad=True`. Freezing the directly loaded model's parameters eliminated the differences in the affected batches. `TransformersScorer._load` in [backend.py](../../src/necro/backend.py) now freezes parameters on every inference loading path.
+
+The full 1,790-record reload then produced a maximum probability difference of **0.0**, with unchanged argmax decisions. The original tolerance remained 1e-5. The subsequent official SDK and real HTTP checks completed. This verification belongs to the frozen Phase 3 candidate and the corrected runtime. Its record is `results/phase3/final/package-verification.json`, with the rerun log in `results/phase3/final-package-verification-fixed.log`.
 
 ## Evidence
 

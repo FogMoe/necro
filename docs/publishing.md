@@ -39,9 +39,21 @@ uv run --extra training python -m necro.training.release.package_verification PA
 
 The data directory must contain `selection.json`, and the prediction directory must contain complete results for the selected weights and temperatures. Output records reload differences, SDK checks, GPU memory, and latency samples. Adding `--benchmark-jev` also sends latency requests to the configured TypeSafe service.
 
+To include an exposed regression cohort in the same merged-model check, supply both `--regression-data REGRESSION_JSONL` and `--regression-predictions REGRESSION_RESULTS_DIR`. The dataset must be registered with the `regression` role and match the hash in the frozen `validation-plan.json`. Its results must use the same selected weights and calibration. `verify_reload` in the same module checks every answer and probability; `regression_reload` records this cohort separately from the independent test.
+
 Each standalone model card should cover purpose, run commands, training sources, evaluation conditions, results, observed errors, and licensing. Run commands should start in the model's `runtime/` directory and specify whether they load an adapter or merged weights.
 
 The report-generation entry point for the recorded experiment is described in the [packaging record](process/publishing-2026-09-20.md). Reports contain results, while training runs and selection history live in `docs/process/`. Model cards link to the packaged report.
+
+For condition-repair candidates, `freeze` in [freeze_candidate.py](../src/necro/training/release/freeze_candidate.py) validates development selection, calibration, training ancestry and held-out sources before writing a selection. `assess` in [stability_assessment.py](../src/necro/training/release/stability_assessment.py) checks the resulting independent condition and multi-task regression measurements against the frozen validation plan. Jev comparisons are reported separately from release checks.
+
+After the capability review and package verification pass, generate the Hub model card, report, reproduction records and checksums:
+
+```powershell
+uv run --extra training python -m necro.training.release.stability_report REGISTERED_DATA_DIR SELECTED_DIR FINAL_RESULTS_DIR PACKAGE_DIR
+```
+
+`generate` in [stability_report.py](../src/necro/training/release/stability_report.py) verifies evidence and weight hashes, then writes `evaluation/report.md`, model cards, `release.json` and `SHA256SUMS`. It requires a new package without an existing report or model card. The [repair process record](process/condition-repair-2026-09-21.md) defines the associated cohorts and selection history.
 
 For the split-directory layout, synchronize documentation and runtime code into the package's top-level `runtime/` after generating reports, then copy runtime and evaluation files into each standalone model directory:
 

@@ -146,6 +146,8 @@ class TransformersScorer:
             logger.info("加载 LoRA 并在内存中合并；基础权重文件保持原样。")
             adapted = PeftModel.from_pretrained(self.model, self.settings.adapter)
             self.model = adapted.merge_and_unload(safe_merge=True).eval()
+        # Match the frozen parameters produced by PEFT merging on every inference path.
+        self.model.requires_grad_(False)
         self.load_seconds = time.perf_counter() - started
         logger.info(
             "模型加载完成，耗时 %.2f 秒；已验证 %d 个单 token 标签。",
