@@ -15,7 +15,7 @@ uv run --extra inference necro score examples/request.json
 uv run --extra inference necro serve
 ```
 
-Skip the copy step if you already have a `.env` file. The first inference run downloads the base model. `score` prints the result in your terminal, and `serve` starts the local API. The example configuration uses `http://127.0.0.1:8000` and the local test key `necro-local`. Set your key in `.env`.
+Skip the copy step if you already have a `.env` file. With the source checkout's default configuration, the first inference run downloads the base model. `score` prints the result in your terminal, and `serve` starts the local API. The example configuration uses `http://127.0.0.1:8000` and the local test key `necro-local`. Set your key in `.env`.
 
 Once the server is running, save and run this example in the project environment to connect with the official Python SDK:
 
@@ -26,7 +26,7 @@ with TypeSafeClient(api_key="necro-local", base_url="http://127.0.0.1:8000") as 
     result = client.system_one(
         state="I was charged twice. Please refund the duplicate payment.",
         questions={
-            "refund": {"type": "noul", "instructions": "Is the user asking for a refund?"},
+            "refund": {"type": "noul", "instructions": "Does this message request a refund?"},
         },
     )
     print(result.answers["refund"].noul)

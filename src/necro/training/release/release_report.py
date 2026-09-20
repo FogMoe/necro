@@ -1,6 +1,6 @@
-"""从实际实验产物生成报告与待发布模型卡，避免手填评测数字。"""
+"""Generate reports and model cards from recorded experiment artifacts."""
 
-# Markdown 表格和段落保持完整行，便于检查生成内容。
+# Keep Markdown table rows and paragraphs on complete lines for output review.
 # ruff: noqa: E501
 
 import argparse
@@ -90,7 +90,7 @@ def release_report(selected: Path, package: Path):
         )
         trial_rows.append(
             f"| {name} | {cfg['examples']} | {cfg['learning_rate']:g} | "
-            f"{history['training_seconds'] / 60:.2f} 分钟 | {percentage(metrics['accuracy'])} | {metrics['nll']:.4f} |"
+            f"{history['training_seconds'] / 60:.2f} minutes | {percentage(metrics['accuracy'])} | {metrics['nll']:.4f} |"
         )
     details = "\n".join(
         f"| {group} | {values['count']} | {percentage(values['accuracy'])} | "
@@ -164,48 +164,48 @@ HTTP calls through the official Python SDK 0.7.0 verified the model name, all th
     report_path = Path("docs/reports/improvement-2026-09-20.md")
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(report, encoding="utf-8")
-    history = f"""# 2026-09-20 改进训练记录
+    history = f"""# Improvement training record, 2026-09-20
 
-本轮从 [首轮 LoRA](lora-pilot-2026-09-20.md) 继续实验。模型选择遵循 [事先确定的规则](improvement-protocol.md)，导出权重的结果见 [评测报告](../reports/improvement-2026-09-20.md)。
+These experiments continued from the [first LoRA run](lora-pilot-2026-09-20.md). Model selection followed the [predefined protocol](improvement-protocol.md). Results for the exported weights are in the [evaluation report](../reports/improvement-2026-09-20.md).
 
-## 训练与开发集比较
+## Training and development comparison
 
-各轮使用相同基模 revision、rank 16 和 BF16，只更新 LoRA。续训重新建立优化器。开发集固定为 pilot 验证集。
+All runs used the same base model revision, rank 16, and BF16, updating only LoRA parameters. Continued training created a fresh optimizer. The development set remained the pilot validation set.
 
-| 实验 | 本轮记录数 | 学习率 | 纯训练时间 | 开发集准确率 | 开发集 NLL |
+| Experiment | Records in this run | Learning rate | Training time | Development accuracy | Development NLL |
 |---|---:|---:|---:|---:|---:|
 {chr(10).join(trial_rows[1:])}
 
-round2 重复 pilot 数据。round3 从 pilot-v1 续训，扩充公开 train 样例、平衡 NLI 类别，并加入证据不足三元组。round4 在 round3 上以较低学习率再训练一轮。
+round2 repeated the pilot data. round3 continued from pilot-v1, adding public training examples, balancing NLI classes, and adding insufficient-evidence triplets. round4 trained for another epoch from round3 at a lower learning rate.
 
-本轮选择 `{selected.name}`，具体依据记录在 `results/improvement/selection.json`。选择方法的后续核查见 [设计复审](design-review-2026-09-20.md#校准后的开发集比较)。
+This round selected `{selected.name}`. The decision is recorded in `results/improvement/selection.json`. The selection method was later examined in the [design review](design-review-2026-09-20.md#calibrated-development-comparison).
 
-## 数据
+## Data
 
-pilot 与 expanded 合计呈现 3,330 条训练记录，按上下文去重为 2,432 条，来源组 1,302 个。中英文包含对应翻译，续训再次使用已有样例。标签来自公开标注和代码构造规则。
+The pilot and expanded datasets contained 3,330 training records in total, or 2,432 unique contexts across 1,302 source groups. English and Chinese included corresponding translations, and continued training reused existing examples. Labels came from public annotations and rules implemented in code.
 
-expanded 的 XNLI Choice 按语言和类别平衡，本轮每组 176 条。取样、转换与排除逻辑见 [训练指南](../training.md#continuing-training-and-expanding-data)。
+Expanded XNLI Choice data was balanced by language and class, with 176 examples per group. See the [training guide](../training.md#continuing-training-and-expanding-data) for sampling, transformations, and exclusions.
 
-## 回归
+## Regression
 
-| 数据 | 导出模型 |
+| Data | Exported model |
 |---|---:|
-| 旧诊断集，400 题 | {percentage(summaries["regression"]["overall"]["accuracy"])} |
-| 自编开发样例，24 题 | {round(summaries["smoke"]["overall"]["accuracy"] * 24)}/24 |
+| Earlier diagnostic set, 400 questions | {percentage(summaries["regression"]["overall"]["accuracy"])} |
+| Custom development examples, 24 questions | {round(summaries["smoke"]["overall"]["accuracy"] * 24)}/24 |
 
-此前成绩分别保存在 [基模基线](baseline-2026-09-20.md) 和 [首轮 LoRA](lora-pilot-2026-09-20.md)。原 pilot 在本轮测试切片上的准确率为 {percentage(summaries["pilot-test"]["overall"]["accuracy"])}。
+Earlier results are recorded in the [base model baseline](baseline-2026-09-20.md) and [first LoRA run](lora-pilot-2026-09-20.md). The original pilot reached {percentage(summaries["pilot-test"]["overall"]["accuracy"])} accuracy on this round's test slice.
 
-## 复现本轮续训
+## Reproducing continued training
 
-先完成 [训练指南](../training.md) 中的 pilot 数据和权重准备，再运行：
+Prepare the pilot data and weights using the [training guide](../training.md), then run:
 
 ```powershell
-uv run --extra training python -m necro.experiments
-uv run --extra training python -m necro.probes
+uv run --extra training python -m necro.training.data.experiments
+uv run --extra training python -m necro.training.data.probes
 uv run --extra training python -m necro.training --data data/improvement/expanded --output results/improvement/round3 --initial-adapter results/lora-pilot/run1/adapter --learning-rate 0.00005 --seed 29 --model-id necro-qwen3.5-0.8b-r3
 ```
 
-本轮训练配置、日志和逐题结果保存在 `results/improvement/`，数据指纹保存在 `data/improvement/manifest.json`。
+Training configurations, logs, and per-question results are stored in `results/improvement/`. Data fingerprints are in `data/improvement/manifest.json`.
 """
     history_path = Path("docs/process/improvement-2026-09-20.md")
     history_path.parent.mkdir(parents=True, exist_ok=True)

@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from necro.config import MODEL_ID
-from necro.training_data import write_jsonl
+from necro.training.data.training_data import write_jsonl
 
 
 def heldout_probes():

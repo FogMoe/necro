@@ -7,7 +7,7 @@ from pathlib import Path
 
 from necro.config import MODEL_ID, Settings
 from necro.engine import InputError, ScoredTask, Task, prompt_fingerprint
-from necro.schema import Choice, Noul
+from necro.schema import Noul
 
 logger = logging.getLogger(__name__)
 
@@ -234,9 +234,7 @@ class TransformersScorer:
                 for batch_index, task_index in enumerate(indices):
                     selected_ids = torch.tensor(candidate_token_ids[task_index], device=self.device)
                     scores = logits[batch_index].index_select(0, selected_ids)
-                    temperature = self.settings.temperature
-                    if isinstance(tasks[task_index].question, Choice):
-                        temperature = self.settings.choice_temperature or temperature
+                    temperature = self.settings.temperature_for(tasks[task_index].question.type)
                     probabilities = torch.softmax(scores / temperature, dim=-1)
                     mass = torch.exp(torch.logsumexp(scores, dim=-1) - normalizers[batch_index])
                     results[task_index] = ScoredTask(
@@ -300,7 +298,7 @@ class TransformersScorer:
                 log_probabilities = output.logits[:, -1, :].float().log_softmax(-1)
         ordered = torch.tensor([prefixes.index(label) for label in labels], device=self.device)
         totals = totals.index_select(0, ordered)
-        temperature = self.settings.choice_temperature or self.settings.temperature
+        temperature = self.settings.temperature_for("choice")
         probabilities = (totals / temperature).softmax(-1).cpu().tolist()
         return ScoredTask(
             probabilities=probabilities,

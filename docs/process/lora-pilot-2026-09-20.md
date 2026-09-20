@@ -1,67 +1,67 @@
-# 2026-09-20 首轮 LoRA
+# First LoRA run, 2026-09-20
 
-Qwen3.5-0.8B 使用 994 条中英文样例训练一轮，在 200 题验证集上的准确率从 38.5% 提升到 72.0%。本轮纯参数更新耗时 239.33 秒。
+Training Qwen3.5-0.8B for one epoch on 994 English and Chinese examples increased accuracy on a 200-question validation set from 38.5% to 72.0%. Parameter updates took 239.33 seconds.
 
-## 数据
+## Data
 
-XNLI 与 MASSIVE 的 train split 各取中英文 200 条。四分之一的 XNLI 转为 Noul，一半 MASSIVE 使用包含正确答案的 8 选项子集，其余保留全部 60 类。Choice 选项顺序打乱。
+The train splits of XNLI and MASSIVE each supplied 200 examples per language. One quarter of XNLI examples were converted to Noul. Half of MASSIVE used eight-option subsets containing the correct answer, while the rest retained all 60 classes. Choice options were shuffled.
 
-另加入 100 对规则样例，每对只翻转一个相关布尔字段。移除与旧诊断集及新验证集重叠的 3 个来源组后，实际训练 994 条，其中 694 Choice、200 Noul、100 Score，中英文各 497 条。
+Another 100 pairs of rule examples each flipped one relevant Boolean field. Removing 3 source groups that overlapped the old diagnostic set or new validation set left 994 training examples: 694 Choice, 200 Noul, and 100 Score, with 497 in each language.
 
-验证集取两个数据源各语言 validation 的第 100–149 行，共 200 题，MASSIVE 保留全部 60 类。转换与隔离方法见 [训练指南](../training.md#data-preparation)。
+Validation used rows 100–149 of each source's validation split in each language, totaling 200 questions. MASSIVE retained all 60 classes. See [data preparation](../training.md#data-preparation) for transformation and isolation methods.
 
-## 配方与成本
+## Recipe and cost
 
-| 项目 | 本次设置或测量 |
+| Item | Setting or measurement |
 |---|---|
-| GPU | RTX 5070 Ti Laptop，12 GB |
-| 基模与计算 | Qwen3.5-0.8B、BF16 |
-| LoRA | rank 16、alpha 32、dropout 0.05 |
-| 可训练参数 | 10,822,656 |
-| 批量 | microbatch 2、累积 4、有效批量 8 |
-| 学习率 | `1e-4`，10% warmup 后线性下降 |
-| 梯度裁剪 | 1.0 |
-| 训练轮数与优化器步数 | 1 轮、125 步 |
-| 输入 tokens | 305,640，不含 padding |
-| 最大输入长度 | 上限 2048，本次最长 874 |
-| 纯参数更新耗时 | 239.33 秒 |
-| PyTorch 峰值已分配训练显存 | 2.38 GiB |
-| adapter 权重 | 43,346,432 bytes，约 41.34 MiB |
+| GPU | RTX 5070 Ti Laptop, 12 GB |
+| Base model and computation | Qwen3.5-0.8B, BF16 |
+| LoRA | Rank 16, alpha 32, dropout 0.05 |
+| Trainable parameters | 10,822,656 |
+| Batching | Microbatch 2, accumulation 4, effective batch size 8 |
+| Learning rate | `1e-4`, linear decay after 10% warmup |
+| Gradient clipping | 1.0 |
+| Epochs and optimizer steps | 1 epoch, 125 steps |
+| Input tokens | 305,640, excluding padding |
+| Maximum input length | Limit 2048, observed maximum 874 |
+| Parameter-update time | 239.33 seconds |
+| Peak PyTorch allocated training memory | 2.38 GiB |
+| Adapter weights | 43,346,432 bytes, approximately 41.34 MiB |
 
-监督目标为正确答案 token 的全词表交叉熵，多 token 标签使用 teacher forcing。按长度分桶，启用梯度检查点。训练前先测 6 个 microbatch 的前向和反向，结束后禁用 adapter，探针 logits 与训练前差异为零。完整运行步骤见 [训练指南](../training.md)。
+The objective was full-vocabulary cross-entropy on correct answer tokens, with teacher forcing for multi-token labels. Training used length buckets and gradient checkpointing. Before training, 6 microbatches were measured through forward and backward passes. After training, disabling the adapter produced zero difference from the original probe logits. See the [training guide](../training.md) for the full procedure.
 
-## 验证集
+## Validation set
 
-| 分组 | 基模 | LoRA |
+| Group | Base model | LoRA |
 |---|---:|---:|
-| XNLI 英文 | 38% | 64% |
-| XNLI 中文 | 38% | 64% |
-| MASSIVE 英文 | 40% | 78% |
-| MASSIVE 中文 | 38% | 82% |
+| XNLI English | 38% | 64% |
+| XNLI Chinese | 38% | 64% |
+| MASSIVE English | 40% | 78% |
+| MASSIVE Chinese | 38% | 82% |
 
-96 道原先错误的题改对，29 道原先正确的题改错，净增加 67 道正确答案。NLL 从 2.2871 降到 1.0389，Brier 从 0.7484 降到 0.3944，ECE 从 0.1338 变为 0.1360。
+The model corrected 96 previously wrong answers and introduced 29 errors on previously correct answers, a net gain of 67. NLL fell from 2.2871 to 1.0389 and Brier from 0.7484 to 0.3944. ECE changed from 0.1338 to 0.1360.
 
-## 旧诊断集与开发样例
+## Earlier diagnostic set and development examples
 
-| 数据 | LoRA |
+| Data | LoRA |
 |---|---:|
-| XNLI 英文，100 题 | 65% |
-| XNLI 中文，100 题 | 62% |
-| MASSIVE 英文，100 题 | 72% |
-| MASSIVE 中文，100 题 | 79% |
-| 公开切片合计，400 题 | 69.50% |
-| 自编开发样例，24 题 | 23/24 |
+| XNLI English, 100 questions | 65% |
+| XNLI Chinese, 100 questions | 62% |
+| MASSIVE English, 100 questions | 72% |
+| MASSIVE Chinese, 100 questions | 79% |
+| Public slices combined, 400 questions | 69.50% |
+| Custom development examples, 24 questions | 23/24 |
 
-基模与同题 Jev 的成绩保存在 [基线记录](baseline-2026-09-20.md#判断结果)。本轮回归集 NLL 为 1.0969，Brier 为 0.4379，ECE 为 0.1677。XNLI 的单独 NLL 略有退步。
+Base model and same-question Jev results are in the [baseline record](baseline-2026-09-20.md#judgment-results). Regression-set NLL was 1.0969, Brier was 0.4379, and ECE was 0.1677. XNLI NLL alone regressed slightly.
 
-## 推理验证
+## Inference validation
 
-adapter 保存后在新进程加载并合并到内存，200 题用时 14.86 秒，400 题用时 32.56 秒。短单题预热后运行 20 次，p50 为 38.18 ms，p95 为 42.69 ms。
+The saved adapter was loaded in a fresh process and merged in memory. Inference took 14.86 seconds for 200 questions and 32.56 seconds for 400 questions. A short single question was run 20 times after warmup, with p50 of 38.18 ms and p95 of 42.69 ms.
 
-官方 Python SDK 0.7.0 的 HTTP 调用验证了模型 ID `necro-qwen3.5-0.8b-lora-pilot-v1`、三种响应和中文 legend。255 选项的精确匹配样例返回完整分布，并选中预期的 `item254`。本轮 48 项自动检查通过。
+HTTP calls through the official Python SDK 0.7.0 verified the model ID `necro-qwen3.5-0.8b-lora-pilot-v1`, all three response types, and Chinese legend content. An exact-match example with 255 options returned a complete distribution and selected the expected `item254`. All 48 automated checks passed in this run.
 
-## 原始记录
+## Raw records
 
-训练、权重、前后对照、延迟与 HTTP 检查保存在 `results/lora-pilot/`。其中 `run1/run_config.json` 记录基模 revision 和提示契约，`run1/training_summary.json` 记录训练结果。
+Training records, weights, before-and-after comparisons, latency, and HTTP checks are stored in `results/lora-pilot/`. `run1/run_config.json` records the base model revision and prompt contract. `run1/training_summary.json` records training results.
 
-训练 SHA-256 为 `baba10584b1b21d616ee3a68d860fb0e4ceb75c771ea3e9a28554eb76ff79cf8`，验证集 SHA-256 为 `3cafef6f57d547cc2f9ca5d6a5aecd8f1135d879618534cb0b7fbe15faf6fb8b`。后续实验见 [改进训练记录](improvement-2026-09-20.md)。
+The training SHA-256 is `baba10584b1b21d616ee3a68d860fb0e4ceb75c771ea3e9a28554eb76ff79cf8`. The validation SHA-256 is `3cafef6f57d547cc2f9ca5d6a5aecd8f1135d879618534cb0b7fbe15faf6fb8b`. Subsequent experiments are documented in the [improvement record](improvement-2026-09-20.md).

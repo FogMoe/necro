@@ -12,7 +12,7 @@ from pathlib import Path
 from necro.config import MODEL_ID
 from necro.evaluation import read_examples
 from necro.experiment_guard import canonical_request, normalized_text, register
-from necro.training_data import write_jsonl
+from necro.training.data.training_data import write_jsonl
 
 RAW = Path("data/phase2")
 CLEANING = {}
@@ -81,9 +81,14 @@ def choice(values, gold, rng):
     return {key: criteria[key] for key in keys}, expected
 
 
-def paraphrases(split):
-    english = {row["id"]: row for row in load(f"paws-en-{split}")}
-    translated = load(f"paws-zh-{split}")
+def paraphrases(split, raw=None):
+    raw = (
+        raw
+        if raw is not None
+        else {language: load(f"paws-{language}-{split}") for language in ("en", "zh")}
+    )
+    english = {row["id"]: row for row in raw["en"]}
+    translated = raw["zh"]
     invalid = {
         row["id"]
         for row in [*english.values(), *translated]
@@ -92,7 +97,7 @@ def paraphrases(split):
     CLEANING[f"paws-{split}"] = {"excluded_placeholder_ids": sorted(invalid)}
     rows = []
     for language in ("en", "zh"):
-        for row in load(f"paws-{language}-{split}"):
+        for row in raw[language]:
             if row["id"] in invalid:
                 continue
             original = english[row["id"]]
@@ -118,7 +123,7 @@ def paraphrases(split):
     return rows
 
 
-def reading(split):
+def reading(split, raw=None):
     return [
         example(
             f"boolq/{split}/{hash_text(row['question'])[:16]}",
@@ -134,17 +139,25 @@ def reading(split):
             row["answer"],
             "google/boolq",
         )
-        for row in load(f"boolq-{split}")
+        for row in (raw if raw is not None else load(f"boolq-{split}"))
     ]
 
 
-def extraction(training):
+def extraction(training, raw=None, max_per_passage=1):
     rng = random.Random(735)
-    english = load("squad-train" if training else "xquad-en")
+    raw = (
+        raw
+        if raw is not None
+        else {
+            "en": load("squad-train" if training else "xquad-en"),
+            **({} if training else {"zh": load("xquad-zh")}),
+        }
+    )
+    english = raw["en"]
     by_id = {row["id"]: row for row in english}
     result = []
     for language in ("en",) if training else ("en", "zh"):
-        rows = english if language == "en" else load("xquad-zh")
+        rows = raw[language]
         groups = defaultdict(list)
         for row in rows:
             groups[row["context"]].append(row)
@@ -159,6 +172,7 @@ def extraction(training):
                     if 0 < len(text) < 160
                 )
             )
+            produced = 0
             for row in questions:
                 aliases = row["answers"]["text"]
                 if not aliases:
@@ -175,8 +189,20 @@ def extraction(training):
                 ]
                 if len(negatives) < 2 or len(gold) >= 160:
                     continue
+                absent = int(hash_text(row["id"])[:8], 16) % 4 == 0
+                none_option = (
+                    "以上候选均不是正确答案"
+                    if language == "zh"
+                    else "None of the listed answers is correct"
+                )
+                real_count = min(3, len(negatives))
+                values = (
+                    rng.sample(negatives, real_count)
+                    if absent
+                    else [gold, *rng.sample(negatives, real_count - 1)]
+                )
                 criteria, expected = choice(
-                    [gold, *rng.sample(negatives, min(3, len(negatives)))], gold, rng
+                    [*values, none_option], none_option if absent else gold, rng
                 )
                 group = "passage/" + hash_text(by_id[row["id"]]["context"])
                 result.append(
@@ -199,8 +225,10 @@ def extraction(training):
                         "derived-human",
                     )
                 )
-                # 每段落/语言最多一题；共享内容不虚增独立样本数。
-                break
+                produced += 1
+                # 多题仍保留同一段落组，不能虚增独立样本数。
+                if max_per_passage is not None and produced >= max_per_passage:
+                    break
     return result
 
 
@@ -257,8 +285,12 @@ OPS = {
 }
 
 
-def numeric_rules(role, groups):
-    rng = random.Random({"train": 101, "development": 202, "calibration": 303, "test": 404}[role])
+def numeric_rules(role, groups, *, seed=None, namespace="numeric"):
+    rng = random.Random(
+        seed
+        if seed is not None
+        else {"train": 101, "development": 202, "calibration": 303, "test": 404}[role]
+    )
     fields = {
         "train": ("amount_paid", "amount_due", "confirmed"),
         "development": ("available_slots", "required_slots", "enabled"),
@@ -317,8 +349,8 @@ def numeric_rules(role, groups):
                 eligible = bool(fn(left, right) and gate)
                 rows.append(
                     example(
-                        f"numeric/{role}/{i}/{language}/{side}",
-                        f"numeric/{role}/{i}",
+                        f"{namespace}/{role}/{i}/{language}/{side}",
+                        f"{namespace}/{role}/{i}",
                         "numeric_rule",
                         language,
                         state,
@@ -331,8 +363,12 @@ def numeric_rules(role, groups):
     return rows
 
 
-def ordinal_rules(role, groups):
-    rng = random.Random({"train": 511, "development": 612, "calibration": 713, "test": 814}[role])
+def ordinal_rules(role, groups, *, seed=None, namespace="ordinal"):
+    rng = random.Random(
+        seed
+        if seed is not None
+        else {"train": 511, "development": 612, "calibration": 713, "test": 814}[role]
+    )
     rows = []
     field = {
         "train": "delay",
@@ -372,8 +408,8 @@ def ordinal_rules(role, groups):
             for value in values:
                 rows.append(
                     example(
-                        f"ordinal/{role}/{i}/{language}/{value}",
-                        f"ordinal/{role}/{i}",
+                        f"{namespace}/{role}/{i}/{language}/{value}",
+                        f"{namespace}/{role}/{i}",
                         "ordinal_rule",
                         language,
                         {field: value},
@@ -393,7 +429,7 @@ def ordinal_rules(role, groups):
     return rows
 
 
-def prepare(output=Path("data/phase2/experiment-v2")):
+def prepare(output=Path("data/phase2/experiment-v3")):
     if (output / "experiment.json").exists():
         raise ValueError("实验数据已经登记，不可覆盖。")
     output.mkdir(parents=True, exist_ok=True)
@@ -463,7 +499,7 @@ def prepare(output=Path("data/phase2/experiment-v2")):
     from transformers import AutoTokenizer
 
     from necro.backend import single_token_labels
-    from necro.training import encode_example
+    from necro.training.trainer import encode_example
 
     tokenizer = AutoTokenizer.from_pretrained(
         "Qwen/Qwen3.5-0.8B",
@@ -536,5 +572,5 @@ def prepare(output=Path("data/phase2/experiment-v2")):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=Path, default=Path("data/phase2/experiment-v2"))
+    parser.add_argument("--output", type=Path, default=Path("data/phase2/experiment-v3"))
     prepare(parser.parse_args().output)

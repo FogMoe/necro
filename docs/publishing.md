@@ -1,6 +1,6 @@
 # Export and publishing
 
-Export produces a LoRA adapter, merged weights, and runtime code. Once the model cards and evaluation files are ready, either the adapter or merged directory can be uploaded as a standalone model repository.
+Export produces a LoRA adapter, merged weights, and runtime code. Choose a split-directory layout or a Hub layout with merged weights at the package root, then assemble the model card and evaluation files for distribution.
 
 ## Local export
 
@@ -10,32 +10,46 @@ Run from the project root. Replace `SELECTED_ADAPTER` and `CHOICE_TEMPERATURE` w
 uv run --extra training python -m necro.export SELECTED_ADAPTER artifacts/ScarletKc-Necro-0.8b --temperature CHOICE_TEMPERATURE
 ```
 
-The model ID comes from the adapter's `necro_adapter.json`. `NECRO_MODEL` must match `checkpoint` in that contract. Export rejects an existing output directory.
+The model ID and base checkpoint come from the adapter's `necro_adapter.json`. Export loads that checkpoint at the recorded revision and rejects an existing output directory.
+
+To include temperatures for all question types, add `--calibration-file CALIBRATION_JSON`. Its `temperatures` mapping overrides values by question type. Entries absent from the file use the fallback values defined by `export` in [export.py](../src/necro/export.py). Unknown question types are rejected. The supplied file is copied into both model directories as `calibration.json`. See [per-primitive calibration](evaluation.md#per-primitive-calibration) to fit this mapping.
 
 | Output | Purpose |
 |---|---|
 | `adapter/` | LoRA safetensors, PEFT configuration, tokenizer, and prompt contract. Loads with the original base model |
-| `merged/` | Complete merged model, tokenizer, and `necro_model.json` |
+| `merged/`, or the package root with `--hub-layout` | Complete merged model, tokenizer, and `necro_model.json` |
 | `runtime/` | Candidate-scoring API, training and evaluation code, dependency lockfile, tests, and documentation |
-| `export.json` | Model ID, Choice temperature, base revision, and weight hashes |
+| `export.json` | Model ID, layout, merged-weight path, per-question-type temperatures, base revision, total model parameter count, and weight hashes |
 
 File selection is defined by `export` in [export.py](../src/necro/export.py). It copies an explicit list of runtime files. Raw training data, caches, and credentials stay in the working directory.
+
+For a package ready to assemble at a Hub repository root, add `--hub-layout`. The `adapter/` and `runtime/` directories remain alongside the merged model files. `export.json` identifies the layout and merged-weight location through `layout` and `merged_path`.
+
+The exported `runtime/.env.example` points to the packaged merged model and contains the export's calibrated temperatures. From `runtime/`, copy it to `.env` and follow the [startup instructions](running.md#starting-the-server). The paths assume commands run from that directory.
 
 ## Validation and packaging
 
 Load the adapter and merged weights, then compare selected answers and probabilities using the same inputs and temperature. Commands are in [model loading](running.md#loading-a-model) and [evaluation](evaluation.md). Place validation results, selection records, and calibration parameters in the package's `evaluation/` directory.
 
+For an export with a frozen test selection and complete calibrated reference predictions, `verify_package` in [package_verification.py](../src/necro/training/release/package_verification.py) checks weight hashes, reloads the merged model on CUDA, and compares the full test set. It also starts a temporary loopback server to validate the official SDK, response structures, candidate counts, and local HTTP latency. Run it with a new output file:
+
+```powershell
+uv run --extra training python -m necro.training.release.package_verification PACKAGE_DIR REGISTERED_DATA_DIR PREDICTIONS_DIR VERIFICATION_JSON
+```
+
+The data directory must contain `selection.json`, and the prediction directory must contain complete results for the selected weights and temperatures. Output records reload differences, SDK checks, GPU memory, and latency samples. Adding `--benchmark-jev` also sends latency requests to the configured TypeSafe service.
+
 Each standalone model card should cover purpose, run commands, training sources, evaluation conditions, results, observed errors, and licensing. Run commands should start in the model's `runtime/` directory and specify whether they load an adapter or merged weights.
 
 The report-generation entry point for the recorded experiment is described in the [packaging record](process/publishing-2026-09-20.md). Reports contain results, while training runs and selection history live in `docs/process/`. Model cards link to the packaged report.
 
-After generating reports, synchronize documentation and runtime code into the package's top-level `runtime/`, then copy runtime and evaluation files into each standalone model directory:
+For the split-directory layout, synchronize documentation and runtime code into the package's top-level `runtime/` after generating reports, then copy runtime and evaluation files into each standalone model directory:
 
 ```powershell
 $package = 'artifacts/ScarletKc-Necro-0.8b'
 Copy-Item README.md, LICENSE, LICENSE-MIT, THIRD_PARTY_NOTICES.md -Destination "$package/runtime" -Force
 Get-ChildItem docs | Copy-Item -Destination "$package/runtime/docs" -Recurse -Force
-Copy-Item src/necro/release_report.py -Destination "$package/runtime/src/necro" -Force
+Copy-Item src/necro/training/release/release_report.py -Destination "$package/runtime/src/necro/training/release" -Force
 foreach ($kind in @('adapter', 'merged')) {
     Copy-Item "$package/runtime" -Destination "$package/$kind" -Recurse
     Copy-Item "$package/evaluation" -Destination "$package/$kind" -Recurse
@@ -43,6 +57,8 @@ foreach ($kind in @('adapter', 'merged')) {
 ```
 
 These copy commands assume the standalone directories do not yet contain `runtime/` or `evaluation/`. For existing copies, synchronize their contents and remove obsolete documentation paths. Generate `SHA256SUMS` for the complete package after assembly, and regenerate it whenever a file changes.
+
+For the Hub layout, keep `runtime/` and `evaluation/` at the package root and place the model card there. Upload that root as one repository. Its bundled runtime configuration already points to the merged weights in the parent directory.
 
 ## Uploading to Hugging Face
 
@@ -54,6 +70,8 @@ uv run --extra training hf upload YOUR_NAMESPACE/ScarletKc-Necro-0.8b artifacts/
 ```
 
 Replace `YOUR_NAMESPACE` with the target account or organization. `--private` sets visibility only when creating a repository. Existing repositories keep their visibility. Use `--no-private` to create a public repository. Run `hf upload --help` for all options.
+
+The upload example above uses the split layout's `merged/` directory. With `--hub-layout`, use the package root as the upload source instead.
 
 ## Licensing
 

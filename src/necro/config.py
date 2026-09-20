@@ -25,6 +25,8 @@ class Settings:
     batch_tokens: int = 8192
     temperature: float = 1.0
     choice_temperature: float | None = None
+    noul_temperature: float | None = None
+    score_temperature: float | None = None
     max_sequence_tokens: int = 32768
     max_request_tokens: int = 65536
     api_key: str = field(default="necro-local", repr=False)
@@ -36,12 +38,18 @@ class Settings:
             raise ValueError("批量大小和批量 token 预算必须大于 0。")
         if not math.isfinite(self.temperature) or self.temperature <= 0:
             raise ValueError("NECRO_TEMPERATURE 必须是大于 0 的有限数。")
-        if self.choice_temperature is not None and (
-            not math.isfinite(self.choice_temperature) or self.choice_temperature <= 0
-        ):
-            raise ValueError("NECRO_CHOICE_TEMPERATURE 必须是大于 0 的有限数。")
+        for primitive in ("choice", "noul", "score"):
+            value = getattr(self, f"{primitive}_temperature")
+            if value is not None and (not math.isfinite(value) or value <= 0):
+                raise ValueError(f"NECRO_{primitive.upper()}_TEMPERATURE 必须是大于 0 的有限数。")
         if not self.api_key:
             raise ValueError("NECRO_API_KEY 不能为空。")
+
+    def temperature_for(self, primitive):
+        if primitive not in {"choice", "noul", "score"}:
+            raise ValueError("未知判断类型。")
+        value = getattr(self, f"{primitive}_temperature")
+        return self.temperature if value is None else value
 
     @classmethod
     def from_env(cls):
@@ -55,6 +63,12 @@ class Settings:
             temperature=float(os.getenv("NECRO_TEMPERATURE", "1.0")),
             choice_temperature=float(os.environ["NECRO_CHOICE_TEMPERATURE"])
             if os.getenv("NECRO_CHOICE_TEMPERATURE")
+            else None,
+            noul_temperature=float(os.environ["NECRO_NOUL_TEMPERATURE"])
+            if os.getenv("NECRO_NOUL_TEMPERATURE")
+            else None,
+            score_temperature=float(os.environ["NECRO_SCORE_TEMPERATURE"])
+            if os.getenv("NECRO_SCORE_TEMPERATURE")
             else None,
             api_key=os.getenv("NECRO_API_KEY", "necro-local"),
         )

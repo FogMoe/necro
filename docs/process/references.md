@@ -1,23 +1,23 @@
-# 开源实现参考
+# Open-source implementation references
 
-这些项目分别提供数据构造、训练和候选评分的实现参考。Necro 的训练流程见 [训练指南](../training.md)，实测结果见 [评测报告](../reports/improvement-2026-09-20.md)。
+These projects provide implementation references for data construction, training, and candidate scoring. Necro's workflow is in the [training guide](../training.md), and measured results are in the [evaluation report](../reports/improvement-2026-09-20.md).
 
 ## Bespoke Nimble
 
-[训练配方](https://github.com/bespokelabsai/nimble/blob/main/docs/NIMBLE_TRAINING.md) · [数据说明](https://github.com/bespokelabsai/nimble/blob/main/docs/DATASET.md) · [模型卡](https://huggingface.co/bespokelabs/Bespoke-Nimble-9B)
+[Training recipe](https://github.com/bespokelabsai/nimble/blob/main/docs/NIMBLE_TRAINING.md) · [Dataset documentation](https://github.com/bespokelabsai/nimble/blob/main/docs/DATASET.md) · [Model card](https://huggingface.co/bespokelabs/Bespoke-Nimble-9B)
 
-可以从数据说明查看成对样例和来源分组的方法，再从训练配方核对监督目标、训练参数和模型选择过程。复现实验时，配方对应的数据版本和学习率调度需要一起读取。
+The dataset documentation covers paired examples and source grouping. The training recipe describes the objective, training parameters, and model selection. When reproducing an experiment, read the recipe together with its dataset version and learning-rate schedule.
 
-## Simple Jev 与 RFDT
+## Simple Jev and RFDT
 
-[项目说明](https://github.com/featherless-ai/simple-jev) · [RFDT](https://github.com/featherless-ai/simple-jev/tree/main/RFDT) · [评分代码](https://github.com/featherless-ai/simple-jev/blob/main/common/response_scoring.py)
+[Project](https://github.com/featherless-ai/simple-jev) · [RFDT](https://github.com/featherless-ai/simple-jev/tree/main/RFDT) · [Scoring code](https://github.com/featherless-ai/simple-jev/blob/main/common/response_scoring.py)
 
-RFDT 提供决策任务训练的入口。评分代码适合对照提示与答案的 token 边界、候选评分和响应转换，训练部分可查看 LoRA、数据划分及教师标注缓存的处理。
+RFDT provides an entry point for training decision tasks. The scoring code is useful for comparing prompt/answer token boundaries, candidate scoring, and response conversion. The training implementation covers LoRA, data splits, and cached teacher annotations.
 
 ## jev-local
 
-[项目说明](https://github.com/us/jev-local) · [scorer.py](https://github.com/us/jev-local/blob/main/src/jevlocal/scorer.py)
+[Project](https://github.com/us/jev-local) · [scorer.py](https://github.com/us/jev-local/blob/main/src/jevlocal/scorer.py)
 
-可以从 scorer 实现查看候选拼接、序列评分和后端选择，再结合接口测试检查请求与响应。比较实现时，关注完整序列概率与按 token 平均分数的差别。
+The scorer implementation covers candidate concatenation, sequence scoring, and backend selection. API tests show request and response behavior. When comparing implementations, distinguish full-sequence probability from scores averaged across tokens.
 
-更多实现可从 [awesome-jev](https://github.com/OmniJev/awesome-jev) 查找。
+More implementations are listed in [awesome-jev](https://github.com/OmniJev/awesome-jev).

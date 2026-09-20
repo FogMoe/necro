@@ -28,6 +28,8 @@ Process environment variables take precedence over `.env`. Unset values use the 
 | `NECRO_BATCH_SIZE`, `NECRO_BATCH_TOKENS` | Question batch size and token budget after padding |
 | `NECRO_TEMPERATURE` | Probability temperature for all question types |
 | `NECRO_CHOICE_TEMPERATURE` | Choice-specific override. Leave empty to use the general temperature |
+| `NECRO_NOUL_TEMPERATURE` | Noul-specific override. Leave empty to use the general temperature |
+| `NECRO_SCORE_TEMPERATURE` | Score-specific override. Leave empty to use the general temperature |
 | `TYPESAFE_API_KEY`, `TYPESAFE_BASE_URL` | Key and endpoint for [Jev comparisons](evaluation.md#jev-comparison) |
 
 Batch settings must be positive integers. Temperatures must be finite and greater than zero. Restart the server after changing settings. Git ignores `.env`, and local inference does not require a TypeSafe key.
@@ -43,6 +45,8 @@ NECRO_MODEL=Qwen/Qwen3.5-0.8B
 NECRO_ADAPTER=
 NECRO_TEMPERATURE=1.0
 NECRO_CHOICE_TEMPERATURE=
+NECRO_NOUL_TEMPERATURE=
+NECRO_SCORE_TEMPERATURE=
 ```
 
 Clear or update any matching variables already set in your terminal, since they override `.env`.
@@ -59,15 +63,21 @@ Set `NECRO_MODEL` to a local directory containing `necro_model.json`, and clear 
 
 ### Applying exported calibration
 
-The export's `export.json` records `choice_temperature`. The model contract also stores it as `recommended_choice_temperature`. Set `NECRO_CHOICE_TEMPERATURE` explicitly to apply it. For example, read an existing export from the project root:
+The export's `export.json` records per-question-type values in `temperatures`, with `choice_temperature` also available separately. Model contracts store `recommended_temperatures` and `recommended_choice_temperature`. Apply these values explicitly through the environment settings above. For an export containing `temperatures`, run from the project root:
 
 ```powershell
 $package = 'artifacts/ScarletKc-Necro-0.8b'
 $metadata = Get-Content "$package/export.json" -Raw | ConvertFrom-Json
-$env:NECRO_CHOICE_TEMPERATURE = $metadata.choice_temperature.ToString([Globalization.CultureInfo]::InvariantCulture)
+$env:NECRO_TEMPERATURE = '1.0'
+foreach ($primitive in @('choice', 'noul', 'score')) {
+    $value = $metadata.temperatures.$primitive
+    if ($null -eq $value) { throw "Missing exported temperature: $primitive" }
+    $name = "NECRO_$($primitive.ToUpperInvariant())_TEMPERATURE"
+    [Environment]::SetEnvironmentVariable($name, $value.ToString([Globalization.CultureInfo]::InvariantCulture), 'Process')
+}
 ```
 
-For a standalone model distribution, use its model card to set paths and temperature.
+For an older export containing only `choice_temperature`, apply that value to Choice and clear the Noul and Score overrides to use the general temperature. Standalone model distributions include run commands in their model cards.
 
 ## Starting the server
 

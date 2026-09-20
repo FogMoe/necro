@@ -18,7 +18,7 @@ from necro.config import Settings
 from necro.engine import PROMPT_VERSION, prepare_task, prompt_fingerprint
 from necro.evaluation import read_examples
 from necro.schema import EvaluationRequest, Noul
-from necro.training_data import audit_disjoint
+from necro.training.data.training_data import audit_disjoint
 
 
 def encode_example(tokenizer, alphabet, example, max_length=2048):
@@ -125,6 +125,28 @@ def make_batches(records, batch_size, seed):
 
 def emit(value):
     print(json.dumps(value, ensure_ascii=False), flush=True)
+
+
+def snapshot_sources(output: Path):
+    package = Path(__file__).resolve().parents[1]
+    source_dir = output / "source"
+    source_dir.mkdir()
+    hashes = {}
+    for filename in (
+        "training/trainer.py",
+        "training/__init__.py",
+        "training/__main__.py",
+        "engine.py",
+        "backend.py",
+        "schema.py",
+        "config.py",
+    ):
+        path = package / filename
+        target = source_dir / filename
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, target)
+        hashes[filename] = hashlib.sha256(path.read_bytes()).hexdigest()
+    return hashes
 
 
 def train(
@@ -242,13 +264,7 @@ def train(
             (data_dir / "validation.jsonl").read_bytes()
         ).hexdigest(),
     }
-    source_dir = output / "source"
-    source_dir.mkdir()
-    config["source_sha256"] = {}
-    for filename in ("training.py", "engine.py", "backend.py", "schema.py", "config.py"):
-        path = Path(__file__).parent / filename
-        shutil.copy2(path, source_dir / filename)
-        config["source_sha256"][filename] = hashlib.sha256(path.read_bytes()).hexdigest()
+    config["source_sha256"] = snapshot_sources(output)
     (output / "run_config.json").write_text(json.dumps(config, indent=2), encoding="utf-8")
     emit({"event": "setup", **{k: v for k, v in config.items() if k != "target_modules"}})
     profile_times, profile_tokens = [], 0
@@ -287,6 +303,7 @@ def train(
     for step, start in enumerate(range(0, len(batches), accumulation), 1):
         group = batches[start : start + accumulation]
         losses = []
+        group_size = sum(len(rows) for rows in group)
         for rows in group:
             inputs, labels = collate(rows, scorer.tokenizer.pad_token_id, scorer.device)
             loss = answer_loss(
@@ -295,8 +312,8 @@ def train(
                 labels,
                 [row["candidate_ids"] for row in rows] if objective == "candidate-ce" else None,
             )
-            (loss / len(group)).backward()
-            losses.append(float(loss.detach()))
+            (loss * len(rows) / group_size).backward()
+            losses.append(float(loss.detach()) * len(rows))
         norm = torch.nn.utils.clip_grad_norm_(parameters, 1.0, error_if_nonfinite=True)
         scale = (
             step / warmup
@@ -309,7 +326,7 @@ def train(
         optimizer.zero_grad(set_to_none=True)
         record = {
             "step": step,
-            "loss": sum(losses) / len(losses),
+            "loss": sum(losses) / group_size,
             "grad_norm": float(norm),
             "elapsed_seconds": time.perf_counter() - started,
         }
@@ -347,7 +364,7 @@ def train(
     emit({"event": "complete", **{k: v for k, v in summary.items() if k != "history"}})
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data", type=Path, default=Path("data/lora-pilot"))
     parser.add_argument("--output", type=Path, default=Path("results/lora-pilot/run1"))
@@ -370,3 +387,7 @@ if __name__ == "__main__":
         model_id=args.model_id,
         objective=args.objective,
     )
+
+
+if __name__ == "__main__":
+    main()

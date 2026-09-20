@@ -37,6 +37,9 @@ def audit_partitions(partitions):
     seen_groups, seen_content, seen_requests = {}, {}, {}
     report = {}
     for role, rows in partitions.items():
+        # exposure 是祖先训练记录的审计并集，可重复；实际数据切片的 ID 必须唯一。
+        if role != "exposure" and len({row["id"] for row in rows}) != len(rows):
+            raise ValueError(f"{role} 存在重复样本 ID，无法可靠对应预测。")
         local_groups, local_content = set(), set()
         for row in rows:
             request = EvaluationRequest.model_validate(row["request"])
@@ -95,6 +98,19 @@ def register(root: Path, files: dict[str, Path], protocol: dict):
     return manifest
 
 
+def verify_temperatures(selection, weights_sha256, actual):
+    """测试允许原始概率，或该份冻结权重自己的校准；禁止借用另一模型的温度。"""
+    if not selection.get("temperatures"):
+        return  # 兼容尚未登记温度的历史实验；新实验始终登记。
+    approved = (
+        selection["temperatures"]
+        if weights_sha256 == selection["weights_sha256"]
+        else selection.get("reference_temperatures", {}).get(weights_sha256)
+    )
+    if actual != dict.fromkeys(("choice", "noul", "score"), 1.0) and actual != approved:
+        raise ValueError("测试只允许原始温度 1 或该权重冻结的校准温度。")
+
+
 def verify(root: Path, role: str, adapter: Path | None = None, remote_reference=False):
     manifest = json.loads((root / "experiment.json").read_text(encoding="utf-8"))
     for partition in manifest["partitions"].values():
@@ -105,6 +121,18 @@ def verify(root: Path, role: str, adapter: Path | None = None, remote_reference=
         if not selected_path.is_file():
             raise ValueError("尚未冻结模型选择，不能打开封存测试。")
         selected = json.loads(selected_path.read_text(encoding="utf-8"))
+        if selected.get("data_manifest_sha256") and (
+            selected["data_manifest_sha256"] != digest(root / "experiment.json")
+        ):
+            raise ValueError("冻结后实验登记发生变更。")
+        for artifact, expected in selected.get("artifact_hashes", {}).items():
+            if digest(Path(artifact)) != expected:
+                raise ValueError(f"冻结后的校准或协议材料已变更：{artifact}")
+        if selected.get("prompt_sha256"):
+            from necro.engine import prompt_fingerprint
+
+            if selected["prompt_sha256"] != prompt_fingerprint():
+                raise ValueError("冻结后的提示代码已变更。")
         allowed = {selected["weights_sha256"], *selected.get("reference_weights_sha256", [])}
         if not remote_reference and (
             adapter is None or digest(adapter / "adapter_model.safetensors") not in allowed

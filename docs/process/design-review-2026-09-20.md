@@ -1,58 +1,58 @@
-# 2026-09-20 设计复审与第二阶段方案
+# Design review and Phase 2 plan, 2026-09-20
 
-这份复审核查第一阶段的数据、训练实现和模型选择，并记录第二阶段计划。第一阶段过程见 [改进训练记录](improvement-2026-09-20.md)，导出权重成绩见 [评测报告](../reports/improvement-2026-09-20.md)。
+This review examines Phase 1 data, training implementation, and model selection, and records the Phase 2 plan. See the [improvement record](improvement-2026-09-20.md) for Phase 1 history and the [evaluation report](../reports/improvement-2026-09-20.md) for exported-weight results.
 
-## 校准后的开发集比较
+## Calibrated development comparison
 
-分别在同一份校准集拟合温度后，重新比较原开发集：
+Each model's temperature was fitted on the same calibration set before repeating the comparison on the original development set:
 
-| 模型 | 准确率 | NLL | Brier | ECE |
+| Model | Accuracy | NLL | Brier | ECE |
 |---|---:|---:|---:|---:|
 | round3 | 84% | 0.6601 | 0.2369 | 0.0666 |
 | round4 | 85% | 0.6450 | 0.2289 | 0.0471 |
 
-round4 在这份对照中更好。第一阶段依据原始 NLL 拒绝 round4、随后只校准 round3，比较口径不一致。第二阶段需在相同校准口径下比较候选模型。
+round4 performed better in this comparison. Phase 1 rejected round4 on raw NLL and then calibrated only round3, making the comparison inconsistent. Phase 2 needs to compare candidates under the same calibration procedure.
 
-## 数据与评测问题
+## Data and evaluation issues
 
-| 问题 | 证据 | 第二阶段计划 |
+| Issue | Evidence | Phase 2 plan |
 |---|---|---|
-| 任务集中于分类 | 公开题来自 XNLI 和 MASSIVE，主要为 Choice | 增加自然问答、释义、候选答案和文段选择，以及 Noul、Score 边界任务 |
-| 构造样例重复 | pilot 规则样例去掉 record_id 后为 36 种请求，expanded 为 33 种 | 记录规范化唯一请求数、模板数、标签和边界分布 |
-| 多因素同时变化 | round3 同时改数据量、配比、模板和学习率，round4 另改种子与 microbatch | 固定数据、起点、种子、学习率与批量后比较训练目标 |
-| 选择门槛粗糙 | 原开发集存在中英文同源题，少量题目即可改变百分点 | 按来源组报告配对变化和 bootstrap 区间 |
-| 测试数据已参与后续设计 | 第一阶段测试和边界题已查看 | 将其用于历史回归，另建第二阶段测试 |
-| 顺序抽样覆盖集中 | 原始数据使用 split 前部记录 | 采用可复现分散抽样，保存行 ID 与哈希 |
-| 结构去重不足 | 无关记录 ID 会改变字符串哈希 | 增加任务级规范化指纹和来源组 |
-| 跨服务概率精度不同 | Jev 的 11,040 个概率均在两位小数网格，20 个正确标签概率为零 | 同时比较准确率、Brier 和统一截断的 NLL 敏感性 |
-| Score 指标分工不清 | 类别准确率使用最大概率等级，API 使用加权分数 | 单独报告 MAE、按等级跨度归一化的 MAE 与等级准确率 |
-| 候选选择口径需明确 | 已有接口选择给定答案或文段 | 候选抽取报告命中率，文段选择报告 top-1 |
-| 鲁棒性覆盖不足 | 缺少系统性重排、否定、缺失信息和长输入测试 | 增加独立一致性与边界探针 |
-| 规则措辞含歧义 | only if 和仅当只表达必要条件 | 明确充要条件，检查等号、否定和缺失字段 |
-| 单次实验受顺序影响 | 各设置仅运行一次 | 为有收益的设置增加一个种子复验 |
+| Tasks concentrated on classification | Public questions came from XNLI and MASSIVE, mainly as Choice | Add natural question answering, paraphrase, candidate-answer and passage selection, and Noul and Score boundary tasks |
+| Repeated constructed examples | Removing record_id left 36 distinct pilot rule requests and 33 expanded requests | Record normalized unique requests, templates, labels, and boundary distributions |
+| Multiple factors changed together | round3 changed data volume, mixture, templates, and learning rate. round4 also changed the seed and microbatch | Fix data, starting weights, seed, learning rate, and batching when comparing objectives |
+| Coarse selection threshold | The original development set contained English and Chinese questions from shared sources, so a few questions could shift percentage-point results | Report paired changes and bootstrap intervals by source group |
+| Test data informed later design | Phase 1 test and boundary questions had been inspected | Use them for historical regression and create a new Phase 2 test set |
+| Sequential sampling concentrated coverage | Original sampling used records near the start of each split | Use reproducible dispersed sampling and save row IDs and hashes |
+| Insufficient structural deduplication | Irrelevant record IDs changed string hashes | Add task-level normalized fingerprints and source groups |
+| Probability precision differed across services | All 11,040 Jev probabilities were on a two-decimal grid, and 20 correct-label probabilities were zero | Compare accuracy, Brier, and NLL sensitivity under a common clipping rule |
+| Score metrics had unclear roles | Class accuracy used the most probable level, while the API returned a weighted score | Report MAE, MAE normalized by the level span, and level accuracy separately |
+| Candidate-selection scope needed clarification | The API selected from supplied answers or passages | Report candidate-extraction hit rate and passage-selection top-1 accuracy |
+| Incomplete robustness coverage | Systematic reordering, negation, missing-information, and long-input tests were absent | Add separate consistency and boundary probes |
+| Ambiguous rule wording | “only if” and its Chinese equivalent express a necessary condition | State necessary and sufficient conditions explicitly, and check equality, negation, and missing fields |
+| Single runs were sensitive to ordering | Each setting was run once | Repeat beneficial settings with another seed |
 
-## 训练实现核查
+## Training implementation review
 
-已核查答案编码、左 padding 下的监督位置、冻结基模、LoRA 续训、梯度累积、保存重载和完整数字路径评分。监督只计算答案 token。禁用 adapter 后基模探针差异为零，合并权重的重载结果见 [评测报告](../reports/improvement-2026-09-20.md#weight-and-api-validation)。
+The review covered answer encoding, supervised positions with left padding, frozen base weights, continued LoRA training, gradient accumulation, save/reload behavior, and full numeric-path scoring. Supervision covered only answer tokens. Disabling the adapter produced zero difference on the base-model probe. Merged-weight reload results are in the [evaluation report](../reports/improvement-2026-09-20.md#weight-and-api-validation).
 
-计划增加可选的候选内交叉熵。单 token 答案使用候选内目标，多 token 数字标签保留完整答案 token 损失，并将其记录为混合目标。对照实验使用相同数据和起点。
+The plan adds optional candidate-restricted cross-entropy. Single-token answers use the candidate objective, while multi-token numeric labels retain full answer-token loss. This is recorded as a mixed objective. Controlled comparisons use the same data and starting weights.
 
-## 第二阶段计划
+## Phase 2 plan
 
-1. 建立任务开发集和数据清单。自然语料考虑 PAWS-X、BoolQ 和可转换为候选选择的问答数据，原始标注与代码规则分别记录来源。
-2. 准备约 2,000–3,000 条训练记录，约四分之一回放原任务，其余覆盖新增自然任务与成对边界样例。
-3. 按翻译、段落、改写和反事实配对的来源组划分训练、开发、校准和新测试数据。新测试在模型选择后评测。
-4. 先测 round3 与 round4 的新任务基线，选择共同起点。固定 rank 16、batch 4、累积 2、输入上限 2048，以及学习率和种子，先比较两种训练目标各一轮。
-5. 按任务宏平均准确率选择，并检查原任务回归与 Score MAE。提升不足 2 个百分点且没有关键能力改善时停止追加训练，单项下降超过 3 个百分点时分析原因。
-6. 为有收益的设置追加一个种子复验。无稳定收益时保留基线。
-7. 在统一校准口径下保存准确率、Brier、Score MAE、鲁棒性、延迟与失败样例，并与固定版本 Jev 做同题比较。
+1. Build a task development set and data manifest. Consider PAWS-X, BoolQ, and question-answering datasets that can be converted to candidate selection. Record human annotations and code-derived rules separately.
+2. Prepare approximately 2,000–3,000 training records, with about one quarter replaying the original tasks and the rest covering new natural tasks and paired boundary examples.
+3. Split training, development, calibration, and new test data by source groups covering translations, passages, paraphrases, and counterfactual pairs. Evaluate the new test set after model selection.
+4. Measure round3 and round4 on the new tasks and choose a common starting point. Fix rank 16, batch 4, accumulation 2, input limit 2048, learning rate, and seed, then compare one epoch of each objective.
+5. Select by task-macro accuracy, checking original-task regression and Score MAE. Stop additional training if the gain is below 2 percentage points with no key capability improvement. Investigate any task decline above 3 percentage points.
+6. Repeat beneficial settings with one additional seed. Retain the baseline if gains are not stable.
+7. Save accuracy, Brier, Score MAE, robustness, latency, and failure examples under a common calibration procedure, and compare against a fixed Jev version on identical questions.
 
-## 复核材料
+## Review materials
 
-原始审查数字保存在 `results/design-audit/audit.json`。候选数据的上游许可入口如下，实际采用的数据应在训练 manifest 中登记：
+Raw audit figures are stored in `results/design-audit/audit.json`. Upstream license references for candidate datasets are listed below. Record datasets actually used in the training manifest:
 
-- PAWS：[上游许可证](https://github.com/google-research-datasets/paws/blob/master/LICENSE)。
-- BoolQ：[数据卡](https://huggingface.co/datasets/google/boolq)。
-- SQuAD：[数据卡](https://huggingface.co/datasets/rajpurkar/squad)。
+- PAWS: [upstream license](https://github.com/google-research-datasets/paws/blob/master/LICENSE).
+- BoolQ: [dataset card](https://huggingface.co/datasets/google/boolq).
+- SQuAD: [dataset card](https://huggingface.co/datasets/rajpurkar/squad).
 
-已用来源统一记录在 [第三方声明](../../THIRD_PARTY_NOTICES.md)。
+Sources used by the project are recorded in [third-party notices](../../THIRD_PARTY_NOTICES.md).

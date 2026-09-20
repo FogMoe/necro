@@ -14,7 +14,7 @@ from pathlib import Path
 from necro.config import MODEL_ID
 from necro.datasets import prepare_public_eval
 from necro.evaluation import read_examples
-from necro.training_data import audit_disjoint, context_hash, rule_pairs, write_jsonl
+from necro.training.data.training_data import audit_disjoint, context_hash, rule_pairs, write_jsonl
 
 
 def download_sources(root=Path("data/improvement")):

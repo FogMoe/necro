@@ -38,7 +38,7 @@ def create_app(settings: Settings | None = None, engine: DecisionEngine | None =
             "models": [
                 {
                     "name": engine.model_id,
-                    "description": "Qwen3.5-0.8B local candidate scoring; uncalibrated.",
+                    "description": "Local Noul, Choice and Score probability judgments.",
                     "release_date": "2026-09-20",
                 }
             ]

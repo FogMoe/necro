@@ -25,6 +25,10 @@ inference = [
     "transformers>=5.3,<6",
 ]
 training = ["necro[inference]", "peft>=0.21,<0.22"]
+data = [
+    "huggingface-hub>=1,<2",
+    "pyarrow>=21",
+]
 
 [dependency-groups]
 dev = ["pytest>=8,<10", "ruff>=0.12", "typesafe-sdk==0.7.0"]

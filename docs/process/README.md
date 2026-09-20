@@ -1,13 +1,20 @@
-# 过程记录
+# Process records
 
-这里保存实验配置、模型选择、调查结论和后续方案。使用指南见 [文档索引](../README.md)，导出模型的结果见 [评测报告](../reports/improvement-2026-09-20.md)。
+Experiment configurations, model selection, investigations, and follow-up plans are kept here. See the [documentation index](../README.md) for usage guides and the [evaluation report](../reports/improvement-2026-09-20.md) for results from the exported model.
 
-| 记录 | 内容 |
+| Record | Contents |
 |---|---|
-| [基模基线](baseline-2026-09-20.md) | 零训练成绩、标签评分尝试 |
-| [首轮 LoRA](lora-pilot-2026-09-20.md) | pilot 数据、配方、成本与验证 |
-| [改进训练](improvement-2026-09-20.md) | 续训、开发集比较和回归 |
-| [模型选择规则](improvement-protocol.md) | 第一阶段打开测试结果前的选择协议 |
-| [设计复审](design-review-2026-09-20.md) | 选择修正、数据问题和第二阶段方案 |
-| [报告与模型卡生成](publishing-2026-09-20.md) | 本轮输入文件与输出路径 |
-| [开源实现参考](references.md) | 外部代码与方法入口 |
+| [Base model baseline](baseline-2026-09-20.md) | Results before training and label-scoring experiments |
+| [First LoRA run](lora-pilot-2026-09-20.md) | Pilot data, recipe, cost, and validation |
+| [Improvement runs](improvement-2026-09-20.md) | Continued training, development comparisons, and regression results |
+| [Model selection protocol](improvement-protocol.md) | Phase 1 selection rules established before opening test results |
+| [Design review](design-review-2026-09-20.md) | Selection corrections, data issues, and the Phase 2 plan |
+| [Phase 2 acceptance protocol](phase2-acceptance.md) | Comparison methods, acceptance criteria, and stopping rules |
+| [Phase 2 source isolation audit](phase2-source-audit.md) | Shared sentences, candidate documents, source components, and revised registration |
+| [Phase 2 development record](phase2-development.md) | Development results, calibration changes, and replication |
+| [Phase 2 workflow](phase2-workflow.md) | Data registration, per-primitive calibration, paired comparisons, and robustness |
+| [Phase 3 data workflow](phase3-data.md) | Full Parquet snapshots, historical source exclusion, and class coverage registration |
+| [Phase 3 coverage audit](phase3-coverage-audit.md) | Coverage issues and evidence for sampling from full snapshots |
+| [Phase 3 development record](phase3-development.md) | Coverage correction, Jev development comparisons, calibration objectives, and paired instruction training |
+| [Report and model card generation](publishing-2026-09-20.md) | Inputs and output paths for this release |
+| [Open-source implementation references](references.md) | External code and methods |

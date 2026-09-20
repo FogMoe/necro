@@ -98,7 +98,7 @@ class Scorer(Protocol):
 
 
 def normalized_peak(probabilities: list[float]) -> float:
-    """本地公开的集中度指标，不声称等同 Jev 的精确 confidence 公式。"""
+    """计算候选概率分布的归一化集中度。"""
     n = len(probabilities)
     return 1.0 if n == 1 else max(0.0, min(1.0, (n * max(probabilities) - 1) / (n - 1)))
 

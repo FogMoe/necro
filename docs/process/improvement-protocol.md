@@ -1,23 +1,23 @@
-# 2026-09-20 模型选择规则
+# Model selection protocol, 2026-09-20
 
-这份协议记录第一阶段在打开封存测试结果前确定的选择规则。执行结果见 [训练记录](improvement-2026-09-20.md)，后续核查见 [设计复审](design-review-2026-09-20.md)。
+This protocol records the Phase 1 selection rules established before opening the sealed test results. Execution is documented in the [training record](improvement-2026-09-20.md), with subsequent findings in the [design review](design-review-2026-09-20.md).
 
-## 数据分工
+## Data roles
 
-以 pilot-v1 为起点，使用 `data/lora-pilot/validation.jsonl` 比较各轮训练结果。旧诊断集用于最终回归，新的 test split 切片在模型选择完成后评测。训练与测试重叠的来源组在评测前移除。
+Starting from pilot-v1, compare training runs on `data/lora-pilot/validation.jsonl`. Use the earlier diagnostic set for final regression checks and evaluate new test-split slices after model selection. Remove source groups that overlap training and test data before evaluation.
 
-Choice 温度只在单独的 calibration 切片上拟合。中英文同源记录按来源组处理。
+Fit the Choice temperature only on a separate calibration slice. Treat English and Chinese records from the same source as one source group.
 
-## 实验顺序
+## Experiment sequence
 
-先在 pilot 上以较低学习率续训同一批数据一轮，再尝试扩充公开 train 样例、平衡语义推断类别，并加入证据不足的对比样例。效果较好的版本可以再运行一轮低学习率训练。
+First, continue the pilot for one epoch on the same data at a lower learning rate. Then try additional public training examples, balanced inference classes, and contrastive examples with insufficient evidence. A version with better results may receive another epoch at a lower learning rate.
 
-## 晋升和停止
+## Promotion and stopping
 
-开发集准确率提升至少 2 个百分点，视为继续实验的实用门槛。提升不足 2 个百分点且 NLL 变差的版本不晋升。不同改进方向连续两次没有达到该门槛时，停止扩大训练。
+A development accuracy gain of at least 2 percentage points is the practical threshold for further experiments. A version with a gain below 2 percentage points and worse NLL is not promoted. Stop expanding training after two consecutive improvement directions fail to meet that threshold.
 
-选择同时考虑整体准确率、任务与语言分组、NLL，以及开发样例上的 Noul 和 Score 回归。
+Selection considers overall accuracy, task and language groups, NLL, and Noul and Score regressions on development examples.
 
-## 记录
+## Records
 
-保存各轮权重、配置与结果，将最终选择及原因写入 `results/improvement/selection.json`。选中版本的权重与评测材料按 [导出与发布](../publishing.md)整理。
+Save the weights, configuration, and results for each run. Record the final selection and its rationale in `results/improvement/selection.json`. Assemble the selected weights and evaluation materials using the [export and publishing guide](../publishing.md).

@@ -11,8 +11,8 @@ import pytest
 from necro.backend import TransformersScorer
 from necro.config import Settings
 from necro.engine import prompt_fingerprint
-from necro.training import answer_loss, collate, encode_example
-from necro.training_data import audit_disjoint, rule_pairs
+from necro.training.data.training_data import audit_disjoint, rule_pairs
+from necro.training.trainer import answer_loss, collate, encode_example
 
 
 class CharacterTokenizer:
