@@ -1,6 +1,6 @@
 # ScarletKc-Necro-0.8b: pre-release review, 2026-09-21
 
-Training substantially improves the original base model under the local candidate-scoring interface. Stable publication remains blocked by a condition-judgment regression: the latest repair improves disabled-gate and missing-field decisions but falsely rejects many records that satisfy all requirements.
+The Phase 4 candidate improved accuracy over the original Qwen3.5-0.8B checkpoint under the local candidate-scoring interface. It failed release review because the condition repair improved disabled-gate and missing-field decisions while introducing false rejections of eligible records.
 
 ## Before training, after training and Jev
 
@@ -32,7 +32,7 @@ English includes BoolQ and SciFact; Chinese covers the other six task families. 
 
 The direct parent is the instruction checkpoint immediately before the final repair. It is distinct from the untrained base above.
 
-| Condition slice | Questions | Direct parent | Current candidate |
+| Condition slice | Questions | Direct parent | Phase 4 candidate |
 |---|---:|---:|---:|
 | All condition questions | 720 | 85.83% | 91.94% |
 | Disabled gate | 240 | 70.00% | 95.00% |
@@ -44,18 +44,14 @@ The complete-field decline is 15.42 percentage points, with paired 95% interval 
 
 The repair matrix contains 320 eligible and 2,880 ineligible presentations. Its answer labels are balanced at 1,600 true and 1,600 false because question polarity is varied. The underlying eligibility states remain imbalanced at 10% versus 90%. This sampling pattern is consistent with the observed false rejections; its causal contribution has not been isolated experimentally.
 
-## Release decision and further work
+## Release decision
 
-The model has clear value over the untrained base under this interface. Additional epochs or more examples with the same semantic imbalance are not justified by these results. The completed review adds inference and a sampling audit, with no training or new Jev requests.
+The Phase 4 candidate failed capability review on complete-field condition judgments, stopping release before merged-export and API verification. The [repair handoff](../process/condition-repair-handoff-2026-09-21.md) contains the failure fixture, reproduction steps, and proposed sampling intervention. Subsequent experiments are indexed in the [process records](../process/README.md#condition-regression-and-repair).
 
-Stable publication remains blocked. If development resumes, the concrete change to investigate is balancing the underlying eligibility outcomes while preserving complete-field accuracy. The exposed condition cohort remains diagnostic evidence; acceptance would require fresh held-out expressions. No additional experiment is scheduled by this review.
-
-The [repair handoff](../process/condition-repair-handoff-2026-09-21.md) contains the committed failure fixture, code locations, local artifact paths and reproduction steps.
-
-The current candidate has not completed merged-export and API verification. The earlier loader inconsistency was fixed and verified on the Phase 3 package, as recorded in the [export investigation](../process/numeric-regression-2026-09-21.md). The current candidate's failed capability review still prevents stable-package generation.
+The earlier loader inconsistency was fixed and verified on the Phase 3 package, as recorded in the [export investigation](../process/numeric-regression-2026-09-21.md).
 
 ## Evidence and licenses
 
 Base and direct-parent predictions, paired comparisons, sampling counts and provenance are stored in `results/phase4/quick-release-audit/`. Trained-model and Jev predictions remain in `results/phase4/final/`. `complete-condition-regression.json` records the paired subset analysis, and `semantic-balance.json` records the matrix counts. Frozen weights and original evidence remain unchanged.
 
-Project and fine-tuning contributions use Apache-2.0. The designated training files use MIT. Training datasets retain their individual licenses, including XNLI's CC BY-NC 4.0. [Licensing and third-party notices](../../THIRD_PARTY_NOTICES.md) define the scope and attribution.
+[Licensing and third-party notices](../../THIRD_PARTY_NOTICES.md) define the project, training-code, model, and dataset licenses and attribution.

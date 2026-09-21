@@ -23,7 +23,7 @@ Chinese disabled-gate and missing-field accuracy was 120/120 for each category. 
 
 The English precondition failures concentrate in one held-out formulation. In style 6, all 60 disabled-gate and 60 missing-field cases were correct. In style 7, those counts fell to 48/60 and 52/60. The style-7 rule says that a missing required field or a false gate makes the record ineligible regardless of its numbers, followed by the numerical eligibility condition. This shows residual sensitivity to rule expression after the original wording was repaired.
 
-Candidate minus predecessor accuracy was -1.25 percentage points, with paired source-group bootstrap 95% interval [-2.92, 0.28]. Candidate minus Jev was -6.39 points, with interval [-9.17, -3.47]. Candidate Brier was 0.104123, compared with 0.111389 for the predecessor and 0.033697 for Jev. The interval containing zero does not establish equivalence. Twelve source groups provide the sampling units.
+Candidate minus predecessor accuracy was -1.25 percentage points, with paired source-group bootstrap 95% interval [-2.92, 0.28]. Candidate minus Jev was -6.39 points, with interval [-9.17, -3.47]. Candidate Brier was 0.104123, compared with 0.111389 for the predecessor and 0.033697 for Jev. Twelve source groups provide the sampling units.
 
 ## Exposed multi-task regression
 

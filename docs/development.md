@@ -50,6 +50,6 @@ Generated datasets and source caches belong in `data/`, run outputs and predicti
 
 ## Updating documentation
 
-Each guide has a specific purpose in the [documentation index](README.md). Guides, dated evaluation reports, configuration comments, and new process records use English. Keep experiment history and design reviews in `docs/process/`. Reports describe the measured model and link to process records for candidate selection and training attempts. Link defaults and field limits to their definitions in code.
+Follow the [documentation standard](documentation.md) for language, author voice, document roles, canonical sources, generated copies, and review checks. The [documentation index](README.md) maps each guide to its purpose.
 
-`release_report` in [release_report.py](../src/necro/training/release/release_report.py) generates the Phase 1 report and standalone cards. `generate` in [phase3_report.py](../src/necro/training/release/phase3_report.py) generates the Phase 3 report and Hub package cards. `export` in [export.py](../src/necro/export.py) writes the bundled configuration example. Update the applicable generator when editing its output, then check relative links and checksums in that export. Frozen evidence snapshots retain their original content.
+`release_report` in [release_report.py](../src/necro/training/release/release_report.py) generates the Phase 1 report and standalone cards. `generate` in [phase3_report.py](../src/necro/training/release/phase3_report.py) generates the Phase 3 report and Hub package cards. `export` in [export.py](../src/necro/export.py) writes the bundled configuration example. The [publishing guide](publishing.md#validation-and-packaging) covers package verification and condition-repair report generation.

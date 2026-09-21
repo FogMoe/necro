@@ -1,6 +1,6 @@
 # LoRA training
 
-The training script uses PyTorch and PEFT to update LoRA parameters in the language backbone. Training and serving share the prompt template and tokenizer, with supervision on the correct answer tokens. Recipes and results for individual runs are kept in the [process records](process/README.md). The [development guide](development.md#training-code-layout) maps training modules to their directories.
+The training script uses PyTorch and PEFT to update LoRA parameters in the language backbone. Training and serving share the prompt template and tokenizer, with supervision on the correct answer tokens. Recipes and results for individual runs are kept in the [process records](process/README.md), including the [unified retraining plan and portable Linux GPU package](process/unified-retraining-2026-09-21.md). The [development guide](development.md#training-code-layout) maps training modules to their directories.
 
 ## Data preparation
 
@@ -49,7 +49,7 @@ For a [registered experiment](evaluation.md#registered-experiments), training ve
 
 ## Training method
 
-The base model is frozen and loaded in BF16. LoRA is applied to Linear layers in the language backbone. Inputs are bucketed by length, and gradient checkpointing is enabled by default. Each run trains for one epoch with warmup followed by linear learning-rate decay.
+The base model is frozen and loaded in BF16. LoRA is applied to Linear layers in the language backbone. Inputs are bucketed by length, and gradient checkpointing is enabled by default. Set the training duration with `--epochs`. Each epoch is reshuffled deterministically, with warmup followed by linear learning-rate decay across the run. `--expected-revision` rejects an unexpected base checkpoint before parameter updates.
 
 Select the objective with `--objective`. Both modes mask prompt tokens from the loss.
 
@@ -87,8 +87,6 @@ uv run --extra training python -m necro.training.data.probes
 `probes` generates boundary questions for amounts, status, Score thresholds, and candidate counts. It rejects an existing output file. Historical continuation commands and selection rules are in the [training record](process/improvement-2026-09-20.md).
 
 ## Reviewing results
-
-For the fresh multi-task experiment and portable Linux GPU package, see the [unified retraining record](process/unified-retraining-2026-09-21.md). `--epochs` defaults to one and reshuffles each epoch deterministically; `--expected-revision` rejects an unexpected base before parameter updates.
 
 Compare before/after results on the same questions, including breakdowns by task, language, and question type. Keep the training configuration, raw predictions, calibration files, and test-set fingerprint.
 

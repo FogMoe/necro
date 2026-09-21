@@ -1,10 +1,10 @@
 # False-rejection regression: repair handoff, 2026-09-21
 
-The latest condition repair rejects eligible records when all required fields exist, the gate is enabled and the numerical condition holds. The [pre-release report](../reports/pre-release-2026-09-21.md#remaining-release-blocker) is the canonical measurement record, including the direct-parent comparison, uncertainty and semantic sampling counts. Stable publication remains blocked by this regression.
+The Phase 4 condition-repair candidate rejects eligible records when all required fields exist, the gate is enabled and the numerical condition holds. The [pre-release report](../reports/pre-release-2026-09-21.md#remaining-release-blocker) is the canonical measurement record, including the direct-parent comparison, uncertainty and semantic sampling counts. This regression failed the candidate's release review.
 
 ## Reproduction evidence
 
-The committed [regression fixture](evidence/condition-false-rejections-2026-09-21.jsonl) contains all 38 observed false rejections, with the original requests, expected answers and both models' recorded responses. Its [metadata](evidence/condition-false-rejections-2026-09-21.json) records model identities, calibration, source hashes and the subset analysis. These are known failures from an exposed cohort, not an independent acceptance test.
+The committed [regression fixture](evidence/condition-false-rejections-2026-09-21.jsonl) contains all 38 observed false rejections, with the original requests, expected answers and both models' recorded responses. Its [metadata](evidence/condition-false-rejections-2026-09-21.json) records model identities, calibration, source hashes and the subset analysis. The fixture is an exposed regression cohort.
 
 One English example is `condition-v1/test/11/gt/0/en/0`:
 
@@ -51,7 +51,7 @@ Recorded probabilities come from the original full-cohort inference. The fixture
 
 Changing the question polarity balances the answer tokens, but does not change the underlying eligibility of the record. `audit_condition_matrix` checks equal coverage of the Cartesian combinations; it does not check semantic outcome balance. The measured imbalance applies to the 3,200 constructed matrix presentations. The complete training set also contains 1,556 replay presentations.
 
-The sampling issue is a concrete repair hypothesis. It has not been isolated as the sole cause of the behavior. Labels were independently checked by `rule_metadata` in [numeric_regression.py](../../src/necro/diagnostics/numeric_regression.py); changing correct labels is not the repair.
+The sampling issue is a repair hypothesis. `rule_metadata` in [numeric_regression.py](../../src/necro/diagnostics/numeric_regression.py) independently verified the labels, so the proposed intervention changes the sampling distribution.
 
 ## Bounded repair direction
 
@@ -61,7 +61,7 @@ The sampling issue is a concrete repair hypothesis. It has not been isolated as 
 4. Keep this fixture and the exposed 720-question cohort for regression only. Freeze selection before opening newly held-out expressions and source states.
 5. Before another training run, measure short-run throughput for micro batch size and checkpointing. Change training performance settings independently of the sampling experiment.
 
-The release standard remains [condition repair, task retention, export/reload/API verification and accurate reporting](release-criteria-2026-09-21.md). A lower Jev percentage gap does not resolve this defect.
+The release standard remains [condition repair, task retention, export/reload/API verification and accurate reporting](release-criteria-2026-09-21.md).
 
 ## Local artifacts and publication state
 
@@ -75,4 +75,4 @@ The release standard remains [condition repair, task retention, export/reload/AP
 
 The repository includes the small reproduction fixture and its metadata. Full weights, datasets and raw run directories remain local under Git ignore rules. Preserve them before moving this repair to another machine.
 
-No repair training was performed for this handoff. The current candidate has not completed final merged-export and API verification, and no stable model package or Hugging Face publication was produced. The earlier Phase 3 loader fix remains documented in the [export investigation](numeric-regression-2026-09-21.md).
+The Phase 4 candidate failed capability review before final export and API verification. The earlier Phase 3 loader fix is documented in the [export investigation](numeric-regression-2026-09-21.md). Subsequent weighting and resampling results are recorded in the [semantic balance trials](condition-balance-repair-2026-09-21.md).
