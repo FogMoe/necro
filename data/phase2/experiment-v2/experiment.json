@@ -1,0 +1,641 @@
+{
+  "protocol": {
+    "phase": 2,
+    "model": "Qwen/Qwen3.5-0.8B",
+    "rank": 16,
+    "training_ablation": {
+      "objectives": [
+        "answer-ce",
+        "candidate-ce"
+      ],
+      "seed": 2026,
+      "learning_rate": 3e-05,
+      "batch_size": 4,
+      "accumulation": 2
+    },
+    "max_initial_training_runs": 2,
+    "promotion_min_macro_gain": 0.02,
+    "max_legacy_family_regression": 0.03,
+    "remote_reference": "jev-1.13.0",
+    "notes": "Known phase1 test is regression only. Qrels negatives are unjudged, not verified irrelevant. Candidate retrieval is top-1 on sampled documents, not full-corpus NDCG. Synthetic oracle templates have distinct fields and test wording but share logical task families."
+  },
+  "partitions": {
+    "train": {
+      "path": "train.jsonl",
+      "sha256": "ed8482a8b9021d5f54657ea333abbaedb38484fa52a7f50886bb01568700a990",
+      "rows": 2582,
+      "source_groups": 1614,
+      "content_groups": 1851,
+      "unique_requests": 2582
+    },
+    "development": {
+      "path": "validation.jsonl",
+      "sha256": "af33030878279415a07ab041a88c709a332b2bae93c0fcc90d666bb726aea560",
+      "rows": 726,
+      "source_groups": 360,
+      "content_groups": 460,
+      "unique_requests": 726
+    },
+    "calibration": {
+      "path": "calibration.jsonl",
+      "sha256": "1cacc84dd922d83d69631e014a1b04d12e8a7f58843a0c18db66b11cc696af1e",
+      "rows": 477,
+      "source_groups": 233,
+      "content_groups": 233,
+      "unique_requests": 477
+    },
+    "test": {
+      "path": "test.jsonl",
+      "sha256": "f6bbc9a07cf70db4eae7dda484c24f72fa5f623f53b8de0ba1c96bfe2fcb2b39",
+      "rows": 775,
+      "source_groups": 345,
+      "content_groups": 345,
+      "unique_requests": 775
+    },
+    "regression": {
+      "path": "regression.jsonl",
+      "sha256": "7aaaa5d3a99e2a42fcaa77b2b5bdf5ffd997e553714a732a21984f367f0c3122",
+      "rows": 373,
+      "source_groups": 187,
+      "content_groups": 373,
+      "unique_requests": 373
+    }
+  },
+  "cleaning": {
+    "paws-train": {
+      "excluded_placeholder_ids": [
+        25002,
+        27829,
+        28517,
+        28654,
+        32067
+      ]
+    },
+    "paws-validation": {
+      "excluded_placeholder_ids": [
+        1747,
+        4273,
+        4588
+      ]
+    },
+    "paws-test": {
+      "excluded_placeholder_ids": [
+        408,
+        4448,
+        7036,
+        7174
+      ]
+    },
+    "training_length": {
+      "excluded_groups": [],
+      "max_tokens": 2048,
+      "policy": "drop whole group; never truncate labeled evidence"
+    }
+  },
+  "data_audit": {
+    "train": {
+      "families": {
+        "ordinal_rule": 360,
+        "reading_boolean": 314,
+        "candidate_extraction": 160,
+        "paraphrase": 640,
+        "inference": 393,
+        "intent": 247,
+        "numeric_rule": 340,
+        "candidate_retrieval": 128
+      },
+      "languages": {
+        "en": 1429,
+        "zh": 1153
+      },
+      "label_quality": {
+        "exact-oracle": 700,
+        "human": 1594,
+        "derived-human": 160,
+        "qrels-with-unjudged-negatives": 128
+      },
+      "removed_overlap_groups": [
+        "passage/0fd51b0a75652085a2b684c592cf21273abaa6fb4898bfce6451ac56fbff1069",
+        "passage/1c1d35e32aca0ccd97641825760a51854bf4f675e7886c1a7838407826b408c8",
+        "passage/a1bef677b1b3341c0b1b811db599c1adbf3bb04a3391b468bb054a0c9908c33c",
+        "passage/aaaeef91fffdd4bf26d5ed67d7dc8337d25a12ba2aa18a720d5d3075f5f150d8",
+        "passage/daf32378c75fb61aa97cb0ef6289aa5406bee65f9c1104fc4dd3c1617dad8afa",
+        "passage/e026bf01760d1b25ac47100f89b8528ed7f8a2eee1570b60c24bc48e7ea97696"
+      ]
+    },
+    "development": {
+      "families": {
+        "paraphrase": 100,
+        "reading_boolean": 80,
+        "candidate_extraction": 80,
+        "candidate_retrieval": 60,
+        "numeric_rule": 86,
+        "ordinal_rule": 120,
+        "inference": 100,
+        "intent": 100
+      },
+      "languages": {
+        "en": 433,
+        "zh": 293
+      },
+      "label_quality": {
+        "human": 380,
+        "derived-human": 80,
+        "qrels-with-unjudged-negatives": 60,
+        "exact-oracle": 206
+      },
+      "removed_overlap_groups": []
+    },
+    "calibration": {
+      "families": {
+        "paraphrase": 79,
+        "reading_boolean": 80,
+        "candidate_extraction": 80,
+        "candidate_retrieval": 50,
+        "numeric_rule": 68,
+        "ordinal_rule": 120
+      },
+      "languages": {
+        "en": 303,
+        "zh": 174
+      },
+      "label_quality": {
+        "human": 159,
+        "derived-human": 80,
+        "qrels-with-unjudged-negatives": 50,
+        "exact-oracle": 188
+      },
+      "removed_overlap_groups": []
+    },
+    "test": {
+      "families": {
+        "paraphrase": 119,
+        "reading_boolean": 100,
+        "candidate_extraction": 100,
+        "candidate_retrieval": 80,
+        "numeric_rule": 136,
+        "ordinal_rule": 240
+      },
+      "languages": {
+        "en": 478,
+        "zh": 297
+      },
+      "label_quality": {
+        "human": 219,
+        "derived-human": 100,
+        "qrels-with-unjudged-negatives": 80,
+        "exact-oracle": 376
+      },
+      "removed_overlap_groups": []
+    },
+    "regression": {
+      "families": {
+        "inference": 200,
+        "intent": 173
+      },
+      "languages": {
+        "en": 187,
+        "zh": 186
+      },
+      "label_quality": {
+        "human": 373
+      },
+      "removed_overlap_groups": []
+    }
+  },
+  "sources": {
+    "boolq-train.json": {
+      "dataset": "google/boolq",
+      "config": "default",
+      "split": "train",
+      "observed_repository_revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5",
+      "license": [
+        "cc-by-sa-3.0"
+      ],
+      "sampling": "seeded dispersed 50-row blocks",
+      "seed": 712,
+      "offsets": [
+        3700,
+        7950,
+        6350,
+        6250,
+        1050,
+        8800,
+        5450,
+        2500,
+        700,
+        8250,
+        3750,
+        5650
+      ],
+      "total_rows": 9427,
+      "snapshot_sha256": "3b9f06b38213ecabdaf7892cdda336a752a24c60aca283ab0a212085aa2dd0a2"
+    },
+    "boolq-validation.json": {
+      "dataset": "google/boolq",
+      "config": "default",
+      "split": "validation",
+      "observed_repository_revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5",
+      "license": [
+        "cc-by-sa-3.0"
+      ],
+      "sampling": "seeded dispersed 50-row blocks",
+      "seed": 813,
+      "offsets": [
+        800,
+        100,
+        2550,
+        1900,
+        2350,
+        3050,
+        2750,
+        1200,
+        2850,
+        3200,
+        500,
+        50,
+        1700,
+        3100,
+        1050,
+        2650
+      ],
+      "total_rows": 3270,
+      "snapshot_sha256": "ee4ac8ce7b8a68a03d0a44c912a5584abf6712e13c0f89a2439066ce48fc6a58"
+    },
+    "paws-en-test.json": {
+      "dataset": "google-research-datasets/paws-x",
+      "config": "en",
+      "split": "test",
+      "observed_repository_revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+      "license": [
+        "other"
+      ],
+      "sampling": "seeded dispersed 50-row blocks",
+      "seed": 611,
+      "offsets": [
+        1700,
+        1100,
+        400,
+        1050,
+        1750,
+        100
+      ],
+      "total_rows": 2000,
+      "snapshot_sha256": "cafd721d669c6ab414b966911fd2d9e0ae31b17748b6ddcb23db8cc270c44579"
+    },
+    "paws-en-train.json": {
+      "dataset": "google-research-datasets/paws-x",
+      "config": "en",
+      "split": "train",
+      "observed_repository_revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+      "license": [
+        "other"
+      ],
+      "sampling": "seeded dispersed 50-row blocks",
+      "seed": 611,
+      "offsets": [
+        27800,
+        17900,
+        32200,
+        6900,
+        48800,
+        32050,
+        17350,
+        28500,
+        2000,
+        31650,
+        23600,
+        9650,
+        25000,
+        28650,
+        28250,
+        32150
+      ],
+      "total_rows": 49401,
+      "snapshot_sha256": "ce175694cfc8751786b070c45249fabaa744b4d6c71534c81ec7b8c6184734f9"
+    },
+    "paws-en-validation.json": {
+      "dataset": "google-research-datasets/paws-x",
+      "config": "en",
+      "split": "validation",
+      "observed_repository_revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+      "license": [
+        "other"
+      ],
+      "sampling": "seeded dispersed 50-row blocks",
+      "seed": 611,
+      "offsets": [
+        1700,
+        1100,
+        400,
+        1050,
+        1750,
+        100
+      ],
+      "total_rows": 2000,
+      "snapshot_sha256": "6592015329f405d6fbdad6172066902cf59a4a1d8ed444d7d9ba1e2d8719ce4a"
+    },
+    "paws-zh-test.json": {
+      "dataset": "google-research-datasets/paws-x",
+      "config": "zh",
+      "split": "test",
+      "observed_repository_revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+      "license": [
+        "other"
+      ],
+      "sampling": "seeded dispersed 50-row blocks",
+      "seed": 611,
+      "offsets": [
+        1700,
+        1100,
+        400,
+        1050,
+        1750,
+        100
+      ],
+      "total_rows": 2000,
+      "snapshot_sha256": "ae49ca38f48474b57dd80ffb6cd91fb77ba1dfe54b74e63e96076af0581b0569"
+    },
+    "paws-zh-train.json": {
+      "dataset": "google-research-datasets/paws-x",
+      "config": "zh",
+      "split": "train",
+      "observed_repository_revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+      "license": [
+        "other"
+      ],
+      "sampling": "seeded dispersed 50-row blocks",
+      "seed": 611,
+      "offsets": [
+        27800,
+        17900,
+        32200,
+        6900,
+        48800,
+        32050,
+        17350,
+        28500,
+        2000,
+        31650,
+        23600,
+        9650,
+        25000,
+        28650,
+        28250,
+        32150
+      ],
+      "total_rows": 49401,
+      "snapshot_sha256": "f7ab35fc600bedb55a22fbb2289e1e18c152c6df011e92919a4689b1fcc3d3eb"
+    },
+    "paws-zh-validation.json": {
+      "dataset": "google-research-datasets/paws-x",
+      "config": "zh",
+      "split": "validation",
+      "observed_repository_revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+      "license": [
+        "other"
+      ],
+      "sampling": "seeded dispersed 50-row blocks",
+      "seed": 611,
+      "offsets": [
+        1700,
+        1100,
+        400,
+        1050,
+        1750,
+        100
+      ],
+      "total_rows": 2000,
+      "snapshot_sha256": "384b4b244dea78792a8da09cedc61377060c4672b7086db05c7953d26318bd3e"
+    },
+    "scifact-corpus.json": {
+      "dataset": "BeIR/scifact",
+      "config": "corpus",
+      "split": "corpus",
+      "observed_repository_revision": "b3b5335604bf5ee3c4447671af975ea25143d4f5",
+      "license": [
+        "cc-by-sa-4.0"
+      ],
+      "sampling": "whole split",
+      "seed": 615,
+      "offsets": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        1000,
+        1100,
+        1200,
+        1300,
+        1400,
+        1500,
+        1600,
+        1700,
+        1800,
+        1900,
+        2000,
+        2100,
+        2200,
+        2300,
+        2400,
+        2500,
+        2600,
+        2700,
+        2800,
+        2900,
+        3000,
+        3100,
+        3200,
+        3300,
+        3400,
+        3500,
+        3600,
+        3700,
+        3800,
+        3900,
+        4000,
+        4100,
+        4200,
+        4300,
+        4400,
+        4500,
+        4600,
+        4700,
+        4800,
+        4900,
+        5000,
+        5100
+      ],
+      "total_rows": 5183,
+      "snapshot_sha256": "c055457a5fc3d4da5217bba89542c978842b77ff5b077772e18cf3f256852fb0"
+    },
+    "scifact-queries.json": {
+      "dataset": "BeIR/scifact",
+      "config": "queries",
+      "split": "queries",
+      "observed_repository_revision": "b3b5335604bf5ee3c4447671af975ea25143d4f5",
+      "license": [
+        "cc-by-sa-4.0"
+      ],
+      "sampling": "whole split",
+      "seed": 615,
+      "offsets": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        1000,
+        1100
+      ],
+      "total_rows": 1109,
+      "snapshot_sha256": "81b99d9a1070571e54b12a605b7b4bf506830550406ce2788bcddf233572744b"
+    },
+    "scifact-test.json": {
+      "dataset": "BeIR/scifact-qrels",
+      "config": "default",
+      "split": "test",
+      "observed_repository_revision": "2938d17dc3b09882fdb8c12bbbe2e2dc0e75a029",
+      "license": [
+        "cc-by-sa-4.0"
+      ],
+      "sampling": "whole split",
+      "seed": 615,
+      "offsets": [
+        0,
+        100,
+        200,
+        300
+      ],
+      "total_rows": 339,
+      "snapshot_sha256": "cbfb90c0a134c573ac26da55c86111646d908cfce44389ed47ef93edf3491b04"
+    },
+    "scifact-train.json": {
+      "dataset": "BeIR/scifact-qrels",
+      "config": "default",
+      "split": "train",
+      "observed_repository_revision": "2938d17dc3b09882fdb8c12bbbe2e2dc0e75a029",
+      "license": [
+        "cc-by-sa-4.0"
+      ],
+      "sampling": "whole split",
+      "seed": 615,
+      "offsets": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "total_rows": 919,
+      "snapshot_sha256": "6c0725048916d9bb414a55cdf2e4445455ac891c791206656a5e428c2b095660"
+    },
+    "squad-train.json": {
+      "dataset": "rajpurkar/squad",
+      "config": "plain_text",
+      "split": "train",
+      "observed_repository_revision": "7b6d24c440a36b6815f21b70d25016731768db1f",
+      "license": "cc-by-sa-4.0",
+      "sampling": "seeded dispersed 50-row blocks",
+      "seed": 914,
+      "offsets": [
+        5900,
+        30700,
+        82200,
+        80250,
+        75800,
+        7850,
+        84150,
+        57950,
+        18250,
+        34400,
+        15550,
+        7550,
+        83850,
+        66350,
+        49700,
+        36850,
+        55800,
+        69850,
+        84700,
+        69550,
+        37300,
+        67500,
+        18450,
+        35400
+      ],
+      "total_rows": 87599,
+      "snapshot_sha256": "e1428eca1df9dd3c3b9225d506e0f2397164417e7bacee55f2c08f29ae7954eb"
+    },
+    "xquad-en.json": {
+      "dataset": "google/xquad",
+      "config": "xquad.en",
+      "split": "validation",
+      "observed_repository_revision": "51adfef1c1287aab1d2d91b5bead9bcfb9c68583",
+      "license": [
+        "cc-by-sa-4.0"
+      ],
+      "sampling": "whole split",
+      "seed": 611,
+      "offsets": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        1000,
+        1100
+      ],
+      "total_rows": 1190,
+      "snapshot_sha256": "86aaa07812cdb146e1b329d4859a83372ec78a571883cefb6f3d2dee6a443124"
+    },
+    "xquad-zh.json": {
+      "dataset": "google/xquad",
+      "config": "xquad.zh",
+      "split": "validation",
+      "observed_repository_revision": "51adfef1c1287aab1d2d91b5bead9bcfb9c68583",
+      "license": [
+        "cc-by-sa-4.0"
+      ],
+      "sampling": "whole split",
+      "seed": 611,
+      "offsets": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        1000,
+        1100
+      ],
+      "total_rows": 1190,
+      "snapshot_sha256": "69a5ea6455efda602bac85deb647fcae3de3c8fc126f5ef8ee4addc42b530cf3"
+    }
+  }
+}

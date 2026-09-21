@@ -1,0 +1,18 @@
+{
+  "examples": 1790,
+  "warmup": "same first request as original run_evaluation",
+  "max_probability_difference": 0.0027961790298101294,
+  "changed_argmax": 0,
+  "differences_over_tolerance": [
+    {
+      "id": "p3/xnli/test/198/zh",
+      "type": "choice",
+      "max_difference": 0.0027961790298101294
+    },
+    {
+      "id": "p3/xnli/test/1850/zh",
+      "type": "choice",
+      "max_difference": 0.0009338768473314534
+    }
+  ]
+}

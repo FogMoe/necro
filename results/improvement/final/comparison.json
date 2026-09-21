@@ -1,0 +1,13 @@
+{
+  "selected_model": "ScarletKc-Necro-0.8b",
+  "test_accuracy": 0.786096256684492,
+  "jev_test_accuracy": 0.8128342245989305,
+  "gap_percentage_points": 2.67379679144385,
+  "paired_group_bootstrap_necro_minus_jev_95_ci": [
+    -0.07754010695187166,
+    0.02406417112299465
+  ],
+  "source_groups": 187,
+  "selection": "results\\improvement\\round3",
+  "choice_temperature": 1.7211028744886598
+}

@@ -1,0 +1,57 @@
+{
+  "protocol": {
+    "reference": "jev-1.13.0",
+    "acceptance": "docs/process/phase2-acceptance.md",
+    "acceptance_sha256": "c4e66dcac34bf00d1a3c3b8fb0ef3b7e21a1bb1741d0e9059d8362cc0e97cac0",
+    "historical_exclusion_sources": {
+      "data\\lora-pilot\\train.jsonl": "baba10584b1b21d616ee3a68d860fb0e4ceb75c771ea3e9a28554eb76ff79cf8",
+      "data\\baseline.jsonl": "0ebf67f94c104846b6519caaebf3b6b540b62d4ebb7e3368d99d779a087ea0f8",
+      "data\\lora-pilot\\validation.jsonl": "3cafef6f57d547cc2f9ca5d6a5aecd8f1135d879618534cb0b7fbe15faf6fb8b",
+      "data\\improvement\\expanded\\train.jsonl": "390d9556303659de1267e6acfb66419ec92c929c2bd9a159f24a95ce7bed90f3",
+      "data\\improvement\\test-sealed.jsonl": "9ddf80506ff04aa7ac0bf520a84c7b4df1acb496b64740f027a259e72480e3e1",
+      "data\\phase2\\experiment-v3\\train.jsonl": "ad682d37df3be454127a63f3ed1be5e0012c5e8ad15856427a1aeb0f73a444d7",
+      "data\\phase2\\experiment-v3\\validation.jsonl": "545ef8678db4aac9d43b0f506fa2857c9516b6048a8a7660beaefc0106d82c85",
+      "data\\phase2\\experiment-v3\\calibration.jsonl": "04aef92a8016134a60dab5ebec03ae35793132d5fbf6507c7a7dfd2f5932b77f",
+      "data\\phase2\\experiment-v3\\regression.jsonl": "7aaaa5d3a99e2a42fcaa77b2b5bdf5ffd997e553714a732a21984f367f0c3122"
+    },
+    "six_task_test_sha256": "3ed7d6951c31d6385bf98748d5c6d4fedc401fb42c21c499d0e12011a0d3b42f",
+    "fresh_public_groups_per_family": 100,
+    "families": {
+      "paraphrase": 119,
+      "reading_boolean": 100,
+      "candidate_extraction": 100,
+      "candidate_retrieval": 80,
+      "numeric_rule": 136,
+      "ordinal_rule": 240,
+      "inference": 200,
+      "intent": 200
+    },
+    "removed_public_groups": [
+      "massive/15213",
+      "massive/2434",
+      "massive/2497",
+      "massive/2545",
+      "massive/4587",
+      "massive/5040",
+      "massive/5074",
+      "massive/5118",
+      "massive/6305"
+    ],
+    "raw_snapshots": {
+      "data\\phase2\\final-inference-en.json": "b2c4944242863bbbe2e9e374d7af5db1682b48c23061ea2cdc43c6f43807fbbf",
+      "data\\phase2\\final-inference-zh.json": "e1f5636059c2e3bd47de299e8a465ab50b80935a2dc69809733cd923f87a5625",
+      "data\\phase2\\final-intent-en.json": "acb35d10d260ebaffa246d61482f63b54bce637a4dd0110e79845d3390f06746",
+      "data\\phase2\\final-intent-zh.json": "30b6b3f1ca5ddb23a1d1f19f80f5a29e80e36630dc34d7ab9a0dbbf5de4400b5"
+    }
+  },
+  "partitions": {
+    "test": {
+      "path": "test.jsonl",
+      "sha256": "f83fcc2c3ddb5ea742f5d45c5a8880851036529c8176e1ff97b868e571befc8f",
+      "rows": 1175,
+      "source_groups": 545,
+      "content_groups": 545,
+      "unique_requests": 1175
+    }
+  }
+}

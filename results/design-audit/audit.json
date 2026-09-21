@@ -1,0 +1,59 @@
+{
+  "pilot": {
+    "rows": 994,
+    "sources": {
+      "mteb/amazon_massive_intent": 394,
+      "facebook/xnli": 400,
+      "constructed-rules": 200
+    },
+    "unique_context_strings": 989,
+    "constructed_rules_rows": 200,
+    "constructed_rules_unique_requests_without_record_id": 36
+  },
+  "expanded": {
+    "rows": 2336,
+    "sources": {
+      "mteb/amazon_massive_intent": 800,
+      "facebook/xnli": 1156,
+      "constructed-rules": 200,
+      "constructed-uncertainty": 180
+    },
+    "unique_context_strings": 2226,
+    "constructed_rules_rows": 200,
+    "constructed_rules_unique_requests_without_record_id": 33
+  },
+  "jev_probability_precision": {
+    "values": 11040,
+    "zero_gold_probabilities": 20,
+    "all_values_match_2_decimal_grid": true
+  },
+  "lineage": {
+    "round2": {
+      "initial_adapter": "results\\lora-pilot\\run1\\adapter",
+      "initial_adapter_sha256": "1c61e10e43cbe3d6ae61efb19d2db08f4d989376b5081439adb97e3a6cdd0af4",
+      "seed": 18,
+      "learning_rate": 3e-05,
+      "batch_size": 2,
+      "gradient_accumulation": 4,
+      "examples": 994
+    },
+    "round3": {
+      "initial_adapter": "results\\lora-pilot\\run1\\adapter",
+      "initial_adapter_sha256": "1c61e10e43cbe3d6ae61efb19d2db08f4d989376b5081439adb97e3a6cdd0af4",
+      "seed": 29,
+      "learning_rate": 5e-05,
+      "batch_size": 2,
+      "gradient_accumulation": 4,
+      "examples": 2336
+    },
+    "round4": {
+      "initial_adapter": "results\\improvement\\round3\\adapter",
+      "initial_adapter_sha256": "35540d941d56d4688a19a778d8ed282e4d1d19c1706637d9b2c7c7a5c007e73e",
+      "seed": 41,
+      "learning_rate": 2e-05,
+      "batch_size": 4,
+      "gradient_accumulation": 2,
+      "examples": 2336
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "dataset": "hfl/cmrc2018",
+  "revision": "597d5d0dbc2942523c89bc7fd3ba9bc4c0f78b16",
+  "files": [
+    {
+      "path": "default/test/0000.parquet",
+      "config": "default",
+      "split": "test",
+      "rows": 1002,
+      "bytes": 394683,
+      "sha256": "7cb3f679e735abdeeb37bba176042f5f0b0a62e4c4cf69884cfacf78c855ae16"
+    },
+    {
+      "path": "default/train/0000.parquet",
+      "config": "default",
+      "split": "train",
+      "rows": 10142,
+      "bytes": 3365898,
+      "sha256": "2b5ee0ce1caf754c8d164eeba467039d17a8e8b41ad7a791262869d7470826fb"
+    },
+    {
+      "path": "default/validation/0000.parquet",
+      "config": "default",
+      "split": "validation",
+      "rows": 3219,
+      "bytes": 1136115,
+      "sha256": "c3d3116e5845b8d3c44a863c1e2f973817c9f10a52e503b079ac49d4366f78b2"
+    }
+  ],
+  "sampling": "Complete split; deterministic individual/source-group sampling later"
+}

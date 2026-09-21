@@ -1,0 +1,43 @@
+{
+  "seed": 29,
+  "training_examples": 2336,
+  "nli_per_language_class": 176,
+  "types": {
+    "choice": 2036,
+    "noul": 200,
+    "score": 100
+  },
+  "languages": {
+    "zh": 1170,
+    "en": 1166
+  },
+  "calibration_examples": 198,
+  "test_examples": 374,
+  "excluded_test_groups": [
+    "massive/128",
+    "massive/189",
+    "massive/197",
+    "massive/219",
+    "massive/290",
+    "massive/3",
+    "massive/369",
+    "massive/412",
+    "massive/428",
+    "massive/443",
+    "massive/448",
+    "massive/468",
+    "massive/47"
+  ],
+  "excluded_train_groups": [
+    "massive/187",
+    "massive/267",
+    "massive/364",
+    "massive/453",
+    "massive/463",
+    "massive/521",
+    "massive/550",
+    "massive/57"
+  ],
+  "train_sha256": "390d9556303659de1267e6acfb66419ec92c929c2bd9a159f24a95ce7bed90f3",
+  "test_sha256": "9ddf80506ff04aa7ac0bf520a84c7b4df1acb496b64740f027a259e72480e3e1"
+}

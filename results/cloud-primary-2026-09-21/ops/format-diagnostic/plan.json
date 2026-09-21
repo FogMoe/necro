@@ -1,0 +1,14 @@
+{
+  "scope": "Post-hoc diagnosis on exposed equal-value regression; not acceptance",
+  "rows": 40,
+  "change": "Represent integral float operands as equal-valued integers",
+  "unchanged": [
+    "weights",
+    "calibration",
+    "mathematical values",
+    "instructions",
+    "labels"
+  ],
+  "training": false,
+  "sealed_test_opened": false
+}

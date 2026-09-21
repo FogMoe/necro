@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "necro"
+version = "0.1.0"
+description = "A local decision API backed by Qwen3.5-0.8B, with optional LoRA training."
+readme = "README.md"
+license = "Apache-2.0 AND MIT"
+license-files = ["LICENSE", "LICENSE-MIT", "THIRD_PARTY_NOTICES.md", "licenses/*"]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115,<1",
+    "httpx>=0.28,<1",
+    "numpy>=2,<3",
+    "pydantic>=2.10,<3",
+    "python-dotenv>=1,<2",
+    "uvicorn>=0.34,<1",
+]
+
+[project.optional-dependencies]
+inference = [
+    "torch>=2.10,<2.11",
+    "transformers>=5.3,<6",
+]
+training = ["necro[inference]", "peft>=0.21,<0.22"]
+data = [
+    "huggingface-hub>=1,<2",
+    "pyarrow>=21",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "ruff>=0.12", "typesafe-sdk==0.7.0"]
+
+[project.scripts]
+necro = "necro.cli:main"
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

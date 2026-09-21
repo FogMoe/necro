@@ -1,0 +1,25 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   9%|▊         | 41/473 [00:00<00:01, 370.12it/s]
+Loading weights:  18%|█▊        | 84/473 [00:00<00:01, 382.60it/s]
+Loading weights:  28%|██▊       | 132/473 [00:00<00:00, 400.97it/s]
+Loading weights:  37%|███▋      | 176/473 [00:00<00:00, 402.09it/s]
+Loading weights:  46%|████▌     | 217/473 [00:00<00:00, 395.65it/s]
+Loading weights:  63%|██████▎   | 300/473 [00:00<00:00, 531.05it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 632.92it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   7%|▋         | 35/473 [00:00<00:01, 307.78it/s]
+Loading weights:  16%|█▌        | 76/473 [00:00<00:01, 364.44it/s]
+Loading weights:  24%|██▍       | 113/473 [00:00<00:01, 322.78it/s]
+Loading weights:  31%|███       | 146/473 [00:00<00:01, 322.87it/s]
+Loading weights:  39%|███▊      | 183/473 [00:00<00:00, 329.82it/s]
+Loading weights:  46%|████▌     | 217/473 [00:00<00:00, 324.14it/s]
+Loading weights:  53%|█████▎    | 250/473 [00:00<00:00, 313.08it/s]
+Loading weights:  66%|██████▌   | 313/473 [00:00<00:00, 395.63it/s]
+Loading weights:  76%|███████▌  | 359/473 [00:00<00:00, 414.38it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 475.92it/s]

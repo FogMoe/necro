@@ -1,0 +1,96 @@
+{
+  "overall": {
+    "count": 38,
+    "accuracy": 0.2631578947368421,
+    "nll": 3.5927699380792038,
+    "brier": 1.291883712916749,
+    "ece_10_bins": 0.6611087425872858,
+    "nll_floor_sensitivity": {
+      "1e-12": 3.5927699380792038,
+      "0.001": 3.279681528573193,
+      "0.005": 2.84571172541356,
+      "0.01": 2.587445729693361
+    }
+  },
+  "groups": {
+    "constructed-condition-v1/zh/noul": {
+      "count": 31,
+      "accuracy": 0.16129032258064516,
+      "nll": 4.115729519503983,
+      "brier": 1.4511206095606277,
+      "ece_10_bins": 0.7654254990124081,
+      "nll_floor_sensitivity": {
+        "1e-12": 4.115729519503983,
+        "0.001": 3.7319437272062936,
+        "0.005": 3.1999807426880333,
+        "0.01": 2.89234616774391
+      }
+    },
+    "constructed-condition-v1/en/noul": {
+      "count": 7,
+      "accuracy": 0.7142857142857143,
+      "nll": 1.2768060774837495,
+      "brier": 0.5866917420652857,
+      "ece_10_bins": 0.3459992362742121,
+      "nll_floor_sensitivity": {
+        "1e-12": 1.2768060774837495,
+        "0.001": 1.2768060774837495,
+        "0.005": 1.2768060774837495,
+        "0.01": 1.2371723611837873
+      }
+    }
+  },
+  "families": {
+    "numeric_rule": {
+      "count": 38,
+      "accuracy": 0.2631578947368421,
+      "nll": 3.5927699380792038,
+      "brier": 1.291883712916749,
+      "ece_10_bins": 0.6611087425872858,
+      "nll_floor_sensitivity": {
+        "1e-12": 3.5927699380792038,
+        "0.001": 3.279681528573193,
+        "0.005": 2.84571172541356,
+        "0.01": 2.587445729693361
+      }
+    }
+  },
+  "macro_family_accuracy": 0.2631578947368421,
+  "metadata": {
+    "created_at": "2026-09-21T00:10:35.171046+00:00",
+    "backend": "local",
+    "model": [
+      "necro-phase5-resampled"
+    ],
+    "dataset_sha256": "7ba58aa547920ac99c03874cd2ee4484963e8678a775e0a92b4e67d056d8c5c6",
+    "evaluated_examples": 38,
+    "full_dataset_examples": 38,
+    "full_dataset_evaluated": true,
+    "evaluated_questions": 38,
+    "elapsed_seconds": 12.660962500012829,
+    "questions_per_second": 56.8677144410838,
+    "input_tokens": 122272,
+    "notes": "Evaluation results for the supplied dataset and recorded model configuration.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "adapter": "results\\phase5\\resampled\\adapter",
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "choice_temperature": null,
+    "noul_temperature": null,
+    "score_temperature": null,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.9999698386424117,
+    "candidate_mass_min": 0.9999008178710938,
+    "adapter_weights_sha256": "604057e64845d7ed14b16b70772a70a3c7492928c8506f93fa913440d85e938f",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 3.611550807952881,
+    "projected_from": "results\\phase5\\resampled\\screen-conditions",
+    "source_predictions_sha256": "3e8d5f7c499a442d268d1e6bdb6973fe7dfc7655937628e7c245a0558f3aa640",
+    "timing_scope": "elapsed_seconds describes original full evaluation before projection"
+  }
+}

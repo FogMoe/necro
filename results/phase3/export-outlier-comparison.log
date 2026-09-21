@@ -1,0 +1,16 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:  15%|█▌        | 73/473 [00:00<00:00, 708.88it/s]
+Loading weights:  30%|███       | 144/473 [00:00<00:00, 650.92it/s]
+Loading weights:  45%|████▌     | 214/473 [00:00<00:00, 671.28it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 1286.67it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   9%|▉         | 42/473 [00:00<00:01, 417.28it/s]
+Loading weights:  18%|█▊        | 84/473 [00:00<00:01, 381.60it/s]
+Loading weights:  26%|██▌       | 123/473 [00:00<00:00, 372.61it/s]
+Loading weights:  42%|████▏     | 197/473 [00:00<00:00, 508.05it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 964.56it/s]
+{"examples": 8, "saved": "results/phase3/export-outlier-comparison.json"}

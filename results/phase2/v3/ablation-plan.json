@@ -1,0 +1,22 @@
+{
+  "initial_adapter": "results/improvement/round4/adapter",
+  "initial_weights_sha256": "135241492eb962b342997d4c393776e5c2baa2ceda90f98a3db096d3951340d1",
+  "data_manifest_sha256": "650cec74dbbd225541e3200b7192bd26d054a389f889db90b9af114e3bd9681a",
+  "objectives": [
+    "answer-ce",
+    "candidate-ce"
+  ],
+  "seed": 2026,
+  "rank": 16,
+  "learning_rate": 3e-05,
+  "batch_size": 4,
+  "accumulation": 2,
+  "epochs": 1,
+  "selection_data": "data/phase2/experiment-v3/validation.jsonl",
+  "calibration": "data/phase2/calibration-v3/calibration.jsonl",
+  "final_test": "data/phase2/final-v3/test.jsonl",
+  "robustness": "data/phase2/robustness-v3/test.jsonl",
+  "acceptance": "docs/process/phase2-acceptance.md",
+  "calibration_method": "per-primitive family/group-weighted mean NLL; T in [0.5,4]; same procedure for all candidates",
+  "first_round_stop": "Two objectives, then one seed replication only if there is meaningful dev improvement."
+}

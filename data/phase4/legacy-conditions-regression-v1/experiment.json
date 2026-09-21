@@ -1,0 +1,16 @@
+{
+  "protocol": {
+    "source_test_sha256": "4d1d501fb51728a3f96270dd20c89f791db61c2f369d7477c7367159e3ff27b4",
+    "scope": "Exposed Phase 3 numeric regression. Excluded from independent acceptance."
+  },
+  "partitions": {
+    "regression": {
+      "path": "regression.jsonl",
+      "sha256": "c0f4b1fbc2233e640a33a16ad5ebea42ffd8c111b8ec66635e02ca1619276499",
+      "rows": 172,
+      "source_groups": 20,
+      "content_groups": 20,
+      "unique_requests": 172
+    }
+  }
+}

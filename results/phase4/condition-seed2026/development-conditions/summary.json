@@ -1,0 +1,97 @@
+{
+  "overall": {
+    "count": 720,
+    "accuracy": 0.9819444444444444,
+    "nll": 0.11024049418732822,
+    "brier": 0.03788003810196587,
+    "ece_10_bins": 0.04731518310509407,
+    "nll_floor_sensitivity": {
+      "1e-12": 0.11024049418732822,
+      "0.001": 0.11024049418732822,
+      "0.005": 0.11024049418732822,
+      "0.01": 0.11024049418732822
+    }
+  },
+  "groups": {
+    "constructed-condition-v1/en/noul": {
+      "count": 360,
+      "accuracy": 0.9833333333333333,
+      "nll": 0.10755565187307271,
+      "brier": 0.03574085438441791,
+      "ece_10_bins": 0.05379033117047175,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.10755565187307271,
+        "0.001": 0.10755565187307271,
+        "0.005": 0.10755565187307271,
+        "0.01": 0.10755565187307271
+      }
+    },
+    "constructed-condition-v1/zh/noul": {
+      "count": 360,
+      "accuracy": 0.9805555555555555,
+      "nll": 0.1129253365015837,
+      "brier": 0.04001922181951383,
+      "ece_10_bins": 0.043840940622032344,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.1129253365015837,
+        "0.001": 0.1129253365015837,
+        "0.005": 0.1129253365015837,
+        "0.01": 0.1129253365015837
+      }
+    }
+  },
+  "families": {
+    "numeric_rule": {
+      "count": 720,
+      "accuracy": 0.9819444444444444,
+      "nll": 0.11024049418732822,
+      "brier": 0.03788003810196587,
+      "ece_10_bins": 0.04731518310509407,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.11024049418732822,
+        "0.001": 0.11024049418732822,
+        "0.005": 0.11024049418732822,
+        "0.01": 0.11024049418732822
+      }
+    }
+  },
+  "macro_family_accuracy": 0.9819444444444444,
+  "metadata": {
+    "created_at": "2026-09-20T21:42:37.034362+00:00",
+    "backend": "local",
+    "model": [
+      "necro-phase4-condition-seed2026"
+    ],
+    "dataset_sha256": "9675e9b8c0ffd161c1d539e262bbece125b32d6948d227033b4f9458c3e71448",
+    "evaluated_examples": 720,
+    "full_dataset_examples": 720,
+    "full_dataset_evaluated": true,
+    "evaluated_questions": 720,
+    "elapsed_seconds": 86.25929129999713,
+    "questions_per_second": 25.319011634403175,
+    "input_tokens": 664611,
+    "notes": "Evaluation results for the supplied dataset and recorded model configuration.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "adapter": "results\\phase4\\condition-seed2026\\adapter",
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1,
+    "choice_temperature": 2.2710088581417547,
+    "noul_temperature": 4.387299918778504,
+    "score_temperature": 1.8877486253633866,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.999818718340589,
+    "candidate_mass_min": 0.9340276718139648,
+    "adapter_weights_sha256": "7afb1495c1149f14fabc005c49b432031d688bfe21b8287fc9e9dc0c55396754",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 2.2606844902038574,
+    "postprocessed": true,
+    "source_predictions_sha256": "dbea42c5ad0e540c39bbdc87aa57864e09f3d6d5945bf2ec2d8bf3d7d0ee564f",
+    "projected_from": "results\\phase4\\condition-seed2026\\development-brier",
+    "timing_scope": "elapsed_seconds describes original full evaluation before projection"
+  }
+}

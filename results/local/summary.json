@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T07:18:57.113001+00:00",
+    "backend": "local",
+    "model": [
+      "necro-qwen3.5-0.8b"
+    ],
+    "dataset_sha256": "0ebf67f94c104846b6519caaebf3b6b540b62d4ebb7e3368d99d779a087ea0f8",
+    "evaluated_examples": 400,
+    "elapsed_seconds": 29.198891100000765,
+    "questions_per_second": 13.699150376295952,
+    "input_tokens": 315340,
+    "notes": "Exploratory evaluation; not proof of general capability or calibrated accuracy.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.9893156772851944,
+    "candidate_mass_min": 0.9013816714286804,
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 2.4097161293029785
+  },
+  "overall": {
+    "count": 400,
+    "accuracy": 0.365,
+    "nll": 4.0924378225972315,
+    "brier": 0.8773986162819233,
+    "ece_10_bins": 0.29739112485110947
+  },
+  "groups": {
+    "facebook/xnli/en/choice": {
+      "count": 100,
+      "accuracy": 0.37,
+      "nll": 1.226706106377751,
+      "brier": 0.734700875048146,
+      "ece_10_bins": 0.2668979884240439
+    },
+    "mteb/amazon_massive_intent/en/choice": {
+      "count": 100,
+      "accuracy": 0.39,
+      "nll": 6.3268654873827135,
+      "brier": 0.8371050027387403,
+      "ece_10_bins": 0.1725620594275655
+    },
+    "facebook/xnli/zh/choice": {
+      "count": 100,
+      "accuracy": 0.34,
+      "nll": 1.9156937407825863,
+      "brier": 1.0556799534483456,
+      "ece_10_bins": 0.5282068057237422
+    },
+    "mteb/amazon_massive_intent/zh/choice": {
+      "count": 100,
+      "accuracy": 0.36,
+      "nll": 6.900485955845873,
+      "brier": 0.8821086338924615,
+      "ece_10_bins": 0.24419734379863647
+    }
+  }
+}

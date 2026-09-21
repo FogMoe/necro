@@ -1,0 +1,52 @@
+{
+  "registered_at": "2026-09-20T23:53:48.175003+00:00",
+  "condition_test": {
+    "path": "data\\phase5\\condition-balance-v1\\test.jsonl",
+    "sha256": "9b0be46574861a95acae954415645d51bcddf300a165a44bce90af35c90b2501",
+    "source_groups": 24,
+    "questions": 4800,
+    "role": "new independent expressions and source states; no inference before freeze",
+    "minimum_accuracy_per_language": 0.95,
+    "slices": [
+      "eligible",
+      "complete",
+      "gate_false",
+      "missing"
+    ],
+    "parent_complete_and_eligible_margin": 0.02,
+    "absolute_minimum_slices": [
+      "gate_false",
+      "missing"
+    ],
+    "parent_retention_slices": [
+      "eligible",
+      "complete"
+    ]
+  },
+  "task_regression": {
+    "source": "data\\phase4\\phase3-regression-v1\\regression.jsonl",
+    "sha256": "4d1d501fb51728a3f96270dd20c89f791db61c2f369d7477c7367159e3ff27b4",
+    "role": "previously exposed; retained development candidate must not lose any nonnumeric family beyond2pp from direct parent and Phase4 repaired candidate",
+    "language_alert": "greater than5pp decrease with negative source-group interval"
+  },
+  "known_conditions": {
+    "source": "data/phase4/condition-regression-v1/regression.jsonl",
+    "sha256": "75c818270d76a92b3faab3f9ebc7e8720bc7e405208e7703f9935cbdb2f11b1d",
+    "role": "exposed diagnostic regression, never independent acceptance"
+  },
+  "reference": {
+    "adapter": "results/phase3/instruction-seed2026/adapter",
+    "calibration": "results/phase3/instruction-seed2026/calibration-brier-fit.json"
+  },
+  "runtime": {
+    "maximum_reload_probability_difference": 1e-05,
+    "changed_decisions": 0,
+    "complete_cohorts": [
+      "new conditions",
+      "eight-task regression"
+    ],
+    "real_sdk_http": true
+  },
+  "report": "Existing base and Jev comparisons reuse same-request predictions. No new Jev benchmark required for repair selection. Publish actual remaining errors and uncertainty; no Hub upload is performed by this run.",
+  "amendment_sha256": "8ef3d021e7e290cb9581a7f731c85ae06d0cced9c08691b8cbe7dbf64bfb3e8a"
+}

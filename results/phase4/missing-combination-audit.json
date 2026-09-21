@@ -1,0 +1,240 @@
+{
+  "v1": {
+    "gate_missing_comparison_true": {
+      "style-0/eq/en/False": 1,
+      "style-0/eq/en/True": 1,
+      "style-0/eq/zh/False": 1,
+      "style-0/eq/zh/True": 1,
+      "style-0/ge/en/False": 1,
+      "style-0/ge/en/True": 1,
+      "style-0/ge/zh/False": 1,
+      "style-0/ge/zh/True": 1,
+      "style-0/gt/en/False": 1,
+      "style-0/gt/en/True": 1,
+      "style-0/gt/zh/False": 1,
+      "style-0/gt/zh/True": 1,
+      "style-0/le/en/False": 1,
+      "style-0/le/en/True": 1,
+      "style-0/le/zh/False": 1,
+      "style-0/le/zh/True": 1,
+      "style-1/eq/en/False": 1,
+      "style-1/eq/en/True": 1,
+      "style-1/eq/zh/False": 1,
+      "style-1/eq/zh/True": 1,
+      "style-1/ge/en/False": 2,
+      "style-1/ge/en/True": 2,
+      "style-1/ge/zh/False": 2,
+      "style-1/ge/zh/True": 2,
+      "style-1/le/en/False": 1,
+      "style-1/le/en/True": 1,
+      "style-1/le/zh/False": 1,
+      "style-1/le/zh/True": 1,
+      "style-2/eq/en/False": 1,
+      "style-2/eq/en/True": 1,
+      "style-2/eq/zh/False": 1,
+      "style-2/eq/zh/True": 1,
+      "style-2/ge/en/False": 2,
+      "style-2/ge/en/True": 2,
+      "style-2/ge/zh/False": 2,
+      "style-2/ge/zh/True": 2,
+      "style-2/gt/en/False": 1,
+      "style-2/gt/en/True": 1,
+      "style-2/gt/zh/False": 1,
+      "style-2/gt/zh/True": 1,
+      "style-2/le/en/False": 2,
+      "style-2/le/en/True": 2,
+      "style-2/le/zh/False": 2,
+      "style-2/le/zh/True": 2,
+      "style-2/lt/en/False": 1,
+      "style-2/lt/en/True": 1,
+      "style-2/lt/zh/False": 1,
+      "style-2/lt/zh/True": 1,
+      "style-3/ge/en/False": 1,
+      "style-3/ge/en/True": 1,
+      "style-3/ge/zh/False": 1,
+      "style-3/ge/zh/True": 1,
+      "style-3/gt/en/False": 1,
+      "style-3/gt/en/True": 1,
+      "style-3/gt/zh/False": 1,
+      "style-3/gt/zh/True": 1,
+      "style-3/le/en/False": 1,
+      "style-3/le/en/True": 1,
+      "style-3/le/zh/False": 1,
+      "style-3/le/zh/True": 1,
+      "style-3/lt/en/False": 1,
+      "style-3/lt/en/True": 1,
+      "style-3/lt/zh/False": 1,
+      "style-3/lt/zh/True": 1
+    }
+  },
+  "v2": {
+    "gate_missing_comparison_true": {
+      "style-0/eq/en/False": 1,
+      "style-0/eq/en/True": 1,
+      "style-0/eq/zh/False": 1,
+      "style-0/eq/zh/True": 1,
+      "style-0/ge/en/False": 2,
+      "style-0/ge/en/True": 2,
+      "style-0/ge/zh/False": 2,
+      "style-0/ge/zh/True": 2,
+      "style-0/gt/en/False": 1,
+      "style-0/gt/en/True": 1,
+      "style-0/gt/zh/False": 1,
+      "style-0/gt/zh/True": 1,
+      "style-0/le/en/False": 2,
+      "style-0/le/en/True": 2,
+      "style-0/le/zh/False": 2,
+      "style-0/le/zh/True": 2,
+      "style-0/lt/en/False": 1,
+      "style-0/lt/en/True": 1,
+      "style-0/lt/zh/False": 1,
+      "style-0/lt/zh/True": 1,
+      "style-1/ge/en/False": 1,
+      "style-1/ge/en/True": 1,
+      "style-1/ge/zh/False": 1,
+      "style-1/ge/zh/True": 1,
+      "style-1/gt/en/False": 1,
+      "style-1/gt/en/True": 1,
+      "style-1/gt/zh/False": 1,
+      "style-1/gt/zh/True": 1,
+      "style-1/le/en/False": 1,
+      "style-1/le/en/True": 1,
+      "style-1/le/zh/False": 1,
+      "style-1/le/zh/True": 1,
+      "style-1/lt/en/False": 1,
+      "style-1/lt/en/True": 1,
+      "style-1/lt/zh/False": 1,
+      "style-1/lt/zh/True": 1,
+      "style-2/eq/en/False": 1,
+      "style-2/eq/en/True": 1,
+      "style-2/eq/zh/False": 1,
+      "style-2/eq/zh/True": 1,
+      "style-2/ge/en/False": 1,
+      "style-2/ge/en/True": 1,
+      "style-2/ge/zh/False": 1,
+      "style-2/ge/zh/True": 1,
+      "style-2/gt/en/False": 1,
+      "style-2/gt/en/True": 1,
+      "style-2/gt/zh/False": 1,
+      "style-2/gt/zh/True": 1,
+      "style-2/le/en/False": 1,
+      "style-2/le/en/True": 1,
+      "style-2/le/zh/False": 1,
+      "style-2/le/zh/True": 1,
+      "style-3/eq/en/False": 1,
+      "style-3/eq/en/True": 1,
+      "style-3/eq/zh/False": 1,
+      "style-3/eq/zh/True": 1,
+      "style-3/ge/en/False": 2,
+      "style-3/ge/en/True": 2,
+      "style-3/ge/zh/False": 2,
+      "style-3/ge/zh/True": 2,
+      "style-3/le/en/False": 1,
+      "style-3/le/en/True": 1,
+      "style-3/le/zh/False": 1,
+      "style-3/le/zh/True": 1
+    }
+  },
+  "remaining_missing_failures": [
+    {
+      "id": "p3-numeric_rules/test/4/zh/4",
+      "state": {
+        "stock": 47,
+        "requested": 47
+      },
+      "expected": false,
+      "predicted": true,
+      "metadata": {
+        "operator": "eq",
+        "fields": [
+          "stock",
+          "requested",
+          "warehouse_open"
+        ],
+        "negated": false,
+        "case": "missing",
+        "missing_fields": [
+          "warehouse_open"
+        ],
+        "relation": "eq",
+        "language": "zh",
+        "atomic": false
+      }
+    },
+    {
+      "id": "p3-numeric_rules/test/4/en/4",
+      "state": {
+        "stock": 47,
+        "requested": 47
+      },
+      "expected": false,
+      "predicted": true,
+      "metadata": {
+        "operator": "eq",
+        "fields": [
+          "stock",
+          "requested",
+          "warehouse_open"
+        ],
+        "negated": false,
+        "case": "missing",
+        "missing_fields": [
+          "warehouse_open"
+        ],
+        "relation": "eq",
+        "language": "en",
+        "atomic": false
+      }
+    },
+    {
+      "id": "p3-numeric_rules/test/12/en/4",
+      "state": {
+        "stock": 408,
+        "requested": 408
+      },
+      "expected": true,
+      "predicted": false,
+      "metadata": {
+        "operator": "le",
+        "fields": [
+          "stock",
+          "requested",
+          "warehouse_open"
+        ],
+        "negated": true,
+        "case": "missing",
+        "missing_fields": [
+          "warehouse_open"
+        ],
+        "relation": "eq",
+        "language": "en",
+        "atomic": false
+      }
+    },
+    {
+      "id": "p3-numeric_rules/test/0/en/4",
+      "state": {
+        "stock": 444,
+        "requested": 444
+      },
+      "expected": true,
+      "predicted": false,
+      "metadata": {
+        "operator": "ge",
+        "fields": [
+          "stock",
+          "requested",
+          "warehouse_open"
+        ],
+        "negated": true,
+        "case": "missing",
+        "missing_fields": [
+          "warehouse_open"
+        ],
+        "relation": "eq",
+        "language": "en",
+        "atomic": false
+      }
+    }
+  ]
+}

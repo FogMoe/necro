@@ -1,0 +1,29 @@
+{
+  "hypothesis": "Complete positive intent coverage and individually sampled diverse NLI plus fresh QA and retention replay repair prefix/block sampling bias. No Phase 3 test predictions before frozen selection.",
+  "data": "data\\phase3\\coverage-v1",
+  "data_manifest_sha256": "cfd44543e92de15b4487889c01b4da5360d2917feef4d23d10161b1cf4061739",
+  "data_build_provenance_sha256": "bc872821c1ee647664e5137b2dd1c599c833839f0e0b1723cf64d83fc26522f2",
+  "parent": "results/phase2/v3/selected/adapter",
+  "parent_sha256": "4c2143d4a27cfb6859a71dd98354e936b94176d6c837994b610774bde92db70f",
+  "objective": "answer-ce",
+  "learning_rate": 3e-05,
+  "batch_size": 4,
+  "accumulation": 2,
+  "epochs": 1,
+  "seed": 2026,
+  "rank": 16,
+  "alpha": 32,
+  "examples": 4076,
+  "calibration_bounds": [
+    0.5,
+    8.0
+  ],
+  "selection": "Compare with the same frozen Phase 2 parent on new development. Prefer task-macro accuracy; inspect paired source-group uncertainty and retention. A gain of >=1 pp or recovery of >=5 pp in the weakest family without macro loss justifies a seed replication; material regressions require review. Freeze both baseline and selected candidate with per-model calibration before final test. No indefinite grid search.",
+  "new_test_exposed": false,
+  "gates_changed": false,
+  "development_robustness": {
+    "path": "data/phase3/development-robustness-v1",
+    "manifest_sha256": "fcc65ff77bb70c796701f05f8934b82b614b62a7f499d63459cd2d401c44954a",
+    "scope": "Predefined same perturbations applied to development for debugging; new final robustness remains sealed."
+  }
+}

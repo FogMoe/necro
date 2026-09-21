@@ -1,0 +1,16 @@
+{
+  "reason": "Answer CE has slightly higher macro accuracy and less legacy regression; candidate CE adds no observed benefit. Source isolation corrected before any final predictions.",
+  "parent": "results/phase2/v3/answer-ce/adapter",
+  "parent_sha256": "ac1558abba6675da93a2958bfd2ab86deaee9903926cf1c4a10cf197aa62c3b3",
+  "data": "data/phase2/refinement-v2",
+  "data_manifest_sha256": "a082d8535360b766b97fd021c67df436895661d4605ec65d0391cc163d71483c",
+  "strict_holdouts": "data/phase2/strict-v1",
+  "strict_holdouts_manifest_sha256": "4cefa2583fb6ffd5de08adc4a95e0e3223d8dddb52c45b25380ab3c2cddae852",
+  "objective": "answer-ce",
+  "learning_rate": 3e-05,
+  "seed": 2026,
+  "batch_size": 4,
+  "accumulation": 2,
+  "epochs": 1,
+  "next_step": "If meaningful improvement without retention failure, repeat this refinement from the same parent with seed 2027."
+}

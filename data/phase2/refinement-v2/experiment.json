@@ -1,0 +1,25 @@
+{
+  "protocol": {
+    "strict_holdouts_manifest_sha256": "4cefa2583fb6ffd5de08adc4a95e0e3223d8dddb52c45b25380ab3c2cddae852",
+    "source": "data\\phase2\\refinement-v1\\train.jsonl",
+    "removed_groups": []
+  },
+  "partitions": {
+    "train": {
+      "path": "train.jsonl",
+      "sha256": "8ce4bad5e65218bfa04af2572d7205cad2b31e4428397162716b72f983c04d87",
+      "rows": 2800,
+      "source_groups": 1596,
+      "content_groups": 1817,
+      "unique_requests": 2800
+    },
+    "development": {
+      "path": "validation.jsonl",
+      "sha256": "00defa772515463fc1bca942331e5652dcd020e2e8225f7b9d6822de9795c901",
+      "rows": 707,
+      "source_groups": 305,
+      "content_groups": 305,
+      "unique_requests": 707
+    }
+  }
+}

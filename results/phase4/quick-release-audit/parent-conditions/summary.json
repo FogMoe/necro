@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T22:54:45.263916+00:00",
+    "backend": "local",
+    "model": [
+      "necro-phase3-instruction-seed2026"
+    ],
+    "dataset_sha256": "75c818270d76a92b3faab3f9ebc7e8720bc7e405208e7703f9935cbdb2f11b1d",
+    "evaluated_examples": 720,
+    "full_dataset_examples": 720,
+    "full_dataset_evaluated": true,
+    "evaluated_questions": 720,
+    "elapsed_seconds": 13.094305999999051,
+    "questions_per_second": 54.98573196624947,
+    "input_tokens": 122272,
+    "notes": "Evaluation results for the supplied dataset and recorded model configuration.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "adapter": "results\\phase3\\instruction-seed2026\\adapter",
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "choice_temperature": 1.7817974362806783,
+    "noul_temperature": 2.9966141537533626,
+    "score_temperature": 0.5,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.9999039222796758,
+    "candidate_mass_min": 0.9997101426124573,
+    "adapter_weights_sha256": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 1.7317500114440918
+  },
+  "overall": {
+    "count": 720,
+    "accuracy": 0.8583333333333333,
+    "nll": 0.32372234038161074,
+    "brier": 0.20537894519587527,
+    "ece_10_bins": 0.07950066654167288,
+    "nll_floor_sensitivity": {
+      "1e-12": 0.32372234038161074,
+      "0.001": 0.32372234038161074,
+      "0.005": 0.32372234038161074,
+      "0.01": 0.32372234038161074
+    }
+  },
+  "groups": {
+    "constructed-condition-v1/zh/noul": {
+      "count": 360,
+      "accuracy": 0.8805555555555555,
+      "nll": 0.2627676001730051,
+      "brier": 0.16614494446653572,
+      "ece_10_bins": 0.09171479584105559,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.2627676001730051,
+        "0.001": 0.2627676001730051,
+        "0.005": 0.2627676001730051,
+        "0.01": 0.2627676001730051
+      }
+    },
+    "constructed-condition-v1/en/noul": {
+      "count": 360,
+      "accuracy": 0.8361111111111111,
+      "nll": 0.3846770805902163,
+      "brier": 0.24461294592521482,
+      "ece_10_bins": 0.08557527715013884,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.3846770805902163,
+        "0.001": 0.3846770805902163,
+        "0.005": 0.3846770805902163,
+        "0.01": 0.3846770805902163
+      }
+    }
+  },
+  "families": {
+    "numeric_rule": {
+      "count": 720,
+      "accuracy": 0.8583333333333333,
+      "nll": 0.32372234038161074,
+      "brier": 0.20537894519587527,
+      "ece_10_bins": 0.07950066654167288,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.32372234038161074,
+        "0.001": 0.32372234038161074,
+        "0.005": 0.32372234038161074,
+        "0.01": 0.32372234038161074
+      }
+    }
+  },
+  "macro_family_accuracy": 0.8583333333333333
+}

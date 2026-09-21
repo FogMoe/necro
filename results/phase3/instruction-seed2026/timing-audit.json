@@ -1,0 +1,17 @@
+{
+  "training_wall_seconds": 24618.154712499992,
+  "long_intervals": [
+    {
+      "from_step": 151,
+      "to_step": 152,
+      "seconds": 1805.2379497000074
+    },
+    {
+      "from_step": 152,
+      "to_step": 153,
+      "seconds": 22143.694280099997
+    }
+  ],
+  "sum_intervals_under_60_seconds": 667.5275273000007,
+  "note": "Wall counter spans Windows sleep/standby events. Remaining step intervals approximate active training steps but do not measure GPU kernel time; the long intervals also contain unmeasured active work. Do not report 6.8 hours as uninterrupted GPU training."
+}

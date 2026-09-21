@@ -1,0 +1,6 @@
+{
+  "event": "profile",
+  "seconds_per_microbatch": 0.45869607500026177,
+  "estimated_training_seconds": 208.94625169669607,
+  "peak_allocated_gib": 2.254387855529785
+}

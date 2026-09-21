@@ -1,3 +1,5 @@
+# [Abandoned: insufficient experimental experience led to the complete failure of this Jev-like fine-tuning project. Read the full retrospective.](EXPERIMENT_RETROSPECTIVE_2026-09-21.md)
+
 # Necro
 
 Necro uses Qwen3.5-0.8B to make choices, answer yes/no questions, and assign ordered scores locally. Give it context, a question, and candidate answers to get a structured result with probabilities. It scores answer labels directly, without generating an explanation or parsing generated JSON.
@@ -36,6 +38,7 @@ The SDK is included in the project's development dependencies. [examples/request
 
 ## Documentation
 
+- [Experiment backup and reproduction](REPRODUCING.md): datasets, LoRA adapters, original results, checksums, and reproduction commands.
 - [API](docs/api.md): requests, responses, probabilities, and scores.
 - [Evaluation](docs/evaluation.md): datasets, model comparisons, calibration, and latency.
 - [Training](docs/training.md): LoRA data preparation, training, and validation.

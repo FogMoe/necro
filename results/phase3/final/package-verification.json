@@ -1,0 +1,564 @@
+{
+  "model": "ScarletKc-Necro-0.8b",
+  "dataset_sha256": "4d1d501fb51728a3f96270dd20c89f791db61c2f369d7477c7367159e3ff27b4",
+  "adapter_weights_sha256": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13",
+  "merged_weights": {
+    "model.safetensors": {
+      "bytes": 1706030528,
+      "sha256": "0bc2cc78ea75f12ca2f94a120179b97650d34a8399a9a870d5bba7e2d0fe2937"
+    }
+  },
+  "reload": {
+    "examples": 1790,
+    "full_dataset": true,
+    "max_probability_difference": 0.0,
+    "changed_argmax": 0,
+    "tolerance": 1e-05,
+    "load_seconds": 1.9973941999924136
+  },
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "loaded_allocated_gib": 1.6172747611999512,
+  "peak_inference_allocated_gib": 2.2936301231384277,
+  "official_sdk": {
+    "package": "typesafe-sdk",
+    "version": "0.7.0",
+    "mixed_primitives": true,
+    "structured_legend": true,
+    "real_model_http": true
+  },
+  "dynamic_choice": [
+    {
+      "candidates": 1,
+      "target": "option_0",
+      "choice": "option_0",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 26,
+      "target": "option_0",
+      "choice": "option_0",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 26,
+      "target": "option_13",
+      "choice": "option_13",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 26,
+      "target": "option_25",
+      "choice": "option_25",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 27,
+      "target": "option_0",
+      "choice": "option_0",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 27,
+      "target": "option_13",
+      "choice": "option_13",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 27,
+      "target": "option_26",
+      "choice": "option_26",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 60,
+      "target": "option_0",
+      "choice": "option_0",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 60,
+      "target": "option_30",
+      "choice": "option_3",
+      "exact_match": false,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 60,
+      "target": "option_59",
+      "choice": "option_5",
+      "exact_match": false,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 90,
+      "target": "option_0",
+      "choice": "option_0",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 90,
+      "target": "option_45",
+      "choice": "option_4",
+      "exact_match": false,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 90,
+      "target": "option_89",
+      "choice": "option_89",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 91,
+      "target": "option_0",
+      "choice": "option_0",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 91,
+      "target": "option_45",
+      "choice": "option_45",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 91,
+      "target": "option_90",
+      "choice": "option_9",
+      "exact_match": false,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 255,
+      "target": "option_0",
+      "choice": "option_0",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 255,
+      "target": "option_127",
+      "choice": "option_127",
+      "exact_match": true,
+      "probability_sum": 1.0
+    },
+    {
+      "candidates": 255,
+      "target": "option_254",
+      "choice": "option_25",
+      "exact_match": false,
+      "probability_sum": 1.0
+    }
+  ],
+  "latency_local": [
+    {
+      "questions_per_request": 1,
+      "repeats": 20,
+      "warmup_requests": 1,
+      "p50_ms": 46.4464999968186,
+      "p95_ms": 79.03271499526456,
+      "latencies_seconds": [
+        0.0618562000017846,
+        0.04917399999976624,
+        0.03912119999586139,
+        0.03704949999519158,
+        0.04981570001109503,
+        0.040897300001233816,
+        0.03836130000127014,
+        0.05257339999661781,
+        0.037102900008903816,
+        0.0588047000055667,
+        0.03783620000467636,
+        0.03895669999474194,
+        0.08863180001208093,
+        0.043718999993870966,
+        0.05051559999992605,
+        0.05166330000793096,
+        0.07852749999437947,
+        0.037609599996358156,
+        0.053659900004277006,
+        0.03858890000265092
+      ],
+      "input_tokens": [
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109,
+        109
+      ],
+      "request": {
+        "model": "ScarletKc-Necro-0.8b",
+        "state": "I was charged twice. Please refund the duplicate payment.",
+        "questions": {
+          "q0": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          }
+        }
+      },
+      "scope": "Serial HTTP, connection reused, no client response cache; provider caching is unknown. Batch case repeats one short Choice question."
+    },
+    {
+      "questions_per_request": 8,
+      "repeats": 20,
+      "warmup_requests": 1,
+      "p50_ms": 102.33495000284165,
+      "p95_ms": 113.68661500673625,
+      "latencies_seconds": [
+        0.10106220000307076,
+        0.10418429999845102,
+        0.10005500000261236,
+        0.10191250000207219,
+        0.10094619999290444,
+        0.1128010000102222,
+        0.11381799999799114,
+        0.1032858000107808,
+        0.10790930000075605,
+        0.10250850000011269,
+        0.11035470000933856,
+        0.10174849999020807,
+        0.09977610000350978,
+        0.10216140000557061,
+        0.10826310000265948,
+        0.10390780000307132,
+        0.09747439999773633,
+        0.11367970000719652,
+        0.09965920000104234,
+        0.10161040000093635
+      ],
+      "input_tokens": [
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872,
+        872
+      ],
+      "request": {
+        "model": "ScarletKc-Necro-0.8b",
+        "state": "I was charged twice. Please refund the duplicate payment.",
+        "questions": {
+          "q0": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q1": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q2": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q3": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q4": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q5": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q6": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q7": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          }
+        }
+      },
+      "scope": "Serial HTTP, connection reused, no client response cache; provider caching is unknown. Batch case repeats one short Choice question."
+    }
+  ],
+  "latency_jev": [
+    {
+      "questions_per_request": 1,
+      "repeats": 20,
+      "warmup_requests": 1,
+      "p50_ms": 283.0889000033494,
+      "p95_ms": 305.4521350080904,
+      "latencies_seconds": [
+        0.2721622999961255,
+        0.2800264999968931,
+        0.28146829998877365,
+        0.2841523000097368,
+        0.29730460001155734,
+        0.282025499996962,
+        0.2851068000018131,
+        0.30583470000419766,
+        0.280500499997288,
+        0.299970599997323,
+        0.291990599987912,
+        0.3054320000082953,
+        0.27652990000206046,
+        0.3050614000094356,
+        0.2353587000106927,
+        0.26182369999878574,
+        0.2745355000079144,
+        0.2534159000060754,
+        0.29789199998776894,
+        0.2951368000067305
+      ],
+      "input_tokens": [
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335,
+        335
+      ],
+      "request": {
+        "model": "jev-1.13.0",
+        "state": "I was charged twice. Please refund the duplicate payment.",
+        "questions": {
+          "q0": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          }
+        }
+      },
+      "scope": "Serial HTTP, connection reused, no client response cache; provider caching is unknown. Batch case repeats one short Choice question."
+    },
+    {
+      "questions_per_request": 8,
+      "repeats": 20,
+      "warmup_requests": 1,
+      "p50_ms": 283.06595000321977,
+      "p95_ms": 341.2579700023344,
+      "latencies_seconds": [
+        0.2668833000061568,
+        0.33427490000030957,
+        0.3168852999951923,
+        0.2707578999979887,
+        0.28775210000458173,
+        0.27085830000578426,
+        0.3316169000027003,
+        0.2778650000109337,
+        0.2918333999987226,
+        0.268527099993662,
+        0.2729958000127226,
+        0.26216779999958817,
+        0.295187799987616,
+        0.2654413999989629,
+        0.3064377999980934,
+        0.29223440001078416,
+        0.2769891999923857,
+        0.3387261000025319,
+        0.2783798000018578,
+        0.38936349999858066
+      ],
+      "input_tokens": [
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790,
+        790
+      ],
+      "request": {
+        "model": "jev-1.13.0",
+        "state": "I was charged twice. Please refund the duplicate payment.",
+        "questions": {
+          "q0": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q1": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q2": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q3": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q4": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q5": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q6": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          },
+          "q7": {
+            "type": "choice",
+            "instructions": "Which team should handle this request?",
+            "criteria": {
+              "billing": "Payments and refunds",
+              "technical": "Software bugs",
+              "sales": "New product purchases"
+            }
+          }
+        }
+      },
+      "scope": "Serial HTTP, connection reused, no client response cache; provider caching is unknown. Batch case repeats one short Choice question."
+    }
+  ],
+  "latency_caveat": "Jev measurements include remote HTTPS network and service overhead; local measurements use loopback.",
+  "passed": true
+}

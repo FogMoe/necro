@@ -1,0 +1,11 @@
+{
+  "buffer_count": 4,
+  "buffer_differences": [],
+  "config_differences": {
+    "_name_or_path": {
+      "adapter": "Qwen/Qwen3.5-0.8B",
+      "merged": "C:\\Users\\kc\\Documents\\GitHub\\necro\\artifacts\\ScarletKc-Necro-0.8b-phase3"
+    }
+  },
+  "module_class_differences": {}
+}

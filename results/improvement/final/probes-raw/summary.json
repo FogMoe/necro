@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T08:40:06.549882+00:00",
+    "backend": "local",
+    "model": [
+      "ScarletKc-Necro-0.8b"
+    ],
+    "dataset_sha256": "ab0c279b243f4e3a31fc7bdd40fa6c938132c410ff0b16b2f12478ad29260a8c",
+    "evaluated_examples": 64,
+    "elapsed_seconds": 4.676161999996111,
+    "questions_per_second": 13.68643772393968,
+    "input_tokens": 30206,
+    "notes": "Exploratory evaluation; not proof of general capability or calibrated accuracy.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "adapter": "results/improvement/selected/adapter",
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "choice_temperature": null,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.9988002935424447,
+    "candidate_mass_min": 0.9926623702049255,
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 6.272343635559082
+  },
+  "overall": {
+    "count": 64,
+    "accuracy": 0.875,
+    "nll": 0.15466915240533843,
+    "brier": 0.11601683313394742,
+    "ece_10_bins": 0.08266505975880746
+  },
+  "groups": {
+    "constructed-heldout-probes/zh/noul": {
+      "count": 16,
+      "accuracy": 0.75,
+      "nll": 0.31852079189685967,
+      "brier": 0.2530141276703546,
+      "ece_10_bins": 0.18106449764052132
+    },
+    "constructed-heldout-probes/zh/score": {
+      "count": 8,
+      "accuracy": 0.875,
+      "nll": 0.10356983076324423,
+      "brier": 0.07083515992842501,
+      "ece_10_bins": 0.0745190813304488
+    },
+    "constructed-heldout-probes/zh/choice": {
+      "count": 8,
+      "accuracy": 1.0,
+      "nll": 0.007752122116404027,
+      "brier": 0.0002255163718114222,
+      "ece_10_bins": 0.007668462348473404
+    },
+    "constructed-heldout-probes/en/noul": {
+      "count": 16,
+      "accuracy": 0.8125,
+      "nll": 0.22647767341627761,
+      "brier": 0.17290817323733068,
+      "ece_10_bins": 0.09141044393605678
+    },
+    "constructed-heldout-probes/en/score": {
+      "count": 8,
+      "accuracy": 1.0,
+      "nll": 0.013655362885237061,
+      "brier": 0.0009668394909960522,
+      "ece_10_bins": 0.01336872366713604
+    },
+    "constructed-heldout-probes/en/choice": {
+      "count": 8,
+      "accuracy": 1.0,
+      "nll": 0.022378972851547572,
+      "brier": 0.004262547464976318,
+      "ece_10_bins": 0.02081432757124549
+    }
+  },
+  "score_mae": 0.04827796253654838
+}

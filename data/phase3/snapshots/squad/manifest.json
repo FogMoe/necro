@@ -1,0 +1,23 @@
+{
+  "dataset": "rajpurkar/squad",
+  "revision": "00279cb629a5422d5ebdfbd19f0cedf7fed4b918",
+  "files": [
+    {
+      "path": "plain_text/train/0000.parquet",
+      "config": "plain_text",
+      "split": "train",
+      "rows": 87599,
+      "bytes": 14458314,
+      "sha256": "ea7f52bac024f6b1bdc7aaa2a4ee302cba8c2fdc8d4a235cf18a9a5196b6175b"
+    },
+    {
+      "path": "plain_text/validation/0000.parquet",
+      "config": "plain_text",
+      "split": "validation",
+      "rows": 10570,
+      "bytes": 1819889,
+      "sha256": "8c6646d36bd5a95061e076788cf3161d11f6f3e7d625dac7a83bbed0a49f69f7"
+    }
+  ],
+  "sampling": "Complete split; deterministic individual/source-group sampling later"
+}

@@ -1,0 +1,31 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:  11%|█▏        | 54/473 [00:00<00:00, 525.32it/s]
+Loading weights:  25%|██▍       | 116/473 [00:00<00:00, 579.65it/s]
+Loading weights:  37%|███▋      | 175/473 [00:00<00:00, 579.08it/s]
+Loading weights:  51%|█████     | 239/473 [00:00<00:00, 602.29it/s]
+Loading weights:  68%|██████▊   | 324/473 [00:00<00:00, 683.47it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 911.00it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"completed": "parent-conditions"}
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:  14%|█▍        | 68/473 [00:00<00:00, 594.85it/s]
+Loading weights:  27%|██▋       | 128/473 [00:00<00:00, 474.77it/s]
+Loading weights:  37%|███▋      | 177/473 [00:00<00:00, 404.84it/s]
+Loading weights:  52%|█████▏    | 245/473 [00:00<00:00, 491.80it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 844.46it/s]
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"completed": "base-regression", "macro": {"local": 0.8943452242424169, "reference": 0.49039696996990456, "delta": 0.40394825427251235}}
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   9%|▊         | 41/473 [00:00<00:01, 397.29it/s]
+Loading weights:  20%|█▉        | 94/473 [00:00<00:00, 442.01it/s]
+Loading weights:  33%|███▎      | 157/473 [00:00<00:00, 522.34it/s]
+Loading weights:  45%|████▍     | 211/473 [00:00<00:00, 503.53it/s]
+Loading weights:  68%|██████▊   | 321/473 [00:00<00:00, 707.19it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 840.58it/s]
+{"completed": "base-conditions", "macro": {"local": 0.9194444444444444, "reference": 0.34444444444444444, "delta": 0.575}}
+{"completed": "audit"}

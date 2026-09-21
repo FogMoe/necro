@@ -1,0 +1,319 @@
+{
+  "data/phase2/operator-contrast-v1/train.jsonl": {
+    "sha256": "fed1191ae90eca2753365c574e5031b686683846a2cedac70beac230e3a404b9",
+    "rows": 2040,
+    "source_groups": 64,
+    "operator": {
+      "gt": 412,
+      "lt": 392,
+      "eq": 452,
+      "le": 392,
+      "ge": 392
+    },
+    "fields": {
+      "['duration', 'target', 'license_valid']": 196,
+      "['points', 'benchmark', 'entry_valid']": 184,
+      "['duration', 'target', None]": 80,
+      "['distance', 'cutoff', 'sensor_ready']": 176,
+      "['weight', 'limit', None]": 80,
+      "['temperature', 'reference', None]": 70,
+      "['quantity', 'quota', 'manager_agreed']": 184,
+      "['height', 'bar', 'route_clear']": 156,
+      "['temperature', 'reference', 'power_on']": 156,
+      "['credit', 'minimum', 'account_active']": 184,
+      "['height', 'bar', None]": 70,
+      "['credit', 'minimum', None]": 80,
+      "['quantity', 'quota', None]": 80,
+      "['weight', 'limit', 'inspection_passed']": 204,
+      "['distance', 'cutoff', None]": 70,
+      "['points', 'benchmark', None]": 70
+    },
+    "negated": {
+      "False": 1320,
+      "True": 720
+    },
+    "case": {
+      "complete": 1848,
+      "missing": 96,
+      "gate_false": 96
+    },
+    "relation": {
+      "gt": 616,
+      "lt": 720,
+      "eq": 632,
+      "missing": 72
+    },
+    "language": {
+      "en": 1020,
+      "zh": 1020
+    },
+    "atomic": {
+      "False": 1440,
+      "True": 600
+    },
+    "independent_label_mismatches": 0
+  },
+  "data/phase2/refinement-v2/train.jsonl": {
+    "sha256": "8ce4bad5e65218bfa04af2572d7205cad2b31e4428397162716b72f983c04d87",
+    "rows": 800,
+    "source_groups": 40,
+    "operator": {
+      "gt": 160,
+      "eq": 160,
+      "lt": 160,
+      "ge": 160,
+      "le": 160
+    },
+    "fields": {
+      "['temperature', 'reference', 'power_on']": 80,
+      "['credit', 'minimum', 'account_active']": 120,
+      "['weight', 'limit', 'inspection_passed']": 80,
+      "['height', 'bar', 'route_clear']": 80,
+      "['duration', 'target', 'license_valid']": 120,
+      "['quantity', 'quota', 'manager_agreed']": 80,
+      "['points', 'benchmark', 'entry_valid']": 120,
+      "['distance', 'cutoff', 'sensor_ready']": 120
+    },
+    "negated": {
+      "True": 400,
+      "False": 400
+    },
+    "case": {
+      "missing": 160,
+      "complete": 480,
+      "gate_false": 160
+    },
+    "relation": {
+      "missing": 108,
+      "gt": 160,
+      "lt": 160,
+      "eq": 372
+    },
+    "language": {
+      "en": 400,
+      "zh": 400
+    },
+    "atomic": {
+      "False": 800
+    },
+    "independent_label_mismatches": 0
+  },
+  "data/phase3/coverage-v1/train.jsonl": {
+    "sha256": "fcdb55623207fc15d12d699316c66f817e7b2616c5e54ec7b5021540ae60b659",
+    "rows": 532,
+    "source_groups": 18,
+    "operator": {
+      "ge": 132,
+      "eq": 112,
+      "gt": 92,
+      "lt": 84,
+      "le": 112
+    },
+    "fields": {
+      "['quantity', 'quota', None]": 30,
+      "['duration', 'target', 'license_valid']": 60,
+      "['points', 'benchmark', 'entry_valid']": 20,
+      "['distance', 'cutoff', 'sensor_ready']": 40,
+      "['temperature', 'reference', 'power_on']": 48,
+      "['quantity', 'quota', 'manager_agreed']": 68,
+      "['temperature', 'reference', None]": 20,
+      "['weight', 'limit', 'inspection_passed']": 40,
+      "['height', 'bar', 'route_clear']": 68,
+      "['weight', 'limit', None]": 20,
+      "['height', 'bar', None]": 30,
+      "['credit', 'minimum', 'account_active']": 48,
+      "['credit', 'minimum', None]": 20,
+      "['duration', 'target', None]": 10,
+      "['distance', 'cutoff', None]": 10
+    },
+    "negated": {
+      "False": 336,
+      "True": 196
+    },
+    "case": {
+      "complete": 468,
+      "gate_false": 32,
+      "missing": 32
+    },
+    "relation": {
+      "lt": 156,
+      "gt": 196,
+      "eq": 156,
+      "missing": 24
+    },
+    "language": {
+      "zh": 266,
+      "en": 266
+    },
+    "atomic": {
+      "True": 140,
+      "False": 392
+    },
+    "independent_label_mismatches": 0
+  },
+  "data/phase3/instruction-v2/train.jsonl": {
+    "sha256": "c58a4bc9b547461d1d1e94250fab33555afea4ae202d29788a52bc9032d091e1",
+    "rows": 970,
+    "source_groups": 35,
+    "operator": {
+      "le": 226,
+      "gt": 174,
+      "lt": 206,
+      "ge": 198,
+      "eq": 166
+    },
+    "fields": {
+      "['distance', 'cutoff', 'sensor_ready']": 80,
+      "['temperature', 'reference', None]": 20,
+      "['points', 'benchmark', None]": 40,
+      "['temperature', 'reference', 'power_on']": 68,
+      "['points', 'benchmark', 'entry_valid']": 168,
+      "['height', 'bar', 'route_clear']": 100,
+      "['weight', 'limit', 'inspection_passed']": 60,
+      "['credit', 'minimum', 'account_active']": 108,
+      "['duration', 'target', 'license_valid']": 108,
+      "['duration', 'target', None]": 50,
+      "['credit', 'minimum', None]": 30,
+      "['height', 'bar', None]": 30,
+      "['quantity', 'quota', 'manager_agreed']": 48,
+      "['weight', 'limit', None]": 20,
+      "['distance', 'cutoff', None]": 20,
+      "['quantity', 'quota', None]": 20
+    },
+    "negated": {
+      "True": 370,
+      "False": 600
+    },
+    "case": {
+      "complete": 834,
+      "missing": 68,
+      "gate_false": 68
+    },
+    "relation": {
+      "eq": 412,
+      "gt": 288,
+      "missing": 48,
+      "lt": 222
+    },
+    "language": {
+      "zh": 485,
+      "en": 485
+    },
+    "atomic": {
+      "False": 740,
+      "True": 230
+    },
+    "independent_label_mismatches": 0
+  },
+  "data/phase3/coverage-v1/validation.jsonl": {
+    "sha256": "bc4b9ab0bd5a96c8f7750a4f54e060e5c8a300acfa6f6dcfd45d10362cc312a0",
+    "rows": 176,
+    "source_groups": 20,
+    "operator": {
+      "gt": 18,
+      "ge": 44,
+      "le": 34,
+      "eq": 36,
+      "lt": 44
+    },
+    "fields": {
+      "['available_slots', 'required_slots', 'enabled']": 176
+    },
+    "negated": {
+      "False": 138,
+      "True": 38
+    },
+    "case": {
+      "complete": 120,
+      "gate_false": 40,
+      "missing": 16
+    },
+    "relation": {
+      "gt": 20,
+      "lt": 48,
+      "eq": 108
+    },
+    "language": {
+      "zh": 88,
+      "en": 88
+    },
+    "atomic": {
+      "False": 176
+    },
+    "independent_label_mismatches": 0
+  },
+  "data/phase3/coverage-v1/calibration.jsonl": {
+    "sha256": "8435e73722fc1757cd92509cd4f964b705fe80b66b66318907b8d8eb186d1c40",
+    "rows": 170,
+    "source_groups": 20,
+    "operator": {
+      "eq": 26,
+      "ge": 44,
+      "le": 34,
+      "gt": 32,
+      "lt": 34
+    },
+    "fields": {
+      "['balance', 'threshold', 'verified']": 170
+    },
+    "negated": {
+      "False": 134,
+      "True": 36
+    },
+    "case": {
+      "gate_false": 40,
+      "complete": 120,
+      "missing": 10
+    },
+    "relation": {
+      "eq": 98,
+      "gt": 32,
+      "lt": 40
+    },
+    "language": {
+      "en": 85,
+      "zh": 85
+    },
+    "atomic": {
+      "False": 170
+    },
+    "independent_label_mismatches": 0
+  },
+  "data\\phase3\\coverage-v1\\test.jsonl": {
+    "sha256": "4d1d501fb51728a3f96270dd20c89f791db61c2f369d7477c7367159e3ff27b4",
+    "rows": 172,
+    "source_groups": 20,
+    "operator": {
+      "lt": 34,
+      "eq": 36,
+      "le": 34,
+      "gt": 42,
+      "ge": 26
+    },
+    "fields": {
+      "['stock', 'requested', 'warehouse_open']": 172
+    },
+    "negated": {
+      "False": 126,
+      "True": 46
+    },
+    "case": {
+      "complete": 120,
+      "missing": 12,
+      "gate_false": 40
+    },
+    "relation": {
+      "lt": 38,
+      "eq": 96,
+      "gt": 38
+    },
+    "language": {
+      "zh": 86,
+      "en": 86
+    },
+    "atomic": {
+      "False": 172
+    },
+    "independent_label_mismatches": 0
+  }
+}

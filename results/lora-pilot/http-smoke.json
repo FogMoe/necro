@@ -1,0 +1,52 @@
+{
+  "health": {
+    "status": "ok",
+    "model": "necro-qwen3.5-0.8b-lora-pilot-v1"
+  },
+  "sdk": "typesafe-sdk 0.7.0",
+  "model": "necro-qwen3.5-0.8b-lora-pilot-v1",
+  "example": {
+    "model": "necro-qwen3.5-0.8b-lora-pilot-v1",
+    "usage": {
+      "input_tokens": 365,
+      "output_tokens": 0
+    },
+    "answers": {
+      "department": {
+        "type": "choice",
+        "choice": "billing",
+        "confidence": 0.9999505635801469,
+        "probabilities": {
+          "billing": 0.9999670423867646,
+          "technical": 5.422069686606958e-06,
+          "sales": 2.7535543548828905e-05
+        }
+      },
+      "refund": {
+        "type": "noul",
+        "noul": 0.9740426416045217
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.00010824532446561809,
+        "confidence": 0.9998626822697183,
+        "legend": {
+          "0": "服务仍可正常使用",
+          "1": "部分功能不可用",
+          "2": "完全无法使用服务"
+        },
+        "probabilities": {
+          "0": 0.9999084548464788,
+          "1": 7.484498257682187e-05,
+          "2": 1.6700170944398108e-05
+        }
+      }
+    }
+  },
+  "choice255": {
+    "expected": "item254",
+    "predicted": "item254",
+    "probabilities_count": 255,
+    "probabilities_sum": 1.0
+  }
+}

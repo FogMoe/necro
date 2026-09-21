@@ -1,0 +1,25 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   8%|▊         | 38/473 [00:00<00:01, 366.39it/s]
+Loading weights:  16%|█▌        | 75/473 [00:00<00:01, 350.31it/s]
+Loading weights:  25%|██▍       | 118/473 [00:00<00:00, 373.34it/s]
+Loading weights:  36%|███▌      | 169/473 [00:00<00:00, 424.50it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 977.91it/s]
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   8%|▊         | 37/473 [00:00<00:01, 361.82it/s]
+Loading weights:  17%|█▋        | 82/473 [00:00<00:00, 391.40it/s]
+Loading weights:  27%|██▋       | 126/473 [00:00<00:00, 393.45it/s]
+Loading weights:  35%|███▌      | 166/473 [00:00<00:00, 387.55it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 989.93it/s]
+{
+  "buffer_count": 4,
+  "buffer_differences": [],
+  "config_differences": {
+    "_name_or_path": {
+      "adapter": "Qwen/Qwen3.5-0.8B",
+      "merged": "C:\\Users\\kc\\Documents\\GitHub\\necro\\artifacts\\ScarletKc-Necro-0.8b-phase3"
+    }
+  },
+  "module_class_differences": {}
+}

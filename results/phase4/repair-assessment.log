@@ -1,0 +1,111 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:  10%|▉         | 46/473 [00:00<00:00, 437.37it/s]
+Loading weights:  19%|█▉        | 90/473 [00:00<00:00, 383.40it/s]
+Loading weights:  30%|██▉       | 140/473 [00:00<00:00, 424.62it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 1271.76it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{
+  "checks": {
+    "retain_each_development_task_within_2pp": false,
+    "retain_new_condition_accuracy": true,
+    "new_gate_and_missing_each_95pct": true,
+    "legacy_accuracy_recovers_predecessor": true,
+    "legacy_gate_and_missing_each_90pct": false
+  },
+  "fresh": {
+    "count": 720,
+    "correct": 707,
+    "accuracy": 0.9819444444444444
+  },
+  "legacy": {
+    "count": 172,
+    "correct": 156,
+    "accuracy": 0.9069767441860465
+  },
+  "retention": {
+    "predecessor": {
+      "macro": {
+        "local": 0.8769354207373676,
+        "reference": 0.8597374419319534,
+        "delta": 0.017197978805414182
+      },
+      "families": {
+        "ordinal_rule": {
+          "local": 0.9904761904761905,
+          "reference": 0.9904761904761905
+        },
+        "intent": {
+          "local": 0.7982954545454546,
+          "reference": 0.7414772727272727
+        },
+        "paraphrase": {
+          "local": 0.8169014084507042,
+          "reference": 0.7816901408450704
+        },
+        "reading_boolean": {
+          "local": 0.8372093023255814,
+          "reference": 0.8217054263565892
+        },
+        "inference": {
+          "local": 0.7805555555555556,
+          "reference": 0.7444444444444445
+        },
+        "numeric_rule": {
+          "local": 0.8920454545454546,
+          "reference": 0.9147727272727273
+        },
+        "candidate_retrieval": {
+          "local": 1.0,
+          "reference": 1.0
+        },
+        "candidate_extraction": {
+          "local": 0.9,
+          "reference": 0.8833333333333333
+        }
+      }
+    },
+    "instruction-parent": {
+      "macro": {
+        "local": 0.8769354207373676,
+        "reference": 0.8797842212424181,
+        "delta": -0.0028488005050504306
+      },
+      "families": {
+        "ordinal_rule": {
+          "local": 0.9904761904761905,
+          "reference": 0.9904761904761905
+        },
+        "intent": {
+          "local": 0.7982954545454546,
+          "reference": 0.8011363636363636
+        },
+        "paraphrase": {
+          "local": 0.8169014084507042,
+          "reference": 0.8169014084507042
+        },
+        "reading_boolean": {
+          "local": 0.8372093023255814,
+          "reference": 0.8372093023255814
+        },
+        "inference": {
+          "local": 0.7805555555555556,
+          "reference": 0.7777777777777778
+        },
+        "numeric_rule": {
+          "local": 0.8920454545454546,
+          "reference": 0.9147727272727273
+        },
+        "candidate_retrieval": {
+          "local": 1.0,
+          "reference": 1.0
+        },
+        "candidate_extraction": {
+          "local": 0.9,
+          "reference": 0.9
+        }
+      }
+    }
+  }
+}

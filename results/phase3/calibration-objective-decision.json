@@ -1,0 +1,10 @@
+{
+  "objective": "brier",
+  "mean_development_macro_brier": {
+    "nll": 0.20110609992610784,
+    "brier": 0.20101195369856092
+  },
+  "gain": 9.414622754691515e-05,
+  "material_gain": false,
+  "notes": "Follow the preregistered average-Brier selection across both models. Difference is negligible and is not counted as a substantive model improvement; future models use the same Brier fitting procedure."
+}

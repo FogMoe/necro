@@ -1,0 +1,39 @@
+{
+  "protocol": {
+    "hypothesis": "Operator-switch counterfactuals share identical states; atomic comparison and compound judgments supervise the relationship instead of field-name priors.",
+    "protected_manifest_sha256": "4cefa2583fb6ffd5de08adc4a95e0e3223d8dddb52c45b25380ab3c2cddae852",
+    "replay_manifest_sha256": "a082d8535360b766b97fd021c67df436895661d4605ec65d0391cc163d71483c",
+    "removed_replay_source_groups": [],
+    "families": {
+      "numeric_rule": 2040,
+      "candidate_retrieval": 40,
+      "paraphrase": 100,
+      "intent": 301,
+      "inference": 300,
+      "reading_boolean": 120,
+      "candidate_extraction": 60,
+      "ordinal_rule": 84
+    },
+    "max_input_tokens": 1351,
+    "constructed_source_groups": 60,
+    "notes": "Each group contains related counterfactuals, not independent examples. Development, calibration and test text/labels are not used to generate training rows."
+  },
+  "partitions": {
+    "train": {
+      "path": "train.jsonl",
+      "sha256": "fed1191ae90eca2753365c574e5031b686683846a2cedac70beac230e3a404b9",
+      "rows": 3045,
+      "source_groups": 818,
+      "content_groups": 958,
+      "unique_requests": 3045
+    },
+    "development": {
+      "path": "validation.jsonl",
+      "sha256": "00defa772515463fc1bca942331e5652dcd020e2e8225f7b9d6822de9795c901",
+      "rows": 707,
+      "source_groups": 305,
+      "content_groups": 305,
+      "unique_requests": 707
+    }
+  }
+}

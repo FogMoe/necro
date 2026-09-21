@@ -1,0 +1,9 @@
+{
+  "frozen_at": "2026-09-20T08:37:38.663329+00:00",
+  "selected_run": "round3",
+  "public_model_id": "ScarletKc-Necro-0.8b",
+  "weights_sha256": "35540d941d56d4688a19a778d8ed282e4d1d19c1706637d9b2c7c7a5c007e73e",
+  "reason": "Round3 improved dev accuracy from 72% to 84%, NLL 0.8219. Round4 reached 85% but NLL worsened to 1.0229 and ECE to 0.1293. One percentage point is below the practical continuation threshold. Selected round3 and stopped before reading test results.",
+  "dev_smoke_accuracy": 1.0,
+  "no_further_training_after_test": true
+}

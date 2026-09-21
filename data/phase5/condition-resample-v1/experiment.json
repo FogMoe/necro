@@ -1,0 +1,77 @@
+{
+  "protocol": {
+    "scope": "Semantic condition repair; exposed cohorts are regression evidence; test is sealed until selection.",
+    "method": "sample",
+    "parent": "results/phase3/instruction-seed2026/adapter",
+    "source_training_sha256": "f158fa6d82750460e502b192ccf927b98e826046e631f19e581ed7e6b53aa316",
+    "builder_sha256": "1be45b11673bc18f1044f6717336744895a25c9f031cd166687b5c04e06b9c15",
+    "balance": {
+      "presentations": 4756,
+      "matrix_presentations": 3200,
+      "semantic_presentations": {
+        "True": 1600,
+        "False": 1600
+      },
+      "answer_presentations": {
+        "False": 1600,
+        "True": 1600
+      },
+      "unique_matrix_requests": 1820,
+      "joint_cells": 80,
+      "combinations": 800,
+      "minimum_presentations_per_combination": 2,
+      "cases": {
+        "complete": 1784,
+        "missing-0": 364,
+        "missing-1": 364,
+        "missing-2": 352,
+        "disabled": 336
+      },
+      "replay_presentations": 1556
+    },
+    "transfer_styles": {
+      "development": [
+        8,
+        9
+      ],
+      "test": [
+        10,
+        11
+      ]
+    }
+  },
+  "partitions": {
+    "train": {
+      "path": "train.jsonl",
+      "sha256": "3ef0e49eed222d8f230fbbf3119bf3c7f4bdf6c1d4f4109125b92545dc9cf6f9",
+      "rows": 4756,
+      "source_groups": 479,
+      "content_groups": 479,
+      "unique_requests": 3376
+    },
+    "development": {
+      "path": "validation.jsonl",
+      "sha256": "2dd46396169e85fbe25b0f1e60bb908401e0672e97b1cb4a6baa8815aff9f0ab",
+      "rows": 3784,
+      "source_groups": 683,
+      "content_groups": 683,
+      "unique_requests": 3624
+    },
+    "calibration": {
+      "path": "calibration.jsonl",
+      "sha256": "5c4144af29439e9cf4cf4fc7bf399523635ae40fc6a24877d383d4f7a6002271",
+      "rows": 1068,
+      "source_groups": 447,
+      "content_groups": 447,
+      "unique_requests": 1068
+    },
+    "test": {
+      "path": "test.jsonl",
+      "sha256": "9b0be46574861a95acae954415645d51bcddf300a165a44bce90af35c90b2501",
+      "rows": 4800,
+      "source_groups": 24,
+      "content_groups": 24,
+      "unique_requests": 4320
+    }
+  }
+}

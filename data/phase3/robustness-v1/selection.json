@@ -1,0 +1,236 @@
+{
+  "version": 3,
+  "frozen_at": "2026-09-20T21:00:11.632078+00:00",
+  "model_id": "ScarletKc-Necro-0.8b",
+  "adapter": "results\\phase3\\selected\\adapter",
+  "weights_sha256": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13",
+  "prompt_sha256": "b0494238c3becd0872040e3b9ecb62c1748721cb1cc869b22238613a70068fb1",
+  "temperatures": {
+    "choice": 1.7817974362806783,
+    "score": 0.5,
+    "noul": 2.9966141537533626
+  },
+  "reference_adapter": "results\\phase2\\v3\\selected\\adapter",
+  "reference_weights_sha256": [
+    "4c2143d4a27cfb6859a71dd98354e936b94176d6c837994b610774bde92db70f"
+  ],
+  "reference_temperatures": {
+    "4c2143d4a27cfb6859a71dd98354e936b94176d6c837994b610774bde92db70f": {
+      "choice": 3.031433133020795,
+      "score": 2.324091173915679,
+      "noul": 5.924390209146257
+    }
+  },
+  "artifact_hashes": {
+    "results\\phase3\\selected\\calibration.json": "fd3eece1aeb65f481e97c02d3e7887d2fa9c8bd90f802e499c42a3d2e19e0999",
+    "results\\phase3\\selected\\decision.json": "655d5b0e98d489547f3632f2ef55e2fc74174524996124648e2fd8fb050c677c",
+    "results\\phase3\\selected\\lineage-audit.json": "14c10b7e09e3310a4ce0ca87390847f184c9ecf7d49208c21cbd42a957ddb4d8",
+    "results\\phase3\\selected\\reference-calibration.json": "111e89e1e296b8e3dcbf88dc529f2f4b0f6bbcd8facbeb70c7a326b2e7746e36",
+    "results\\phase3\\selected\\adapter\\adapter_config.json": "fbfed178f5a64064688fce1fa06519ebf017751dd27e9eedf25b11cf75592b1e",
+    "results\\phase3\\selected\\adapter\\adapter_model.safetensors": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13",
+    "results\\phase3\\selected\\adapter\\chat_template.jinja": "306abaf09cf3a6c0d14128373a72925bda3d7de2616a5642804d9768c7d2f78c",
+    "results\\phase3\\selected\\adapter\\necro_adapter.json": "2916ef343b59038697077ac32c9d41275c7b3dcd88ceb8e8e075fe11d918f562",
+    "results\\phase3\\selected\\adapter\\README.md": "2816a55686e842fd02602bc7ed81f407a4dd8aeecb61ce15ad7a4b171f37c20b",
+    "results\\phase3\\selected\\adapter\\tokenizer.json": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+    "results\\phase3\\selected\\adapter\\tokenizer_config.json": "7708da21eb4c7306874e87ba1101ddbd83399be9c276c8152e138679a6e0148d",
+    "results\\phase3\\selected\\frozen-materials\\build-provenance.json": "bc872821c1ee647664e5137b2dd1c599c833839f0e0b1723cf64d83fc26522f2",
+    "results\\phase3\\selected\\frozen-materials\\calibration-objective-plan.json": "60bb44ff1e76683effa09f25a2c6ca58febd9ed3d724a2e4655576de20b26e84",
+    "results\\phase3\\selected\\frozen-materials\\closing-plan.json": "ee7336d6bf7cf99620effdc0f255a72befa6c84fc17e745a876e8e9f625dafb3",
+    "results\\phase3\\selected\\frozen-materials\\coverage-plan.json": "509beb440e966e95b871a391b17e00f54ef00412096f9b4368571f2e5c9082c7",
+    "results\\phase3\\selected\\frozen-materials\\final-replication-plan.json": "78a3c547d6d591b06ce409bcecf701900696350b8d12825d369b4a5f79515b41",
+    "results\\phase3\\selected\\frozen-materials\\instruction-plan.json": "6b1a2933e4e7d079f1f5c08e520921279a823858c3f22679e31f166970d0c02d",
+    "results\\phase3\\selected\\frozen-materials\\phase2-acceptance.md": "00bac023fc355038ddc3e71b753c89cfcc4b39885749f38fe6d8e7204aacdd00",
+    "results\\phase3\\selected\\frozen-materials\\phase3-coverage-audit.md": "37b519f98cdd10f28b00618de8a5381b6c7432ed16da1ddca18eeafe0261c207",
+    "results\\phase3\\selected\\frozen-materials\\pyproject.toml": "1dfb392be197e8935944d740f1812979b34fbf6f32309af532a65d6169f94887",
+    "results\\phase3\\selected\\frozen-materials\\uv.lock": "3b831af00f335c6ecdb6dfaaa509923f7556137227b0995d4df3f12300be6b09",
+    "results\\phase3\\selected\\frozen-materials\\necro\\adapter_average.py": "d59c02b72910ebf87ca6a4768b35ff38055001373feda2e588cdd28a7e8446f5",
+    "results\\phase3\\selected\\frozen-materials\\necro\\api.py": "95c4c86a42d0b84808c7b6bb2095cab8c8ee6503ed734e9b3ba665c47e5aaddd",
+    "results\\phase3\\selected\\frozen-materials\\necro\\assess_candidate.py": "cc80c363c72328b86cc6ad10c847c4d27c6d73bf8aefc210157e40338f5ecf8b",
+    "results\\phase3\\selected\\frozen-materials\\necro\\backend.py": "02c60772e71c6477c778ed0f30a9a1513a6ee4434646447ec93cddac5885c88d",
+    "results\\phase3\\selected\\frozen-materials\\necro\\calibration.py": "ce10cbe509c92d95476ad0d5b6c376cea28dab7a19b02cd5610b3a39dfae8e0b",
+    "results\\phase3\\selected\\frozen-materials\\necro\\cli.py": "c3e534abb9c34d4d24b575b14bb2c5724e312fd5b219ef0bbd1f0dab31236b34",
+    "results\\phase3\\selected\\frozen-materials\\necro\\config.py": "8c020267d540ac59c4ddcfbe7d7d5aa7a7d8133ed168b0afe3beada04409224b",
+    "results\\phase3\\selected\\frozen-materials\\necro\\datasets.py": "ea41193778c5698ba34529e76812ab4ae5af92ef3e5687acb5867ff69d9bd166",
+    "results\\phase3\\selected\\frozen-materials\\necro\\data_catalog.py": "7c148a952b09a0cebcf5a949d68bbf803f3e32a7a39b4412849e13ed26cb0004",
+    "results\\phase3\\selected\\frozen-materials\\necro\\development_comparison.py": "c83fd600fcc60af94b85952b52aaded39c86e811e54b42a5f69985a932d6b555",
+    "results\\phase3\\selected\\frozen-materials\\necro\\engine.py": "2b60c7ca91ac2e54416e7b939287a8b56fc48a63ecb36d2f8cf7935051972a8e",
+    "results\\phase3\\selected\\frozen-materials\\necro\\evaluation.py": "1bddff290c141df62c3ed7f13e6a09cc97d1a3ba4b1b8388ad37b80eef7b5296",
+    "results\\phase3\\selected\\frozen-materials\\necro\\experiments.py": "a80bb3b2bf66dc5bc7c5c6c4452e3472f759504d1309172bf0e1dcbb08002474",
+    "results\\phase3\\selected\\frozen-materials\\necro\\experiment_guard.py": "fa7d160dd757fd40dc2d28e20870ba1ecaeb61f50006f30780a5f6c080fe0c5c",
+    "results\\phase3\\selected\\frozen-materials\\necro\\export.py": "dd72929f77bebf0cd62298ad960fd8ee9499ac6a071b986603278ac34c56b549",
+    "results\\phase3\\selected\\frozen-materials\\necro\\freeze_phase2.py": "a20cefe7924229af27e30fd622826bd1cd99fd94b1fc58551049011f9aa79e02",
+    "results\\phase3\\selected\\frozen-materials\\necro\\freeze_phase3.py": "698dc812c522d6ddfbaa72be830191ce93a9e96320f4b74b5c6a4a9d7495ed65",
+    "results\\phase3\\selected\\frozen-materials\\necro\\full_snapshots.py": "4d5751cc8589250c83f5cbe06413acf0dd00e686eedb47079a237cfaefb42485",
+    "results\\phase3\\selected\\frozen-materials\\necro\\instruction_refinement.py": "ef90d22ef4bc9ddbba622b3a08fc7f77d098db675bd9741138744511be66c672",
+    "results\\phase3\\selected\\frozen-materials\\necro\\operator_contrast.py": "18ce95a0479f120ed960950fad3658937a5d82717b2499e9d4ce23ebdf846e29",
+    "results\\phase3\\selected\\frozen-materials\\necro\\package_verification.py": "4e8eab268304bc2fbcdc88505f1e7e01658347255ecc6123441914d4b66a974f",
+    "results\\phase3\\selected\\frozen-materials\\necro\\phase2_analysis.py": "6f8c1143ea062b4fa3dc10b6eb165d902422735d5664dd3dae5fb4f156f3e0d5",
+    "results\\phase3\\selected\\frozen-materials\\necro\\phase2_data.py": "c7aabd16c987cd4c2e3f782d32769db0838cbacfb5fc3eb3a96248314d94af8b",
+    "results\\phase3\\selected\\frozen-materials\\necro\\phase2_final.py": "156e25a6f364ae77db1b1f18d3e4e67e101a053db4df3e0544635a47d05e3a51",
+    "results\\phase3\\selected\\frozen-materials\\necro\\phase2_refinement.py": "58a802b3e68c30bba1062d2c50411d55c143548eb972be958881f7e3b495d479",
+    "results\\phase3\\selected\\frozen-materials\\necro\\phase3_data.py": "702c29c6a1dfe64acb7922845a39dcee0f0031a5390c95ec5cd4ebe2af61af78",
+    "results\\phase3\\selected\\frozen-materials\\necro\\phase3_report.py": "fb3f3aa8a0493f10da1858a68743c181cd25f6345238cb7eb26a6f244f3b07a5",
+    "results\\phase3\\selected\\frozen-materials\\necro\\probes.py": "97cd695cf0d91d2868f956397ed700279fd8449655b9fa4b751514cd4b979923",
+    "results\\phase3\\selected\\frozen-materials\\necro\\reading_refinement.py": "b2d25909c9568431995a29d6ec0bd8c604477a1bbb913eda12ca623b2c9d3bdc",
+    "results\\phase3\\selected\\frozen-materials\\necro\\release_report.py": "995b7ae355e6b74ab99b8aab730726cc518291e5ccfc9c8e86d84fcbb65e50e0",
+    "results\\phase3\\selected\\frozen-materials\\necro\\robustness.py": "e6fff814c2ef19440fc829e7abc5d29c070d909767a21a75a0b6b2582611af7d",
+    "results\\phase3\\selected\\frozen-materials\\necro\\schema.py": "83ab3f3c17b2d8b771cd36483b7b2f5e7be8096666d452debbd16def1f35ec06",
+    "results\\phase3\\selected\\frozen-materials\\necro\\source_isolation.py": "80ac5a865e9eb978a3a1a1052f48fd579ef11f8dcf06125b58139a8e1d45692a",
+    "results\\phase3\\selected\\frozen-materials\\necro\\training.py": "0ddfb0753ab2f8b8ad62949885132893814f4ee878471b995a97f420ff4896cf",
+    "results\\phase3\\selected\\frozen-materials\\necro\\training_data.py": "027ce400d0d498fc149f0e4944fcf5d6ab3ac4b20130c3dcdfcf0e3c8a9e87fd",
+    "results\\phase3\\selected\\frozen-materials\\necro\\__init__.py": "04af6b03452d92b99f21e5d84545f4db1195536d71811a182ca59135b4f6ac55",
+    "results\\phase3\\selected\\frozen-materials\\original-data-builder\\full_snapshots.py": "fc4bc251354b70cead2b9a621f96d781d939d2abf7ae6ffda21cee5fc0cc9c35",
+    "results\\phase3\\selected\\frozen-materials\\original-data-builder\\phase2_data.py": "c7aabd16c987cd4c2e3f782d32769db0838cbacfb5fc3eb3a96248314d94af8b",
+    "results\\phase3\\selected\\frozen-materials\\original-data-builder\\phase3_data.py": "1e95c5e963a4b8ddc3b4f5440eeec0cb9ccbbfd8c73bef818d1052ac2c6e705f",
+    "results\\phase3\\selected\\frozen-materials\\original-data-builder\\source_isolation.py": "80ac5a865e9eb978a3a1a1052f48fd579ef11f8dcf06125b58139a8e1d45692a",
+    "data\\phase3\\instruction-v2\\train.jsonl": "c58a4bc9b547461d1d1e94250fab33555afea4ae202d29788a52bc9032d091e1",
+    "data\\phase3\\coverage-v1\\train.jsonl": "fcdb55623207fc15d12d699316c66f817e7b2616c5e54ec7b5021540ae60b659",
+    "data\\phase2\\operator-contrast-v1\\train.jsonl": "fed1191ae90eca2753365c574e5031b686683846a2cedac70beac230e3a404b9",
+    "data\\phase2\\refinement-v2\\train.jsonl": "8ce4bad5e65218bfa04af2572d7205cad2b31e4428397162716b72f983c04d87",
+    "data\\phase2\\experiment-v3\\train.jsonl": "ad682d37df3be454127a63f3ed1be5e0012c5e8ad15856427a1aeb0f73a444d7",
+    "data\\improvement\\expanded\\train.jsonl": "390d9556303659de1267e6acfb66419ec92c929c2bd9a159f24a95ce7bed90f3",
+    "data\\lora-pilot\\train.jsonl": "baba10584b1b21d616ee3a68d860fb0e4ceb75c771ea3e9a28554eb76ff79cf8",
+    "results\\phase2\\v3\\selected\\adapter\\necro_adapter.json": "a6dbc2b117a13e0c8b91dab804bc17972a5586260ce4dadb51e9011b0b02c71d",
+    "results\\phase2\\v3\\selected\\adapter\\adapter_model.safetensors": "4c2143d4a27cfb6859a71dd98354e936b94176d6c837994b610774bde92db70f"
+  },
+  "reference": "jev-1.13.0",
+  "final_predictions_available_at_selection": false,
+  "decision": {
+    "new_test_exposed": false,
+    "selected_run": "instruction-seed2026",
+    "adapter_weights_sha256": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13",
+    "rationale": "Instruction seed 2026 meets the registered critical-repair rule: development reading-negation consistency rises from 0/10 to 10/10, macro accuracy improves by 0.613 percentage points over the coverage parent, and the largest task regression is 0.775 percentage points. The final matched seed 2027 replication scores lower on development macro accuracy and Brier and reaches only 8/10 reading-negation consistency. Retain seed 2026. The small aggregate gain and seed variability close lightweight training exploration. Independent performance gates remain unchanged.",
+    "calibration_objective": "brier",
+    "further_training": false,
+    "development_models": {
+      "baseline": {
+        "macro_accuracy": 0.8597374419319534,
+        "macro_brier": 0.21352038201612747,
+        "families": {
+          "ordinal_rule": 0.9904761904761905,
+          "intent": 0.7414772727272727,
+          "paraphrase": 0.7816901408450704,
+          "reading_boolean": 0.8217054263565892,
+          "inference": 0.7444444444444445,
+          "numeric_rule": 0.9147727272727273,
+          "candidate_retrieval": 1.0,
+          "candidate_extraction": 0.8833333333333333
+        },
+        "raw_probability_precision": {
+          "development": {
+            "noul_count": 447,
+            "saturated_probabilities": 0
+          },
+          "calibration": {
+            "noul_count": 351,
+            "saturated_probabilities": 0
+          }
+        }
+      },
+      "coverage-seed2026": {
+        "macro_accuracy": 0.8736511154222728,
+        "macro_brier": 0.18850352538099438,
+        "families": {
+          "ordinal_rule": 0.9857142857142858,
+          "intent": 0.7982954545454546,
+          "paraphrase": 0.8098591549295775,
+          "reading_boolean": 0.8449612403100775,
+          "inference": 0.775,
+          "numeric_rule": 0.8920454545454546,
+          "candidate_retrieval": 1.0,
+          "candidate_extraction": 0.8833333333333333
+        },
+        "raw_probability_precision": {
+          "development": {
+            "noul_count": 447,
+            "saturated_probabilities": 0
+          },
+          "calibration": {
+            "noul_count": 351,
+            "saturated_probabilities": 0
+          }
+        }
+      },
+      "instruction-seed2026": {
+        "macro_accuracy": 0.8797842212424181,
+        "macro_brier": 0.1819862072721517,
+        "families": {
+          "ordinal_rule": 0.9904761904761905,
+          "intent": 0.8011363636363636,
+          "paraphrase": 0.8169014084507042,
+          "reading_boolean": 0.8372093023255814,
+          "inference": 0.7777777777777778,
+          "numeric_rule": 0.9147727272727273,
+          "candidate_retrieval": 1.0,
+          "candidate_extraction": 0.9
+        },
+        "raw_probability_precision": {
+          "development": {
+            "noul_count": 447,
+            "saturated_probabilities": 0
+          },
+          "calibration": {
+            "noul_count": 351,
+            "saturated_probabilities": 0
+          }
+        },
+        "reading_negation": {
+          "count": 10,
+          "accuracy": 0.9,
+          "nll": 0.42192690269366295,
+          "brier": 0.2505726631929137,
+          "ece_10_bins": 0.20751448541515843,
+          "nll_floor_sensitivity": {
+            "1e-12": 0.42192690269366295,
+            "0.001": 0.42192690269366295,
+            "0.005": 0.42192690269366295,
+            "0.01": 0.42192690269366295
+          },
+          "consistency": 1.0,
+          "parent_accuracy": 0.9
+        }
+      },
+      "instruction-seed2027": {
+        "macro_accuracy": 0.8647479655652969,
+        "macro_brier": 0.1966946865893514,
+        "families": {
+          "ordinal_rule": 0.9809523809523809,
+          "intent": 0.7840909090909091,
+          "paraphrase": 0.7816901408450704,
+          "reading_boolean": 0.8294573643410853,
+          "inference": 0.7777777777777778,
+          "numeric_rule": 0.8806818181818182,
+          "candidate_retrieval": 1.0,
+          "candidate_extraction": 0.8833333333333333
+        },
+        "raw_probability_precision": {
+          "development": {
+            "noul_count": 447,
+            "saturated_probabilities": 0
+          },
+          "calibration": {
+            "noul_count": 351,
+            "saturated_probabilities": 0
+          }
+        },
+        "reading_negation": {
+          "count": 10,
+          "accuracy": 0.7,
+          "nll": 0.4923916495052711,
+          "brier": 0.3215066437871523,
+          "ece_10_bins": 0.2076588861621179,
+          "nll_floor_sensitivity": {
+            "1e-12": 0.4923916495052711,
+            "0.001": 0.4923916495052711,
+            "0.005": 0.4923916495052711,
+            "0.01": 0.4923916495052711
+          },
+          "consistency": 0.8,
+          "parent_accuracy": 0.9
+        }
+      }
+    },
+    "seed_comparison": "results/phase3/final-seed-comparison.json"
+  },
+  "data_manifest_sha256": "1aab26d59143c726311f730c275d2507f7e62cfa2846645265389d1162b8a2dd"
+}

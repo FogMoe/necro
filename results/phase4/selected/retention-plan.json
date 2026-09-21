@@ -1,0 +1,19 @@
+{
+  "scope": "One smaller-update trial to retain the existing numeric task after the complete condition matrix repaired the confirmed gate and missing-field failures.",
+  "source_assessment": "results/phase4/condition-v3-seed2026/repair-assessment.json",
+  "reason": "The matrix trial passed all four condition checks but lost four of 176 existing numeric development answers, exceeding the registered two-percentage-point retention margin. Other task families remained inside that margin.",
+  "data": "data/phase4/condition-v3",
+  "manifest_sha256": "03196b2648b5db60b7baeb584f0ff81d2ae2fd3233af03b5270464c874a0c147",
+  "parent": "results/phase3/instruction-seed2026/adapter",
+  "training": {
+    "learning_rate": 2.5e-6,
+    "epochs": 1,
+    "batch_size": 4,
+    "accumulation": 2,
+    "seed": 2026,
+    "rank": 16,
+    "objective": "answer-ce"
+  },
+  "unchanged": "Training records, development, calibration, sealed test, parent checkpoint, seed and all acceptance checks are unchanged. Only the learning rate is halved.",
+  "selection": "Freeze only if all registered repair and retention checks pass. Otherwise preserve the failed result and reassess the remaining defect before any further trial. Jev percentages are descriptive comparisons."
+}

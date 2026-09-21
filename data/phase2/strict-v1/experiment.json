@@ -1,0 +1,160 @@
+{
+  "protocol": {
+    "reason": "Pre-prediction source audit found shared retrieval documents and PAWS sentences.",
+    "selection_change": "Only structural source exclusions; no test predictions available. Development keeps the original rows except sources already present in training.",
+    "upstream_files": {
+      "pilot": {
+        "path": "data\\lora-pilot\\train.jsonl",
+        "sha256": "baba10584b1b21d616ee3a68d860fb0e4ceb75c771ea3e9a28554eb76ff79cf8"
+      },
+      "expanded": {
+        "path": "data\\improvement\\expanded\\train.jsonl",
+        "sha256": "390d9556303659de1267e6acfb66419ec92c929c2bd9a159f24a95ce7bed90f3"
+      },
+      "current": {
+        "path": "data\\phase2\\experiment-v3\\train.jsonl",
+        "sha256": "ad682d37df3be454127a63f3ed1be5e0012c5e8ad15856427a1aeb0f73a444d7"
+      },
+      "proposed": {
+        "path": "data\\phase2\\refinement-v1\\train.jsonl",
+        "sha256": "8ce4bad5e65218bfa04af2572d7205cad2b31e4428397162716b72f983c04d87"
+      },
+      "development": {
+        "path": "data\\phase2\\experiment-v3\\validation.jsonl",
+        "sha256": "545ef8678db4aac9d43b0f506fa2857c9516b6048a8a7660beaefc0106d82c85"
+      },
+      "calibration": {
+        "path": "data\\phase2\\calibration-v3\\calibration.jsonl",
+        "sha256": "15eaec172a4b764ed0ea86095f66b5b00aada893a7ff9b7d1e2f6c974d65ff1a"
+      },
+      "test": {
+        "path": "data\\phase2\\final-v3\\test.jsonl",
+        "sha256": "f83fcc2c3ddb5ea742f5d45c5a8880851036529c8176e1ff97b868e571befc8f"
+      }
+    },
+    "removed_groups": {
+      "proposed_train": [],
+      "development": [
+        "scifact-query/03ba82673e8e62c004cd6a11248f7fcaf6b936aa45c82e2bb8ffc4c409663cf1",
+        "scifact-query/1345f7e1603490b15150e94d71fd9aa121803455f8d9355ddc2dfa731f1c9178",
+        "scifact-query/1a65003db0454ffcc97a3a84998a3c16a76185f78bdba30c32b1fa345fa4d89a",
+        "scifact-query/2dcc33132ecba0370c99729f62de1d962f9190929c7e82eb347fc4fa28b52a4c",
+        "scifact-query/31fb640b7625995a6613ed5d7fe6a467032240b55c114ca9ad758cf39eb2dc12",
+        "scifact-query/595e8676cc91af3b9b9bdcedde978e7d43d87dbc3925d3e389c67a8053c0f5ac",
+        "scifact-query/5cb13adc124db1c021c178f1ea89a32badd4378c0687b7b844ce935d4a4e4164",
+        "scifact-query/6824cd1a7b7ad069a83c15e536ae7f92b9842542d121156836b8a2ed27f2e3f6",
+        "scifact-query/7cf08dfe6d2bf873fc413086dbc682fc0a894ad390ba90170c019fc632135a68",
+        "scifact-query/7e16366d29ab5a29b56f499d3540e96ee456b8454afbb5088e0792c9d9490609",
+        "scifact-query/7febc5d6dc4bd518b38f9688b0ef3fe4418a7f9bc22f2064966370261e0ca0d9",
+        "scifact-query/85830904766b53ea52a91351236249a41389e983f804b4edfae4dd2ef077cbfc",
+        "scifact-query/85b5552661a852bb1b1aaf17361c6ae3c1fcc0322cd1f8b67ee8154b0ce63d15",
+        "scifact-query/8c99f0e4d33a6014017c2733bd3b118c36354c93a97e893cba0c37aa022467a4",
+        "scifact-query/a1b9d676b1d2724748630d3fc144a1dac1c10a274987a72e114b23f11d8a8fa8",
+        "scifact-query/ab9e96c8e0b00ef718b9ffdf892d25d8fb7aa1e55da7821f1e051415ab00e023",
+        "scifact-query/d0993dcec840be31e2a2e5e843d1c01cb13d7c104cadd80b66b1eabb3a4eb8f1",
+        "scifact-query/d21bfa27f2fb58a54aa5d858a1d9cc78ede7d7032b5a12e95450dcddd077861e",
+        "scifact-query/f6c67a352ba9b89e789b8063d0c88d826507385025d5e876b08cdc51f770220b"
+      ],
+      "calibration": [
+        "scifact-query/014f5215efc0a8de96538b8de6ebd9e23e9d660fe8c6c8aba07b5f1bb0d32925",
+        "scifact-query/0db2b5ac83c9089607c494e78c52bf746132c4f6c9da1b6332c47c721f16876d",
+        "scifact-query/19b12f54980a4c605b176cce2fe5783f6122f4e0ec5c13a2cf42402db104fcaf",
+        "scifact-query/2464d538c2d600aad84e752f3d6117e34cb5106f5e8601410e94c30b6a252a8c",
+        "scifact-query/39f07b5df246b3aad6eb614e482dbf183ad99a76a376d3c03ae6305973e382e9",
+        "scifact-query/4704dd3be80a3d8205968066b498605ee638fc490ece0d700d7bfe170af39958",
+        "scifact-query/527c8e6e0749da2ff5f013348baaf7edf289ec766f3c331fb973fc7a3a679545",
+        "scifact-query/566669af5a4372169e3ffd4bc809e5e2443c71f9d46b123f1d690e9ad7636cbc",
+        "scifact-query/5b0bf3803262dfe678424a3879db20e97d46ca0f1d528f7b41b5733e57fbc843",
+        "scifact-query/686588f94e7418428c90642ccedb67eac40c19886aa514730a5175dedfc7439d",
+        "scifact-query/690494a9f1ee3d3d43959c767cff321c05484aa089c8e2390d16993efec5bfe4",
+        "scifact-query/6b905015bbce788415f8475d35999b85ec6baaab13ba4f386f2b38ffdd29113c",
+        "scifact-query/6bc91ebe8ca1c93af3aa5dec664dcbd1623e5af473d7986e2434aaa1f565b51f",
+        "scifact-query/71933f5099d59ad227ca122509ef15bd18feafb975082ef62d9e36c3dd1801ba",
+        "scifact-query/78843e2d760f16c6fcc41768365fcf4dcf9bd331d24aebd5cdb1f5eb664f5839",
+        "scifact-query/79fa014053786a0e94983e692b6bd97a211103694f219a195d18c3a12ef10ed8",
+        "scifact-query/7e55b9b4f8ad209481be86feb87ad081fa897ae212bcf93ab079ecb12d38e5ed",
+        "scifact-query/90935a9058fc55f5beff63902c8fb1f6cdde8cecd6fd1a066ba476d8c8e64e13",
+        "scifact-query/96dd5ae152cba36943eba767bcf7c77e07dff5cb8297bdf4f907a2c8855597df",
+        "scifact-query/a97cda4c92c8acefac52a2e939e963577b96660a3d6a6e19be9422df41e5f38a",
+        "scifact-query/acf4301d1a2ebabec368d5e2c01073a9974129035a83b4ef7cd05feb6de1cf6e",
+        "scifact-query/ad145639cba2617f307cdb7fbcd75d7b3f3dbc607b6e42ef36861b2c0fa5ed3a",
+        "scifact-query/b00b037cf528f46267c2b8d50d5a8353794fa08e0596f8dacb3cc0fc9707faf6",
+        "scifact-query/b7a86b130ae21883462925958e8f0d5df834e9e32f44e394c10111a55155c480",
+        "scifact-query/c0ca520c90ce4b9189f2aadd0fa0d69a7a1ac58a3c6cdebdc7aada3de504c210",
+        "scifact-query/d7f190b6c0ea98787f85034ab589c6edf59495f7b78fe0031ce93cfc452d48ca"
+      ],
+      "test_non_retrieval": [
+        "paws/735968966a2aee1cf7dbb1adafe5fe8187486a5b6a80826cb239a9707563df87",
+        "paws/b58352ceee763e18bb17faf3f8a79ca690706423401af321a0d949083ba80cca"
+      ]
+    },
+    "families": {
+      "development": {
+        "paraphrase": 100,
+        "reading_boolean": 80,
+        "candidate_extraction": 80,
+        "candidate_retrieval": 41,
+        "numeric_rule": 86,
+        "ordinal_rule": 120,
+        "inference": 100,
+        "intent": 100
+      },
+      "calibration": {
+        "paraphrase": 79,
+        "reading_boolean": 80,
+        "candidate_extraction": 80,
+        "candidate_retrieval": 24,
+        "numeric_rule": 68,
+        "ordinal_rule": 120,
+        "inference": 100,
+        "intent": 98
+      },
+      "test": {
+        "paraphrase": 115,
+        "reading_boolean": 100,
+        "candidate_extraction": 100,
+        "numeric_rule": 136,
+        "ordinal_rule": 240,
+        "inference": 200,
+        "intent": 200,
+        "candidate_retrieval": 80
+      }
+    },
+    "retrieval": "80 freshly sampled official test queries with all candidate documents unseen in training, original development and original calibration. Negatives remain unjudged.",
+    "notes": "Exposure includes ancestors and the prospective refinement replay. Connected source components determine statistical groups."
+  },
+  "partitions": {
+    "exposure": {
+      "path": "exposure.jsonl",
+      "sha256": "761072853e1560da1757feb577cd8c98e6e8cbf28dba9a0998d15a8ca35fbbaa",
+      "rows": 8712,
+      "source_groups": 2830,
+      "content_groups": 2830,
+      "unique_requests": 5800
+    },
+    "development": {
+      "path": "development.jsonl",
+      "sha256": "00defa772515463fc1bca942331e5652dcd020e2e8225f7b9d6822de9795c901",
+      "rows": 707,
+      "source_groups": 305,
+      "content_groups": 305,
+      "unique_requests": 707
+    },
+    "calibration": {
+      "path": "calibration.jsonl",
+      "sha256": "655ce51667bfb2c6aa2322a673e804614563ef4ed7ce0fc40542b8df006b2bc2",
+      "rows": 649,
+      "source_groups": 272,
+      "content_groups": 272,
+      "unique_requests": 649
+    },
+    "test": {
+      "path": "test.jsonl",
+      "sha256": "093c3b4fc47927c837e6ea632fef858d6c08143b187e3b5124c89ace859649bd",
+      "rows": 1171,
+      "source_groups": 503,
+      "content_groups": 503,
+      "unique_requests": 1171
+    }
+  }
+}

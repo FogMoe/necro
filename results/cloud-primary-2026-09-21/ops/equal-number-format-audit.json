@@ -1,0 +1,16 @@
+{
+  "equal_same_type": {
+    "count": 40,
+    "correct": 38
+  },
+  "equal_mixed_int_float": {
+    "count": 40,
+    "correct": 8
+  },
+  "train": {
+    "same_type": 800
+  },
+  "new_development": {
+    "same_type": 160
+  }
+}

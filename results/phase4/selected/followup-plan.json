@@ -1,0 +1,25 @@
+{
+  "parent": "results/phase3/instruction-seed2026/adapter",
+  "data": "data/phase4/condition-v2",
+  "data_manifest_sha256": "7508c923004e4a55148e6cf8edb9f1168f9d9c40e39cf4a11d5e4610c40f16f6",
+  "prior_assessment_sha256": "948b587fb678a36341b990f004d0f9001ebd218c4bb45c4881c58ab87058f95d",
+  "reason": "Initial repair recovered original-wording accuracy and disabled-gate handling but left missing fields at 5/12 and lost four correct numeric development answers.",
+  "changes": [
+    "Include implicit-required-field formulations in two training styles.",
+    "Hold the rule text constant across paired enabled, disabled and missing states.",
+    "Add the 532 previously trained numeric replay records to retain the existing numeric task."
+  ],
+  "unchanged": [
+    "Same parent, seed, rank, optimizer, learning rate 1e-5, batch 4, accumulation 2 and one epoch.",
+    "Development, calibration and sealed test files remain byte-identical.",
+    "The initial selection criteria remain in force."
+  ],
+  "training_trial": "Second and final planned repair trial in this bounded experiment.",
+  "first_trial_checks": {
+    "retain_each_development_task_within_2pp": false,
+    "retain_new_condition_accuracy": true,
+    "new_gate_and_missing_each_95pct": true,
+    "legacy_accuracy_recovers_predecessor": true,
+    "legacy_gate_and_missing_each_90pct": false
+  }
+}

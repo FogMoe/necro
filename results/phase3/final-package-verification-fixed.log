@@ -1,0 +1,12 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:  10%|▉         | 46/473 [00:00<00:01, 414.17it/s]
+Loading weights:  19%|█▉        | 90/473 [00:00<00:00, 421.58it/s]
+Loading weights:  28%|██▊       | 133/473 [00:00<00:00, 396.96it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 1120.81it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"reload": {"examples": 1790, "full_dataset": true, "max_probability_difference": 0.0, "changed_argmax": 0, "tolerance": 1e-05, "load_seconds": 1.9973941999924136}}
+{"passed": true, "output": "results\\phase3\\final\\package-verification.json"}

@@ -1,0 +1,17 @@
+{
+  "protocol": {
+    "parent_test_sha256": "093c3b4fc47927c837e6ea632fef858d6c08143b187e3b5124c89ace859649bd",
+    "seed": 99172026,
+    "notes": "Paired perturbations of the final test, not additional independent samples. Numeric-rule parents already include native negation and explicit missing-field policy."
+  },
+  "partitions": {
+    "test": {
+      "path": "test.jsonl",
+      "sha256": "f9f28f9d8b5cae8a5a633ed30d02763cf2e5c3998b079e29cff06bfd58934b18",
+      "rows": 140,
+      "source_groups": 122,
+      "content_groups": 122,
+      "unique_requests": 140
+    }
+  }
+}

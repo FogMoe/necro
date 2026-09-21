@@ -9,6 +9,7 @@ __pycache__/
 *.egg-info/
 build/
 dist/
-/data/
-/results/
-/artifacts/
+/data/**/.cache/
+/artifacts/*
+!/artifacts/necro-unified-cloud-2026-09-21.zip
+!/artifacts/necro-unified-primary-cloud-evidence-2026-09-21.tar.gz

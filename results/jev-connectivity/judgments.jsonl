@@ -1,0 +1,1 @@
+{"id": "zh-refund", "question_id": "answer", "language": "zh", "source": "curated-smoke", "type": "choice", "expected": "billing", "predicted": "billing", "correct": true, "top_probability": 1.0, "nll": -0.0, "brier": 0.0}

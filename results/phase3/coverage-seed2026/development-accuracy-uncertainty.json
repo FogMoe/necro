@@ -1,0 +1,75 @@
+{
+  "method": "paired, stratified by family, resampling source groups with replacement",
+  "repetitions": 2000,
+  "seed": 20260920,
+  "families": {
+    "candidate_extraction": {
+      "source_groups": 30,
+      "accuracy_delta": 0.0,
+      "accuracy_delta_95ci": [
+        -0.06666666666666667,
+        0.06666666666666667
+      ]
+    },
+    "candidate_retrieval": {
+      "source_groups": 32,
+      "accuracy_delta": 0.0,
+      "accuracy_delta_95ci": [
+        0.0,
+        0.0
+      ]
+    },
+    "inference": {
+      "source_groups": 180,
+      "accuracy_delta": 0.030555555555555555,
+      "accuracy_delta_95ci": [
+        -0.002777777777777778,
+        0.06395833333333295
+      ]
+    },
+    "intent": {
+      "source_groups": 176,
+      "accuracy_delta": 0.056818181818181816,
+      "accuracy_delta_95ci": [
+        0.014204545454545454,
+        0.10227272727272728
+      ]
+    },
+    "numeric_rule": {
+      "source_groups": 20,
+      "accuracy_delta": -0.022727272727272728,
+      "accuracy_delta_95ci": [
+        -0.05115105799373041,
+        0.0
+      ]
+    },
+    "ordinal_rule": {
+      "source_groups": 35,
+      "accuracy_delta": -0.004761904761904762,
+      "accuracy_delta_95ci": [
+        -0.023809523809523808,
+        0.009523809523809525
+      ]
+    },
+    "paraphrase": {
+      "source_groups": 70,
+      "accuracy_delta": 0.028169014084507043,
+      "accuracy_delta_95ci": [
+        -0.028169014084507043,
+        0.07857142857142857
+      ]
+    },
+    "reading_boolean": {
+      "source_groups": 120,
+      "accuracy_delta": 0.023255813953488372,
+      "accuracy_delta_95ci": [
+        -0.023809523809523808,
+        0.07464089327797097
+      ]
+    }
+  },
+  "macro_accuracy_delta_95ci": [
+    -0.0005452158029022944,
+    0.028133123647186144
+  ]
+}

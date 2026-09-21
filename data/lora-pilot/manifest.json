@@ -1,0 +1,23 @@
+{
+  "seed": 17,
+  "training_examples": 994,
+  "validation_examples": 200,
+  "removed_overlap_groups": 3,
+  "types": {
+    "choice": 694,
+    "noul": 200,
+    "score": 100
+  },
+  "languages": {
+    "zh": 497,
+    "en": 497
+  },
+  "train_sha256": "baba10584b1b21d616ee3a68d860fb0e4ceb75c771ea3e9a28554eb76ff79cf8",
+  "validation_sha256": "3cafef6f57d547cc2f9ca5d6a5aecd8f1135d879618534cb0b7fbe15faf6fb8b",
+  "sources": [
+    "facebook/xnli train",
+    "mteb/amazon_massive_intent train",
+    "constructed-rules"
+  ],
+  "notes": "Validation uses rows 100–149 in each language/source. No Jev labels."
+}

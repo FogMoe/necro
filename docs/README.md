@@ -15,6 +15,8 @@ Start with the [project README](../README.md) for a first run. Use the guides be
 
 ## Evaluation report
 
+The [complete experiment retrospective](../EXPERIMENT_RETROSPECTIVE_2026-09-21.md) records the project's abandonment, the causes of the failed release objective, and the technical lessons. The [reproduction guide](../REPRODUCING.md) covers the published data, adapters, and raw evidence.
+
 The [2026-09-21 unified primary review](reports/unified-primary-2026-09-21.md) reports the fresh-LoRA results against Phase 4, failed stability checks, and the numeric coverage omissions identified in the follow-up audit.
 
 The [2026-09-21 pre-release review](reports/pre-release-2026-09-21.md) compares the original checkpoint, the Phase 4 candidate, and Jev on identical requests, including the condition regression that failed release review.

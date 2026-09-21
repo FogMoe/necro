@@ -1,0 +1,23 @@
+{
+  "all": {
+    "count": 240,
+    "before_correct": 140,
+    "after_correct": 144,
+    "corrected": 8,
+    "new_errors": 4
+  },
+  "en": {
+    "count": 120,
+    "before_correct": 72,
+    "after_correct": 72,
+    "corrected": 0,
+    "new_errors": 0
+  },
+  "zh": {
+    "count": 120,
+    "before_correct": 68,
+    "after_correct": 72,
+    "corrected": 8,
+    "new_errors": 4
+  }
+}

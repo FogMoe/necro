@@ -1,0 +1,137 @@
+{
+  "new_test_exposed": false,
+  "selected_run": "instruction-seed2026",
+  "adapter_weights_sha256": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13",
+  "rationale": "Instruction seed 2026 meets the registered critical-repair rule: development reading-negation consistency rises from 0/10 to 10/10, macro accuracy improves by 0.613 percentage points over the coverage parent, and the largest task regression is 0.775 percentage points. The final matched seed 2027 replication scores lower on development macro accuracy and Brier and reaches only 8/10 reading-negation consistency. Retain seed 2026. The small aggregate gain and seed variability close lightweight training exploration. Independent performance gates remain unchanged.",
+  "calibration_objective": "brier",
+  "further_training": false,
+  "development_models": {
+    "baseline": {
+      "macro_accuracy": 0.8597374419319534,
+      "macro_brier": 0.21352038201612747,
+      "families": {
+        "ordinal_rule": 0.9904761904761905,
+        "intent": 0.7414772727272727,
+        "paraphrase": 0.7816901408450704,
+        "reading_boolean": 0.8217054263565892,
+        "inference": 0.7444444444444445,
+        "numeric_rule": 0.9147727272727273,
+        "candidate_retrieval": 1.0,
+        "candidate_extraction": 0.8833333333333333
+      },
+      "raw_probability_precision": {
+        "development": {
+          "noul_count": 447,
+          "saturated_probabilities": 0
+        },
+        "calibration": {
+          "noul_count": 351,
+          "saturated_probabilities": 0
+        }
+      }
+    },
+    "coverage-seed2026": {
+      "macro_accuracy": 0.8736511154222728,
+      "macro_brier": 0.18850352538099438,
+      "families": {
+        "ordinal_rule": 0.9857142857142858,
+        "intent": 0.7982954545454546,
+        "paraphrase": 0.8098591549295775,
+        "reading_boolean": 0.8449612403100775,
+        "inference": 0.775,
+        "numeric_rule": 0.8920454545454546,
+        "candidate_retrieval": 1.0,
+        "candidate_extraction": 0.8833333333333333
+      },
+      "raw_probability_precision": {
+        "development": {
+          "noul_count": 447,
+          "saturated_probabilities": 0
+        },
+        "calibration": {
+          "noul_count": 351,
+          "saturated_probabilities": 0
+        }
+      }
+    },
+    "instruction-seed2026": {
+      "macro_accuracy": 0.8797842212424181,
+      "macro_brier": 0.1819862072721517,
+      "families": {
+        "ordinal_rule": 0.9904761904761905,
+        "intent": 0.8011363636363636,
+        "paraphrase": 0.8169014084507042,
+        "reading_boolean": 0.8372093023255814,
+        "inference": 0.7777777777777778,
+        "numeric_rule": 0.9147727272727273,
+        "candidate_retrieval": 1.0,
+        "candidate_extraction": 0.9
+      },
+      "raw_probability_precision": {
+        "development": {
+          "noul_count": 447,
+          "saturated_probabilities": 0
+        },
+        "calibration": {
+          "noul_count": 351,
+          "saturated_probabilities": 0
+        }
+      },
+      "reading_negation": {
+        "count": 10,
+        "accuracy": 0.9,
+        "nll": 0.42192690269366295,
+        "brier": 0.2505726631929137,
+        "ece_10_bins": 0.20751448541515843,
+        "nll_floor_sensitivity": {
+          "1e-12": 0.42192690269366295,
+          "0.001": 0.42192690269366295,
+          "0.005": 0.42192690269366295,
+          "0.01": 0.42192690269366295
+        },
+        "consistency": 1.0,
+        "parent_accuracy": 0.9
+      }
+    },
+    "instruction-seed2027": {
+      "macro_accuracy": 0.8647479655652969,
+      "macro_brier": 0.1966946865893514,
+      "families": {
+        "ordinal_rule": 0.9809523809523809,
+        "intent": 0.7840909090909091,
+        "paraphrase": 0.7816901408450704,
+        "reading_boolean": 0.8294573643410853,
+        "inference": 0.7777777777777778,
+        "numeric_rule": 0.8806818181818182,
+        "candidate_retrieval": 1.0,
+        "candidate_extraction": 0.8833333333333333
+      },
+      "raw_probability_precision": {
+        "development": {
+          "noul_count": 447,
+          "saturated_probabilities": 0
+        },
+        "calibration": {
+          "noul_count": 351,
+          "saturated_probabilities": 0
+        }
+      },
+      "reading_negation": {
+        "count": 10,
+        "accuracy": 0.7,
+        "nll": 0.4923916495052711,
+        "brier": 0.3215066437871523,
+        "ece_10_bins": 0.2076588861621179,
+        "nll_floor_sensitivity": {
+          "1e-12": 0.4923916495052711,
+          "0.001": 0.4923916495052711,
+          "0.005": 0.4923916495052711,
+          "0.01": 0.4923916495052711
+        },
+        "consistency": 0.8,
+        "parent_accuracy": 0.9
+      }
+    }
+  },
+  "seed_comparison": "results/phase3/final-seed-comparison.json"
+}

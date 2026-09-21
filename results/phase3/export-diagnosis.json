@@ -1,0 +1,20 @@
+{
+  "saved_weight_tensors": 474,
+  "saved_mismatches": [],
+  "reloaded_mismatches": [],
+  "same_batch": {
+    "examples": 32,
+    "adapter_vs_merged": {
+      "maximum_probability_difference": 0.0,
+      "changed_argmax": 0
+    },
+    "adapter_repeat": {
+      "maximum_probability_difference": 0.0,
+      "changed_argmax": 0
+    },
+    "merged_repeat": {
+      "maximum_probability_difference": 0.0,
+      "changed_argmax": 0
+    }
+  }
+}

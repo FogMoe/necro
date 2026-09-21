@@ -1,0 +1,63 @@
+{
+  "lineage": [
+    {
+      "adapter": "results\\phase2\\v3\\operator-contrast\\adapter",
+      "model_id": "ScarletKc-Necro-0.8b-operator-contrast",
+      "weights_sha256": "4c2143d4a27cfb6859a71dd98354e936b94176d6c837994b610774bde92db70f",
+      "training_file": "data\\phase2\\operator-contrast-v1\\train.jsonl",
+      "train_sha256": "fed1191ae90eca2753365c574e5031b686683846a2cedac70beac230e3a404b9",
+      "presentations": 3045,
+      "seed": 2026
+    },
+    {
+      "adapter": "results\\phase2\\v3\\refinement\\adapter",
+      "model_id": "ScarletKc-Necro-0.8b-refinement",
+      "weights_sha256": "54f7a3a033f3c9dae13ebe11a5ec511bebd647218b4f896eb615cc865d2a9791",
+      "training_file": "data\\phase2\\refinement-v2\\train.jsonl",
+      "train_sha256": "8ce4bad5e65218bfa04af2572d7205cad2b31e4428397162716b72f983c04d87",
+      "presentations": 2800,
+      "seed": 2026
+    },
+    {
+      "adapter": "results\\phase2\\v3\\answer-ce\\adapter",
+      "model_id": "ScarletKc-Necro-0.8b-answer-ce",
+      "weights_sha256": "ac1558abba6675da93a2958bfd2ab86deaee9903926cf1c4a10cf197aa62c3b3",
+      "training_file": "data\\phase2\\experiment-v3\\train.jsonl",
+      "train_sha256": "ad682d37df3be454127a63f3ed1be5e0012c5e8ad15856427a1aeb0f73a444d7",
+      "presentations": 2582,
+      "seed": 2026
+    },
+    {
+      "adapter": "results\\improvement\\round4\\adapter",
+      "model_id": "necro-qwen3.5-0.8b-r4",
+      "weights_sha256": "135241492eb962b342997d4c393776e5c2baa2ceda90f98a3db096d3951340d1",
+      "training_file": "data\\improvement\\expanded\\train.jsonl",
+      "train_sha256": "390d9556303659de1267e6acfb66419ec92c929c2bd9a159f24a95ce7bed90f3",
+      "presentations": 2336,
+      "seed": 41
+    },
+    {
+      "adapter": "results\\improvement\\round3\\adapter",
+      "model_id": "necro-qwen3.5-0.8b-r3",
+      "weights_sha256": "35540d941d56d4688a19a778d8ed282e4d1d19c1706637d9b2c7c7a5c007e73e",
+      "training_file": "data\\improvement\\expanded\\train.jsonl",
+      "train_sha256": "390d9556303659de1267e6acfb66419ec92c929c2bd9a159f24a95ce7bed90f3",
+      "presentations": 2336,
+      "seed": 29
+    },
+    {
+      "adapter": "results\\lora-pilot\\run1\\adapter",
+      "model_id": "necro-qwen3.5-0.8b-lora-pilot-v1",
+      "weights_sha256": "1c61e10e43cbe3d6ae61efb19d2db08f4d989376b5081439adb97e3a6cdd0af4",
+      "training_file": "data\\lora-pilot\\train.jsonl",
+      "train_sha256": "baba10584b1b21d616ee3a68d860fb0e4ceb75c771ea3e9a28554eb76ff79cf8",
+      "presentations": 994,
+      "seed": 17
+    }
+  ],
+  "training_presentations": 14093,
+  "unique_training_requests": 7760,
+  "training_source_keys": 3790,
+  "source_overlap_with_development_calibration_test": 0,
+  "notes": "Whole ancestor chain checked; public pretraining contamination remains unknown."
+}

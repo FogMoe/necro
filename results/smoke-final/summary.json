@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T07:23:40.457433+00:00",
+    "backend": "local",
+    "model": [
+      "necro-qwen3.5-0.8b"
+    ],
+    "dataset_sha256": "9ffae1190b8d1652585a1b280f222e9975694591e88545fa95fda40ee738971e",
+    "evaluated_examples": 24,
+    "elapsed_seconds": 0.3193087999970885,
+    "questions_per_second": 75.16235067814866,
+    "input_tokens": 2848,
+    "notes": "Exploratory evaluation; not proof of general capability or calibrated accuracy.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "prompt_version": "plain-v1-native-noul",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.8729645547767481,
+    "candidate_mass_min": 0.42665889859199524,
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 1.7269043922424316
+  },
+  "overall": {
+    "count": 24,
+    "accuracy": 0.9166666666666666,
+    "nll": 0.5263087626550248,
+    "brier": 0.27066458041874486,
+    "ece_10_bins": 0.21521831428973193
+  },
+  "groups": {
+    "curated-smoke/zh/choice": {
+      "count": 4,
+      "accuracy": 0.75,
+      "nll": 0.8134659354371057,
+      "brier": 0.41620161128691724,
+      "ece_10_bins": 0.09302323775690635
+    },
+    "curated-smoke/en/choice": {
+      "count": 4,
+      "accuracy": 0.75,
+      "nll": 0.8274355002132182,
+      "brier": 0.39057330437222265,
+      "ece_10_bins": 0.27355102996516467
+    },
+    "curated-smoke/zh/noul": {
+      "count": 4,
+      "accuracy": 1.0,
+      "nll": 0.45154140962264844,
+      "brier": 0.27278356680497445,
+      "ece_10_bins": 0.3564212941179977
+    },
+    "curated-smoke/en/noul": {
+      "count": 4,
+      "accuracy": 1.0,
+      "nll": 0.3975455782114996,
+      "brier": 0.23092592501413986,
+      "ece_10_bins": 0.31808402623230075
+    },
+    "curated-smoke/zh/score": {
+      "count": 4,
+      "accuracy": 1.0,
+      "nll": 0.31067268946795656,
+      "brier": 0.14032762545103608,
+      "ece_10_bins": 0.25366322125039226
+    },
+    "curated-smoke/en/score": {
+      "count": 4,
+      "accuracy": 1.0,
+      "nll": 0.3571914629777209,
+      "brier": 0.1731754495831788,
+      "ece_10_bins": 0.28518445795572217
+    }
+  },
+  "score_mae": 0.27092889266274395
+}

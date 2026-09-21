@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T22:42:36.238891+00:00",
+    "backend": "jev",
+    "model": [
+      "jev-1.13.0"
+    ],
+    "dataset_sha256": "75c818270d76a92b3faab3f9ebc7e8720bc7e405208e7703f9935cbdb2f11b1d",
+    "evaluated_examples": 720,
+    "full_dataset_examples": 720,
+    "full_dataset_evaluated": true,
+    "evaluated_questions": 720,
+    "elapsed_seconds": 57.70574799999304,
+    "questions_per_second": 12.477093269808874,
+    "input_tokens": 260988,
+    "notes": "Evaluation results for the supplied dataset and recorded model configuration.",
+    "remote_cache": {
+      "hits": 0,
+      "requests": 720
+    }
+  },
+  "overall": {
+    "count": 720,
+    "accuracy": 0.9833333333333333,
+    "nll": 0.08917371977001357,
+    "brier": 0.033696666666666666,
+    "ece_10_bins": 0.05094444444444447,
+    "nll_floor_sensitivity": {
+      "1e-12": 0.08917371977001357,
+      "0.001": 0.08917371977001357,
+      "0.005": 0.08917371977001357,
+      "0.01": 0.08917371977001357
+    }
+  },
+  "groups": {
+    "constructed-condition-v1/zh/noul": {
+      "count": 360,
+      "accuracy": 0.9833333333333333,
+      "nll": 0.09556385661794028,
+      "brier": 0.03702166666666667,
+      "ece_10_bins": 0.05697222222222212,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.09556385661794028,
+        "0.001": 0.09556385661794028,
+        "0.005": 0.09556385661794028,
+        "0.01": 0.09556385661794028
+      }
+    },
+    "constructed-condition-v1/en/noul": {
+      "count": 360,
+      "accuracy": 0.9833333333333333,
+      "nll": 0.08278358292208685,
+      "brier": 0.03037166666666666,
+      "ece_10_bins": 0.05180555555555547,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.08278358292208685,
+        "0.001": 0.08278358292208685,
+        "0.005": 0.08278358292208685,
+        "0.01": 0.08278358292208685
+      }
+    }
+  },
+  "families": {
+    "numeric_rule": {
+      "count": 720,
+      "accuracy": 0.9833333333333333,
+      "nll": 0.08917371977001357,
+      "brier": 0.033696666666666666,
+      "ece_10_bins": 0.05094444444444447,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.08917371977001357,
+        "0.001": 0.08917371977001357,
+        "0.005": 0.08917371977001357,
+        "0.01": 0.08917371977001357
+      }
+    }
+  },
+  "macro_family_accuracy": 0.9833333333333333
+}

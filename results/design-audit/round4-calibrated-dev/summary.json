@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T08:36:38.210314+00:00",
+    "backend": "local",
+    "model": [
+      "necro-qwen3.5-0.8b-r4"
+    ],
+    "dataset_sha256": "3cafef6f57d547cc2f9ca5d6a5aecd8f1135d879618534cb0b7fbe15faf6fb8b",
+    "evaluated_examples": 200,
+    "elapsed_seconds": 15.547732499995618,
+    "questions_per_second": 12.863612105498751,
+    "input_tokens": 103704,
+    "notes": "Exploratory evaluation; not proof of general capability or calibrated accuracy.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "adapter": "results/improvement/round4/adapter",
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "choice_temperature": 2.11892618871859,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.9995187026262283,
+    "candidate_mass_min": 0.9627698063850403,
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 1.94459867477417,
+    "postprocessed": true,
+    "source_predictions_sha256": "009585785538fe89a61ffd5e4f99d3fbe950361fde3414b1782148e325547e81"
+  },
+  "overall": {
+    "count": 200,
+    "accuracy": 0.85,
+    "nll": 0.6450087807797631,
+    "brier": 0.22886085978876594,
+    "ece_10_bins": 0.04710827893743165
+  },
+  "groups": {
+    "facebook/xnli/en/choice": {
+      "count": 50,
+      "accuracy": 0.86,
+      "nll": 0.4335655984643049,
+      "brier": 0.22733946893025161,
+      "ece_10_bins": 0.07395946264639486
+    },
+    "mteb/amazon_massive_intent/en/choice": {
+      "count": 50,
+      "accuracy": 0.86,
+      "nll": 0.7663181565091832,
+      "brier": 0.19082048434374296,
+      "ece_10_bins": 0.09707656089795264
+    },
+    "facebook/xnli/zh/choice": {
+      "count": 50,
+      "accuracy": 0.84,
+      "nll": 0.49995446854206504,
+      "brier": 0.2620870101613006,
+      "ece_10_bins": 0.09481849691190458
+    },
+    "mteb/amazon_massive_intent/zh/choice": {
+      "count": 50,
+      "accuracy": 0.84,
+      "nll": 0.8801968996034992,
+      "brier": 0.23519647571976843,
+      "ece_10_bins": 0.09108552662886832
+    }
+  }
+}

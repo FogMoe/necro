@@ -1,0 +1,308 @@
+{
+  "tokenization_differences": [],
+  "batches": [
+    {
+      "positions": [
+        260,
+        331,
+        375,
+        465
+      ],
+      "lengths": [
+        169,
+        169,
+        169,
+        169
+      ],
+      "records": [
+        {
+          "id": "paws/test/zh/7285",
+          "group_id": "source-component/88de512b0b5f0c793eb097eb6378cc80b660dfb535d167c7509d341f6e240f04",
+          "content_group": "source-component/88de512b0b5f0c793eb097eb6378cc80b660dfb535d167c7509d341f6e240f04",
+          "source": "google-research-datasets/paws-x",
+          "family": "paraphrase",
+          "language": "zh",
+          "label_quality": "human",
+          "request": {
+            "model": "necro-qwen3.5-0.8b",
+            "state": {
+              "sentence1": "Kjeld Deichmann 于 1963 年骤然离世，埃里卡关闭工作室并放弃陶艺。",
+              "sentence2": "1963 年，艾丽卡突然去世，Kjeld Deichman 关闭了工作室并放弃了陶艺。"
+            },
+            "questions": {
+              "decision": {
+                "type": "noul",
+                "instructions": "两个句子的含义是否相同？注意实体与关系的方向。"
+              }
+            }
+          },
+          "expected": {
+            "decision": false
+          },
+          "source_group_id": "paws/32f9c28f88cddffc8d5ba1dee13294ebfbc6d2ffd0ac37010093a02e5c3ab4a7"
+        },
+        {
+          "id": "p3/xnli/test/1203/zh",
+          "group_id": "source-component/da8f540746c6db6ab664e21f087395630f069d202b123fcd8f9a8cf8c0ea84dc",
+          "content_group": "source-component/da8f540746c6db6ab664e21f087395630f069d202b123fcd8f9a8cf8c0ea84dc",
+          "source": "facebook/xnli",
+          "family": "inference",
+          "language": "zh",
+          "label_quality": "human",
+          "request": {
+            "model": "necro-qwen3.5-0.8b",
+            "state": {
+              "premise": "但在成员都有电脑尤其是互联网的家庭中，用于交流或享受集体休闲活动的时间都在减少。",
+              "hypothesis": "孩子们会沉迷于使用电脑和浏览互联网。"
+            },
+            "questions": {
+              "decision": {
+                "type": "choice",
+                "instructions": "根据 premise 判断 hypothesis 是否成立，仅依据给定前提，不补充外部事实。",
+                "criteria": {
+                  "entailment": "The premise supports the hypothesis.",
+                  "neutral": "The premise neither supports nor contradicts the hypothesis.",
+                  "contradiction": "The premise contradicts the hypothesis."
+                }
+              }
+            }
+          },
+          "expected": {
+            "decision": "neutral"
+          },
+          "source_keys": [
+            "xnli-premise/8633be5cacebd3837349df73c15041411ab3ef29172749fc54388865844e1cd5"
+          ],
+          "official_split": "test",
+          "source_group_id": "xnli/test/1203"
+        },
+        {
+          "id": "p3/xnli/test/198/zh",
+          "group_id": "source-component/742fde966d4de107261aff42a4c59164bc79b6330e05418fc4ab95ef306ed6f3",
+          "content_group": "source-component/742fde966d4de107261aff42a4c59164bc79b6330e05418fc4ab95ef306ed6f3",
+          "source": "facebook/xnli",
+          "family": "inference",
+          "language": "zh",
+          "label_quality": "human",
+          "request": {
+            "model": "necro-qwen3.5-0.8b",
+            "state": {
+              "premise": "它来自一个飞越古巴的空军基地，当然鲁道夫·安德森被击落了。",
+              "hypothesis": "所有的飞机都没有被击中，幸存下来。"
+            },
+            "questions": {
+              "decision": {
+                "type": "choice",
+                "instructions": "根据 premise 判断 hypothesis 是否成立，仅依据给定前提，不补充外部事实。",
+                "criteria": {
+                  "entailment": "The premise supports the hypothesis.",
+                  "neutral": "The premise neither supports nor contradicts the hypothesis.",
+                  "contradiction": "The premise contradicts the hypothesis."
+                }
+              }
+            }
+          },
+          "expected": {
+            "decision": "contradiction"
+          },
+          "source_keys": [
+            "xnli-premise/7b6e38c2183ee887ba86bbf61e2fff27e59efae6df9b445d2e1b4a16f9f59610"
+          ],
+          "official_split": "test",
+          "source_group_id": "xnli/test/198"
+        },
+        {
+          "id": "p3/xnli/test/1327/zh",
+          "group_id": "source-component/7d472aae5b7e11beb8a795a9242f96296c0d523d93ec004f2a5b88acf28b382a",
+          "content_group": "source-component/7d472aae5b7e11beb8a795a9242f96296c0d523d93ec004f2a5b88acf28b382a",
+          "source": "facebook/xnli",
+          "family": "inference",
+          "language": "zh",
+          "label_quality": "human",
+          "request": {
+            "model": "necro-qwen3.5-0.8b",
+            "state": {
+              "premise": "四面体的面积和体积的边缘旋转值的改变可被视为使几何体变形，以便以不同的方式扭曲。",
+              "hypothesis": "四面体的几何形状不是固定不变的。"
+            },
+            "questions": {
+              "decision": {
+                "type": "choice",
+                "instructions": "根据 premise 判断 hypothesis 是否成立，仅依据给定前提，不补充外部事实。",
+                "criteria": {
+                  "entailment": "The premise supports the hypothesis.",
+                  "neutral": "The premise neither supports nor contradicts the hypothesis.",
+                  "contradiction": "The premise contradicts the hypothesis."
+                }
+              }
+            }
+          },
+          "expected": {
+            "decision": "entailment"
+          },
+          "source_keys": [
+            "xnli-premise/e4238eec0803991ec5a0c8bb36dcf3b16a50b3755f9a273955524965c69fd7a4"
+          ],
+          "official_split": "test",
+          "source_group_id": "xnli/test/1327"
+        }
+      ]
+    },
+    {
+      "positions": [
+        323,
+        667,
+        679,
+        741
+      ],
+      "lengths": [
+        171,
+        171,
+        171,
+        171
+      ],
+      "records": [
+        {
+          "id": "p3/xnli/test/3532/zh",
+          "group_id": "source-component/45fe57a497284be24e9d9d39698b7828d059fbcb61e23e2abdd1fb98b0e83b3e",
+          "content_group": "source-component/45fe57a497284be24e9d9d39698b7828d059fbcb61e23e2abdd1fb98b0e83b3e",
+          "source": "facebook/xnli",
+          "family": "inference",
+          "language": "zh",
+          "label_quality": "human",
+          "request": {
+            "model": "necro-qwen3.5-0.8b",
+            "state": {
+              "premise": "你知道的，会员是给那些每年给法学院捐1000美元以上的校友和朋友",
+              "hypothesis": "我们这群人中有人为法学院捐款超过1000美元的。"
+            },
+            "questions": {
+              "decision": {
+                "type": "choice",
+                "instructions": "根据 premise 判断 hypothesis 是否成立，仅依据给定前提，不补充外部事实。",
+                "criteria": {
+                  "entailment": "The premise supports the hypothesis.",
+                  "neutral": "The premise neither supports nor contradicts the hypothesis.",
+                  "contradiction": "The premise contradicts the hypothesis."
+                }
+              }
+            }
+          },
+          "expected": {
+            "decision": "entailment"
+          },
+          "source_keys": [
+            "xnli-premise/230d805d752724d7df06d2199b79f25f7182bd99355b962850123d10c9afeb96"
+          ],
+          "official_split": "test",
+          "source_group_id": "xnli/test/3532"
+        },
+        {
+          "id": "p3/xnli/test/4868/en",
+          "group_id": "source-component/f73264101071971db8696361b8da9435933535bb59197be0dc671200d577568f",
+          "content_group": "source-component/f73264101071971db8696361b8da9435933535bb59197be0dc671200d577568f",
+          "source": "facebook/xnli",
+          "family": "inference",
+          "language": "en",
+          "label_quality": "human",
+          "request": {
+            "model": "necro-qwen3.5-0.8b",
+            "state": {
+              "premise": "The only reference I have that mentions the strip at all ( The Penguin Book of Comics) is rather sketchy on detail.",
+              "hypothesis": "The reference i have is complete."
+            },
+            "questions": {
+              "decision": {
+                "type": "choice",
+                "instructions": "Does the premise support, contradict, or leave the hypothesis undetermined? Use only the given premise.",
+                "criteria": {
+                  "entailment": "The premise supports the hypothesis.",
+                  "neutral": "The premise neither supports nor contradicts the hypothesis.",
+                  "contradiction": "The premise contradicts the hypothesis."
+                }
+              }
+            }
+          },
+          "expected": {
+            "decision": "contradiction"
+          },
+          "source_keys": [
+            "xnli-premise/837f54868a40887f8dca972654cc945192f5460d14d72850bbd9c6cf7e7ebd32"
+          ],
+          "official_split": "test",
+          "source_group_id": "xnli/test/4868"
+        },
+        {
+          "id": "p3/xnli/test/2373/zh",
+          "group_id": "source-component/82b0d6e5822937147912ec7336d2b9a98baf6aa7831ad58b7d4300dbd3282617",
+          "content_group": "source-component/82b0d6e5822937147912ec7336d2b9a98baf6aa7831ad58b7d4300dbd3282617",
+          "source": "facebook/xnli",
+          "family": "inference",
+          "language": "zh",
+          "label_quality": "human",
+          "request": {
+            "model": "necro-qwen3.5-0.8b",
+            "state": {
+              "premise": "在广场对面是拉雷利的后街，这里是寻找低价服装的地方。",
+              "hypothesis": "如果你去到了正确的精品店，便宜的衣服在Laleli打折销售。"
+            },
+            "questions": {
+              "decision": {
+                "type": "choice",
+                "instructions": "根据 premise 判断 hypothesis 是否成立，仅依据给定前提，不补充外部事实。",
+                "criteria": {
+                  "entailment": "The premise supports the hypothesis.",
+                  "neutral": "The premise neither supports nor contradicts the hypothesis.",
+                  "contradiction": "The premise contradicts the hypothesis."
+                }
+              }
+            }
+          },
+          "expected": {
+            "decision": "neutral"
+          },
+          "source_keys": [
+            "xnli-premise/23a6a0ddde9e7d4b3fcf76ba86f2d85705fb7363efef651a4b02aed20dff914f"
+          ],
+          "official_split": "test",
+          "source_group_id": "xnli/test/2373"
+        },
+        {
+          "id": "p3/xnli/test/1850/zh",
+          "group_id": "source-component/a021675d54dc98c159cb78280683339e07da8f05faad9ac959dfe69024a005a8",
+          "content_group": "source-component/a021675d54dc98c159cb78280683339e07da8f05faad9ac959dfe69024a005a8",
+          "source": "facebook/xnli",
+          "family": "inference",
+          "language": "zh",
+          "label_quality": "human",
+          "request": {
+            "model": "necro-qwen3.5-0.8b",
+            "state": {
+              "premise": "“那是将会滞航的信号。”血用同样无精打采的声音说，然后他叹了一口气。",
+              "hypothesis": "当Blood提到关于信号的某个东西时，他叹了口气。"
+            },
+            "questions": {
+              "decision": {
+                "type": "choice",
+                "instructions": "根据 premise 判断 hypothesis 是否成立，仅依据给定前提，不补充外部事实。",
+                "criteria": {
+                  "entailment": "The premise supports the hypothesis.",
+                  "neutral": "The premise neither supports nor contradicts the hypothesis.",
+                  "contradiction": "The premise contradicts the hypothesis."
+                }
+              }
+            }
+          },
+          "expected": {
+            "decision": "entailment"
+          },
+          "source_keys": [
+            "xnli-premise/e4432661b4163241ea4de0b19312931a1737229c485f3bbdd41d014310f824dd"
+          ],
+          "official_split": "test",
+          "source_group_id": "xnli/test/1850"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "registered_at": "2026-09-20T23:47:44.568696+00:00",
+  "previous_assessment_sha256": "7887da2574cb97b7c29a3aa4e599e00755027e0b79f23136aba772f6c076f06f",
+  "reason": "Weighting corrected 11 of 38 known false rejections, but left 27 and failed complete-field, English precondition and numeric-development retention checks. Test actual exposure balance before increasing update strength.",
+  "data": "data/phase5/condition-resample-v1",
+  "data_manifest_sha256": "0ab2cb7c6e514e45c38196e554041107f866d39a081eff8ed12013ac5b966044",
+  "training": {
+    "parent": "results/phase3/instruction-seed2026/adapter",
+    "learning_rate": 2.5e-06,
+    "batch_size": 4,
+    "accumulation": 2,
+    "gradient_checkpointing": true,
+    "seed": 2026,
+    "rank": 16,
+    "epochs": 1,
+    "objective": "answer-ce"
+  },
+  "distribution": "3200 matrix presentations:1600 eligible and1600 ineligible; every style/operator/language/polarity cell has20 each; each of800 original combinations appears at least twice. Replay retains1556 unit-weight records. Requests and labels selected only from existing training material; duplicates have unique presentation IDs.",
+  "evaluation": "Development, calibration and sealed test remain byte-identical. Selection checks unchanged. Parent evaluation on new development is diagnostic; no independent test inference.",
+  "bounded_followup": "Evaluate sampling at2.5e-6 first. Consider5e-6 only if indicated by the predeclared development checks; preserve all failed reviews.",
+  "implementation": "Weight validation moved to CPU and full-vocabulary loss keeps its vector form. Weighted loss and gradients remain mathematically unchanged and covered by analytic scaling and microbatch-equivalence tests."
+}

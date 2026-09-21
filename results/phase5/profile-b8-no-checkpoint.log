@@ -1,0 +1,131 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   8%|��         | 37/473 [00:00<00:01, 368.85it/s]
+Loading weights:  16%|����        | 74/473 [00:00<00:01, 320.24it/s]
+Loading weights:  24%|������       | 115/473 [00:00<00:01, 354.24it/s]
+Loading weights: 100%|��������������������| 473/473 [00:00<00:00, 1275.85it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"event": "setup", "checkpoint": "Qwen/Qwen3.5-0.8B", "revision": "2fc06364715b967f1860aea9cf38778875588b17", "model_id": "necro-qwen3.5-0.8b-lora-pilot-v1", "initial_adapter": "results\\phase3\\instruction-seed2026\\adapter", "initial_adapter_sha256": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13", "prompt_version": "plain-v1-native-noul-numeric-large-choice", "prompt_sha256": "b0494238c3becd0872040e3b9ecb62c1748721cb1cc869b22238613a70068fb1", "seed": 2026, "rank": 16, "learning_rate": 2.5e-06, "batch_size": 8, "gradient_accumulation": 1, "epochs": 1, "optimizer_steps": 595, "examples": 4756, "trainable_parameters": 10822656, "max_input_tokens": 1351, "training_tokens": 910922, "objective": "answer-ce", "gradient_checkpointing": false, "profile_only": true, "training_weights": {"mean": 1.0, "min": 1.0, "max": 1.0}, "objective_description": "full-vocabulary answer-token CE; prompts masked", "train_sha256": "f158fa6d82750460e502b192ccf927b98e826046e631f19e581ed7e6b53aa316", "validation_sha256": "e3f9401a4ed838b3359484ec8ff58bfa20439762c2b9c24db2bb8a8b295ded94", "source_sha256": {"training/trainer.py": "48f4d2b7116eacf00bd75d0005b2d6187e53e524c9c6e4e6bb303e687ed917fe", "training/__init__.py": "9a38213790450339bd58f924ca49c1cb6e4455123a319afec1313a28928dde47", "training/__main__.py": "94465eb9af69a504cec5a1a080146d39def20dc921c0d5eb2c3f5aa1f6d850a9", "engine.py": "2b60c7ca91ac2e54416e7b939287a8b56fc48a63ecb36d2f8cf7935051972a8e", "backend.py": "29f496808e445d28f861ba678548357d4f80c65602349baa0534acc85f960eab", "schema.py": "83ab3f3c17b2d8b771cd36483b7b2f5e7be8096666d452debbd16def1f35ec06", "config.py": "8c020267d540ac59c4ddcfbe7d7d5aa7a7d8133ed168b0afe3beada04409224b"}}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\kc\Documents\GitHub\necro\src\necro\training\__main__.py", line 7, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\kc\Documents\GitHub\necro\src\necro\training\trainer.py", line 422, in main
+    train(
+    ~~~~~^
+        args.data,
+        ^^^^^^^^^^
+    ...<9 lines>...
+        profile_only=args.profile_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\kc\Documents\GitHub\necro\src\necro\training\trainer.py", line 306, in train
+    loss = answer_loss(
+        model,
+    ...<3 lines>...
+        sample_weights=[row["weight"] for row in rows],
+    )
+  File "C:\Users\kc\Documents\GitHub\necro\src\necro\training\trainer.py", line 96, in answer_loss
+    output = model(**inputs, logits_to_keep=targets.shape[1], use_cache=False)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\peft\peft_model.py", line 2120, in forward
+    return self.base_model(
+           ~~~~~~~~~~~~~~~^
+        input_ids=input_ids,
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\peft\tuners\tuners_utils.py", line 359, in forward
+    return self.model(*args, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\transformers\utils\generic.py", line 939, in wrapper
+    output = func(self, *args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\transformers\models\qwen3_5\modeling_qwen3_5.py", line 1855, in forward
+    outputs = self.model(
+        input_ids=input_ids,
+    ...<9 lines>...
+        **kwargs,
+    )
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\transformers\utils\generic.py", line 939, in wrapper
+    output = func(self, *args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\transformers\models\qwen3_5\modeling_qwen3_5.py", line 1648, in forward
+    outputs = self.language_model(
+        input_ids=None,
+    ...<4 lines>...
+        **kwargs,
+    )
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\transformers\utils\generic.py", line 1068, in wrapper
+    output = func(self, *args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\transformers\utils\output_capturing.py", line 286, in wrapper
+    outputs = func(self, *args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\transformers\models\qwen3_5\modeling_qwen3_5.py", line 1292, in forward
+    hidden_states = decoder_layer(
+        hidden_states,
+    ...<5 lines>...
+        **kwargs,
+    )
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\transformers\modeling_layers.py", line 109, in __call__
+    return super().__call__(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\transformers\models\qwen3_5\modeling_qwen3_5.py", line 911, in forward
+    hidden_states = self.mlp(hidden_states)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\transformers\models\qwen3_5\modeling_qwen3_5.py", line 836, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\peft\tuners\lora\layer.py", line 1102, in forward
+    result = result + lora_B(lora_A(dropout(x))) * scaling
+                      ~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\torch\nn\modules\linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 28.00 MiB. GPU 0 has a total capacity of 11.94 GiB of which 0 bytes is free. Of the allocated memory 25.39 GiB is allocated by PyTorch, and 600.23 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

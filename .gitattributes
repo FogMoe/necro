@@ -1,0 +1,4 @@
+# Preserve frozen bytes and their registered checksums across platforms.
+data/** -text
+results/** -text
+artifacts/** -text

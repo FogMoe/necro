@@ -1,0 +1,1580 @@
+{
+  "json_batch1": {
+    "summary": {
+      "overall": {
+        "count": 24,
+        "accuracy": 0.7083333333333334,
+        "nll": 0.7026076501753346,
+        "brier": 0.40581285938932415,
+        "ece_10_bins": 0.19587948450903153
+      },
+      "groups": {
+        "curated-smoke/zh/choice": {
+          "count": 4,
+          "accuracy": 0.5,
+          "nll": 1.0762696049323943,
+          "brier": 0.6068871211326832,
+          "ece_10_bins": 0.3259179101495611
+        },
+        "curated-smoke/en/choice": {
+          "count": 4,
+          "accuracy": 0.5,
+          "nll": 1.226135295743347,
+          "brier": 0.6752194048149811,
+          "ece_10_bins": 0.4631500105663279
+        },
+        "curated-smoke/zh/noul": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.5732035925726305,
+          "brier": 0.3848285727039997,
+          "ece_10_bins": 0.12905379799008027
+        },
+        "curated-smoke/en/noul": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.4795530208062634,
+          "brier": 0.2954811664948785,
+          "ece_10_bins": 0.3734183235102693
+        },
+        "curated-smoke/zh/score": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.24355548962939277,
+          "brier": 0.10911397555546605,
+          "ece_10_bins": 0.19303285157321887
+        },
+        "curated-smoke/en/score": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.61692889736798,
+          "brier": 0.3633469156339362,
+          "ece_10_bins": 0.09359979661202664
+        }
+      },
+      "score_mae": 0.3587446238322746
+    },
+    "failures": [
+      "zh-unknown",
+      "en-unknown",
+      "zh-injection",
+      "en-injection",
+      "zh-yes",
+      "en-quoted-no",
+      "en-score-structured"
+    ],
+    "predictions": [
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "billing",
+            "probabilities": {
+              "billing": 0.8490124819248439,
+              "technical": 0.08948525541379612,
+              "sales": 0.06150226266135998
+            },
+            "confidence": 0.7735187228872658
+          }
+        },
+        "usage": {
+          "input_tokens": 154,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "billing",
+            "probabilities": {
+              "billing": 0.9886693657671608,
+              "technical": 0.008553665390232695,
+              "sales": 0.002776968842606514
+            },
+            "confidence": 0.9830040486507412
+          }
+        },
+        "usage": {
+          "input_tokens": 154,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "sales",
+            "probabilities": {
+              "billing": 0.04573657855449635,
+              "technical": 0.03561968449256491,
+              "sales": 0.9186437369529388
+            },
+            "confidence": 0.877965605429408
+          }
+        },
+        "usage": {
+          "input_tokens": 151,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "sales",
+            "probabilities": {
+              "billing": 0.24182956821581603,
+              "technical": 0.10080955553090407,
+              "sales": 0.6573608762532799
+            },
+            "confidence": 0.4860413143799198
+          }
+        },
+        "usage": {
+          "input_tokens": 156,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "yes",
+            "probabilities": {
+              "yes": 0.8450507865831022,
+              "no": 0.10092692521432264,
+              "unknown": 0.0540222882025752
+            },
+            "confidence": 0.7675761798746532
+          }
+        },
+        "usage": {
+          "input_tokens": 168,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "yes",
+            "probabilities": {
+              "yes": 0.9309822633074237,
+              "no": 0.040904508412407996,
+              "unknown": 0.02811322828016823
+            },
+            "confidence": 0.8964733949611357
+          }
+        },
+        "usage": {
+          "input_tokens": 172,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "technical",
+            "probabilities": {
+              "billing": 0.32040112255808345,
+              "technical": 0.5282521090432373,
+              "sales": 0.15134676839867925
+            },
+            "confidence": 0.2923781635648559
+          }
+        },
+        "usage": {
+          "input_tokens": 170,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "technical",
+            "probabilities": {
+              "billing": 0.40571323788065367,
+              "technical": 0.590309289444007,
+              "sales": 0.003977472675339423
+            },
+            "confidence": 0.38546393416601044
+          }
+        },
+        "usage": {
+          "input_tokens": 170,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.4073334093491191
+          }
+        },
+        "usage": {
+          "input_tokens": 138,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.6791786945110948
+          }
+        },
+        "usage": {
+          "input_tokens": 137,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.29421496391296387
+          }
+        },
+        "usage": {
+          "input_tokens": 142,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.32082130548890514
+          }
+        },
+        "usage": {
+          "input_tokens": 147,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.4073334093491191
+          }
+        },
+        "usage": {
+          "input_tokens": 146,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.5312093775743617
+          }
+        },
+        "usage": {
+          "input_tokens": 151,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.5926665906508809
+          }
+        },
+        "usage": {
+          "input_tokens": 148,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.32082130548890514
+          }
+        },
+        "usage": {
+          "input_tokens": 155,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.656502167232367,
+            "legend": {
+              "0": "只有外观问题，所有功能正常",
+              "1": "有功能故障，但存在可用替代方法",
+              "2": "功能完全不可用且没有替代方法"
+            },
+            "probabilities": {
+              "0": 0.5434056005389333,
+              "1": 0.2566866316897665,
+              "2": 0.1999077677713002
+            },
+            "confidence": 0.31510840080839997
+          }
+        },
+        "usage": {
+          "input_tokens": 173,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.6148913823861756,
+            "legend": {
+              "0": "Cosmetic issue only; all functions work",
+              "1": "A function is broken but a workaround exists",
+              "2": "Function is completely unavailable with no workaround"
+            },
+            "probabilities": {
+              "0": 0.51542965253757,
+              "1": 0.35424931253868436,
+              "2": 0.1303210349237456
+            },
+            "confidence": 0.27314447880635506
+          }
+        },
+        "usage": {
+          "input_tokens": 169,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.9153533739543949,
+            "legend": {
+              "0": "只有外观问题，所有功能正常",
+              "1": "有功能故障，但存在可用替代方法",
+              "2": "功能完全不可用且没有替代方法"
+            },
+            "probabilities": {
+              "0": 0.18213814225587036,
+              "1": 0.7203703415338644,
+              "2": 0.09749151621026522
+            },
+            "confidence": 0.5805555123007966
+          }
+        },
+        "usage": {
+          "input_tokens": 177,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.8811669778997745,
+            "legend": {
+              "0": "Cosmetic issue only; all functions work",
+              "1": "A function is broken but a workaround exists",
+              "2": "Function is completely unavailable with no workaround"
+            },
+            "probabilities": {
+              "0": 0.2037819952336251,
+              "1": 0.7112690316329752,
+              "2": 0.08494897313339968
+            },
+            "confidence": 0.5669035474494628
+          }
+        },
+        "usage": {
+          "input_tokens": 172,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 1.958394248269659,
+            "legend": {
+              "0": "只有外观问题，所有功能正常",
+              "1": "有功能故障，但存在可用替代方法",
+              "2": "功能完全不可用且没有替代方法"
+            },
+            "probabilities": {
+              "0": 0.01386858391011365,
+              "1": 0.01386858391011365,
+              "2": 0.9722628321797727
+            },
+            "confidence": 0.958394248269659
+          }
+        },
+        "usage": {
+          "input_tokens": 177,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 1.9860204960525958,
+            "legend": {
+              "0": "Cosmetic issue only; all functions work",
+              "1": "A function is broken but a workaround exists",
+              "2": "Function is completely unavailable with no workaround"
+            },
+            "probabilities": {
+              "0": 0.004046176173972843,
+              "1": 0.005887151599458382,
+              "2": 0.9900666722265687
+            },
+            "confidence": 0.9851000083398531
+          }
+        },
+        "usage": {
+          "input_tokens": 174,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 1.9872367357874994,
+            "legend": {
+              "0": {
+                "meaning": "步骤与环境均缺失"
+              },
+              "1": {
+                "meaning": "只包含步骤或环境之一"
+              },
+              "2": {
+                "meaning": "步骤和环境都包含"
+              }
+            },
+            "probabilities": {
+              "0": 0.004593083667054891,
+              "1": 0.0035770968783909703,
+              "2": 0.9918298194545542
+            },
+            "confidence": 0.9877447291818313
+          }
+        },
+        "usage": {
+          "input_tokens": 176,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 1.3267352730035782,
+            "legend": {
+              "0": {
+                "meaning": "Neither steps nor environment are present"
+              },
+              "1": {
+                "meaning": "Only one of steps or environment is present"
+              },
+              "2": {
+                "meaning": "Both steps and environment are present"
+              }
+            },
+            "probabilities": {
+              "0": 0.23356996476650238,
+              "1": 0.20612479746341705,
+              "2": 0.5603052377700806
+            },
+            "confidence": 0.34045785665512085
+          }
+        },
+        "usage": {
+          "input_tokens": 181,
+          "output_tokens": 0
+        }
+      }
+    ]
+  },
+  "plain": {
+    "summary": {
+      "overall": {
+        "count": 24,
+        "accuracy": 0.75,
+        "nll": 0.5824158874746191,
+        "brier": 0.30450067736241215,
+        "ece_10_bins": 0.21319706344854866
+      },
+      "groups": {
+        "curated-smoke/zh/choice": {
+          "count": 4,
+          "accuracy": 0.5,
+          "nll": 0.9359109929727988,
+          "brier": 0.4988746558952515,
+          "ece_10_bins": 0.3367858060576284
+        },
+        "curated-smoke/en/choice": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.9718408750292145,
+          "brier": 0.3995883715427783,
+          "ece_10_bins": 0.2594139061196665
+        },
+        "curated-smoke/zh/noul": {
+          "count": 4,
+          "accuracy": 0.5,
+          "nll": 0.5573948762222365,
+          "brier": 0.3803640558242069,
+          "ece_10_bins": 0.4049760382789974
+        },
+        "curated-smoke/en/noul": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.3577760399330192,
+          "brier": 0.2265527670455125,
+          "ece_10_bins": 0.2605839591028004
+        },
+        "curated-smoke/zh/score": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.33388748233852983,
+          "brier": 0.15817777010491685,
+          "ece_10_bins": 0.27385943107963673
+        },
+        "curated-smoke/en/score": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.3376850583519158,
+          "brier": 0.16344644376180673,
+          "ece_10_bins": 0.26509966611764146
+        }
+      },
+      "score_mae": 0.28212681505631554
+    },
+    "failures": [
+      "zh-unknown",
+      "en-unknown",
+      "zh-injection",
+      "zh-yes",
+      "en-yes",
+      "zh-criterion-yes"
+    ],
+    "predictions": [
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "billing",
+            "probabilities": {
+              "billing": 0.8055124050277429,
+              "technical": 0.1797341205442718,
+              "sales": 0.0147534744279853
+            },
+            "confidence": 0.7082686075416142
+          }
+        },
+        "usage": {
+          "input_tokens": 96,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "billing",
+            "probabilities": {
+              "billing": 0.9092955576591721,
+              "technical": 0.08457765716419882,
+              "sales": 0.006126785176629035
+            },
+            "confidence": 0.8639433364887581
+          }
+        },
+        "usage": {
+          "input_tokens": 93,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "sales",
+            "probabilities": {
+              "billing": 0.08330658543944632,
+              "technical": 0.02106320414852784,
+              "sales": 0.8956302104120258
+            },
+            "confidence": 0.8434453156180388
+          }
+        },
+        "usage": {
+          "input_tokens": 93,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "sales",
+            "probabilities": {
+              "billing": 0.1291330843636261,
+              "technical": 0.028813481851784426,
+              "sales": 0.8420534337845894
+            },
+            "confidence": 0.7630801506768841
+          }
+        },
+        "usage": {
+          "input_tokens": 95,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "yes",
+            "probabilities": {
+              "yes": 0.517556619291528,
+              "no": 0.4030734986753799,
+              "unknown": 0.07936988203309213
+            },
+            "confidence": 0.27633492893729195
+          }
+        },
+        "usage": {
+          "input_tokens": 110,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "yes": 0.45141968971900065,
+              "no": 0.5115255212695435,
+              "unknown": 0.03705478901145587
+            },
+            "confidence": 0.2672882819043153
+          }
+        },
+        "usage": {
+          "input_tokens": 112,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "technical",
+            "probabilities": {
+              "billing": 0.41333233232302097,
+              "technical": 0.5307292203787545,
+              "sales": 0.055938447298224524
+            },
+            "confidence": 0.29609383056813177
+          }
+        },
+        "usage": {
+          "input_tokens": 112,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "billing",
+            "probabilities": {
+              "billing": 0.7225209053471159,
+              "technical": 0.26580063152203004,
+              "sales": 0.011678463130854109
+            },
+            "confidence": 0.5837813580206739
+          }
+        },
+        "usage": {
+          "input_tokens": 110,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.4687906224256383
+          }
+        },
+        "usage": {
+          "input_tokens": 87,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.37754066653428475
+          }
+        },
+        "usage": {
+          "input_tokens": 87,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.2018132209777832
+          }
+        },
+        "usage": {
+          "input_tokens": 91,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.13296424050575853
+          }
+        },
+        "usage": {
+          "input_tokens": 96,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.29421496391296387
+          }
+        },
+        "usage": {
+          "input_tokens": 95,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.2018132209777832
+          }
+        },
+        "usage": {
+          "input_tokens": 100,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.4073334093491191
+          }
+        },
+        "usage": {
+          "input_tokens": 98,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.08509904146194458
+          }
+        },
+        "usage": {
+          "input_tokens": 104,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.35456817200889995,
+            "legend": {
+              "0": "只有外观问题，所有功能正常",
+              "1": "有功能故障，但存在可用替代方法",
+              "2": "功能完全不可用且没有替代方法"
+            },
+            "probabilities": {
+              "0": 0.6655290648468316,
+              "1": 0.31437369829743694,
+              "2": 0.020097236855731494
+            },
+            "confidence": 0.49829359727024736
+          }
+        },
+        "usage": {
+          "input_tokens": 118,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.3344392987053436,
+            "legend": {
+              "0": "Cosmetic issue only; all functions work",
+              "1": "A function is broken but a workaround exists",
+              "2": "Function is completely unavailable with no workaround"
+            },
+            "probabilities": {
+              "0": 0.6891418361706888,
+              "1": 0.2872770289532789,
+              "2": 0.023581134876032347
+            },
+            "confidence": 0.5337127542560332
+          }
+        },
+        "usage": {
+          "input_tokens": 110,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.7177821802762475,
+            "legend": {
+              "0": "只有外观问题，所有功能正常",
+              "1": "有功能故障，但存在可用替代方法",
+              "2": "功能完全不可用且没有替代方法"
+            },
+            "probabilities": {
+              "0": 0.35141566919409734,
+              "1": 0.5793864813355577,
+              "2": 0.06919784947034492
+            },
+            "confidence": 0.3690797220033366
+          }
+        },
+        "usage": {
+          "input_tokens": 122,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.8720245521648156,
+            "legend": {
+              "0": "Cosmetic issue only; all functions work",
+              "1": "A function is broken but a workaround exists",
+              "2": "Function is completely unavailable with no workaround"
+            },
+            "probabilities": {
+              "0": 0.15935413960972983,
+              "1": 0.8092671686157248,
+              "2": 0.031378691774545414
+            },
+            "confidence": 0.7139007529235872
+          }
+        },
+        "usage": {
+          "input_tokens": 114,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 1.895823225165722,
+            "legend": {
+              "0": "只有外观问题，所有功能正常",
+              "1": "有功能故障，但存在可用替代方法",
+              "2": "功能完全不可用且没有替代方法"
+            },
+            "probabilities": {
+              "0": 0.014717519981602357,
+              "1": 0.07474173487107316,
+              "2": 0.9105407451473245
+            },
+            "confidence": 0.8658111177209868
+          }
+        },
+        "usage": {
+          "input_tokens": 122,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 1.9511714219674932,
+            "legend": {
+              "0": "Cosmetic issue only; all functions work",
+              "1": "A function is broken but a workaround exists",
+              "2": "Function is completely unavailable with no workaround"
+            },
+            "probabilities": {
+              "0": 0.003442876801151203,
+              "1": 0.04194282443020434,
+              "2": 0.9546142987686445
+            },
+            "confidence": 0.9319214481529667
+          }
+        },
+        "usage": {
+          "input_tokens": 116,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 1.687615620437148,
+            "legend": {
+              "0": {
+                "meaning": "步骤与环境均缺失"
+              },
+              "1": {
+                "meaning": "只包含步骤或环境之一"
+              },
+              "2": {
+                "meaning": "步骤和环境都包含"
+              }
+            },
+            "probabilities": {
+              "0": 0.06149036391459134,
+              "1": 0.18940365173366924,
+              "2": 0.7491059843517394
+            },
+            "confidence": 0.623658976527609
+          }
+        },
+        "usage": {
+          "input_tokens": 124,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.692424049747707,
+            "legend": {
+              "0": {
+                "meaning": "Neither steps nor environment are present"
+              },
+              "1": {
+                "meaning": "Only one of steps or environment is present"
+              },
+              "2": {
+                "meaning": "Both steps and environment are present"
+              }
+            },
+            "probabilities": {
+              "0": 0.4865780319743762,
+              "1": 0.33441988630354064,
+              "2": 0.17900208172208315
+            },
+            "confidence": 0.22986704796156432
+          }
+        },
+        "usage": {
+          "input_tokens": 129,
+          "output_tokens": 0
+        }
+      }
+    ]
+  },
+  "plain_grounded": {
+    "summary": {
+      "overall": {
+        "count": 24,
+        "accuracy": 0.7916666666666666,
+        "nll": 0.4965015062993751,
+        "brier": 0.2722507112744475,
+        "ece_10_bins": 0.1631985461101128
+      },
+      "groups": {
+        "curated-smoke/zh/choice": {
+          "count": 4,
+          "accuracy": 0.5,
+          "nll": 0.7189090204863777,
+          "brier": 0.4207345489148401,
+          "ece_10_bins": 0.30102335314539164
+        },
+        "curated-smoke/en/choice": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.7078828161386699,
+          "brier": 0.3412672766472449,
+          "ece_10_bins": 0.22256192452565532
+        },
+        "curated-smoke/zh/noul": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.5177069568144108,
+          "brier": 0.33654841520767276,
+          "ece_10_bins": 0.1584410068033046
+        },
+        "curated-smoke/en/noul": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.4551044810644032,
+          "brier": 0.2847235683288232,
+          "ece_10_bins": 0.33979648203581164
+        },
+        "curated-smoke/zh/score": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.2836246287298068,
+          "brier": 0.12449557067983263,
+          "ece_10_bins": 0.23916552036285776
+        },
+        "curated-smoke/en/score": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.2957811345625819,
+          "brier": 0.12573488786827142,
+          "ece_10_bins": 0.24515945356886218
+        }
+      },
+      "score_mae": 0.2621009429708656
+    },
+    "failures": [
+      "zh-unknown",
+      "en-unknown",
+      "zh-injection",
+      "zh-yes",
+      "en-yes"
+    ],
+    "predictions": [
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "billing",
+            "probabilities": {
+              "billing": 0.9067678164410351,
+              "technical": 0.084342544090332,
+              "sales": 0.008889639468632879
+            },
+            "confidence": 0.8601517246615527
+          }
+        },
+        "usage": {
+          "input_tokens": 122,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "billing",
+            "probabilities": {
+              "billing": 0.9493127443145198,
+              "technical": 0.047263499239311786,
+              "sales": 0.003423756446168394
+            },
+            "confidence": 0.9239691164717798
+          }
+        },
+        "usage": {
+          "input_tokens": 119,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "sales",
+            "probabilities": {
+              "billing": 0.10534821126936844,
+              "technical": 0.012582049318395901,
+              "sales": 0.8820697394122357
+            },
+            "confidence": 0.8231046091183534
+          }
+        },
+        "usage": {
+          "input_tokens": 119,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "sales",
+            "probabilities": {
+              "billing": 0.1051720169084062,
+              "technical": 0.014233484015853165,
+              "sales": 0.8805944990757406
+            },
+            "confidence": 0.8208917486136109
+          }
+        },
+        "usage": {
+          "input_tokens": 121,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "yes",
+            "probabilities": {
+              "yes": 0.4754087045545158,
+              "no": 0.3702486830801557,
+              "unknown": 0.15434261236532854
+            },
+            "confidence": 0.21311305683177362
+          }
+        },
+        "usage": {
+          "input_tokens": 136,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "yes",
+            "probabilities": {
+              "yes": 0.5121442866379129,
+              "no": 0.3988583832553917,
+              "unknown": 0.08899733010669537
+            },
+            "confidence": 0.26821642995686934
+          }
+        },
+        "usage": {
+          "input_tokens": 138,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "technical",
+            "probabilities": {
+              "billing": 0.45671181850034404,
+              "technical": 0.5175222638803214,
+              "sales": 0.025765917619334514
+            },
+            "confidence": 0.2762833958204821
+          }
+        },
+        "usage": {
+          "input_tokens": 138,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "choice",
+            "choice": "billing",
+            "probabilities": {
+              "billing": 0.7919893451450312,
+              "technical": 0.20024626412087337,
+              "sales": 0.007764390734095419
+            },
+            "confidence": 0.6879840177175467
+          }
+        },
+        "usage": {
+          "input_tokens": 136,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.4687906224256383
+          }
+        },
+        "usage": {
+          "input_tokens": 113,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.37754066653428475
+          }
+        },
+        "usage": {
+          "input_tokens": 113,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.22270014218389564
+          }
+        },
+        "usage": {
+          "input_tokens": 117,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.22270014218389564
+          }
+        },
+        "usage": {
+          "input_tokens": 122,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.34864512988059937
+          }
+        },
+        "usage": {
+          "input_tokens": 121,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.2689414402527046
+          }
+        },
+        "usage": {
+          "input_tokens": 126,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.5312093775743617
+          }
+        },
+        "usage": {
+          "input_tokens": 124,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "noul",
+            "noul": 0.2450850122409312
+          }
+        },
+        "usage": {
+          "input_tokens": 130,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.2918137140120555,
+            "legend": {
+              "0": "只有外观问题，所有功能正常",
+              "1": "有功能故障，但存在可用替代方法",
+              "2": "功能完全不可用且没有替代方法"
+            },
+            "probabilities": {
+              "0": 0.7213991734513497,
+              "1": 0.26538793908524505,
+              "2": 0.013212887463405225
+            },
+            "confidence": 0.5820987601770247
+          }
+        },
+        "usage": {
+          "input_tokens": 144,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.24475285574351172,
+            "legend": {
+              "0": "Cosmetic issue only; all functions work",
+              "1": "A function is broken but a workaround exists",
+              "2": "Function is completely unavailable with no workaround"
+            },
+            "probabilities": {
+              "0": 0.7676551334861152,
+              "1": 0.2199368772842578,
+              "2": 0.012407989229626964
+            },
+            "confidence": 0.651482700229173
+          }
+        },
+        "usage": {
+          "input_tokens": 136,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.705267169914628,
+            "legend": {
+              "0": "只有外观问题，所有功能正常",
+              "1": "有功能故障，但存在可用替代方法",
+              "2": "功能完全不可用且没有替代方法"
+            },
+            "probabilities": {
+              "0": 0.33470799521482003,
+              "1": 0.6253168396557319,
+              "2": 0.03997516512944802
+            },
+            "confidence": 0.43797525948359795
+          }
+        },
+        "usage": {
+          "input_tokens": 148,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.8021132863152669,
+            "legend": {
+              "0": "Cosmetic issue only; all functions work",
+              "1": "A function is broken but a workaround exists",
+              "2": "Function is completely unavailable with no workaround"
+            },
+            "probabilities": {
+              "0": 0.21818067688838472,
+              "1": 0.7615253599079638,
+              "2": 0.020293963203651545
+            },
+            "confidence": 0.6422880398619457
+          }
+        },
+        "usage": {
+          "input_tokens": 140,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 1.9134226564592913,
+            "legend": {
+              "0": "只有外观问题，所有功能正常",
+              "1": "有功能故障，但存在可用替代方法",
+              "2": "功能完全不可用且没有替代方法"
+            },
+            "probabilities": {
+              "0": 0.017042056233944183,
+              "1": 0.05249323107282016,
+              "2": 0.9304647126932356
+            },
+            "confidence": 0.8956970690398534
+          }
+        },
+        "usage": {
+          "input_tokens": 148,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 1.9100336099887627,
+            "legend": {
+              "0": "Cosmetic issue only; all functions work",
+              "1": "A function is broken but a workaround exists",
+              "2": "Function is completely unavailable with no workaround"
+            },
+            "probabilities": {
+              "0": 0.011601676438405973,
+              "1": 0.06676303713442544,
+              "2": 0.9216352864271686
+            },
+            "confidence": 0.8824529296407531
+          }
+        },
+        "usage": {
+          "input_tokens": 142,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 1.7032671786114457,
+            "legend": {
+              "0": {
+                "meaning": "步骤与环境均缺失"
+              },
+              "1": {
+                "meaning": "只包含步骤或环境之一"
+              },
+              "2": {
+                "meaning": "步骤和环境都包含"
+              }
+            },
+            "probabilities": {
+              "0": 0.06289001413680581,
+              "1": 0.17095279311494246,
+              "2": 0.7661571927482517
+            },
+            "confidence": 0.6492357891223774
+          }
+        },
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0
+        }
+      },
+      {
+        "model": "necro-qwen3.5-0.8b",
+        "answers": {
+          "answer": {
+            "type": "score",
+            "score": 0.594344875300752,
+            "legend": {
+              "0": {
+                "meaning": "Neither steps nor environment are present"
+              },
+              "1": {
+                "meaning": "Only one of steps or environment is present"
+              },
+              "2": {
+                "meaning": "Both steps and environment are present"
+              }
+            },
+            "probabilities": {
+              "0": 0.5685464059033035,
+              "1": 0.26856231289264093,
+              "2": 0.16289128120405552
+            },
+            "confidence": 0.35281960885495534
+          }
+        },
+        "usage": {
+          "input_tokens": 155,
+          "output_tokens": 0
+        }
+      }
+    ]
+  }
+}

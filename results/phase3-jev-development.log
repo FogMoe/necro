@@ -1,0 +1,14 @@
+{
+  "macro": 0.9260881466565425,
+  "families": {
+    "ordinal_rule": 1.0,
+    "intent": 0.8579545454545454,
+    "paraphrase": 0.8098591549295775,
+    "reading_boolean": 0.8992248062015504,
+    "inference": 0.8416666666666667,
+    "numeric_rule": 1.0,
+    "candidate_retrieval": 1.0,
+    "candidate_extraction": 1.0
+  }
+}
+robustness macro 0.93125

@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T08:38:18.031870+00:00",
+    "backend": "jev",
+    "model": [
+      "jev-1.13.0"
+    ],
+    "dataset_sha256": "9ddf80506ff04aa7ac0bf520a84c7b4df1acb496b64740f027a259e72480e3e1",
+    "evaluated_examples": 374,
+    "elapsed_seconds": 37.96525980000297,
+    "questions_per_second": 9.851111304655705,
+    "input_tokens": 326580,
+    "notes": "Exploratory evaluation; not proof of general capability or calibrated accuracy."
+  },
+  "overall": {
+    "count": 374,
+    "accuracy": 0.8128342245989305,
+    "nll": 1.8249250329680244,
+    "brier": 0.28855401069518716,
+    "ece_10_bins": 0.10184491978609625
+  },
+  "groups": {
+    "facebook/xnli/en/choice": {
+      "count": 100,
+      "accuracy": 0.89,
+      "nll": 1.0740009371222243,
+      "brier": 0.194794,
+      "ece_10_bins": 0.060900000000000086
+    },
+    "mteb/amazon_massive_intent/en/choice": {
+      "count": 87,
+      "accuracy": 0.8505747126436781,
+      "nll": 1.5891305297205316,
+      "brier": 0.23547701149425287,
+      "ece_10_bins": 0.119655172413793
+    },
+    "facebook/xnli/zh/choice": {
+      "count": 100,
+      "accuracy": 0.66,
+      "nll": 2.796661780695103,
+      "brier": 0.501448,
+      "ece_10_bins": 0.21900000000000006
+    },
+    "mteb/amazon_massive_intent/zh/choice": {
+      "count": 87,
+      "accuracy": 0.8620689655172413,
+      "nll": 1.8069118903749648,
+      "brier": 0.2046954022988506,
+      "ece_10_bins": 0.07022988505747127
+    }
+  }
+}

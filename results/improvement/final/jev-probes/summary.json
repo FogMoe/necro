@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T08:39:05.388465+00:00",
+    "backend": "jev",
+    "model": [
+      "jev-1.13.0"
+    ],
+    "dataset_sha256": "ab0c279b243f4e3a31fc7bdd40fa6c938132c410ff0b16b2f12478ad29260a8c",
+    "evaluated_examples": 64,
+    "elapsed_seconds": 7.421930299999076,
+    "questions_per_second": 8.623093644521017,
+    "input_tokens": 48570,
+    "notes": "Exploratory evaluation; not proof of general capability or calibrated accuracy."
+  },
+  "overall": {
+    "count": 64,
+    "accuracy": 1.0,
+    "nll": 0.013323221626221154,
+    "brier": 0.000775000000000001,
+    "ece_10_bins": 0.013125000000000053
+  },
+  "groups": {
+    "constructed-heldout-probes/zh/noul": {
+      "count": 16,
+      "accuracy": 1.0,
+      "nll": 0.0279619291037706,
+      "brier": 0.0018000000000000021,
+      "ece_10_bins": 0.02750000000000008
+    },
+    "constructed-heldout-probes/zh/score": {
+      "count": 8,
+      "accuracy": 1.0,
+      "nll": 0.0,
+      "brier": 0.0,
+      "ece_10_bins": 0.0
+    },
+    "constructed-heldout-probes/zh/choice": {
+      "count": 8,
+      "accuracy": 1.0,
+      "nll": 0.0,
+      "brier": 0.0,
+      "ece_10_bins": 0.0
+    },
+    "constructed-heldout-probes/en/noul": {
+      "count": 16,
+      "accuracy": 1.0,
+      "nll": 0.025330957401114018,
+      "brier": 0.0013000000000000017,
+      "ece_10_bins": 0.025000000000000022
+    },
+    "constructed-heldout-probes/en/score": {
+      "count": 8,
+      "accuracy": 1.0,
+      "nll": 0.0,
+      "brier": 0.0,
+      "ece_10_bins": 0.0
+    },
+    "constructed-heldout-probes/en/choice": {
+      "count": 8,
+      "accuracy": 1.0,
+      "nll": 0.0,
+      "brier": 0.0,
+      "ece_10_bins": 0.0
+    }
+  },
+  "score_mae": 0.0
+}

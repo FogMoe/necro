@@ -1,0 +1,18 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:  12%|█▏        | 59/473 [00:00<00:00, 569.51it/s]
+Loading weights:  25%|██▍       | 116/473 [00:00<00:00, 503.42it/s]
+Loading weights:  35%|███▌      | 167/473 [00:00<00:00, 475.61it/s]
+Loading weights:  57%|█████▋    | 268/473 [00:00<00:00, 664.00it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 1048.75it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"name": "predecessor", "accuracy": 0.9736111111111111}
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:  13%|█▎        | 63/473 [00:00<00:00, 618.16it/s]
+Loading weights:  26%|██▋       | 125/473 [00:00<00:00, 584.33it/s]
+Loading weights:  39%|███▉      | 184/473 [00:00<00:00, 551.09it/s]
+Loading weights:  53%|█████▎    | 253/473 [00:00<00:00, 600.84it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 1025.87it/s]
+{"name": "instruction-parent", "accuracy": 0.9611111111111111}

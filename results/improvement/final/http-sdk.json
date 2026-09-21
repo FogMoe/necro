@@ -1,0 +1,49 @@
+{
+  "model": "ScarletKc-Necro-0.8b",
+  "sdk": "typesafe-sdk 0.7.0",
+  "checks": [
+    "model listing",
+    "Choice",
+    "Noul",
+    "Score",
+    "Chinese legend"
+  ],
+  "response": {
+    "model": "ScarletKc-Necro-0.8b",
+    "usage": {
+      "input_tokens": 365,
+      "output_tokens": 0
+    },
+    "answers": {
+      "department": {
+        "type": "choice",
+        "choice": "billing",
+        "confidence": 0.9845805080558954,
+        "probabilities": {
+          "billing": 0.9897203387039303,
+          "technical": 0.003189362840312755,
+          "sales": 0.0070902984557569115
+        }
+      },
+      "refund": {
+        "type": "noul",
+        "noul": 0.9914225150110113
+      },
+      "impact": {
+        "type": "score",
+        "score": 0.00048807662931652244,
+        "confidence": 0.9994119960193026,
+        "legend": {
+          "0": "服务仍可正常使用",
+          "1": "部分功能不可用",
+          "2": "完全无法使用服务"
+        },
+        "probabilities": {
+          "0": 0.9996079973462018,
+          "1": 0.0002959286782800435,
+          "2": 9.607397551823948e-05
+        }
+      }
+    }
+  }
+}

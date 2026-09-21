@@ -1,0 +1,16 @@
+Resolved 3 packages in 451ms
+Prepared 3 packages in 756ms
+Installed 3 packages in 127ms
+ + einops==0.8.2
+ + fla-core==0.5.2
+ + flash-linear-attention==0.5.2
+Resolved 1 package in 14.70s
+Downloading causal-conv1d (187.5MiB)
+ Downloaded causal-conv1d
+Prepared 1 package in 1.78s
+Installed 1 package in 302ms
+ + causal-conv1d==1.7.0+cu12torch2.10cxx11abitrue (from https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.7.0/causal_conv1d-1.7.0%2Bcu12torch2.10cxx11abiTRUE-cp312-cp312-linux_x86_64.whl)
+Resolved 1 package in 979ms
+Prepared 1 package in 1.16s
+Installed 1 package in 11ms
+ + ninja==1.13.2

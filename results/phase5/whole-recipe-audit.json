@@ -1,0 +1,149 @@
+{
+  "chain": [
+    {
+      "adapter": "results\\lora-pilot\\run1\\adapter",
+      "data": "data\\lora-pilot\\train.jsonl",
+      "rows": 994,
+      "unique": 830,
+      "families": {
+        "unknown": 994
+      },
+      "learning_rate": 0.0001,
+      "steps": 125,
+      "initial_adapter": null
+    },
+    {
+      "adapter": "results\\improvement\\round3\\adapter",
+      "data": "data\\improvement\\expanded\\train.jsonl",
+      "rows": 2336,
+      "unique": 2168,
+      "families": {
+        "unknown": 2336
+      },
+      "learning_rate": 5e-05,
+      "steps": 292,
+      "initial_adapter": "results\\lora-pilot\\run1\\adapter"
+    },
+    {
+      "adapter": "results\\improvement\\round4\\adapter",
+      "data": "data\\improvement\\expanded\\train.jsonl",
+      "rows": 2336,
+      "unique": 2168,
+      "families": {
+        "unknown": 2336
+      },
+      "learning_rate": 2e-05,
+      "steps": 292,
+      "initial_adapter": "results\\improvement\\round3\\adapter"
+    },
+    {
+      "adapter": "results\\phase2\\v3\\answer-ce\\adapter",
+      "data": "data\\phase2\\experiment-v3\\train.jsonl",
+      "rows": 2582,
+      "unique": 2582,
+      "families": {
+        "ordinal_rule": 360,
+        "reading_boolean": 314,
+        "candidate_extraction": 160,
+        "paraphrase": 640,
+        "inference": 393,
+        "intent": 247,
+        "numeric_rule": 340,
+        "candidate_retrieval": 128
+      },
+      "learning_rate": 3e-05,
+      "steps": 323,
+      "initial_adapter": "results\\improvement\\round4\\adapter"
+    },
+    {
+      "adapter": "results\\phase2\\v3\\refinement\\adapter",
+      "data": "data\\phase2\\refinement-v2\\train.jsonl",
+      "rows": 2800,
+      "unique": 2800,
+      "families": {
+        "paraphrase": 320,
+        "numeric_rule": 800,
+        "inference": 500,
+        "candidate_retrieval": 120,
+        "candidate_extraction": 120,
+        "intent": 500,
+        "ordinal_rule": 120,
+        "reading_boolean": 320
+      },
+      "learning_rate": 3e-05,
+      "steps": 350,
+      "initial_adapter": "results\\phase2\\v3\\answer-ce\\adapter"
+    },
+    {
+      "adapter": "results\\phase2\\v3\\selected\\adapter",
+      "data": "data\\phase2\\operator-contrast-v1\\train.jsonl",
+      "rows": 3045,
+      "unique": 3045,
+      "families": {
+        "numeric_rule": 2040,
+        "candidate_retrieval": 40,
+        "paraphrase": 100,
+        "intent": 301,
+        "inference": 300,
+        "reading_boolean": 120,
+        "candidate_extraction": 60,
+        "ordinal_rule": 84
+      },
+      "learning_rate": 3e-05,
+      "steps": 381,
+      "initial_adapter": "results\\phase2\\v3\\refinement\\adapter"
+    },
+    {
+      "adapter": "results\\phase3\\coverage-seed2026\\adapter",
+      "data": "data\\phase3\\coverage-v1\\train.jsonl",
+      "rows": 4076,
+      "unique": 4076,
+      "families": {
+        "intent": 1422,
+        "numeric_rule": 532,
+        "paraphrase": 300,
+        "inference": 900,
+        "reading_boolean": 447,
+        "candidate_extraction": 320,
+        "ordinal_rule": 120,
+        "candidate_retrieval": 35
+      },
+      "learning_rate": 3e-05,
+      "steps": 510,
+      "initial_adapter": "results\\phase2\\v3\\selected\\adapter"
+    },
+    {
+      "adapter": "results\\phase3\\instruction-seed2026\\adapter",
+      "data": "data\\phase3\\instruction-v2\\train.jsonl",
+      "rows": 3254,
+      "unique": 3254,
+      "families": {
+        "candidate_extraction": 800,
+        "numeric_rule": 970,
+        "reading_boolean": 668,
+        "ordinal_rule": 120,
+        "inference": 300,
+        "intent": 240,
+        "paraphrase": 120,
+        "candidate_retrieval": 36
+      },
+      "learning_rate": 3e-05,
+      "steps": 407,
+      "initial_adapter": "results\\phase3\\coverage-seed2026\\adapter"
+    }
+  ],
+  "presentations": 21423,
+  "unique_requests": 12917,
+  "unique_families": {
+    "candidate_extraction": 1280,
+    "numeric_rule": 3100,
+    "reading_boolean": 1629,
+    "ordinal_rule": 360,
+    "inference": 1200,
+    "intent": 1422,
+    "paraphrase": 1139,
+    "candidate_retrieval": 128,
+    "unknown": 2659
+  },
+  "conflicting_exact_labels": 0
+}

@@ -1,0 +1,40 @@
+{
+  "official_api": "https://docs.typesafe.ai/api",
+  "reference": "jev-1.13.0",
+  "structured_score_legend_observed": true,
+  "evidence_id": "ordinal/test/0/en/18",
+  "evidence_predictions_sha256": "5b73948fe132be06651386f865d081f28015e2819bcd1fe551b9744b140875ed",
+  "criteria": [
+    {
+      "rule": "measurement is below 19"
+    },
+    {
+      "rule": "measurement is at least 19 and below 20"
+    },
+    {
+      "rule": "measurement is at least 20"
+    }
+  ],
+  "observed_answer": {
+    "type": "score",
+    "score": 0.0,
+    "legend": {
+      "0": {
+        "rule": "measurement is below 19"
+      },
+      "1": {
+        "rule": "measurement is at least 19 and below 20"
+      },
+      "2": {
+        "rule": "measurement is at least 20"
+      }
+    },
+    "probabilities": {
+      "0": 1.0,
+      "1": 0.0,
+      "2": 0.0
+    },
+    "confidence": 1.0
+  },
+  "note": "The live HTTP docs describe legend as a string map, but actual Jev and SDK preserve structured descriptions. Protocol compatibility does not imply confidence formula or semantic equivalence."
+}

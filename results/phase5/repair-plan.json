@@ -1,0 +1,51 @@
+{
+  "registered_at": "2026-09-20T23:14:14.724800+00:00",
+  "hypothesis": "Semantic outcome imbalance causes false rejections; paired trials isolate weighting from performance changes. Wording transfer and replay retention remain separate checks.",
+  "data_manifest_sha256": "62cc6d2df57bd66ef38442a8ffd0e7dc0d8a06f9df1c16336b6a12e522c684a2",
+  "training": {
+    "parent": "results/phase3/instruction-seed2026/adapter",
+    "rank": 16,
+    "seed": 2026,
+    "epochs": 1,
+    "learning_rate": 2.5e-06,
+    "batch_size": 4,
+    "accumulation": 2,
+    "objective": "answer-ce",
+    "gradient_checkpointing": false
+  },
+  "trials": [
+    {
+      "name": "control",
+      "data": "data/phase4/condition-v3",
+      "purpose": "Match weighting trial throughput settings; preserve baseline sampling"
+    },
+    {
+      "name": "balanced",
+      "data": "data\\phase5\\condition-balance-v1",
+      "purpose": "Only per-record weights differ from control; replay stays one; total loss weight unchanged"
+    },
+    {
+      "name": "balanced-5e6",
+      "conditional": "If additional repair is needed or to check diminishing returns before selection",
+      "learning_rate": 5e-06
+    }
+  ],
+  "performance": "Measure b4 checkpointing, b4 without checkpointing and b8 without checkpointing before updates. Preserve b4 and accumulation2 for the paired causal comparison.",
+  "selection": {
+    "known_38_failures": "Resolve all 38; exposed regression evidence only",
+    "exposed_conditions": "Complete fields and eligible semantic outcomes >=98% overall and each language; missing and disabled >=95% each language",
+    "development": "Fresh transfer >=95% on eligible, disabled and missing slices for each language; report complete fields and both polarities; retain each existing task within 2pp of instruction parent and old repaired candidate",
+    "multi_task_regression": "Each nonnumeric task within 2pp of direct parent and old repaired candidate; numeric >=old repaired candidate minus2pp and gate/missing>=95%; report predecessor changes separately because extraction loss predates this repair",
+    "languages": "Investigate task-language decline >5pp with entirely negative paired source-group interval",
+    "stop": "Select a passing candidate if the bounded higher-update comparison adds <0.5pp task macro and no material slice repair, or creates a tradeoff; do not optimize Jev gap. Amend prospectively if none pass; never use the new test to pick weights."
+  },
+  "independent_test": {
+    "path": "data\\phase5\\condition-balance-v1\\test.jsonl",
+    "sha256": "9b0be46574861a95acae954415645d51bcddf300a165a44bce90af35c90b2501",
+    "source_groups": 24,
+    "questions": 4800,
+    "opening": "After weights, calibration and development selection freeze",
+    "checks": "Eligible, complete, disabled and missing >=95% each language; semantic balanced accuracy >=95%; retain parent complete and eligible within2pp; report group intervals and per-style outcomes"
+  },
+  "runtime": "Merged export and full independent plus regression reload with zero changed decisions and <=1e-5 probability delta, followed by real HTTP and official SDK validation"
+}

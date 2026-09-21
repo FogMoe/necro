@@ -1,0 +1,93 @@
+{
+  "protocol": {
+    "scope": "Semantic weighting repair; exposed cohorts are regression evidence; test is sealed until selection.",
+    "parent": "results/phase3/instruction-seed2026/adapter",
+    "source_training_sha256": "f158fa6d82750460e502b192ccf927b98e826046e631f19e581ed7e6b53aa316",
+    "builder_sha256": "91c56e9a8e0ee7907f04b5e65999e360b56668d83a0ab6f307323700060b416b",
+    "balance": {
+      "presentations": 4756,
+      "matrix_presentations": 3200,
+      "semantic_presentations": {
+        "False": 2880,
+        "True": 320
+      },
+      "semantic_weight": {
+        "False": 1600.0,
+        "True": 1600.0
+      },
+      "answer_weight": {
+        "False": 1600.0,
+        "True": 1600.0
+      },
+      "joint_cells": 80,
+      "cases": {
+        "disabled": {
+          "presentations": 640,
+          "weight": 355.5555555555507
+        },
+        "missing-0": {
+          "presentations": 640,
+          "weight": 355.5555555555507
+        },
+        "missing-2": {
+          "presentations": 640,
+          "weight": 355.5555555555507
+        },
+        "missing-1": {
+          "presentations": 640,
+          "weight": 355.5555555555507
+        },
+        "complete": {
+          "presentations": 640,
+          "weight": 1777.7777777777892
+        }
+      },
+      "replay_weight": 1556,
+      "total_weight": 4756.0
+    },
+    "transfer_styles": {
+      "development": [
+        8,
+        9
+      ],
+      "test": [
+        10,
+        11
+      ]
+    }
+  },
+  "partitions": {
+    "train": {
+      "path": "train.jsonl",
+      "sha256": "3e06db5115118a17d7c706283df0c7039dfdfef9c2436a583276ffbd8ec71a5f",
+      "rows": 4756,
+      "source_groups": 479,
+      "content_groups": 479,
+      "unique_requests": 4436
+    },
+    "development": {
+      "path": "validation.jsonl",
+      "sha256": "2dd46396169e85fbe25b0f1e60bb908401e0672e97b1cb4a6baa8815aff9f0ab",
+      "rows": 3784,
+      "source_groups": 683,
+      "content_groups": 683,
+      "unique_requests": 3624
+    },
+    "calibration": {
+      "path": "calibration.jsonl",
+      "sha256": "5c4144af29439e9cf4cf4fc7bf399523635ae40fc6a24877d383d4f7a6002271",
+      "rows": 1068,
+      "source_groups": 447,
+      "content_groups": 447,
+      "unique_requests": 1068
+    },
+    "test": {
+      "path": "test.jsonl",
+      "sha256": "9b0be46574861a95acae954415645d51bcddf300a165a44bce90af35c90b2501",
+      "rows": 4800,
+      "source_groups": 24,
+      "content_groups": 24,
+      "unique_requests": 4320
+    }
+  }
+}

@@ -1,0 +1,32 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:  12%|█▏        | 55/473 [00:00<00:00, 535.79it/s]
+Loading weights:  26%|██▌       | 121/473 [00:00<00:00, 598.06it/s]
+Loading weights:  41%|████      | 192/473 [00:00<00:00, 636.81it/s]
+Loading weights:  58%|█████▊    | 275/473 [00:00<00:00, 711.42it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 1052.66it/s]
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.16it/s]
+Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  1.16it/s]
+{
+  "model_id": "ScarletKc-Necro-0.8b",
+  "layout": "hub-root",
+  "merged_path": ".",
+  "choice_temperature": 1.7817974362806783,
+  "temperatures": {
+    "choice": 1.7817974362806783,
+    "noul": 2.9966141537533626,
+    "score": 0.5
+  },
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "base_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "total_parameters": 852985920,
+  "adapter_weights_sha256": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13",
+  "merged_weights": {
+    "model.safetensors": {
+      "bytes": 1706030528,
+      "sha256": "0bc2cc78ea75f12ca2f94a120179b97650d34a8399a9a870d5bba7e2d0fe2937"
+    }
+  }
+}

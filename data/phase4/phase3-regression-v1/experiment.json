@@ -1,0 +1,17 @@
+{
+  "protocol": {
+    "source": "data\\phase3\\coverage-v1\\test.jsonl",
+    "source_sha256": "4d1d501fb51728a3f96270dd20c89f791db61c2f369d7477c7367159e3ff27b4",
+    "scope": "Exposed Phase 3 multi-task regression, preserved byte for byte."
+  },
+  "partitions": {
+    "regression": {
+      "path": "regression.jsonl",
+      "sha256": "4d1d501fb51728a3f96270dd20c89f791db61c2f369d7477c7367159e3ff27b4",
+      "rows": 1790,
+      "source_groups": 847,
+      "content_groups": 847,
+      "unique_requests": 1790
+    }
+  }
+}

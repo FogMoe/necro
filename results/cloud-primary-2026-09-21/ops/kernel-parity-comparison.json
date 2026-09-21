@@ -1,0 +1,26 @@
+{
+  "official": {
+    "examples": 135,
+    "max_probability_delta": 0.0602828246270769,
+    "changed_argmax": [
+      "p3/xnli/validation/2197/en",
+      "paws/validation/en/5110",
+      "extract/en/570d47b8b3d812140066d62d",
+      "condition-v1/test/2/lt/0/zh/0"
+    ]
+  },
+  "parent": {
+    "examples": 135,
+    "max_probability_delta": 0.11680743128146465,
+    "changed_argmax": []
+  },
+  "repaired": {
+    "examples": 135,
+    "max_probability_delta": 0.34958769690435043,
+    "changed_argmax": [
+      "condition-v1/test/2/le/0/zh/0",
+      "condition-v1/test/8/ge/0/zh/0",
+      "condition-v1/test/8/ge/0/en/0"
+    ]
+  }
+}

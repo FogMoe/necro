@@ -1,0 +1,22 @@
+Validated existing official/development
+Evaluating official/regression
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  70%|███████   | 333/473 [00:00<00:00, 3326.81it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3392.71it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+Evaluating official/conditions
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  76%|███████▌  | 358/473 [00:00<00:00, 3555.36it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3540.70it/s]
+Evaluating parent/development
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  81%|████████▏ | 385/473 [00:00<00:00, 3826.88it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3827.66it/s]
+Evaluating parent/regression
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  70%|██████▉   | 330/473 [00:00<00:00, 3239.57it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3245.76it/s]
+Evaluating parent/conditions
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  66%|██████▋   | 314/473 [00:00<00:00, 3127.64it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3167.30it/s]
+Evaluating repaired/development
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  73%|███████▎  | 345/473 [00:00<00:00, 3447.59it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3358.56it/s]
+Evaluating repaired/regression
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  76%|███████▋  | 361/473 [00:00<00:00, 3609.40it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3606.40it/s]
+Evaluating repaired/conditions
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  74%|███████▍  | 350/473 [00:00<00:00, 3451.20it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3429.05it/s]
+All baseline cohorts complete and validated

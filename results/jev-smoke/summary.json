@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T07:27:11.781960+00:00",
+    "backend": "jev",
+    "model": [
+      "jev-1.13.0"
+    ],
+    "dataset_sha256": "9ffae1190b8d1652585a1b280f222e9975694591e88545fa95fda40ee738971e",
+    "evaluated_examples": 24,
+    "elapsed_seconds": 3.102006599998276,
+    "questions_per_second": 7.736927445613216,
+    "input_tokens": 7998,
+    "notes": "Exploratory evaluation; not proof of general capability or calibrated accuracy."
+  },
+  "overall": {
+    "count": 24,
+    "accuracy": 1.0,
+    "nll": 0.010149084737090806,
+    "brier": 0.0005750000000000007,
+    "ece_10_bins": 0.01000000000000012
+  },
+  "groups": {
+    "curated-smoke/zh/choice": {
+      "count": 4,
+      "accuracy": 1.0,
+      "nll": 0.0025125839633753626,
+      "brier": 5.000000000000005e-05,
+      "ece_10_bins": 0.0024999999999999467
+    },
+    "curated-smoke/en/choice": {
+      "count": 4,
+      "accuracy": 1.0,
+      "nll": 0.0,
+      "brier": 0.0,
+      "ece_10_bins": 0.0
+    },
+    "curated-smoke/zh/noul": {
+      "count": 4,
+      "accuracy": 1.0,
+      "nll": 0.030538383094680092,
+      "brier": 0.002100000000000003,
+      "ece_10_bins": 0.030000000000000027
+    },
+    "curated-smoke/en/noul": {
+      "count": 4,
+      "accuracy": 1.0,
+      "nll": 0.022792864535109515,
+      "brier": 0.0011500000000000013,
+      "ece_10_bins": 0.022500000000000075
+    },
+    "curated-smoke/zh/score": {
+      "count": 4,
+      "accuracy": 1.0,
+      "nll": 0.0050506768293798665,
+      "brier": 0.00015000000000000018,
+      "ece_10_bins": 0.0050000000000000044
+    },
+    "curated-smoke/en/score": {
+      "count": 4,
+      "accuracy": 1.0,
+      "nll": 0.0,
+      "brier": 0.0,
+      "ece_10_bins": 0.0
+    }
+  },
+  "score_mae": 0.0050000000000000044
+}

@@ -1,0 +1,24 @@
+{
+  "presentations": 4756,
+  "matrix_presentations": 3200,
+  "semantic_presentations": {
+    "True": 1600,
+    "False": 1600
+  },
+  "answer_presentations": {
+    "False": 1600,
+    "True": 1600
+  },
+  "unique_matrix_requests": 1820,
+  "joint_cells": 80,
+  "combinations": 800,
+  "minimum_presentations_per_combination": 2,
+  "cases": {
+    "complete": 1784,
+    "missing-0": 364,
+    "missing-1": 364,
+    "missing-2": 352,
+    "disabled": 336
+  },
+  "replay_presentations": 1556
+}

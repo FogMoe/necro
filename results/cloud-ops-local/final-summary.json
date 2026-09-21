@@ -1,0 +1,45 @@
+{
+  "outcome": "Failed development acceptance; not a stable release",
+  "checks": {
+    "known_38_resolved": false,
+    "complete_and_eligible": false,
+    "exposed_preconditions": true,
+    "new_preconditions": true,
+    "new_complete_and_eligible_retained": true,
+    "all_original_families_retained": false,
+    "original_task_macro_retained": true,
+    "no_material_language_regression": true
+  },
+  "known_failures_corrected": 18,
+  "known_failures_remaining": 20,
+  "phase4_comparisons": {
+    "retention-repaired": {
+      "accuracy": {
+        "local": 0.897184344468266,
+        "reference": 0.8750213637947015,
+        "delta": 0.02216298067356448
+      },
+      "ci": [
+        0.006688558621520053,
+        0.03894517320495196
+      ]
+    },
+    "regression-repaired": {
+      "accuracy": {
+        "local": 0.898303496623337,
+        "reference": 0.8956598166732757,
+        "delta": 0.0026436799500613173
+      },
+      "ci": [
+        -0.010866830661208934,
+        0.01656392356242102
+      ]
+    }
+  },
+  "training_seconds": 2019.3371723406017,
+  "weights_sha256": "5a8d064464ea15855705c4d9e55a0cb2e55177c28b3ae1bdb33e1168fd78318a",
+  "no_further_training_started": true,
+  "independent_test_opened": false,
+  "report": "docs/reports/unified-primary-2026-09-21.md",
+  "evidence_archive": "artifacts/necro-unified-primary-cloud-evidence-2026-09-21.tar.gz"
+}

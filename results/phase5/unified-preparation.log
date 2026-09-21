@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\kc\Documents\GitHub\necro\src\necro\training\data\unified.py", line 369, in <module>
+    prepare(parser.parse_args().output)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\src\necro\training\data\unified.py", line 339, in prepare
+    manifest = register(
+        root,
+    ...<19 lines>...
+        },
+    )
+  File "C:\Users\kc\Documents\GitHub\necro\src\necro\experiment_guard.py", line 85, in register
+    audit = audit_partitions({role: read_examples(path) for role, path in files.items()})
+  File "C:\Users\kc\Documents\GitHub\necro\src\necro\experiment_guard.py", line 42, in audit_partitions
+    raise ValueError(f"{role} �����ظ����� ID���޷��ɿ���ӦԤ�⡣")
+ValueError: train �����ظ����� ID���޷��ɿ���ӦԤ�⡣

@@ -1,0 +1,1 @@
+{"reason":"User requested immediate primary training and actual step throughput; optional acceleration investigation stopped. Baselines will run after training and before assessment.","workspace":"workspace","performance":"results/cloud/performance.json","recipe":"primary","training_hyperparameters_changed":false,"independent_test_opened":false}

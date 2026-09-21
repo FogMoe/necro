@@ -1,0 +1,137 @@
+{
+  "coverage": {
+    "train": {
+      "eq": {
+        "=": 160,
+        ">": 160
+      },
+      "gt": {
+        "=": 160,
+        ">": 160
+      },
+      "lt": {
+        "<": 160,
+        "=": 160
+      },
+      "le": {
+        ">": 160,
+        "=": 160
+      },
+      "ge": {
+        "=": 160,
+        "<": 160
+      }
+    },
+    "new_development": {
+      "ge": {
+        "=": 32,
+        "<": 32
+      },
+      "gt": {
+        ">": 32,
+        "=": 32
+      },
+      "le": {
+        "=": 32,
+        ">": 32
+      },
+      "lt": {
+        "<": 32,
+        "=": 32
+      },
+      "eq": {
+        "=": 32,
+        ">": 32
+      }
+    },
+    "exposed_conditions": {
+      "lt": {
+        "<": 16,
+        "=": 16,
+        ">": 16
+      },
+      "le": {
+        ">": 16,
+        "=": 16,
+        "<": 16
+      },
+      "ge": {
+        ">": 16,
+        "=": 16,
+        "<": 16
+      },
+      "gt": {
+        "<": 16,
+        "=": 16,
+        ">": 16
+      },
+      "eq": {
+        "<": 16,
+        "=": 16,
+        ">": 16
+      }
+    }
+  },
+  "complete_regression": {
+    "('lt', '<', 'covered')": {
+      "count": 16,
+      "correct": 16
+    },
+    "('le', '>', 'covered')": {
+      "count": 16,
+      "correct": 14
+    },
+    "('ge', '>', 'absent')": {
+      "count": 16,
+      "correct": 0
+    },
+    "('gt', '<', 'absent')": {
+      "count": 16,
+      "correct": 1
+    },
+    "('eq', '<', 'absent')": {
+      "count": 16,
+      "correct": 14
+    },
+    "('le', '=', 'covered')": {
+      "count": 16,
+      "correct": 8
+    },
+    "('gt', '=', 'covered')": {
+      "count": 16,
+      "correct": 12
+    },
+    "('ge', '=', 'covered')": {
+      "count": 16,
+      "correct": 8
+    },
+    "('eq', '=', 'covered')": {
+      "count": 16,
+      "correct": 8
+    },
+    "('le', '<', 'absent')": {
+      "count": 16,
+      "correct": 2
+    },
+    "('eq', '>', 'covered')": {
+      "count": 16,
+      "correct": 14
+    },
+    "('ge', '<', 'covered')": {
+      "count": 16,
+      "correct": 16
+    },
+    "('gt', '>', 'covered')": {
+      "count": 16,
+      "correct": 13
+    },
+    "('lt', '=', 'covered')": {
+      "count": 16,
+      "correct": 10
+    },
+    "('lt', '>', 'absent')": {
+      "count": 16,
+      "correct": 4
+    }
+  }
+}

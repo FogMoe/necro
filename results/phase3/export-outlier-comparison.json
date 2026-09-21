@@ -1,0 +1,500 @@
+{
+  "rows": {
+    "paws/test/zh/7285": {
+      "original": {
+        "type": "noul",
+        "noul": 0.05991143681735806
+      },
+      "adapter_0": {
+        "type": "noul",
+        "noul": 0.05991143681735806
+      },
+      "adapter_1": {
+        "type": "noul",
+        "noul": 0.05991143681735806
+      },
+      "merged_0": {
+        "type": "noul",
+        "noul": 0.05991143681735806
+      },
+      "merged_1": {
+        "type": "noul",
+        "noul": 0.05991143681735806
+      }
+    },
+    "p3/xnli/test/1203/zh": {
+      "original": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.1666681319475174,
+          "neutral": 0.6779555082321167,
+          "contradiction": 0.1553763598203659
+        },
+        "confidence": 0.516933262348175
+      },
+      "adapter_0": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.1666681319475174,
+          "neutral": 0.6779555082321167,
+          "contradiction": 0.1553763598203659
+        },
+        "confidence": 0.516933262348175
+      },
+      "adapter_1": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.1666681319475174,
+          "neutral": 0.6779555082321167,
+          "contradiction": 0.1553763598203659
+        },
+        "confidence": 0.516933262348175
+      },
+      "merged_0": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.1666681319475174,
+          "neutral": 0.6779555082321167,
+          "contradiction": 0.1553763598203659
+        },
+        "confidence": 0.516933262348175
+      },
+      "merged_1": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.1666681319475174,
+          "neutral": 0.6779555082321167,
+          "contradiction": 0.1553763598203659
+        },
+        "confidence": 0.516933262348175
+      }
+    },
+    "p3/xnli/test/198/zh": {
+      "original": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.01501294006179685,
+          "neutral": 0.04300087862558456,
+          "contradiction": 0.9419861813126186
+        },
+        "confidence": 0.9129792719689278
+      },
+      "adapter_0": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.01501294006179685,
+          "neutral": 0.04300087862558456,
+          "contradiction": 0.9419861813126186
+        },
+        "confidence": 0.9129792719689278
+      },
+      "adapter_1": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.01501294006179685,
+          "neutral": 0.04300087862558456,
+          "contradiction": 0.9419861813126186
+        },
+        "confidence": 0.9129792719689278
+      },
+      "merged_0": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.015056804571544324,
+          "neutral": 0.04020469959577443,
+          "contradiction": 0.9447384958326812
+        },
+        "confidence": 0.9171077437490218
+      },
+      "merged_1": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.015056804571544324,
+          "neutral": 0.04020469959577443,
+          "contradiction": 0.9447384958326812
+        },
+        "confidence": 0.9171077437490218
+      }
+    },
+    "p3/xnli/test/1327/zh": {
+      "original": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.7637350986004862,
+          "neutral": 0.2014010363109989,
+          "contradiction": 0.0348638650885149
+        },
+        "confidence": 0.6456026479007293
+      },
+      "adapter_0": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.7637350986004862,
+          "neutral": 0.2014010363109989,
+          "contradiction": 0.0348638650885149
+        },
+        "confidence": 0.6456026479007293
+      },
+      "adapter_1": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.7637350986004862,
+          "neutral": 0.2014010363109989,
+          "contradiction": 0.0348638650885149
+        },
+        "confidence": 0.6456026479007293
+      },
+      "merged_0": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.7637350986004862,
+          "neutral": 0.2014010363109989,
+          "contradiction": 0.0348638650885149
+        },
+        "confidence": 0.6456026479007293
+      },
+      "merged_1": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.7637350986004862,
+          "neutral": 0.2014010363109989,
+          "contradiction": 0.0348638650885149
+        },
+        "confidence": 0.6456026479007293
+      }
+    },
+    "p3/xnli/test/3532/zh": {
+      "original": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.8383788495048023,
+          "neutral": 0.11758510899432816,
+          "contradiction": 0.044036041500869504
+        },
+        "confidence": 0.7575682742572036
+      },
+      "adapter_0": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.8383788495048023,
+          "neutral": 0.11758510899432816,
+          "contradiction": 0.044036041500869504
+        },
+        "confidence": 0.7575682742572036
+      },
+      "adapter_1": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.8383788495048023,
+          "neutral": 0.11758510899432816,
+          "contradiction": 0.044036041500869504
+        },
+        "confidence": 0.7575682742572036
+      },
+      "merged_0": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.8383788495048023,
+          "neutral": 0.11758510899432816,
+          "contradiction": 0.044036041500869504
+        },
+        "confidence": 0.7575682742572036
+      },
+      "merged_1": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.8383788495048023,
+          "neutral": 0.11758510899432816,
+          "contradiction": 0.044036041500869504
+        },
+        "confidence": 0.7575682742572036
+      }
+    },
+    "p3/xnli/test/4868/en": {
+      "original": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.008767803673635232,
+          "neutral": 0.026938289861619256,
+          "contradiction": 0.9642939064647456
+        },
+        "confidence": 0.9464408596971183
+      },
+      "adapter_0": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.008767803673635232,
+          "neutral": 0.026938289861619256,
+          "contradiction": 0.9642939064647456
+        },
+        "confidence": 0.9464408596971183
+      },
+      "adapter_1": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.008767803673635232,
+          "neutral": 0.026938289861619256,
+          "contradiction": 0.9642939064647456
+        },
+        "confidence": 0.9464408596971183
+      },
+      "merged_0": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.008767803673635232,
+          "neutral": 0.026938289861619256,
+          "contradiction": 0.9642939064647456
+        },
+        "confidence": 0.9464408596971183
+      },
+      "merged_1": {
+        "type": "choice",
+        "choice": "contradiction",
+        "probabilities": {
+          "entailment": 0.008767803673635232,
+          "neutral": 0.026938289861619256,
+          "contradiction": 0.9642939064647456
+        },
+        "confidence": 0.9464408596971183
+      }
+    },
+    "p3/xnli/test/2373/zh": {
+      "original": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.2109345323404391,
+          "neutral": 0.48950481352238734,
+          "contradiction": 0.29956065413717353
+        },
+        "confidence": 0.23425722028358098
+      },
+      "adapter_0": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.2109345323404391,
+          "neutral": 0.48950481352238734,
+          "contradiction": 0.29956065413717353
+        },
+        "confidence": 0.23425722028358098
+      },
+      "adapter_1": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.2109345323404391,
+          "neutral": 0.48950481352238734,
+          "contradiction": 0.29956065413717353
+        },
+        "confidence": 0.23425722028358098
+      },
+      "merged_0": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.2109345323404391,
+          "neutral": 0.48950481352238734,
+          "contradiction": 0.29956065413717353
+        },
+        "confidence": 0.23425722028358098
+      },
+      "merged_1": {
+        "type": "choice",
+        "choice": "neutral",
+        "probabilities": {
+          "entailment": 0.2109345323404391,
+          "neutral": 0.48950481352238734,
+          "contradiction": 0.29956065413717353
+        },
+        "confidence": 0.23425722028358098
+      }
+    },
+    "p3/xnli/test/1850/zh": {
+      "original": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.9400047484784434,
+          "neutral": 0.046028877682445984,
+          "contradiction": 0.013966373839110624
+        },
+        "confidence": 0.9100071227176652
+      },
+      "adapter_0": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.9400047484784434,
+          "neutral": 0.046028877682445984,
+          "contradiction": 0.013966373839110624
+        },
+        "confidence": 0.9100071227176652
+      },
+      "adapter_1": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.9400047484784434,
+          "neutral": 0.046028877682445984,
+          "contradiction": 0.013966373839110624
+        },
+        "confidence": 0.9100071227176652
+      },
+      "merged_0": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.9408950270956989,
+          "neutral": 0.0460724759125219,
+          "contradiction": 0.01303249699177917
+        },
+        "confidence": 0.9113425406435485
+      },
+      "merged_1": {
+        "type": "choice",
+        "choice": "entailment",
+        "probabilities": {
+          "entailment": 0.9408950270956989,
+          "neutral": 0.0460724759125219,
+          "contradiction": 0.01303249699177917
+        },
+        "confidence": 0.9113425406435485
+      }
+    }
+  },
+  "weight_strides": {
+    "adapter": {
+      "model.language_model.layers.0.linear_attn.dt_bias": [
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.A_log": [
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.conv1d.weight": [
+        4,
+        4,
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.norm.weight": [
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.out_proj.weight": [
+        2048,
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.in_proj_qkv.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.in_proj_z.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.in_proj_b.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.in_proj_a.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.mlp.gate_proj.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.mlp.up_proj.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.mlp.down_proj.weight": [
+        3584,
+        1
+      ],
+      "model.language_model.layers.0.input_layernorm.weight": [
+        1
+      ],
+      "model.language_model.layers.0.post_attention_layernorm.weight": [
+        1
+      ]
+    },
+    "merged": {
+      "model.language_model.layers.0.linear_attn.dt_bias": [
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.A_log": [
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.conv1d.weight": [
+        4,
+        4,
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.norm.weight": [
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.out_proj.weight": [
+        2048,
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.in_proj_qkv.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.in_proj_z.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.in_proj_b.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.linear_attn.in_proj_a.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.mlp.gate_proj.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.mlp.up_proj.weight": [
+        1024,
+        1
+      ],
+      "model.language_model.layers.0.mlp.down_proj.weight": [
+        3584,
+        1
+      ],
+      "model.language_model.layers.0.input_layernorm.weight": [
+        1
+      ],
+      "model.language_model.layers.0.post_attention_layernorm.weight": [
+        1
+      ]
+    }
+  }
+}

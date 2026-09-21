@@ -1,0 +1,10 @@
+{
+  "registered_at": "2026-09-20T23:15:34.470985+00:00",
+  "supersedes_plan_sha256": "bba98fa6373077a98a403bf5fc2bffa93359fe0a3280447c92018161b230df42",
+  "change": "Retain original batch4 accumulation2 and gradient checkpointing for all complete trials. Use preserved Phase4 small-step as matched unweighted control. No optimizer steps or data order change.",
+  "reason": "b8 without checkpointing OOM; b4 profile misses long batch and control was stopped after step1 when memory saturated. No adapter from this attempt; no development predictions.",
+  "failed_attempt": "results/phase5/control",
+  "profile_b4_checkpoint": "results/phase5/profile-b4-checkpoint/profile.json",
+  "profile_b4_no_checkpoint": "results/phase5/profile-b4-no-checkpoint/profile.json",
+  "profile_b8_no_checkpoint_failure": "results/phase5/profile-b8-no-checkpoint.log"
+}

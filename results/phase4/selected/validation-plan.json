@@ -1,0 +1,26 @@
+{
+  "scope": "Validate the four stable-release criteria after development selection, with Jev used as a descriptive reference.",
+  "condition_test": {
+    "path": "data/phase4/condition-v3/test.jsonl",
+    "sha256": "75c818270d76a92b3faab3f9ebc7e8720bc7e405208e7703f9935cbdb2f11b1d",
+    "role": "independent condition transfer; first evaluated after candidate and calibration freeze",
+    "disabled_gate_and_missing_accuracy_minimum": 0.95,
+    "each_language_disabled_gate_and_missing_accuracy_minimum": 0.95,
+    "overall_accuracy_margin_against_predecessor": 0.02
+  },
+  "task_regression": {
+    "source": "data/phase3/coverage-v1/test.jsonl",
+    "sha256": "4d1d501fb51728a3f96270dd20c89f791db61c2f369d7477c7367159e3ff27b4",
+    "role": "exposed multi-task regression; preserve original bytes and existing predictions",
+    "other_task_accuracy_margin_against_both_baselines": 0.02,
+    "language_review": "Flag a task-language decline greater than five percentage points with an entirely negative paired source-group 95% interval. Inspect any flagged slice before release.",
+    "numeric_repair": "Recover predecessor overall accuracy, at least 90% for disabled gates and missing fields."
+  },
+  "runtime": {
+    "reload_probability_tolerance": 1e-05,
+    "changed_argmax": 0,
+    "real_http_and_official_sdk": true,
+    "dynamic_choice": "Verify schema, cardinality and normalization; report semantic exact-match errors separately."
+  },
+  "report": "Separate independent condition results from exposed multi-task regression. Include both local baselines and fixed Jev 1.13.0 comparisons, paired uncertainty, remaining errors, input limits, calibration, lineage, licenses and actual export/API measurements."
+}

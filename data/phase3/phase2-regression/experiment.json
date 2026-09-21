@@ -1,0 +1,19 @@
+{
+  "protocol": {
+    "scope": "Historical exposed Phase 2 test, regression report only after Phase 3 selection is frozen; cannot select or tune a model.",
+    "source": "data\\phase2\\strict-v1\\test.jsonl",
+    "source_sha256": "093c3b4fc47927c837e6ea632fef858d6c08143b187e3b5124c89ace859649bd",
+    "reference_predictions": "results/phase2/v3/final/jev-test/predictions.jsonl",
+    "reference_predictions_sha256": "5b73948fe132be06651386f865d081f28015e2819bcd1fe551b9744b140875ed"
+  },
+  "partitions": {
+    "regression": {
+      "path": "regression.jsonl",
+      "sha256": "093c3b4fc47927c837e6ea632fef858d6c08143b187e3b5124c89ace859649bd",
+      "rows": 1171,
+      "source_groups": 503,
+      "content_groups": 503,
+      "unique_requests": 1171
+    }
+  }
+}

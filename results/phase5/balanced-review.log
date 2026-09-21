@@ -1,0 +1,186 @@
+{
+  "run": "balanced",
+  "checks": {
+    "known_false_rejections_resolved": false,
+    "complete_and_eligible_retained": false,
+    "exposed_preconditions_repaired": false,
+    "development_transfer_repaired": false,
+    "development_vs_parent": false,
+    "regression_vs_parent": true,
+    "development_vs_previous": true,
+    "regression_vs_previous": true,
+    "legacy_preconditions_repaired": true,
+    "no_material_language_regression": true
+  },
+  "development_families": {
+    "ordinal_rule": 0.9904761904761905,
+    "intent": 0.8068181818181818,
+    "paraphrase": 0.8169014084507042,
+    "reading_boolean": 0.8372093023255814,
+    "inference": 0.7888888888888889,
+    "numeric_rule": 0.8863636363636364,
+    "candidate_retrieval": 1.0,
+    "candidate_extraction": 0.8833333333333333
+  },
+  "regression_families": {
+    "intent": 0.8078602620087336,
+    "inference": 0.7979166666666667,
+    "reading_boolean": 0.85625,
+    "candidate_extraction": 0.85,
+    "numeric_rule": 0.9593023255813954,
+    "paraphrase": 0.9,
+    "candidate_retrieval": 1.0,
+    "ordinal_rule": 0.9952380952380953
+  },
+  "condition_slices": {
+    "all": {
+      "count": 720,
+      "correct": 672,
+      "accuracy": 0.9333333333333333,
+      "brier": 0.0923829006901476,
+      "source_groups": 12
+    },
+    "complete": {
+      "count": 240,
+      "correct": 213,
+      "accuracy": 0.8875,
+      "brier": 0.15161292726654924,
+      "source_groups": 12
+    },
+    "eligible": {
+      "count": 112,
+      "correct": 85,
+      "accuracy": 0.7589285714285714,
+      "brier": 0.32008821243537294,
+      "source_groups": 12
+    },
+    "en/gate_false": {
+      "count": 120,
+      "correct": 107,
+      "accuracy": 0.8916666666666667,
+      "brier": 0.1444172833653961,
+      "source_groups": 12
+    },
+    "en/missing": {
+      "count": 120,
+      "correct": 112,
+      "accuracy": 0.9333333333333333,
+      "brier": 0.09633857926692023,
+      "source_groups": 12
+    },
+    "zh/complete": {
+      "count": 120,
+      "correct": 96,
+      "accuracy": 0.8,
+      "brier": 0.2575660527755719,
+      "source_groups": 12
+    },
+    "zh/eligible": {
+      "count": 56,
+      "correct": 32,
+      "accuracy": 0.5714285714285714,
+      "brier": 0.5472324942977264,
+      "source_groups": 12
+    }
+  },
+  "fresh_dev": {
+    "transfer/all": {
+      "count": 1600,
+      "correct": 1550,
+      "accuracy": 0.96875,
+      "brier": 0.052347469861956604,
+      "source_groups": 8
+    },
+    "transfer/complete": {
+      "count": 320,
+      "correct": 291,
+      "accuracy": 0.909375,
+      "brier": 0.15345262467293463,
+      "source_groups": 8
+    },
+    "transfer/en/complete": {
+      "count": 160,
+      "correct": 146,
+      "accuracy": 0.9125,
+      "brier": 0.1573079608669433,
+      "source_groups": 8
+    },
+    "transfer/en/eligible": {
+      "count": 80,
+      "correct": 68,
+      "accuracy": 0.85,
+      "brier": 0.27247054906543877,
+      "source_groups": 8
+    },
+    "transfer/en/gate_false": {
+      "count": 160,
+      "correct": 160,
+      "accuracy": 1.0,
+      "brier": 0.0024700903365642143,
+      "source_groups": 8
+    },
+    "transfer/en/ineligible": {
+      "count": 720,
+      "correct": 718,
+      "accuracy": 0.9972222222222222,
+      "brier": 0.01021668051889277,
+      "source_groups": 8
+    },
+    "transfer/en/missing": {
+      "count": 480,
+      "correct": 480,
+      "accuracy": 1.0,
+      "brier": 0.007477428554743112,
+      "source_groups": 8
+    },
+    "transfer/gate_false": {
+      "count": 320,
+      "correct": 320,
+      "accuracy": 1.0,
+      "brier": 0.0022833107869523295,
+      "source_groups": 8
+    },
+    "transfer/missing": {
+      "count": 960,
+      "correct": 939,
+      "accuracy": 0.978125,
+      "brier": 0.03533380461663202,
+      "source_groups": 8
+    },
+    "transfer/zh/complete": {
+      "count": 160,
+      "correct": 145,
+      "accuracy": 0.90625,
+      "brier": 0.149597288478926,
+      "source_groups": 8
+    },
+    "transfer/zh/eligible": {
+      "count": 80,
+      "correct": 69,
+      "accuracy": 0.8625,
+      "brier": 0.24497715310642337,
+      "source_groups": 8
+    },
+    "transfer/zh/gate_false": {
+      "count": 160,
+      "correct": 160,
+      "accuracy": 1.0,
+      "brier": 0.002096531237340444,
+      "source_groups": 8
+    },
+    "transfer/zh/ineligible": {
+      "count": 720,
+      "correct": 695,
+      "accuracy": 0.9652777777777778,
+      "brier": 0.04861684115524834,
+      "source_groups": 8
+    },
+    "transfer/zh/missing": {
+      "count": 480,
+      "correct": 459,
+      "accuracy": 0.95625,
+      "brier": 0.06319018067852093,
+      "source_groups": 8
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source": "User-confirmed investigation in this task",
+  "prior_local_full_runs": {
+    "training_minutes_approx": [19, 20],
+    "training_tokens_approx": 910000,
+    "examples_per_optimizer_step": 8,
+    "first_100_seconds_per_step": [1.63, 2.17]
+  },
+  "cloud_primary": {
+    "training_tokens": 6098918,
+    "examples_per_optimizer_step": 16,
+    "first_100_training_seconds": 137.7666138522327,
+    "token_volume_ratio_approx": 6.7
+  },
+  "invalid_comparison": "The prior 0.22-second microbatch timing disabled gradient checkpointing. Long batches exhausted memory; it was not the full-run configuration.",
+  "decision": "Continue the active primary without further performance interruptions. Compare final elapsed time and workload, not unmatched short profiles."
+}

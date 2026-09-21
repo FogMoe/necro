@@ -1,0 +1,25 @@
+{
+  "purpose": "Repair wording-sensitive preconditions, retain existing tasks, and resolve export consistency. Ordinary unrelated errors do not expand training scope.",
+  "data": "data\\phase4\\condition-v1",
+  "manifest_sha256": "ddaf38d243d9197cf9a8e081c0e88a07d1f5c95f7acca5af288a69636ddef427",
+  "initial_adapter": "results/phase3/instruction-seed2026/adapter",
+  "initial_weights_sha256": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13",
+  "training": {
+    "rank": 16,
+    "learning_rate": 1e-05,
+    "batch_size": 4,
+    "accumulation": 2,
+    "epochs": 1,
+    "seed": 2026,
+    "objective": "answer-ce"
+  },
+  "selection": {
+    "retention": "On the existing 1464 development records, no family falls more than 2 percentage points below either predecessor or instruction parent. Report language slices and paired source-group intervals.",
+    "new_conditions": "Overall new-condition development accuracy must at least retain both baselines. Disabled-gate and missing-field accuracy must each reach 95 percent.",
+    "legacy_diagnostic": "Original-field, original-wording accuracy must recover the predecessor; disabled-gate and missing-field accuracy must each reach 90 percent.",
+    "blind_holdout": "Do not evaluate the registered 720 new test records until candidate selection and calibration are frozen."
+  },
+  "trial_limit": "One initial repair and at most one targeted follow-up trial in this bounded experiment. Assess diminishing returns after capability stability, not from a regressing model.",
+  "reference": "Jev is a measured comparison, not a release percentage target.",
+  "export": "Preserve exact weight comparisons and investigate the two probability outliers. Do not waive the failed tolerance without explaining and verifying the numerical cause."
+}

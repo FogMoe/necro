@@ -1,0 +1,169 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 1705, in from_pretrained
+    resolved_vocab_files[file_id] = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 294, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 535, in cached_files
+    raise e
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 438, in cached_files
+    hf_hub_download(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 91, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 266, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1043, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1281, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 2010, in _download_to_tmp_and_move
+    xet_get(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 585, in xet_get
+    with session.new_file_download_group(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Task error: File reconstruction error: CAS Client Error: Request error: HTTP status client error (401 Unauthorized), domain: https://cas-server.xethub.hf.co/v2/reconstructions/8f06040c24d0d6efc263cf398806debbf20d732031ba128349d086f6a7b8bab2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/__main__.py", line 7, in <module>
+    main()
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/trainer.py", line 453, in main
+    train(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/trainer.py", line 220, in train
+    scorer.load()
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/backend.py", line 82, in load
+    self._load()
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/backend.py", line 99, in _load
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 853, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 1724, in from_pretrained
+    raise OSError(
+OSError: Can't load tokenizer for 'Qwen/Qwen3.5-0.8B'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'Qwen/Qwen3.5-0.8B' is the correct path to a directory containing all relevant files for a Qwen2Tokenizer tokenizer.
+{"failed_profile": "results/cloud/profile-b4", "returncode": 1}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 1705, in from_pretrained
+    resolved_vocab_files[file_id] = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 294, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 535, in cached_files
+    raise e
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 438, in cached_files
+    hf_hub_download(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 91, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 266, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1043, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1281, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 2010, in _download_to_tmp_and_move
+    xet_get(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 585, in xet_get
+    with session.new_file_download_group(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Task error: File reconstruction error: CAS Client Error: Request error: HTTP status client error (401 Unauthorized), domain: https://cas-server.xethub.hf.co/v2/reconstructions/8f06040c24d0d6efc263cf398806debbf20d732031ba128349d086f6a7b8bab2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/__main__.py", line 7, in <module>
+    main()
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/trainer.py", line 453, in main
+    train(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/trainer.py", line 220, in train
+    scorer.load()
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/backend.py", line 82, in load
+    self._load()
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/backend.py", line 99, in _load
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 853, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 1724, in from_pretrained
+    raise OSError(
+OSError: Can't load tokenizer for 'Qwen/Qwen3.5-0.8B'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'Qwen/Qwen3.5-0.8B' is the correct path to a directory containing all relevant files for a Qwen2Tokenizer tokenizer.
+{"failed_profile": "results/cloud/profile-b8", "returncode": 1}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 1705, in from_pretrained
+    resolved_vocab_files[file_id] = cached_file(
+                                    ^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 294, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 535, in cached_files
+    raise e
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/utils/hub.py", line 438, in cached_files
+    hf_hub_download(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 91, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 266, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1043, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1281, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 2010, in _download_to_tmp_and_move
+    xet_get(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 585, in xet_get
+    with session.new_file_download_group(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Task error: File reconstruction error: CAS Client Error: Request error: HTTP status client error (401 Unauthorized), domain: https://cas-server.xethub.hf.co/v2/reconstructions/8f06040c24d0d6efc263cf398806debbf20d732031ba128349d086f6a7b8bab2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/__main__.py", line 7, in <module>
+    main()
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/trainer.py", line 453, in main
+    train(
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/trainer.py", line 220, in train
+    scorer.load()
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/backend.py", line 82, in load
+    self._load()
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/backend.py", line 99, in _load
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 853, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 1724, in from_pretrained
+    raise OSError(
+OSError: Can't load tokenizer for 'Qwen/Qwen3.5-0.8B'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'Qwen/Qwen3.5-0.8B' is the correct path to a directory containing all relevant files for a Qwen2Tokenizer tokenizer.
+{"failed_profile": "results/cloud/profile-b16", "returncode": 1}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/cloud.py", line 514, in <module>
+    main()
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/cloud.py", line 484, in main
+    profile(plan)
+  File "/root/autodl-tmp/necro-unified-2026-09-21/workspace/src/necro/training/cloud.py", line 264, in profile
+    raise ValueError("No profile left sufficient memory headroom")
+ValueError: No profile left sufficient memory headroom

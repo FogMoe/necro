@@ -1,0 +1,58 @@
+{
+  "baseline": {
+    "complete": {
+      "correct": 105,
+      "count": 120
+    },
+    "gate_false": {
+      "correct": 40,
+      "count": 40
+    },
+    "missing": {
+      "correct": 16,
+      "count": 16
+    }
+  },
+  "coverage-seed2026": {
+    "complete": {
+      "correct": 101,
+      "count": 120
+    },
+    "gate_false": {
+      "correct": 40,
+      "count": 40
+    },
+    "missing": {
+      "correct": 16,
+      "count": 16
+    }
+  },
+  "instruction-seed2026": {
+    "complete": {
+      "correct": 105,
+      "count": 120
+    },
+    "gate_false": {
+      "correct": 40,
+      "count": 40
+    },
+    "missing": {
+      "correct": 16,
+      "count": 16
+    }
+  },
+  "instruction-seed2027": {
+    "complete": {
+      "correct": 99,
+      "count": 120
+    },
+    "gate_false": {
+      "correct": 40,
+      "count": 40
+    },
+    "missing": {
+      "correct": 16,
+      "count": 16
+    }
+  }
+}

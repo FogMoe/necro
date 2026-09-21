@@ -1,0 +1,102 @@
+{
+  "protocol": {
+    "scope": "Balanced precondition repair with eight-task development retention and independent condition-rule holdout.",
+    "parent": "results/phase3/instruction-seed2026/adapter",
+    "revision": 2,
+    "numeric_replay": "data/phase3/coverage-v1/train.jsonl",
+    "retained_baseline": "results/phase2/v3/selected/adapter",
+    "style_partition": {
+      "train": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "development": [
+        4,
+        5
+      ],
+      "test": [
+        6,
+        7
+      ]
+    },
+    "replay": "data/phase3/instruction-v2/train.jsonl",
+    "protected_previous_holdouts": {
+      "data\\phase3\\coverage-v1\\validation.jsonl": "bc4b9ab0bd5a96c8f7750a4f54e060e5c8a300acfa6f6dcfd45d10362cc312a0",
+      "data\\phase3\\coverage-v1\\calibration.jsonl": "8435e73722fc1757cd92509cd4f964b705fe80b66b66318907b8d8eb186d1c40",
+      "data\\phase3\\coverage-v1\\test.jsonl": "4d1d501fb51728a3f96270dd20c89f791db61c2f369d7477c7367159e3ff27b4"
+    },
+    "families": {
+      "train": {
+        "ordinal_rule": 120,
+        "numeric_rule": 1972,
+        "candidate_extraction": 160,
+        "intent": 240,
+        "reading_boolean": 168,
+        "paraphrase": 100,
+        "inference": 200,
+        "candidate_retrieval": 36
+      },
+      "development": {
+        "numeric_rule": 896,
+        "ordinal_rule": 210,
+        "inference": 360,
+        "paraphrase": 142,
+        "intent": 352,
+        "reading_boolean": 129,
+        "candidate_extraction": 60,
+        "candidate_retrieval": 35
+      },
+      "test": {
+        "numeric_rule": 720
+      },
+      "calibration": {
+        "inference": 210,
+        "intent": 232,
+        "numeric_rule": 170,
+        "ordinal_rule": 210,
+        "candidate_retrieval": 25,
+        "paraphrase": 100,
+        "reading_boolean": 81,
+        "candidate_extraction": 40
+      }
+    },
+    "builder_sha256": "56c6f82c839787c607a4b7b758cbaf40136c2fbf9d4fe442f43593e8c53aefa3",
+    "independent_scope": "The new test measures condition-rule transfer across source values, field sets and wording. Existing natural-task cohorts are regression evidence."
+  },
+  "partitions": {
+    "train": {
+      "path": "train.jsonl",
+      "sha256": "e89f95aaf096fcd4a05a2f56463db695ab56e427f766dad80d438cae0de9e2ff",
+      "rows": 2996,
+      "source_groups": 487,
+      "content_groups": 487,
+      "unique_requests": 2996
+    },
+    "development": {
+      "path": "validation.jsonl",
+      "sha256": "e3f9401a4ed838b3359484ec8ff58bfa20439762c2b9c24db2bb8a8b295ded94",
+      "rows": 2184,
+      "source_groups": 675,
+      "content_groups": 675,
+      "unique_requests": 2184
+    },
+    "test": {
+      "path": "test.jsonl",
+      "sha256": "75c818270d76a92b3faab3f9ebc7e8720bc7e405208e7703f9935cbdb2f11b1d",
+      "rows": 720,
+      "source_groups": 12,
+      "content_groups": 12,
+      "unique_requests": 720
+    },
+    "calibration": {
+      "path": "calibration.jsonl",
+      "sha256": "5c4144af29439e9cf4cf4fc7bf399523635ae40fc6a24877d383d4f7a6002271",
+      "rows": 1068,
+      "source_groups": 447,
+      "content_groups": 447,
+      "unique_requests": 1068
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "intent_prior_positive_coverage": {
+    "seen_classes": {
+      "count": 182,
+      "accuracy": 0.7747252747252747,
+      "nll": 2.329660249260147,
+      "brier": 0.425770534520047,
+      "ece_10_bins": 0.2057517959692112,
+      "nll_floor_sensitivity": {
+        "1e-12": 2.329660249260147,
+        "0.001": 1.4072653111317894,
+        "0.005": 1.1106161027359338,
+        "0.01": 0.9806775161378818
+      }
+    },
+    "previously_missing_classes": {
+      "count": 170,
+      "accuracy": 0.7058823529411765,
+      "nll": 2.7915355972581506,
+      "brier": 0.5203423773790264,
+      "ece_10_bins": 0.245881903586115,
+      "nll_floor_sensitivity": {
+        "1e-12": 2.7915355972581506,
+        "0.001": 1.760313610995381,
+        "0.005": 1.4221537059289855,
+        "0.01": 1.2561415926460804
+      }
+    }
+  },
+  "inference_confusion": {
+    "en": {
+      "neutral -> contradiction": 9,
+      "entailment -> entailment": 52,
+      "contradiction -> contradiction": 48,
+      "neutral -> neutral": 41,
+      "entailment -> neutral": 8,
+      "neutral -> entailment": 10,
+      "contradiction -> neutral": 10,
+      "contradiction -> entailment": 2
+    },
+    "zh": {
+      "neutral -> neutral": 41,
+      "contradiction -> contradiction": 40,
+      "entailment -> entailment": 46,
+      "contradiction -> neutral": 20,
+      "neutral -> contradiction": 7,
+      "neutral -> entailment": 12,
+      "entailment -> contradiction": 2,
+      "entailment -> neutral": 12
+    }
+  }
+}

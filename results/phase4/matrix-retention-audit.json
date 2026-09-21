@@ -1,0 +1,212 @@
+[
+  {
+    "id": "p3-numeric_rules/development/28/en/0",
+    "group_id": "source-component/a2b7e7137fa5268a776e185105197b87692db269dc309fcb33e567c79bc2b93b",
+    "direction": "lost",
+    "metadata": {
+      "operator": "lt",
+      "fields": [
+        "available_slots",
+        "required_slots",
+        "enabled"
+      ],
+      "negated": false,
+      "case": "complete",
+      "missing_fields": [],
+      "relation": "lt",
+      "language": "en",
+      "atomic": false
+    },
+    "request": {
+      "model": "necro-qwen3.5-0.8b",
+      "state": {
+        "available_slots": 589,
+        "required_slots": 590,
+        "enabled": true
+      },
+      "questions": {
+        "decision": {
+          "type": "noul",
+          "instructions": "The record is eligible if and only if `available_slots` is less than `required_slots` and `enabled` is true. Otherwise, or if required fields are missing, it is ineligible. Is this record eligible?"
+        }
+      }
+    },
+    "expected": true,
+    "predicted": false
+  },
+  {
+    "id": "p3-numeric_rules/development/18/en/0",
+    "group_id": "source-component/fd8b9d3a191aaf051f3b6128f1b693103f70fa611e31603b5830848b3a1e926f",
+    "direction": "lost",
+    "metadata": {
+      "operator": "lt",
+      "fields": [
+        "available_slots",
+        "required_slots",
+        "enabled"
+      ],
+      "negated": true,
+      "case": "complete",
+      "missing_fields": [],
+      "relation": "lt",
+      "language": "en",
+      "atomic": false
+    },
+    "request": {
+      "model": "necro-qwen3.5-0.8b",
+      "state": {
+        "available_slots": 798.5,
+        "required_slots": 799,
+        "enabled": true
+      },
+      "questions": {
+        "decision": {
+          "type": "noul",
+          "instructions": "The record is eligible if and only if `available_slots` is less than `required_slots` and `enabled` is true. Otherwise, or if required fields are missing, it is ineligible. Is this record ineligible?"
+        }
+      }
+    },
+    "expected": false,
+    "predicted": true
+  },
+  {
+    "id": "p3-numeric_rules/development/18/zh/0",
+    "group_id": "source-component/fd8b9d3a191aaf051f3b6128f1b693103f70fa611e31603b5830848b3a1e926f",
+    "direction": "lost",
+    "metadata": {
+      "operator": "lt",
+      "fields": [
+        "available_slots",
+        "required_slots",
+        "enabled"
+      ],
+      "negated": true,
+      "case": "complete",
+      "missing_fields": [],
+      "relation": "lt",
+      "language": "zh",
+      "atomic": false
+    },
+    "request": {
+      "model": "necro-qwen3.5-0.8b",
+      "state": {
+        "available_slots": 798.5,
+        "required_slots": 799,
+        "enabled": true
+      },
+      "questions": {
+        "decision": {
+          "type": "noul",
+          "instructions": "当且仅当 `available_slots` 小于 `required_slots` 且 `enabled` 为 true 时合格；其余或缺少字段时不合格。现在是否不合格？"
+        }
+      }
+    },
+    "expected": false,
+    "predicted": true
+  },
+  {
+    "id": "p3-numeric_rules/development/28/zh/0",
+    "group_id": "source-component/a2b7e7137fa5268a776e185105197b87692db269dc309fcb33e567c79bc2b93b",
+    "direction": "lost",
+    "metadata": {
+      "operator": "lt",
+      "fields": [
+        "available_slots",
+        "required_slots",
+        "enabled"
+      ],
+      "negated": false,
+      "case": "complete",
+      "missing_fields": [],
+      "relation": "lt",
+      "language": "zh",
+      "atomic": false
+    },
+    "request": {
+      "model": "necro-qwen3.5-0.8b",
+      "state": {
+        "available_slots": 589,
+        "required_slots": 590,
+        "enabled": true
+      },
+      "questions": {
+        "decision": {
+          "type": "noul",
+          "instructions": "当且仅当 `available_slots` 小于 `required_slots` 且 `enabled` 为 true 时合格；其余或缺少字段时不合格。现在是否合格？"
+        }
+      }
+    },
+    "expected": true,
+    "predicted": false
+  },
+  {
+    "id": "p3-numeric_rules/development/3/zh/2",
+    "group_id": "source-component/f93008ec5ca9242c427a69b39a6a3e8592fc3e4edded23d7645c4ffad0162677",
+    "direction": "lost",
+    "metadata": {
+      "operator": "lt",
+      "fields": [
+        "available_slots",
+        "required_slots",
+        "enabled"
+      ],
+      "negated": false,
+      "case": "complete",
+      "missing_fields": [],
+      "relation": "lt",
+      "language": "zh",
+      "atomic": false
+    },
+    "request": {
+      "model": "necro-qwen3.5-0.8b",
+      "state": {
+        "available_slots": 258.5,
+        "required_slots": 259,
+        "enabled": true
+      },
+      "questions": {
+        "decision": {
+          "type": "noul",
+          "instructions": "当且仅当 `available_slots` 小于 `required_slots` 且 `enabled` 为 true 时合格；其余或缺少字段时不合格。现在是否合格？"
+        }
+      }
+    },
+    "expected": true,
+    "predicted": false
+  },
+  {
+    "id": "p3-numeric_rules/development/12/en/1",
+    "group_id": "source-component/203f69acccd927502f661ca07118358ff824ef7eb96173117499780d4a12682e",
+    "direction": "gained",
+    "metadata": {
+      "operator": "le",
+      "fields": [
+        "available_slots",
+        "required_slots",
+        "enabled"
+      ],
+      "negated": true,
+      "case": "complete",
+      "missing_fields": [],
+      "relation": "gt",
+      "language": "en",
+      "atomic": false
+    },
+    "request": {
+      "model": "necro-qwen3.5-0.8b",
+      "state": {
+        "available_slots": 789.5,
+        "required_slots": 789,
+        "enabled": true
+      },
+      "questions": {
+        "decision": {
+          "type": "noul",
+          "instructions": "The record is eligible if and only if `available_slots` is at most `required_slots` and `enabled` is true. Otherwise, or if required fields are missing, it is ineligible. Is this record ineligible?"
+        }
+      }
+    },
+    "expected": true,
+    "predicted": true
+  }
+]

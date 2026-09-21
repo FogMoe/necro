@@ -1,0 +1,1 @@
+{"request_sha256": "39483ca9037dc50ce6d6ffaefdf919504d63590539b2e4b228c8571c116d5751", "response": {"model": "jev-1.13.0", "answers": {"decision": {"type": "choice", "choice": "option_0", "probabilities": {"option_0": 1.0, "option_1": 0.0, "option_2": 0.0}, "confidence": 1.0}}, "usage": {"input_tokens": 637, "output_tokens": 46}}, "created_at": "2026-09-20T21:01:57.269598+00:00"}

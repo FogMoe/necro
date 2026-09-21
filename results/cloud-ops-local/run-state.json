@@ -1,0 +1,39 @@
+{
+  "source_commit": "db21602af310cd438b8af6a7cd8cbffb02857538",
+  "original_zip_sha256": "df811fe8722867f42726164a448afad2d71739d6efee469cfc1744129ae9db47",
+  "remote_root": "/root/autodl-tmp/necro-unified-2026-09-21",
+  "active_workspace": "workspace",
+  "unused_acceleration_workspace": "workspace-fast",
+  "primary_pid": 5165,
+  "primary_log": "ops/primary.log",
+  "primary_receipt": "ops/primary.exit",
+  "continuation": "ops/after-primary.sh",
+  "continuation_scope": "Validate and resume baseline cohorts, then assess primary. No automatic second recipe or test opening.",
+  "performance": {
+    "batch_size": 16,
+    "accumulation": 1,
+    "gradient_checkpointing": true
+  },
+  "independent_test_opened": false,
+  "runtime": "Original locked dependencies, offline cached official revision; optional kernel investigation stopped at user request.",
+  "network_fix": "HF_HUB_DISABLE_XET=1 allowed public downloads; 10 required files verified; HF_HUB_OFFLINE=1 enabled afterwards.",
+  "supplement": "ops/release-supplement.zip adds unified_release, targeted tests, and examples without changing any original ZIP file.",
+  "known_completed_baseline": "official/development",
+  "interrupted_runs": [
+    "original baseline process",
+    "fast kernel profile",
+    "queued kernel isolation"
+  ],
+  "local_changes": [
+    "src/necro/training/cloud.py",
+    "src/necro/training/release/unified_release.py",
+    "tests/training/test_unified_release.py"
+  ],
+  "local_checks": "23 targeted tests, Ruff and focused documentation links pass",
+  "remote_supplement_checks": "20 targeted tests passed before two local guard tests were added",
+  "status": "primary training and full development assessment complete; failed acceptance; retrospective delivered before further training",
+  "no_gpu_jobs": true,
+  "server_shutdown": false,
+  "evidence_root": "results\\cloud-primary-2026-09-21",
+  "report": "docs/reports/unified-primary-2026-09-21.md"
+}

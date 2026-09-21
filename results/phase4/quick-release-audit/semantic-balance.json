@@ -1,0 +1,9 @@
+{
+  "ineligible": 2880,
+  "answer_true": 1600,
+  "gate_false": 640,
+  "answer_false": 1600,
+  "missing": 1920,
+  "eligible": 320,
+  "complete": 640
+}

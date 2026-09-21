@@ -1,0 +1,55 @@
+{
+  "dataset": "mteb/amazon_massive_intent",
+  "revision": "dfe509a4cff77fcdead03f9275b6c0c346d049cb",
+  "files": [
+    {
+      "path": "en/test/0000.parquet",
+      "config": "en",
+      "split": "test",
+      "rows": 2974,
+      "bytes": 94924,
+      "sha256": "809eb94d3a945242fd2f1c92a8f6f41eeede5e938aa98ab10c145e2350d88086"
+    },
+    {
+      "path": "en/train/0000.parquet",
+      "config": "en",
+      "split": "train",
+      "rows": 11514,
+      "bytes": 342413,
+      "sha256": "4fc1db8d735474a28949641103e4dd817366437dfa47b273c1b8bc19304fdf23"
+    },
+    {
+      "path": "en/validation/0000.parquet",
+      "config": "en",
+      "split": "validation",
+      "rows": 2033,
+      "bytes": 67980,
+      "sha256": "5abc5981d0c6d4a7a90b1d11d2962f10a94a362a56b21fde348b09e3494507c4"
+    },
+    {
+      "path": "zh-CN/test/0000.parquet",
+      "config": "zh-CN",
+      "split": "test",
+      "rows": 2974,
+      "bytes": 91772,
+      "sha256": "caa96a7985eae14e0a5b222cd6ad4065eb9b4147ebe241b19467fbf80f3afcd7"
+    },
+    {
+      "path": "zh-CN/train/0000.parquet",
+      "config": "zh-CN",
+      "split": "train",
+      "rows": 11514,
+      "bytes": 333105,
+      "sha256": "8b82eb4e0e06324caf0fa2713f0a35049d5e11a8ae7d5d1eb8a40ccacc637031"
+    },
+    {
+      "path": "zh-CN/validation/0000.parquet",
+      "config": "zh-CN",
+      "split": "validation",
+      "rows": 2033,
+      "bytes": 65940,
+      "sha256": "401810f832b1622a87c500dde7e88a199cd742f4bce0575cde6ced7c7a6e5fe7"
+    }
+  ],
+  "sampling": "Complete split; deterministic individual/source-group sampling later"
+}

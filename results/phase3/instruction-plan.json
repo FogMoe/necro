@@ -1,0 +1,19 @@
+{
+  "hypothesis": "Paired same-evidence polarity and candidate-presence supervision repairs ignored instructions; increased exact-rule replay preserves numeric skill; native Chinese human QA covers missing extraction training language.",
+  "parent": "results\\phase3\\coverage-seed2026\\adapter",
+  "parent_sha256": "7f0de17e1fd2d30b9b63c1a876767cea45e66b7458ad5404cac8fa018b2074ed",
+  "data": "data/phase3/instruction-v2",
+  "data_manifest_sha256": "bc5282eb37beb76931c789fa071bacf0739bdb108a0122013e4ed8b408a6a715",
+  "objective": "answer-ce",
+  "learning_rate": 3e-05,
+  "seed": 2026,
+  "batch_size": 4,
+  "accumulation": 2,
+  "epochs": 1,
+  "rank": 16,
+  "examples": 3254,
+  "calibration_objective": "brier",
+  "decision": "Advance for >=1 pp task-macro gain without >3 pp core-task regression; alternatively a critical reading-negation consistency recovery to >=0.7 with no >0.5 pp macro or >3 pp core-task regression. Otherwise retain parent. Replicate the final useful recipe from the same parent with seed 2027. Consecutive targeted low-gain trials without critical repairs justify stopping, not a Jev parity claim.",
+  "scope": "Development only, including predefined perturbations; no new final predictions and no old final failures used to form training examples.",
+  "unused_data_note": "instruction-v1 was never trained; v2 corrects ambiguity of English no response into the quoted answer no before training. Same selected sources and order."
+}

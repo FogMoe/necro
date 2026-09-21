@@ -1,0 +1,20 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   9%|▉         | 43/473 [00:00<00:01, 427.10it/s]
+Loading weights:  18%|█▊        | 86/473 [00:00<00:01, 342.14it/s]
+Loading weights:  28%|██▊       | 134/473 [00:00<00:00, 387.17it/s]
+Loading weights:  66%|██████▌   | 310/473 [00:00<00:00, 878.67it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 1041.21it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\kc\Documents\GitHub\necro\src\necro\package_verification.py", line 292, in <module>
+    verify_package(args.package, args.data, args.predictions, args.output, args.benchmark_jev)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kc\Documents\GitHub\necro\src\necro\package_verification.py", line 167, in verify_package
+    raise ValueError(f"重载不一致：最大概率误差 {max_delta}，改变 {changed} 个选择。")
+ValueError: 重载不一致：最大概率误差 0.0027961790298101294，改变 0 个选择。

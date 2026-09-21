@@ -1,0 +1,12 @@
+{
+  "temperature": 1.7211028744886598,
+  "before_nll": 0.7754838805340691,
+  "after_nll": 0.612090866835918,
+  "questions": 198,
+  "predictions_sha256": "404338620b159c273e352766dec0a4fece22977433e181a45540999df242b0a5",
+  "method": "one Choice temperature; minimum mean NLL on a separate calibration split",
+  "bounds": [
+    0.5,
+    4.0
+  ]
+}

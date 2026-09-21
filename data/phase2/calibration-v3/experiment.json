@@ -1,0 +1,35 @@
+{
+  "protocol": {
+    "method": "same per-primitive temperature procedure for every candidate",
+    "protected": {
+      "data\\lora-pilot\\train.jsonl": "baba10584b1b21d616ee3a68d860fb0e4ceb75c771ea3e9a28554eb76ff79cf8",
+      "data\\improvement\\expanded\\train.jsonl": "390d9556303659de1267e6acfb66419ec92c929c2bd9a159f24a95ce7bed90f3",
+      "data\\phase2\\experiment-v3\\train.jsonl": "ad682d37df3be454127a63f3ed1be5e0012c5e8ad15856427a1aeb0f73a444d7",
+      "data\\phase2\\experiment-v3\\validation.jsonl": "545ef8678db4aac9d43b0f506fa2857c9516b6048a8a7660beaefc0106d82c85",
+      "data\\phase2\\final-v3\\test.jsonl": "f83fcc2c3ddb5ea742f5d45c5a8880851036529c8176e1ff97b868e571befc8f"
+    },
+    "legacy_calibration_sha256": "2e1525523ef35db50a2c58060d5371d1769f04b8541537a7294fcaf0a69efb88",
+    "new_calibration_sha256": "04aef92a8016134a60dab5ebec03ae35793132d5fbf6507c7a7dfd2f5932b77f",
+    "removed_legacy_groups": [],
+    "families": {
+      "paraphrase": 79,
+      "reading_boolean": 80,
+      "candidate_extraction": 80,
+      "candidate_retrieval": 50,
+      "numeric_rule": 68,
+      "ordinal_rule": 120,
+      "inference": 100,
+      "intent": 98
+    }
+  },
+  "partitions": {
+    "calibration": {
+      "path": "calibration.jsonl",
+      "sha256": "15eaec172a4b764ed0ea86095f66b5b00aada893a7ff9b7d1e2f6c974d65ff1a",
+      "rows": 675,
+      "source_groups": 332,
+      "content_groups": 431,
+      "unique_requests": 675
+    }
+  }
+}

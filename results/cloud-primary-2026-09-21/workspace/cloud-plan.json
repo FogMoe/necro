@@ -1,0 +1,39 @@
+{
+  "checkpoint": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "initial_adapter": null,
+  "rank": 16,
+  "objective": "answer-ce",
+  "epochs": 2,
+  "effective_batch_size": 16,
+  "seed": 2026,
+  "gradient_checkpointing": true,
+  "recipes": {
+    "primary": {
+      "learning_rate": 0.0001
+    },
+    "lower-rate": {
+      "learning_rate": 5e-05
+    }
+  },
+  "budget": "At most two fresh recipes. Assess primary before lower-rate. No automatic continuation, Base run or repair-only follow-up. A passing recipe may receive one separately registered seed confirmation.",
+  "selection": {
+    "known_38_failures": "all corrected",
+    "exposed_conditions": "complete and eligible >=98% per language; disabled and missing >=95% per language",
+    "retention": "each original development and regression family within2pp of both references; original-task macro not below repaired reference by more than0.5pp",
+    "new_development": "disabled and missing >=95% per language; complete and eligible within2pp of parent, with negative arithmetic reported separately",
+    "stopping": "A failed recipe is not promoted. If both fail, stop and review the overall model/data approach. Freeze weights/calibration before independent testing; no test-driven recipe changes."
+  },
+  "final_validation": "Independent eight-family test, followed by merged export, full reload and real SDK/HTTP checks; not run automatically by this preparation or development runner.",
+  "data_manifest_sha256": "390960ba7390373ce3f120756db30291802fa80c7cea7d93a55c37dda6309125",
+  "references": {
+    "parent": {
+      "weights_sha256": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13",
+      "calibration_sha256": "fd3eece1aeb65f481e97c02d3e7887d2fa9c8bd90f802e499c42a3d2e19e0999"
+    },
+    "repaired": {
+      "weights_sha256": "f0ae9537edb9478b26752db9ea3287f61ae8fdf0a8a84d453e04c93679d7d092",
+      "calibration_sha256": "3cef23121c96c0fd8e1c6b729047d8d367ab45d24db0217bd936dcfa9070b60a"
+    }
+  }
+}

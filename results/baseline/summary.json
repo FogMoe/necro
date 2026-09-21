@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T07:35:04.866350+00:00",
+    "backend": "local",
+    "model": [
+      "necro-qwen3.5-0.8b"
+    ],
+    "dataset_sha256": "0ebf67f94c104846b6519caaebf3b6b540b62d4ebb7e3368d99d779a087ea0f8",
+    "evaluated_examples": 400,
+    "elapsed_seconds": 31.258652099997562,
+    "questions_per_second": 12.796457080759128,
+    "input_tokens": 206743,
+    "notes": "Exploratory evaluation; not proof of general capability or calibrated accuracy.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.8831630104780197,
+    "candidate_mass_min": 0.4011363983154297,
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 1.9371967315673828
+  },
+  "overall": {
+    "count": 400,
+    "accuracy": 0.3525,
+    "nll": 2.5224005423354545,
+    "brier": 0.7769972214134202,
+    "ece_10_bins": 0.12267414980611052
+  },
+  "groups": {
+    "facebook/xnli/en/choice": {
+      "count": 100,
+      "accuracy": 0.39,
+      "nll": 1.0444992521780292,
+      "brier": 0.6561944722970214,
+      "ece_10_bins": 0.14958013775602347
+    },
+    "mteb/amazon_massive_intent/en/choice": {
+      "count": 100,
+      "accuracy": 0.34,
+      "nll": 3.5993901842023153,
+      "brier": 0.8462438168299768,
+      "ece_10_bins": 0.09089438808901511
+    },
+    "facebook/xnli/zh/choice": {
+      "count": 100,
+      "accuracy": 0.41,
+      "nll": 1.0720634027537654,
+      "brier": 0.6522873874041079,
+      "ece_10_bins": 0.14006632082192538
+    },
+    "mteb/amazon_massive_intent/zh/choice": {
+      "count": 100,
+      "accuracy": 0.27,
+      "nll": 4.3736493302077095,
+      "brier": 0.9532632091225743,
+      "ece_10_bins": 0.14876445264128313
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "source_thread": "01a0c07f-39f2-7fb2-8dfb-d709eb469ed1",
+  "instruction": "User requests closing after instruction-seed2026. No new training directions. At most one necessary matched-seed replication if this round has clear benefit without material regression, otherwise retain best weights. Complete freeze, independent Jev test, historical reporting, model card, weights, licenses/checksums, reload/SDK/latency. Honest diminishing-return finish allowed; commit remains performance-gated; no push/publication.",
+  "accepted": true
+}

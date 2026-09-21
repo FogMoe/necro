@@ -1,0 +1,16 @@
+{
+  "protocol": {
+    "parent_sha256": "e3f9401a4ed838b3359484ec8ff58bfa20439762c2b9c24db2bb8a8b295ded94",
+    "scope": "New condition-rule development slice of the registered repair experiment"
+  },
+  "partitions": {
+    "development": {
+      "path": "development.jsonl",
+      "sha256": "9675e9b8c0ffd161c1d539e262bbece125b32d6948d227033b4f9458c3e71448",
+      "rows": 720,
+      "source_groups": 12,
+      "content_groups": 12,
+      "unique_requests": 720
+    }
+  }
+}

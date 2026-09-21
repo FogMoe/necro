@@ -1,0 +1,52 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:  11%|█         | 53/473 [00:00<00:00, 500.54it/s]
+Loading weights:  22%|██▏       | 104/473 [00:00<00:00, 454.69it/s]
+Loading weights:  35%|███▍      | 164/473 [00:00<00:00, 506.99it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 1350.01it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"event": "setup", "checkpoint": "Qwen/Qwen3.5-0.8B", "revision": "2fc06364715b967f1860aea9cf38778875588b17", "model_id": "necro-phase4-condition-v2-seed2026", "initial_adapter": "results\\phase3\\instruction-seed2026\\adapter", "initial_adapter_sha256": "35421e4cf65a5320ba36159d9160d6bf608b25df5700c071ece3336aad8c8f13", "prompt_version": "plain-v1-native-noul-numeric-large-choice", "prompt_sha256": "b0494238c3becd0872040e3b9ecb62c1748721cb1cc869b22238613a70068fb1", "seed": 2026, "rank": 16, "learning_rate": 1e-05, "batch_size": 4, "gradient_accumulation": 2, "epochs": 1, "optimizer_steps": 375, "examples": 2996, "trainable_parameters": 10822656, "max_input_tokens": 1351, "training_tokens": 646798, "objective": "answer-ce", "objective_description": "full-vocabulary answer-token CE; prompts masked", "train_sha256": "e89f95aaf096fcd4a05a2f56463db695ab56e427f766dad80d438cae0de9e2ff", "validation_sha256": "e3f9401a4ed838b3359484ec8ff58bfa20439762c2b9c24db2bb8a8b295ded94", "source_sha256": {"training/trainer.py": "30a040c1686e9a54659c8dad60e20eb7ba4e5ec2044907636ac9a33f291ea35f", "training/__init__.py": "9a38213790450339bd58f924ca49c1cb6e4455123a319afec1313a28928dde47", "training/__main__.py": "94465eb9af69a504cec5a1a080146d39def20dc921c0d5eb2c3f5aa1f6d850a9", "engine.py": "2b60c7ca91ac2e54416e7b939287a8b56fc48a63ecb36d2f8cf7935051972a8e", "backend.py": "29f496808e445d28f861ba678548357d4f80c65602349baa0534acc85f960eab", "schema.py": "83ab3f3c17b2d8b771cd36483b7b2f5e7be8096666d452debbd16def1f35ec06", "config.py": "8c020267d540ac59c4ddcfbe7d7d5aa7a7d8133ed168b0afe3beada04409224b"}}
+{"event": "profile", "seconds_per_microbatch": 0.39440450000256533, "estimated_training_seconds": 463.82226560497446, "peak_allocated_gib": 2.1051177978515625}
+{"event": "training", "step": 1, "loss": 0.2479109587147832, "grad_norm": 18.400386810302734, "elapsed_seconds": 0.7953660000057425, "eta_seconds": 297.4668840021477}
+{"event": "training", "step": 10, "loss": 0.9454561471939087, "grad_norm": 50.81122970581055, "elapsed_seconds": 8.114961500003119, "eta_seconds": 296.19609475011384}
+{"event": "training", "step": 20, "loss": 0.012573609012179077, "grad_norm": 3.6331586837768555, "elapsed_seconds": 16.526945299992803, "eta_seconds": 293.35327907487226}
+{"event": "training", "step": 30, "loss": 0.0024867068859748542, "grad_norm": 0.18346112966537476, "elapsed_seconds": 27.60643390000041, "eta_seconds": 317.4739898500047}
+{"event": "training", "step": 40, "loss": 0.004320500782341696, "grad_norm": 0.5666535496711731, "elapsed_seconds": 39.974173099995824, "eta_seconds": 334.783699712465}
+{"event": "training", "step": 50, "loss": 0.0013946579420007765, "grad_norm": 0.09621281921863556, "elapsed_seconds": 49.52015529999335, "eta_seconds": 321.88100944995676}
+{"event": "training", "step": 60, "loss": 6.295478306128643e-05, "grad_norm": 0.0036147257778793573, "elapsed_seconds": 59.46107069999562, "eta_seconds": 312.170621174977}
+{"event": "training", "step": 70, "loss": 9.822118954616599e-05, "grad_norm": 0.0055966549552977085, "elapsed_seconds": 68.28385530000378, "eta_seconds": 297.5225123785879}
+{"event": "training", "step": 80, "loss": 0.0005423643015092239, "grad_norm": 0.05852621793746948, "elapsed_seconds": 79.65751220000675, "eta_seconds": 293.7370762375249}
+{"event": "training", "step": 90, "loss": 0.5326257902488578, "grad_norm": 72.50875854492188, "elapsed_seconds": 91.05490899999859, "eta_seconds": 288.3405451666622}
+{"event": "training", "step": 100, "loss": 0.7036623787207645, "grad_norm": 105.77701568603516, "elapsed_seconds": 102.80657440000505, "eta_seconds": 282.7180796000139}
+{"event": "training", "step": 110, "loss": 0.08765803774804226, "grad_norm": 22.208051681518555, "elapsed_seconds": 111.74059610000404, "eta_seconds": 269.19325424091886}
+{"event": "training", "step": 120, "loss": 0.00035320405731908977, "grad_norm": 0.023030994459986687, "elapsed_seconds": 120.87602500000503, "eta_seconds": 256.8615531250107}
+{"event": "training", "step": 130, "loss": 0.0003188319460605271, "grad_norm": 0.021722635254263878, "elapsed_seconds": 132.28192009999475, "eta_seconds": 249.3005417269132}
+{"event": "training", "step": 140, "loss": 0.16531294182641432, "grad_norm": 61.83873748779297, "elapsed_seconds": 139.42623789999925, "eta_seconds": 234.0368993321416}
+{"event": "training", "step": 150, "loss": 8.433354378212243e-05, "grad_norm": 0.00482769263908267, "elapsed_seconds": 149.1164393999934, "eta_seconds": 223.6746590999901}
+{"event": "training", "step": 160, "loss": 0.8601248549530283, "grad_norm": 38.71009063720703, "elapsed_seconds": 161.49621979999938, "eta_seconds": 217.01054535624917}
+{"event": "training", "step": 170, "loss": 0.006155746259537409, "grad_norm": 0.8349179625511169, "elapsed_seconds": 173.01190620000125, "eta_seconds": 208.63200453529564}
+{"event": "training", "step": 180, "loss": 0.007742602290818468, "grad_norm": 3.984929323196411, "elapsed_seconds": 184.02374540000164, "eta_seconds": 199.35905751666846}
+{"event": "training", "step": 190, "loss": 6.29698442935478e-05, "grad_norm": 0.005423263646662235, "elapsed_seconds": 191.9294654999976, "eta_seconds": 186.87869009210294}
+{"event": "training", "step": 200, "loss": 9.130816761171445e-05, "grad_norm": 0.006195236463099718, "elapsed_seconds": 202.34208889999718, "eta_seconds": 177.04932778749753}
+{"event": "training", "step": 210, "loss": 6.988358290982433e-05, "grad_norm": 0.004865833092480898, "elapsed_seconds": 214.0802210999973, "eta_seconds": 168.20588800714071}
+{"event": "training", "step": 220, "loss": 3.8652779039693996e-05, "grad_norm": 0.0022111451253294945, "elapsed_seconds": 228.4611242999963, "eta_seconds": 160.9612466659065}
+{"event": "training", "step": 230, "loss": 0.0004764891436934704, "grad_norm": 0.05506960675120354, "elapsed_seconds": 241.34514350000245, "eta_seconds": 152.1523730760885}
+{"event": "training", "step": 240, "loss": 0.00023187715851236135, "grad_norm": 0.020161760970950127, "elapsed_seconds": 251.68980120000197, "eta_seconds": 141.5755131750011}
+{"event": "training", "step": 250, "loss": 0.0001548171894683037, "grad_norm": 0.011699988506734371, "elapsed_seconds": 262.18437069999345, "eta_seconds": 131.09218534999673}
+{"event": "training", "step": 260, "loss": 0.0002933711657533422, "grad_norm": 0.016194025054574013, "elapsed_seconds": 275.91957600000023, "eta_seconds": 122.04135092307702}
+{"event": "training", "step": 270, "loss": 0.001426197741238866, "grad_norm": 1.3128153085708618, "elapsed_seconds": 285.54121110000415, "eta_seconds": 111.04380431666829}
+{"event": "training", "step": 280, "loss": 0.0002697462314245058, "grad_norm": 0.055549271404743195, "elapsed_seconds": 299.35144470000523, "eta_seconds": 101.56566873750177}
+{"event": "training", "step": 290, "loss": 0.24001635531203647, "grad_norm": 51.458797454833984, "elapsed_seconds": 309.97757770000317, "eta_seconds": 90.8554969120699}
+{"event": "training", "step": 300, "loss": 5.456634607980959e-05, "grad_norm": 0.0031796402763575315, "elapsed_seconds": 326.13171169999987, "eta_seconds": 81.53292792499997}
+{"event": "training", "step": 310, "loss": 4.37777061961242e-05, "grad_norm": 0.0033566239289939404, "elapsed_seconds": 339.8534840000066, "eta_seconds": 71.25960148387234}
+{"event": "training", "step": 320, "loss": 0.005565241284784861, "grad_norm": 2.996706247329712, "elapsed_seconds": 350.3497855000023, "eta_seconds": 60.2163693828129}
+{"event": "training", "step": 330, "loss": 3.930819912056904e-05, "grad_norm": 0.0023953362833708525, "elapsed_seconds": 362.6736804999964, "eta_seconds": 49.455501886363145}
+{"event": "training", "step": 340, "loss": 0.13179618109461444, "grad_norm": 80.16564178466797, "elapsed_seconds": 375.42623480000475, "eta_seconds": 38.646818288235785}
+{"event": "training", "step": 350, "loss": 0.004297182480513584, "grad_norm": 1.3703832626342773, "elapsed_seconds": 386.4764317999943, "eta_seconds": 27.60545941428531}
+{"event": "training", "step": 360, "loss": 2.4392851628363132e-05, "grad_norm": 0.0013257520040497184, "elapsed_seconds": 401.63740740000503, "eta_seconds": 16.73489197500021}
+{"event": "training", "step": 370, "loss": 0.003392688156964141, "grad_norm": 1.1714057922363281, "elapsed_seconds": 412.7420933999965, "eta_seconds": 5.57759585675671}
+{"event": "training", "step": 375, "loss": 0.016212161630392075, "grad_norm": 3.5292680263519287, "elapsed_seconds": 418.6179403999995, "eta_seconds": 0.0}
+C:\Users\kc\Documents\GitHub\necro\.venv\Lib\site-packages\peft\utils\save_and_load.py:300: UserWarning: Could not find a config file in Qwen/Qwen3.5-0.8B - will assume that the vocabulary was not modified.
+  warnings.warn(
+{"event": "complete", "training_seconds": 418.6179967000062, "optimizer_steps": 375, "base_logits_max_difference_with_adapter_disabled": 0.0, "peak_allocated_gib": 3.5787911415100098, "adapter": "C:\\Users\\kc\\Documents\\GitHub\\necro\\results\\phase4\\condition-v2-seed2026\\adapter"}

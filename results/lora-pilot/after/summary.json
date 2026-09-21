@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T08:06:44.166692+00:00",
+    "backend": "local",
+    "model": [
+      "necro-qwen3.5-0.8b-lora-pilot-v1"
+    ],
+    "dataset_sha256": "3cafef6f57d547cc2f9ca5d6a5aecd8f1135d879618534cb0b7fbe15faf6fb8b",
+    "evaluated_examples": 200,
+    "elapsed_seconds": 14.858702400000766,
+    "questions_per_second": 13.460125562511413,
+    "input_tokens": 103704,
+    "notes": "Exploratory evaluation; not proof of general capability or calibrated accuracy.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "adapter": "results/lora-pilot/run1/adapter",
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.9981667309999466,
+    "candidate_mass_min": 0.96234130859375,
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 1.94459867477417
+  },
+  "overall": {
+    "count": 200,
+    "accuracy": 0.72,
+    "nll": 1.0388673870933665,
+    "brier": 0.39442621597177224,
+    "ece_10_bins": 0.13595100382588213
+  },
+  "groups": {
+    "facebook/xnli/en/choice": {
+      "count": 50,
+      "accuracy": 0.64,
+      "nll": 0.8920486560759501,
+      "brier": 0.4831808096172427,
+      "ece_10_bins": 0.17751374174762158
+    },
+    "mteb/amazon_massive_intent/en/choice": {
+      "count": 50,
+      "accuracy": 0.78,
+      "nll": 1.1609273521451915,
+      "brier": 0.3197583190213617,
+      "ece_10_bins": 0.09820789985936096
+    },
+    "facebook/xnli/zh/choice": {
+      "count": 50,
+      "accuracy": 0.64,
+      "nll": 0.9609849480557419,
+      "brier": 0.45981680574952116,
+      "ece_10_bins": 0.2049970947790164
+    },
+    "mteb/amazon_massive_intent/zh/choice": {
+      "count": 50,
+      "accuracy": 0.82,
+      "nll": 1.1415085920965822,
+      "brier": 0.3149489294989634,
+      "ece_10_bins": 0.11041096515589763
+    }
+  }
+}

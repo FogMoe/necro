@@ -1,0 +1,32 @@
+{
+  "scope": "Correct the verified condition-combination omission and retain existing tasks. No Jev percentage target or new task family.",
+  "reason": "The two initial trials failed the confirmed missing-field check. The v2 audit finds zero implicit guard-first equality examples where the gate is missing and the numerical comparison would pass. A complete matrix is required before training again.",
+  "audit_sha256": "b07f132c016fe9581646142333d4a46bff39dc06dc70090ad07f9b99bd9b18de",
+  "data": "data/phase4/condition-v3",
+  "manifest_sha256": "03196b2648b5db60b7baeb584f0ff81d2ae2fd3233af03b5270464c874a0c147",
+  "matrix": {
+    "combinations": 800,
+    "presentations_per_combination": 4,
+    "dimensions": [
+      "style",
+      "operator",
+      "language",
+      "question polarity",
+      "gate or missing-field case",
+      "counterfactual comparison truth"
+    ]
+  },
+  "parent": "results/phase3/instruction-seed2026/adapter",
+  "training": {
+    "learning_rate": 5e-06,
+    "epochs": 1,
+    "batch_size": 4,
+    "accumulation": 2,
+    "seed": 2026,
+    "rank": 16,
+    "objective": "answer-ce"
+  },
+  "retention": "Include the same other-task replay and 532 original numeric replay records. Lower the learning rate to reduce parameter movement.",
+  "unchanged": "Development, calibration, sealed test and all acceptance checks remain unchanged.",
+  "stopping": "Accept only after the confirmed defects, task retention, export/reload/API checks and honest reporting requirements pass. Do not add rounds to pursue Jev accuracy."
+}

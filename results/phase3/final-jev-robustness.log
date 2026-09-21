@@ -1,0 +1,24 @@
+{
+  "job": "jev-robustness",
+  "metadata": {
+    "created_at": "2026-09-20T21:04:07.467651+00:00",
+    "backend": "jev",
+    "model": [
+      "jev-1.13.0"
+    ],
+    "dataset_sha256": "caf9b8e9d24b53e3c7b89ffd4d9d1a3c343c6cf6df5250aba304290a7efe5e3f",
+    "evaluated_examples": 140,
+    "full_dataset_examples": 140,
+    "full_dataset_evaluated": true,
+    "evaluated_questions": 140,
+    "elapsed_seconds": 11.698857999988832,
+    "questions_per_second": 11.966980024899323,
+    "input_tokens": 107574,
+    "notes": "Evaluation results for the supplied dataset and recorded model configuration.",
+    "remote_cache": {
+      "hits": 0,
+      "requests": 140
+    }
+  },
+  "macro_accuracy": 0.9125
+}

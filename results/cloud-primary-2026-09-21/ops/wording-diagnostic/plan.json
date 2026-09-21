@@ -1,0 +1,16 @@
+{
+  "scope": "Post-hoc diagnosis on exposed regression; not independent acceptance",
+  "rows": 240,
+  "change": "Only replace instructions with existing training wording style 2",
+  "unchanged": [
+    "weights",
+    "calibration",
+    "state",
+    "operator",
+    "question polarity",
+    "language",
+    "labels"
+  ],
+  "training": false,
+  "sealed_test_opened": false
+}

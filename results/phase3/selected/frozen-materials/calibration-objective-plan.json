@@ -1,0 +1,20 @@
+{
+  "hypothesis": "Brier-targeted temperature fitting may improve probability quality with no argmax or inference-cost change.",
+  "objectives": [
+    "nll",
+    "brier"
+  ],
+  "grid": [
+    0.5,
+    8.0
+  ],
+  "weighting": "equal family after source-group means, per primitive",
+  "calibration": "data/phase3/coverage-v1/calibration.jsonl",
+  "models": [
+    "baseline",
+    "coverage-seed2026"
+  ],
+  "selection": "Use the same fitting objective for every candidate. Choose it on average development macro Brier across baseline and first coverage candidate; report NLL and normalized Score MAE. Final tests remain sealed.",
+  "precision_audit": "Check for local saturated Noul 0/1 before relying on response-space temperature fitting; saturated values require recovering full candidate scores. Baseline calibration has 0 exact-one values among 351 Noul rows.",
+  "final_exposed": false
+}

@@ -1,0 +1,464 @@
+{
+  "adapter_weights_sha256": "f0ae9537edb9478b26752db9ea3287f61ae8fdf0a8a84d453e04c93679d7d092",
+  "data_manifest_sha256": "03196b2648b5db60b7baeb584f0ff81d2ae2fd3233af03b5270464c874a0c147",
+  "fresh_development": {
+    "all": {
+      "count": 720,
+      "correct": 706,
+      "accuracy": 0.9805555555555555
+    },
+    "missing": {
+      "count": 240,
+      "correct": 240,
+      "accuracy": 1.0
+    },
+    "en": {
+      "count": 360,
+      "correct": 354,
+      "accuracy": 0.9833333333333333
+    },
+    "style-4/en/missing": {
+      "count": 60,
+      "correct": 60,
+      "accuracy": 1.0
+    },
+    "gate_false": {
+      "count": 240,
+      "correct": 240,
+      "accuracy": 1.0
+    },
+    "style-4/en/gate_false": {
+      "count": 60,
+      "correct": 60,
+      "accuracy": 1.0
+    },
+    "style-5/en/missing": {
+      "count": 60,
+      "correct": 60,
+      "accuracy": 1.0
+    },
+    "zh": {
+      "count": 360,
+      "correct": 352,
+      "accuracy": 0.9777777777777777
+    },
+    "style-5/zh/gate_false": {
+      "count": 60,
+      "correct": 60,
+      "accuracy": 1.0
+    },
+    "style-4/zh/gate_false": {
+      "count": 60,
+      "correct": 60,
+      "accuracy": 1.0
+    },
+    "complete": {
+      "count": 240,
+      "correct": 226,
+      "accuracy": 0.9416666666666667
+    },
+    "style-4/en/complete": {
+      "count": 60,
+      "correct": 58,
+      "accuracy": 0.9666666666666667
+    },
+    "style-4/zh/complete": {
+      "count": 60,
+      "correct": 56,
+      "accuracy": 0.9333333333333333
+    },
+    "style-5/zh/complete": {
+      "count": 60,
+      "correct": 56,
+      "accuracy": 0.9333333333333333
+    },
+    "style-5/en/complete": {
+      "count": 60,
+      "correct": 56,
+      "accuracy": 0.9333333333333333
+    },
+    "style-4/zh/missing": {
+      "count": 60,
+      "correct": 60,
+      "accuracy": 1.0
+    },
+    "style-5/zh/missing": {
+      "count": 60,
+      "correct": 60,
+      "accuracy": 1.0
+    },
+    "style-5/en/gate_false": {
+      "count": 60,
+      "correct": 60,
+      "accuracy": 1.0
+    }
+  },
+  "baselines": {
+    "predecessor": {
+      "all": {
+        "count": 720,
+        "correct": 701,
+        "accuracy": 0.9736111111111111
+      },
+      "missing": {
+        "count": 240,
+        "correct": 233,
+        "accuracy": 0.9708333333333333
+      },
+      "en": {
+        "count": 360,
+        "correct": 350,
+        "accuracy": 0.9722222222222222
+      },
+      "style-4/en/missing": {
+        "count": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      "gate_false": {
+        "count": 240,
+        "correct": 240,
+        "accuracy": 1.0
+      },
+      "style-4/en/gate_false": {
+        "count": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      "style-5/en/missing": {
+        "count": 60,
+        "correct": 54,
+        "accuracy": 0.9
+      },
+      "zh": {
+        "count": 360,
+        "correct": 351,
+        "accuracy": 0.975
+      },
+      "style-5/zh/gate_false": {
+        "count": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      "style-4/zh/gate_false": {
+        "count": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      "complete": {
+        "count": 240,
+        "correct": 228,
+        "accuracy": 0.95
+      },
+      "style-4/en/complete": {
+        "count": 60,
+        "correct": 58,
+        "accuracy": 0.9666666666666667
+      },
+      "style-4/zh/complete": {
+        "count": 60,
+        "correct": 56,
+        "accuracy": 0.9333333333333333
+      },
+      "style-5/zh/complete": {
+        "count": 60,
+        "correct": 56,
+        "accuracy": 0.9333333333333333
+      },
+      "style-5/en/complete": {
+        "count": 60,
+        "correct": 58,
+        "accuracy": 0.9666666666666667
+      },
+      "style-4/zh/missing": {
+        "count": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      "style-5/zh/missing": {
+        "count": 60,
+        "correct": 59,
+        "accuracy": 0.9833333333333333
+      },
+      "style-5/en/gate_false": {
+        "count": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      }
+    },
+    "instruction-parent": {
+      "all": {
+        "count": 720,
+        "correct": 692,
+        "accuracy": 0.9611111111111111
+      },
+      "missing": {
+        "count": 240,
+        "correct": 226,
+        "accuracy": 0.9416666666666667
+      },
+      "en": {
+        "count": 360,
+        "correct": 340,
+        "accuracy": 0.9444444444444444
+      },
+      "style-4/en/missing": {
+        "count": 60,
+        "correct": 58,
+        "accuracy": 0.9666666666666667
+      },
+      "gate_false": {
+        "count": 240,
+        "correct": 236,
+        "accuracy": 0.9833333333333333
+      },
+      "style-4/en/gate_false": {
+        "count": 60,
+        "correct": 59,
+        "accuracy": 0.9833333333333333
+      },
+      "style-5/en/missing": {
+        "count": 60,
+        "correct": 50,
+        "accuracy": 0.8333333333333334
+      },
+      "zh": {
+        "count": 360,
+        "correct": 352,
+        "accuracy": 0.9777777777777777
+      },
+      "style-5/zh/gate_false": {
+        "count": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      "style-4/zh/gate_false": {
+        "count": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      "complete": {
+        "count": 240,
+        "correct": 230,
+        "accuracy": 0.9583333333333334
+      },
+      "style-4/en/complete": {
+        "count": 60,
+        "correct": 58,
+        "accuracy": 0.9666666666666667
+      },
+      "style-4/zh/complete": {
+        "count": 60,
+        "correct": 56,
+        "accuracy": 0.9333333333333333
+      },
+      "style-5/zh/complete": {
+        "count": 60,
+        "correct": 58,
+        "accuracy": 0.9666666666666667
+      },
+      "style-5/en/complete": {
+        "count": 60,
+        "correct": 58,
+        "accuracy": 0.9666666666666667
+      },
+      "style-4/zh/missing": {
+        "count": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      "style-5/zh/missing": {
+        "count": 60,
+        "correct": 58,
+        "accuracy": 0.9666666666666667
+      },
+      "style-5/en/gate_false": {
+        "count": 60,
+        "correct": 57,
+        "accuracy": 0.95
+      }
+    }
+  },
+  "legacy_regression": {
+    "all": {
+      "count": 172,
+      "correct": 165,
+      "accuracy": 0.9593023255813954
+    },
+    "complete": {
+      "count": 120,
+      "correct": 113,
+      "accuracy": 0.9416666666666667
+    },
+    "zh": {
+      "count": 86,
+      "correct": 80,
+      "accuracy": 0.9302325581395349
+    },
+    "style-legacy/zh/complete": {
+      "count": 60,
+      "correct": 54,
+      "accuracy": 0.9
+    },
+    "missing": {
+      "count": 12,
+      "correct": 12,
+      "accuracy": 1.0
+    },
+    "style-legacy/zh/missing": {
+      "count": 6,
+      "correct": 6,
+      "accuracy": 1.0
+    },
+    "en": {
+      "count": 86,
+      "correct": 85,
+      "accuracy": 0.9883720930232558
+    },
+    "style-legacy/en/missing": {
+      "count": 6,
+      "correct": 6,
+      "accuracy": 1.0
+    },
+    "style-legacy/en/complete": {
+      "count": 60,
+      "correct": 59,
+      "accuracy": 0.9833333333333333
+    },
+    "gate_false": {
+      "count": 40,
+      "correct": 40,
+      "accuracy": 1.0
+    },
+    "style-legacy/en/gate_false": {
+      "count": 20,
+      "correct": 20,
+      "accuracy": 1.0
+    },
+    "style-legacy/zh/gate_false": {
+      "count": 20,
+      "correct": 20,
+      "accuracy": 1.0
+    }
+  },
+  "checks": {
+    "retain_new_condition_accuracy": true,
+    "new_gate_and_missing_each_95pct": true,
+    "legacy_accuracy_recovers_predecessor": true,
+    "legacy_gate_and_missing_each_90pct": true,
+    "retain_each_other_development_task_within_2pp": true
+  },
+  "eligible": true,
+  "retention": {
+    "predecessor": {
+      "macro": {
+        "local": 0.876256759121206,
+        "reference": 0.8597374419319534,
+        "delta": 0.01651931718925259
+      },
+      "families": {
+        "ordinal_rule": {
+          "local": 0.9904761904761905,
+          "reference": 0.9904761904761905
+        },
+        "intent": {
+          "local": 0.8039772727272727,
+          "reference": 0.7414772727272727
+        },
+        "paraphrase": {
+          "local": 0.8169014084507042,
+          "reference": 0.7816901408450704
+        },
+        "reading_boolean": {
+          "local": 0.8372093023255814,
+          "reference": 0.8217054263565892
+        },
+        "inference": {
+          "local": 0.7861111111111111,
+          "reference": 0.7444444444444445
+        },
+        "numeric_rule": {
+          "local": 0.8920454545454546,
+          "reference": 0.9147727272727273
+        },
+        "candidate_retrieval": {
+          "local": 1.0,
+          "reference": 1.0
+        },
+        "candidate_extraction": {
+          "local": 0.8833333333333333,
+          "reference": 0.8833333333333333
+        }
+      }
+    },
+    "instruction-parent": {
+      "macro": {
+        "local": 0.876256759121206,
+        "reference": 0.8797842212424181,
+        "delta": -0.0035274621212120216
+      },
+      "families": {
+        "ordinal_rule": {
+          "local": 0.9904761904761905,
+          "reference": 0.9904761904761905
+        },
+        "intent": {
+          "local": 0.8039772727272727,
+          "reference": 0.8011363636363636
+        },
+        "paraphrase": {
+          "local": 0.8169014084507042,
+          "reference": 0.8169014084507042
+        },
+        "reading_boolean": {
+          "local": 0.8372093023255814,
+          "reference": 0.8372093023255814
+        },
+        "inference": {
+          "local": 0.7861111111111111,
+          "reference": 0.7777777777777778
+        },
+        "numeric_rule": {
+          "local": 0.8920454545454546,
+          "reference": 0.9147727272727273
+        },
+        "candidate_retrieval": {
+          "local": 1.0,
+          "reference": 1.0
+        },
+        "candidate_extraction": {
+          "local": 0.8833333333333333,
+          "reference": 0.9
+        }
+      }
+    }
+  },
+  "created_at": "2026-09-20T22:40:34.890728+00:00",
+  "supersedes_review_sha256": "0081fd4c466653c20a906d0b9be54e0b0c387e134bd0f99e3404b61123ed32e2",
+  "original_checks": {
+    "retain_each_development_task_within_2pp": false,
+    "retain_new_condition_accuracy": true,
+    "new_gate_and_missing_each_95pct": true,
+    "legacy_accuracy_recovers_predecessor": true,
+    "legacy_gate_and_missing_each_90pct": true
+  },
+  "accepted_development_tradeoff": {
+    "scope": "Accept the small existing numeric-development loss after confirming the original gate and missing-field repair. Preserve per-task retention checks for the other seven tasks and require the frozen final validation plan.",
+    "original_numeric_check_passed": false,
+    "correct_before": 161,
+    "correct_after": 157,
+    "questions": 176,
+    "paired_uncertainty": {
+      "source_groups": 20,
+      "accuracy_delta": -0.022727272727272728,
+      "accuracy_delta_95ci": [
+        -0.05813953488372093,
+        0.0058858965272855935
+      ]
+    },
+    "reason": "The repair recovers all 40 disabled-gate and 12 missing-field regression cases. The smaller update retains the other development tasks better than the full matrix update, while its four-question net numeric-development loss is unchanged. Selection balances these measured outcomes; the earlier numeric margin remains recorded as failed.",
+    "amendment_timing": "After development review and before any independent condition holdout inference.",
+    "further_training": "No additional round is planned for Jev percentages or the four-question development difference."
+  },
+  "selection_summary": "Choose the smaller-update matrix candidate for final stability validation. Independent holdout, complete multi-task regression and actual export/reload/API checks remain required."
+}

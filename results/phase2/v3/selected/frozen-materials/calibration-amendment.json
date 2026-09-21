@@ -1,0 +1,12 @@
+{
+  "reason": "Operator-contrast Noul optimum hit the initial upper bound of 4 on calibration data, before final test predictions.",
+  "bounds": [
+    0.5,
+    8.0
+  ],
+  "grid": "Retain original grid and add 60 log-spaced temperatures above 4.",
+  "method": "Same group/family-weighted NLL method for every candidate; never choose using final test.",
+  "previous_plan_sha256": "aaf4dda438bf8de846692081652755d9f30721a0143151549b43332cfba0075b",
+  "trigger_calibration_sha256": "db7d9763fd1552d602e2d1e11eada5b7ff93fde96776d7d41e95e0e452a02cc2",
+  "performance_thresholds_changed": false
+}

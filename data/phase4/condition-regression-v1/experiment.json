@@ -1,0 +1,17 @@
+{
+  "protocol": {
+    "source": "data\\phase4\\condition-v3\\test.jsonl",
+    "source_sha256": "75c818270d76a92b3faab3f9ebc7e8720bc7e405208e7703f9935cbdb2f11b1d",
+    "scope": "Previously exposed condition holdout, used only for post-hoc base and parent comparisons."
+  },
+  "partitions": {
+    "regression": {
+      "path": "regression.jsonl",
+      "sha256": "75c818270d76a92b3faab3f9ebc7e8720bc7e405208e7703f9935cbdb2f11b1d",
+      "rows": 720,
+      "source_groups": 12,
+      "content_groups": 12,
+      "unique_requests": 720
+    }
+  }
+}

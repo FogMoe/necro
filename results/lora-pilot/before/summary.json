@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T08:01:05.281949+00:00",
+    "backend": "local",
+    "model": [
+      "necro-qwen3.5-0.8b"
+    ],
+    "dataset_sha256": "3cafef6f57d547cc2f9ca5d6a5aecd8f1135d879618534cb0b7fbe15faf6fb8b",
+    "evaluated_examples": 200,
+    "elapsed_seconds": 14.590163500004564,
+    "questions_per_second": 13.707865576690585,
+    "input_tokens": 103704,
+    "notes": "Exploratory evaluation; not proof of general capability or calibrated accuracy.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "adapter": null,
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.8893487760424614,
+    "candidate_mass_min": 0.4487358331680298,
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 1.94081449508667
+  },
+  "overall": {
+    "count": 200,
+    "accuracy": 0.385,
+    "nll": 2.2870624723594544,
+    "brier": 0.7483839873960833,
+    "ece_10_bins": 0.13379273210859421
+  },
+  "groups": {
+    "facebook/xnli/en/choice": {
+      "count": 50,
+      "accuracy": 0.38,
+      "nll": 1.1115548127007302,
+      "brier": 0.7058480059141361,
+      "ece_10_bins": 0.18465897054569463
+    },
+    "mteb/amazon_massive_intent/en/choice": {
+      "count": 50,
+      "accuracy": 0.4,
+      "nll": 3.1922103921189002,
+      "brier": 0.7890133958617347,
+      "ece_10_bins": 0.11636945673368371
+    },
+    "facebook/xnli/zh/choice": {
+      "count": 50,
+      "accuracy": 0.38,
+      "nll": 1.0811899851516722,
+      "brier": 0.65365131185754,
+      "ece_10_bins": 0.18065598697040552
+    },
+    "mteb/amazon_massive_intent/zh/choice": {
+      "count": 50,
+      "accuracy": 0.38,
+      "nll": 3.7632946994665146,
+      "brier": 0.8450232359509225,
+      "ece_10_bins": 0.14043510298942283
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "predecessor": {
+    "development/guard_first": {
+      "count": 172,
+      "correct": 151,
+      "accuracy": 0.877906976744186
+    },
+    "development/iff": {
+      "count": 172,
+      "correct": 159,
+      "accuracy": 0.9244186046511628
+    },
+    "neutral/guard_first": {
+      "count": 172,
+      "correct": 156,
+      "accuracy": 0.9069767441860465
+    },
+    "neutral/iff": {
+      "count": 172,
+      "correct": 172,
+      "accuracy": 1.0
+    },
+    "original/guard_first": {
+      "count": 172,
+      "correct": 146,
+      "accuracy": 0.8488372093023255
+    },
+    "original/iff": {
+      "count": 172,
+      "correct": 172,
+      "accuracy": 1.0
+    }
+  },
+  "coverage": {
+    "development/guard_first": {
+      "count": 172,
+      "correct": 143,
+      "accuracy": 0.8313953488372093
+    },
+    "development/iff": {
+      "count": 172,
+      "correct": 158,
+      "accuracy": 0.9186046511627907
+    },
+    "neutral/guard_first": {
+      "count": 172,
+      "correct": 137,
+      "accuracy": 0.7965116279069767
+    },
+    "neutral/iff": {
+      "count": 172,
+      "correct": 172,
+      "accuracy": 1.0
+    },
+    "original/guard_first": {
+      "count": 172,
+      "correct": 133,
+      "accuracy": 0.7732558139534884
+    },
+    "original/iff": {
+      "count": 172,
+      "correct": 172,
+      "accuracy": 1.0
+    }
+  },
+  "instruction2026": {
+    "development/guard_first": {
+      "count": 172,
+      "correct": 132,
+      "accuracy": 0.7674418604651163
+    },
+    "development/iff": {
+      "count": 172,
+      "correct": 159,
+      "accuracy": 0.9244186046511628
+    },
+    "neutral/guard_first": {
+      "count": 172,
+      "correct": 133,
+      "accuracy": 0.7732558139534884
+    },
+    "neutral/iff": {
+      "count": 172,
+      "correct": 170,
+      "accuracy": 0.9883720930232558
+    },
+    "original/guard_first": {
+      "count": 172,
+      "correct": 122,
+      "accuracy": 0.7093023255813954
+    },
+    "original/iff": {
+      "count": 172,
+      "correct": 172,
+      "accuracy": 1.0
+    }
+  },
+  "instruction2027": {
+    "development/guard_first": {
+      "count": 172,
+      "correct": 136,
+      "accuracy": 0.7906976744186046
+    },
+    "development/iff": {
+      "count": 172,
+      "correct": 154,
+      "accuracy": 0.8953488372093024
+    },
+    "neutral/guard_first": {
+      "count": 172,
+      "correct": 141,
+      "accuracy": 0.8197674418604651
+    },
+    "neutral/iff": {
+      "count": 172,
+      "correct": 172,
+      "accuracy": 1.0
+    },
+    "original/guard_first": {
+      "count": 172,
+      "correct": 129,
+      "accuracy": 0.75
+    },
+    "original/iff": {
+      "count": 172,
+      "correct": 172,
+      "accuracy": 1.0
+    }
+  }
+}

@@ -1,0 +1,46 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   5%|▍         | 22/473 [00:00<00:02, 213.48it/s]
+Loading weights:  13%|█▎        | 61/473 [00:00<00:01, 309.36it/s]
+Loading weights:  19%|█▉        | 92/473 [00:00<00:01, 278.25it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 1098.08it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{
+  "parameters_requiring_grad_before": 473,
+  "after": 0,
+  "differences": {
+    "paws/test/zh/7285": {
+      "adapter_0": 0.0,
+      "merged_0": 0.0
+    },
+    "p3/xnli/test/1203/zh": {
+      "adapter_0": 0.0,
+      "merged_0": 0.0
+    },
+    "p3/xnli/test/198/zh": {
+      "adapter_0": 0.0,
+      "merged_0": 0.0027961790298101294
+    },
+    "p3/xnli/test/1327/zh": {
+      "adapter_0": 0.0,
+      "merged_0": 0.0
+    },
+    "p3/xnli/test/3532/zh": {
+      "adapter_0": 0.0,
+      "merged_0": 0.0
+    },
+    "p3/xnli/test/4868/en": {
+      "adapter_0": 0.0,
+      "merged_0": 0.0
+    },
+    "p3/xnli/test/2373/zh": {
+      "adapter_0": 0.0,
+      "merged_0": 0.0
+    },
+    "p3/xnli/test/1850/zh": {
+      "adapter_0": 0.0,
+      "merged_0": 0.0009338768473314534
+    }
+  }
+}

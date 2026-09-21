@@ -1,0 +1,16 @@
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  80%|████████  | 380/473 [00:00<00:00, 3785.11it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3743.55it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"mode": "reference", "model": "official", "seconds": 4.790237817913294, "examples": 135}
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  74%|███████▍  | 349/473 [00:00<00:00, 3466.86it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3499.55it/s]
+{"mode": "reference", "model": "parent", "seconds": 4.698219206184149, "examples": 135}
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  73%|███████▎  | 347/473 [00:00<00:00, 3455.89it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3458.13it/s]
+{"mode": "reference", "model": "repaired", "seconds": 4.704961262643337, "examples": 135}
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  67%|██████▋   | 317/473 [00:00<00:00, 3160.97it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3238.54it/s]
+{"mode": "fast", "model": "official", "seconds": 25.592227026820183, "examples": 135}
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  74%|███████▍  | 350/473 [00:00<00:00, 3490.73it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3480.10it/s]
+{"mode": "fast", "model": "parent", "seconds": 3.5567945800721645, "examples": 135}
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:  75%|███████▍  | 354/473 [00:00<00:00, 3525.56it/s]Loading weights: 100%|██████████| 473/473 [00:00<00:00, 3516.34it/s]
+{"mode": "fast", "model": "repaired", "seconds": 3.5675996504724026, "examples": 135}

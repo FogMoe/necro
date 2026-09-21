@@ -1,0 +1,54 @@
+{
+  "protocol": {
+    "hypothesis": "More varied paired numeric rules and legacy replay reduce missing/negation errors and retention loss observed on development only; no final predictions used.",
+    "families": {
+      "paraphrase": 320,
+      "numeric_rule": 800,
+      "inference": 500,
+      "candidate_retrieval": 120,
+      "candidate_extraction": 120,
+      "intent": 500,
+      "ordinal_rule": 120,
+      "reading_boolean": 320
+    },
+    "max_input_tokens": 1424,
+    "new_to_phase2_training_groups": 851,
+    "final_parent_sha256": "f83fcc2c3ddb5ea742f5d45c5a8880851036529c8176e1ff97b868e571befc8f",
+    "parent_train_sha256": "ad682d37df3be454127a63f3ed1be5e0012c5e8ad15856427a1aeb0f73a444d7",
+    "notes": "New to phase2 does not mean new to the ancestor: legacy rows are deliberate replay."
+  },
+  "partitions": {
+    "train": {
+      "path": "train.jsonl",
+      "sha256": "8ce4bad5e65218bfa04af2572d7205cad2b31e4428397162716b72f983c04d87",
+      "rows": 2800,
+      "source_groups": 1596,
+      "content_groups": 1817,
+      "unique_requests": 2800
+    },
+    "development": {
+      "path": "validation.jsonl",
+      "sha256": "545ef8678db4aac9d43b0f506fa2857c9516b6048a8a7660beaefc0106d82c85",
+      "rows": 726,
+      "source_groups": 360,
+      "content_groups": 460,
+      "unique_requests": 726
+    },
+    "calibration": {
+      "path": "calibration.jsonl",
+      "sha256": "15eaec172a4b764ed0ea86095f66b5b00aada893a7ff9b7d1e2f6c974d65ff1a",
+      "rows": 675,
+      "source_groups": 332,
+      "content_groups": 431,
+      "unique_requests": 675
+    },
+    "test": {
+      "path": "test.jsonl",
+      "sha256": "f83fcc2c3ddb5ea742f5d45c5a8880851036529c8176e1ff97b868e571befc8f",
+      "rows": 1175,
+      "source_groups": 545,
+      "content_groups": 545,
+      "unique_requests": 1175
+    }
+  }
+}

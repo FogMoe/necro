@@ -1,0 +1,47 @@
+{
+  "status": "phase2 failed independent gates; phase3 correcting taxonomy and sampling coverage",
+  "process_session": null,
+  "current_training_output": "results/phase2/v3/reading",
+  "current_training_parent": "results/phase2/v3/operator-contrast/adapter",
+  "current_training_data": "data/phase2/reading-v1",
+  "strict_holdouts": "data/phase2/strict-v1",
+  "robustness": "data/phase2/robustness-v5",
+  "strict_dev_macro": {
+    "baseline-round4": 0.7437399555681603,
+    "answer-ce": 0.8515079055587067,
+    "candidate-ce": 0.8490406976744187,
+    "refinement": 0.8678620722253734,
+    "operator-contrast": 0.8912511226129702,
+    "operator-seed2027": 0.8910476342408773,
+    "operator-average": 0.8881261226129703
+  },
+  "calibration_completed": [
+    "answer-ce",
+    "candidate-ce",
+    "refinement"
+  ],
+  "final_test_predictions_exposed": true,
+  "next": [
+    "Acquire pinned complete parquet splits",
+    "Audit historical class coverage and protect all prior evaluated sources",
+    "Build phase3 complete-taxonomy train and representative independent holdouts",
+    "Run bounded lightweight coverage experiment; old final tests are regression only"
+  ],
+  "notes": [
+    "Original final-v3 and robustness-v3 are superseded without test predictions; source audit in docs/process/phase2-source-audit.md.",
+    "Initial matched loss ablation verified same source/data/parent/config hashes. Candidate CE provided no benefit.",
+    "Source-isolation exposure includes all ancestor training and proposed refinement material. Raw legacy dev scores are provisional; strict projections are canonical.",
+    "Another user task edits docs concurrently; preserve those changes.",
+    "API remains stopped; .env still points at phase1 r3 artifact."
+  ],
+  "best_development_candidate": "operator-contrast",
+  "calibration_upper": 8.0,
+  "calibration_filename": "calibration-wide.json",
+  "calibrated_results_name": "development-calibrated-wide",
+  "prepared_reading_data": "data/phase2/reading-v1",
+  "prepared_reading_data_rows": 2591,
+  "seed_replication_completed": true,
+  "parameter_average_candidate": "operator-average",
+  "parameter_average_macro_brier": 0.16564018887049037,
+  "runtime_export_note": "Export now records total parameters and writes model-specific merged path and calibration temperatures into runtime/.env.example."
+}

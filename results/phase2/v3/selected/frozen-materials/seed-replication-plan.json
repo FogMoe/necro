@@ -1,0 +1,19 @@
+{
+  "common_parent_sha256": "54f7a3a033f3c9dae13ebe11a5ec511bebd647218b4f896eb615cc865d2a9791",
+  "data_sha256": "fed1191ae90eca2753365c574e5031b686683846a2cedac70beac230e3a404b9",
+  "seeds": [
+    2026,
+    2027
+  ],
+  "checked_fields": [
+    "initial_adapter_sha256",
+    "revision",
+    "prompt_sha256",
+    "learning_rate",
+    "batch_size",
+    "gradient_accumulation",
+    "train_sha256",
+    "source_sha256"
+  ],
+  "decision": "Compare both seeds on strict development; retain complete results. No final test predictions used."
+}

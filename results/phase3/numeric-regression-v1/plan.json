@@ -1,0 +1,48 @@
+{
+  "protocol": {
+    "scope": "Post-test diagnostic only. Original test is exposed. No independent acceptance.",
+    "source_test": "data\\phase3\\coverage-v1\\test.jsonl",
+    "source_test_sha256": "4d1d501fb51728a3f96270dd20c89f791db61c2f369d7477c7367159e3ff27b4",
+    "factors": {
+      "fields": [
+        "original",
+        "development",
+        "neutral"
+      ],
+      "wording": [
+        "guard_first",
+        "iff"
+      ]
+    },
+    "original_numeric_rows": 172,
+    "label_audit": "Recompute comparisons, required fields, gate and question polarity in every condition.",
+    "models": {
+      "predecessor": [
+        "results/phase2/v3/selected/adapter",
+        "results/phase3/baseline"
+      ],
+      "coverage": [
+        "results/phase3/coverage-seed2026/adapter",
+        "results/phase3/coverage-seed2026"
+      ],
+      "instruction2026": [
+        "results/phase3/instruction-seed2026/adapter",
+        "results/phase3/instruction-seed2026"
+      ],
+      "instruction2027": [
+        "results/phase3/instruction-seed2027/adapter",
+        "results/phase3/instruction-seed2027"
+      ]
+    }
+  },
+  "partitions": {
+    "regression": {
+      "path": "regression.jsonl",
+      "sha256": "95aed6e9fa668d672d592b55e67922d8f633fa2d3dab71494fc6722945c1fc17",
+      "rows": 1032,
+      "source_groups": 20,
+      "content_groups": 20,
+      "unique_requests": 1032
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T08:42:56.712104+00:00",
+    "backend": "local",
+    "model": [
+      "ScarletKc-Necro-0.8b"
+    ],
+    "dataset_sha256": "9ddf80506ff04aa7ac0bf520a84c7b4df1acb496b64740f027a259e72480e3e1",
+    "evaluated_examples": 374,
+    "elapsed_seconds": 27.090733299999556,
+    "questions_per_second": 13.80545871011938,
+    "input_tokens": 184347,
+    "notes": "Exploratory evaluation; not proof of general capability or calibrated accuracy.",
+    "checkpoint": "artifacts/ScarletKc-Necro-0.8b/merged",
+    "adapter": null,
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": null,
+    "temperature": 1.0,
+    "choice_temperature": 1.7211028744886598,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.9992128293463253,
+    "candidate_mass_min": 0.9726226925849915,
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 1.9374070167541504
+  },
+  "overall": {
+    "count": 374,
+    "accuracy": 0.786096256684492,
+    "nll": 0.7230124810860239,
+    "brier": 0.2991304308120341,
+    "ece_10_bins": 0.044384575097414135
+  },
+  "groups": {
+    "facebook/xnli/en/choice": {
+      "count": 100,
+      "accuracy": 0.78,
+      "nll": 0.5704631399039084,
+      "brier": 0.2964639927593704,
+      "ece_10_bins": 0.07100023070067936
+    },
+    "mteb/amazon_massive_intent/en/choice": {
+      "count": 87,
+      "accuracy": 0.8390804597701149,
+      "nll": 0.7584646132881524,
+      "brier": 0.23016494883331975,
+      "ece_10_bins": 0.054101213421682656
+    },
+    "facebook/xnli/zh/choice": {
+      "count": 100,
+      "accuracy": 0.71,
+      "nll": 0.7561700695762429,
+      "brier": 0.40124650048422106,
+      "ece_10_bins": 0.09686603473175498
+    },
+    "mteb/amazon_massive_intent/zh/choice": {
+      "count": 87,
+      "accuracy": 0.8275862068965517,
+      "nll": 0.8247922485297534,
+      "brier": 0.2537859913889977,
+      "ece_10_bins": 0.07045061262939128
+    }
+  }
+}

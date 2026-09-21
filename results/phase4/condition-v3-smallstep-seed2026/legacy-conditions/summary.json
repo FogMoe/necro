@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "created_at": "2026-09-20T22:39:16.640516+00:00",
+    "backend": "local",
+    "model": [
+      "necro-phase4-condition-v3-smallstep-seed2026"
+    ],
+    "dataset_sha256": "c0f4b1fbc2233e640a33a16ad5ebea42ffd8c111b8ec66635e02ca1619276499",
+    "evaluated_examples": 172,
+    "full_dataset_examples": 172,
+    "full_dataset_evaluated": true,
+    "evaluated_questions": 172,
+    "elapsed_seconds": 3.1183534000010695,
+    "questions_per_second": 55.1573147546205,
+    "input_tokens": 25395,
+    "notes": "Evaluation results for the supplied dataset and recorded model configuration.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "adapter": "results\\phase4\\condition-v3-smallstep-seed2026\\adapter",
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "choice_temperature": 2.0232388806038446,
+    "noul_temperature": 3.6892647743437563,
+    "score_temperature": 1.109569472067845,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.9999724720106569,
+    "candidate_mass_min": 0.9999294877052307,
+    "adapter_weights_sha256": "f0ae9537edb9478b26752db9ea3287f61ae8fdf0a8a84d453e04c93679d7d092",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 1.7317500114440918
+  },
+  "overall": {
+    "count": 172,
+    "accuracy": 0.9593023255813954,
+    "nll": 0.1966191652086473,
+    "brier": 0.08737934282260187,
+    "ece_10_bins": 0.03519951836425711,
+    "nll_floor_sensitivity": {
+      "1e-12": 0.1966191652086473,
+      "0.001": 0.1966191652086473,
+      "0.005": 0.1966191652086473,
+      "0.01": 0.1966191652086473
+    }
+  },
+  "groups": {
+    "constructed-numeric-v2/zh/noul": {
+      "count": 86,
+      "accuracy": 0.9302325581395349,
+      "nll": 0.2861018054246324,
+      "brier": 0.1378378389963618,
+      "ece_10_bins": 0.030673375092352344,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.2861018054246324,
+        "0.001": 0.2861018054246324,
+        "0.005": 0.2861018054246324,
+        "0.01": 0.2861018054246324
+      }
+    },
+    "constructed-numeric-v2/en/noul": {
+      "count": 86,
+      "accuracy": 0.9883720930232558,
+      "nll": 0.10713652499266214,
+      "brier": 0.03692084664884196,
+      "ece_10_bins": 0.07993887810641015,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.10713652499266214,
+        "0.001": 0.10713652499266214,
+        "0.005": 0.10713652499266214,
+        "0.01": 0.10713652499266214
+      }
+    }
+  },
+  "families": {
+    "numeric_rule": {
+      "count": 172,
+      "accuracy": 0.9593023255813954,
+      "nll": 0.1966191652086473,
+      "brier": 0.08737934282260187,
+      "ece_10_bins": 0.03519951836425711,
+      "nll_floor_sensitivity": {
+        "1e-12": 0.1966191652086473,
+        "0.001": 0.1966191652086473,
+        "0.005": 0.1966191652086473,
+        "0.01": 0.1966191652086473
+      }
+    }
+  },
+  "macro_family_accuracy": 0.9593023255813954
+}

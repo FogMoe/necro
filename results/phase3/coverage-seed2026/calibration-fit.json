@@ -1,0 +1,41 @@
+{
+  "temperatures": {
+    "choice": 1.4640856959456254,
+    "score": 0.5,
+    "noul": 2.1435469250725863
+  },
+  "primitives": {
+    "choice": {
+      "temperature": 1.4640856959456254,
+      "before_nll": 0.5762643965158076,
+      "after_nll": 0.512151420685878,
+      "questions": 507,
+      "source_groups": 262,
+      "at_search_boundary": false
+    },
+    "score": {
+      "temperature": 0.5,
+      "before_nll": 0.006480181797861531,
+      "after_nll": 0.0011219989090622353,
+      "questions": 210,
+      "source_groups": 35,
+      "at_search_boundary": true
+    },
+    "noul": {
+      "temperature": 2.1435469250725863,
+      "before_nll": 0.400164069061534,
+      "after_nll": 0.3079343765643878,
+      "questions": 351,
+      "source_groups": 150,
+      "at_search_boundary": false
+    }
+  },
+  "method": "per primitive; mean family NLL after averaging within source groups",
+  "objective": "nll",
+  "bounds": [
+    0.5,
+    8.0
+  ],
+  "dataset_sha256": "8435e73722fc1757cd92509cd4f964b705fe80b66b66318907b8d8eb186d1c40",
+  "predictions_sha256": "e7a24d82a373fe16d10721d7d239e3cdade297e62bef4e6f8831d43d4674cfa7"
+}

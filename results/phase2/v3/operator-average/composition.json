@@ -1,0 +1,21 @@
+{
+  "method": "aligned LoRA parameter mean, not exact delta-matrix averaging",
+  "coefficients": [
+    0.5,
+    0.5
+  ],
+  "parents": [
+    {
+      "path": "results\\phase2\\v3\\operator-contrast\\adapter",
+      "weights_sha256": "4c2143d4a27cfb6859a71dd98354e936b94176d6c837994b610774bde92db70f"
+    },
+    {
+      "path": "results\\phase2\\v3\\operator-seed2027\\adapter",
+      "weights_sha256": "121f57c4d0425d63ad8bde4d13d863f68568e94964552bdb9f00a210c4077c4e"
+    }
+  ],
+  "common_parent_sha256": "54f7a3a033f3c9dae13ebe11a5ec511bebd647218b4f896eb615cc865d2a9791",
+  "construction_source_sha256": "40cc4e434dd061e5b3c9c520b1bae33f13bf5b2fddeb9a475db17d78559dacac",
+  "notes": "No new gradient updates. Rank and merged model size are unchanged. This is an empirical candidate and must be evaluated before selection.",
+  "output_weights_sha256": "353a1900aa9042a77f2b3eeeed44bd80284f3ca833b74edb0ac135d2300ec1cc"
+}

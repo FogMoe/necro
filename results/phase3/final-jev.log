@@ -1,0 +1,24 @@
+{
+  "job": "jev",
+  "metadata": {
+    "created_at": "2026-09-20T21:03:54.763105+00:00",
+    "backend": "jev",
+    "model": [
+      "jev-1.13.0"
+    ],
+    "dataset_sha256": "4d1d501fb51728a3f96270dd20c89f791db61c2f369d7477c7367159e3ff27b4",
+    "evaluated_examples": 1790,
+    "full_dataset_examples": 1790,
+    "full_dataset_evaluated": true,
+    "evaluated_questions": 1790,
+    "elapsed_seconds": 137.36562389999744,
+    "questions_per_second": 13.030916681913991,
+    "input_tokens": 1232989,
+    "notes": "Evaluation results for the supplied dataset and recorded model configuration.",
+    "remote_cache": {
+      "hits": 0,
+      "requests": 1790
+    }
+  },
+  "macro_accuracy": 0.9233987385469913
+}

@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-09-20T11:45:44.175006+00:00",
+  "reference": "https://docs.typesafe.ai/api",
+  "sdk": "typesafe-sdk 0.7.0",
+  "schema_sha256": "83ab3f3c17b2d8b771cd36483b7b2f5e7be8096666d452debbd16def1f35ec06",
+  "verified_contract": [
+    "Required state/model/questions; state and instructions accept string/object/array.",
+    "Noul optional true/false descriptions; Choice up to 255 alternatives; Score 2 to 10 ordered criteria.",
+    "Question IDs are response keys and are excluded from model messages.",
+    "Response has model, answers, usage; Score returns probability-weighted level."
+  ],
+  "validation_scope": "Live documentation plus existing local schema and real-SDK HTTP tests using a fixed scorer. Final selected real-model HTTP/reload verification remains pending."
+}

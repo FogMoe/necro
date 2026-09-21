@@ -1,0 +1,11 @@
+{
+  "registered_at": "2026-09-20T23:53:48.162590+00:00",
+  "parent_development_sha256": "acb2315149a7af0aa56b201b14ce5c0b8dcccdc164bfa6a5dfa5c67c1120631a",
+  "evidence": "Parent eligible development:en68/80,zh70/80; all mistakes are strict comparisons on negative values. Weighting keeps all12 English and10 Chinese mistakes and adds1 Chinese mistake. Original training matrix and known condition regression use positive values.",
+  "change": "New complete and eligible slices retain parent within2pp by language, instead of requiring95% irrespective of the parent. New disabled and missing cases still require95% per language. Apply prospectively to remaining development selection and the sealed test; preserve original absolute failure in review.",
+  "unchanged": "All38 known false rejections must be fixed; exposed complete and eligible>=98% each language; exposed disabled and missing>=95% each language; task retention, source separation and runtime verification unchanged.",
+  "scope": "Repair the confirmed regression; report inherited negative arithmetic errors rather than expanding into general arithmetic retraining.",
+  "test_inference_available": false,
+  "original_plan_sha256": "bba98fa6373077a98a403bf5fc2bffa93359fe0a3280447c92018161b230df42",
+  "original_validation_plan_sha256": "f0a34ceb6e8ca35bec71ee163d9186fcd1031498c31fb53c7ad1e06ab4e47549"
+}

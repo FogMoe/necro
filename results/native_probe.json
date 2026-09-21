@@ -1,0 +1,123 @@
+{
+  "plain_unquoted": {
+    "summary": {
+      "overall": {
+        "count": 24,
+        "accuracy": 0.875,
+        "nll": 0.5497882115619277,
+        "brier": 0.28858503565594124,
+        "ece_10_bins": 0.18123126566696202
+      },
+      "groups": {
+        "curated-smoke/zh/choice": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.8322147767780959,
+          "brier": 0.43159717046707385,
+          "ece_10_bins": 0.09161347704932238
+        },
+        "curated-smoke/en/choice": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.8565998686390764,
+          "brier": 0.39605013238275905,
+          "ece_10_bins": 0.27464518071950234
+        },
+        "curated-smoke/zh/noul": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.5683169436741708,
+          "brier": 0.38064140135019975,
+          "ece_10_bins": 0.17574125200540255
+        },
+        "curated-smoke/en/noul": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.3737335278345458,
+          "brier": 0.20971843470139995,
+          "ece_10_bins": 0.29983515702886987
+        },
+        "curated-smoke/zh/score": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.31067268946795656,
+          "brier": 0.14032762545103608,
+          "ece_10_bins": 0.25366322125039226
+        },
+        "curated-smoke/en/score": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.3571914629777209,
+          "brier": 0.1731754495831788,
+          "ece_10_bins": 0.28518445795572217
+        }
+      },
+      "score_mae": 0.27092889266274395
+    },
+    "failures": [
+      "zh-unknown",
+      "en-unknown",
+      "zh-criterion-yes"
+    ]
+  },
+  "native_labels": {
+    "summary": {
+      "overall": {
+        "count": 24,
+        "accuracy": 0.9166666666666666,
+        "nll": 0.590888298844162,
+        "brier": 0.3092799670549736,
+        "ece_10_bins": 0.2535381925304034
+      },
+      "groups": {
+        "curated-smoke/zh/choice": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.8322147767780959,
+          "brier": 0.43159717046707385,
+          "ece_10_bins": 0.09161347704932238
+        },
+        "curated-smoke/en/choice": {
+          "count": 4,
+          "accuracy": 0.75,
+          "nll": 0.8565998686390764,
+          "brier": 0.39605013238275905,
+          "ece_10_bins": 0.27464518071950234
+        },
+        "curated-smoke/zh/noul": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.46380298444611495,
+          "brier": 0.284475342547387,
+          "ece_10_bins": 0.36386947982170637
+        },
+        "curated-smoke/en/noul": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.4019328481718949,
+          "brier": 0.23304516521628277,
+          "ece_10_bins": 0.32185476292251725
+        },
+        "curated-smoke/zh/score": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.49658232163564875,
+          "brier": 0.2506169636439082,
+          "ece_10_bins": 0.37434812823669533
+        },
+        "curated-smoke/en/score": {
+          "count": 4,
+          "accuracy": 1.0,
+          "nll": 0.4941969933941419,
+          "brier": 0.25989502807243103,
+          "ece_10_bins": 0.37258858965293484
+        }
+      },
+      "score_mae": 0.3196316540319278
+    },
+    "failures": [
+      "zh-unknown",
+      "en-unknown"
+    ]
+  }
+}

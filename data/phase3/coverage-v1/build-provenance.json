@@ -1,0 +1,10 @@
+{
+  "dataset_manifest_sha256": "cfd44543e92de15b4487889c01b4da5360d2917feef4d23d10161b1cf4061739",
+  "source_hashes": {
+    "src/necro/phase3_data.py": "1e95c5e963a4b8ddc3b4f5440eeec0cb9ccbbfd8c73bef818d1052ac2c6e705f",
+    "src/necro/full_snapshots.py": "fc4bc251354b70cead2b9a621f96d781d939d2abf7ae6ffda21cee5fc0cc9c35",
+    "src/necro/phase2_data.py": "c7aabd16c987cd4c2e3f782d32769db0838cbacfb5fc3eb3a96248314d94af8b",
+    "src/necro/source_isolation.py": "80ac5a865e9eb978a3a1a1052f48fd579ef11f8dcf06125b58139a8e1d45692a"
+  },
+  "max_train_input_tokens": 1297
+}

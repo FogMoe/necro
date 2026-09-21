@@ -1,0 +1,9 @@
+{
+  "gpu": "NVIDIA GeForce RTX 4090 D",
+  "total_memory_gib": 23.5164794921875,
+  "batch_size": 16,
+  "accumulation": 1,
+  "profile": "results/cloud/profile-b16",
+  "data_manifest_sha256": "390960ba7390373ce3f120756db30291802fa80c7cea7d93a55c37dda6309125",
+  "torch": "2.10.0+cu128"
+}

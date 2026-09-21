@@ -1,0 +1,12 @@
+{
+  "sdk": "typesafe-sdk 0.7.0",
+  "base_url": "http://127.0.0.1:8000",
+  "model": "necro-qwen3.5-0.8b",
+  "mixed_request": "passed",
+  "choice255_count": 255,
+  "choice255_sum": 1.0,
+  "choice255_selected": "item-054",
+  "choice255_expected": "item-254",
+  "choice255_seconds": 0.5594060000003083,
+  "missing_key_status": 401
+}

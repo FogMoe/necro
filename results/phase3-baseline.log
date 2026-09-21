@@ -1,0 +1,38 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   8%|▊         | 40/473 [00:00<00:01, 374.93it/s]
+Loading weights:  22%|██▏       | 106/473 [00:00<00:00, 536.68it/s]
+Loading weights:  34%|███▍      | 161/473 [00:00<00:00, 456.85it/s]
+Loading weights:  44%|████▍     | 209/473 [00:00<00:00, 399.40it/s]
+Loading weights:  54%|█████▍    | 255/473 [00:00<00:00, 416.09it/s]
+Loading weights:  70%|██████▉   | 331/473 [00:00<00:00, 518.97it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 602.00it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{"role": "development", "families": {"ordinal_rule": {"count": 210, "accuracy": 0.9904761904761905, "nll": 0.06942988392501115, "brier": 0.019294594134636352, "ece_10_bins": 0.009999108106506515, "score_mae": 0.011850552183254658, "score_normalized_mae": 0.0025720650559474686, "nll_floor_sensitivity": {"1e-12": 0.06942988392501115, "0.001": 0.05649030467310826, "0.005": 0.048826314613898254, "0.01": 0.04538471522459889}}, "intent": {"count": 352, "accuracy": 0.7414772727272727, "nll": 2.5527250480091825, "brier": 0.4714444359008041, "ece_10_bins": 0.2246436055754807, "nll_floor_sensitivity": {"1e-12": 2.5527250480091825, "0.001": 1.5777715923159108, "0.005": 1.2610746042780325, "0.01": 1.113714143996955}}, "paraphrase": {"count": 142, "accuracy": 0.7816901408450704, "nll": 1.6405561033721785, "brier": 0.41001321779084277, "ece_10_bins": 0.2055018137914501, "nll_floor_sensitivity": {"1e-12": 1.6405561033721785, "0.001": 1.2578147423595902, "0.005": 1.0220930083497288, "0.01": 0.9134150647914238}}, "reading_boolean": {"count": 129, "accuracy": 0.8217054263565892, "nll": 1.2727515754325402, "brier": 0.3430687310907748, "ece_10_bins": 0.17856609472764917, "nll_floor_sensitivity": {"1e-12": 1.2727515754325402, "0.001": 0.9780496822221474, "0.005": 0.815095845931003, "0.01": 0.7344973365635675}}, "inference": {"count": 360, "accuracy": 0.7444444444444445, "nll": 1.2830284943081904, "brier": 0.4544895209501934, "ece_10_bins": 0.21890502235111195, "nll_floor_sensitivity": {"1e-12": 1.2830284943081904, "0.001": 1.1636516319147643, "0.005": 1.0334437107867926, "0.01": 0.9535827882076862}}, "numeric_rule": {"count": 176, "accuracy": 0.9147727272727273, "nll": 0.9699783539466001, "brier": 0.16665811709240155, "ece_10_bins": 0.08410698542939173, "nll_floor_sensitivity": {"1e-12": 0.9699783539466001, "0.001": 0.5592242899233719, "0.005": 0.4312008196161139, "0.01": 0.3760641120715728}}, "candidate_retrieval": {"count": 35, "accuracy": 1.0, "nll": 0.002271179662056548, "brier": 0.00026789610429810346, "ece_10_bins": 0.002199866520648408, "nll_floor_sensitivity": {"1e-12": 0.002271179662056548, "0.001": 0.002271179662056548, "0.005": 0.002271179662056548, "0.01": 0.002271179662056548}}, "candidate_extraction": {"count": 60, "accuracy": 0.8833333333333333, "nll": 0.7873847278906879, "brier": 0.2005872162874915, "ece_10_bins": 0.10874375350763085, "nll_floor_sensitivity": {"1e-12": 0.7873847278906879, "0.001": 0.5869091180059055, "0.005": 0.49334427760406285, "0.01": 0.4355820125574007}}}}
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   7%|▋         | 31/473 [00:00<00:01, 298.97it/s]
+Loading weights:  13%|█▎        | 61/473 [00:00<00:01, 281.46it/s]
+Loading weights:  19%|█▉        | 90/473 [00:00<00:01, 272.16it/s]
+Loading weights:  25%|██▍       | 118/473 [00:00<00:01, 263.58it/s]
+Loading weights:  33%|███▎      | 155/473 [00:00<00:01, 284.07it/s]
+Loading weights:  39%|███▉      | 184/473 [00:00<00:01, 247.67it/s]
+Loading weights:  44%|████▍     | 210/473 [00:00<00:01, 244.05it/s]
+Loading weights:  53%|█████▎    | 252/473 [00:00<00:00, 282.34it/s]
+Loading weights:  59%|█████▉    | 281/473 [00:01<00:00, 284.40it/s]
+Loading weights:  72%|███████▏  | 340/473 [00:01<00:00, 371.22it/s]
+Loading weights: 100%|██████████| 473/473 [00:01<00:00, 388.18it/s]
+{"role": "calibration", "families": {"inference": {"count": 210, "accuracy": 0.7952380952380952, "nll": 1.270941938774225, "brier": 0.39002187273944267, "ece_10_bins": 0.1915580331991707, "nll_floor_sensitivity": {"1e-12": 1.270941938774225, "0.001": 1.1021328184293322, "0.005": 0.9388402359637161, "0.01": 0.8478000683182402}}, "ordinal_rule": {"count": 210, "accuracy": 0.9857142857142858, "nll": 0.04817312215279675, "brier": 0.01991350499333246, "ece_10_bins": 0.011451620447463777, "score_mae": 0.01181174142542142, "score_normalized_mae": 0.0028986491521992568, "nll_floor_sensitivity": {"1e-12": 0.04817312215279675, "0.001": 0.047134772859646956, "0.005": 0.03947078280043696, "0.01": 0.036170081940627694}}, "intent": {"count": 232, "accuracy": 0.7025862068965517, "nll": 2.954463413943, "brier": 0.5537133790598215, "ece_10_bins": 0.27157913598031147, "nll_floor_sensitivity": {"1e-12": 2.954463413943, "0.001": 1.8807176372005134, "0.005": 1.4948565942869667, "0.01": 1.3158791977303212}}, "reading_boolean": {"count": 81, "accuracy": 0.7901234567901234, "nll": 1.5327382804814353, "brier": 0.4033392069925464, "ece_10_bins": 0.19555368741568135, "nll_floor_sensitivity": {"1e-12": 1.5327382804814353, "0.001": 1.2103461203352959, "0.005": 0.9935021358343422, "0.01": 0.8908136646402763}}, "numeric_rule": {"count": 170, "accuracy": 0.9941176470588236, "nll": 0.014501537104134422, "brier": 0.009847576654701307, "ece_10_bins": 0.005373995787343433, "nll_floor_sensitivity": {"1e-12": 0.014501537104134422, "0.001": 0.014501537104134422, "0.005": 0.014501537104134422, "0.01": 0.014501537104134422}}, "paraphrase": {"count": 100, "accuracy": 0.79, "nll": 1.852117937069059, "brier": 0.4077824230193034, "ece_10_bins": 0.2055777871731155, "nll_floor_sensitivity": {"1e-12": 1.852117937069059, "0.001": 1.2595176796824306, "0.005": 1.006070143277798, "0.01": 0.8948707377315033}}, "candidate_extraction": {"count": 40, "accuracy": 0.8, "nll": 1.3490150233745226, "brier": 0.3550089231659594, "ece_10_bins": 0.1866868204967353, "nll_floor_sensitivity": {"1e-12": 1.3490150233745226, "0.001": 1.1229276241286652, "0.005": 0.9336045862738853, "0.01": 0.8296325091898936}}, "candidate_retrieval": {"count": 25, "accuracy": 1.0, "nll": 2.494288458269001e-05, "brier": 4.040233581934818e-09, "ece_10_bins": 2.4941632784658552e-05, "nll_floor_sensitivity": {"1e-12": 2.494288458269001e-05, "0.001": 2.494288458269001e-05, "0.005": 2.494288458269001e-05, "0.01": 2.494288458269001e-05}}}}
+{
+  "candidate": "results\\phase2\\v3\\selected\\adapter",
+  "macro_accuracy": 0.8597374419319534,
+  "macro_brier": 0.21379736964184576,
+  "temperatures": {
+    "choice": 2.92817139189125,
+    "score": 1.7817974362806783,
+    "noul": 5.401399784672759
+  }
+}

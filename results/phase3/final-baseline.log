@@ -1,0 +1,50 @@
+
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]
+Loading weights:   9%|▊         | 41/473 [00:00<00:01, 404.11it/s]
+Loading weights:  17%|█▋        | 82/473 [00:00<00:01, 337.45it/s]
+Loading weights:  27%|██▋       | 128/473 [00:00<00:00, 359.02it/s]
+Loading weights:  37%|███▋      | 176/473 [00:00<00:00, 400.99it/s]
+Loading weights:  52%|█████▏    | 248/473 [00:00<00:00, 506.45it/s]
+Loading weights: 100%|██████████| 473/473 [00:00<00:00, 834.57it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+{
+  "job": "baseline",
+  "metadata": {
+    "created_at": "2026-09-20T21:04:23.975436+00:00",
+    "backend": "local",
+    "model": [
+      "ScarletKc-Necro-0.8b"
+    ],
+    "dataset_sha256": "4d1d501fb51728a3f96270dd20c89f791db61c2f369d7477c7367159e3ff27b4",
+    "evaluated_examples": 1790,
+    "full_dataset_examples": 1790,
+    "full_dataset_evaluated": true,
+    "evaluated_questions": 1790,
+    "elapsed_seconds": 94.55461929999001,
+    "questions_per_second": 18.930857246867358,
+    "input_tokens": 689493,
+    "notes": "Evaluation results for the supplied dataset and recorded model configuration.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "adapter": "results\\phase2\\v3\\selected\\adapter",
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "choice_temperature": 3.031433133020795,
+    "noul_temperature": 5.924390209146257,
+    "score_temperature": 2.324091173915679,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.9995625466607803,
+    "candidate_mass_min": 0.7954134345054626,
+    "adapter_weights_sha256": "4c2143d4a27cfb6859a71dd98354e936b94176d6c837994b610774bde92db70f",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "peak_allocated_gib": 2.2932581901550293
+  },
+  "macro_accuracy": 0.8725242225393763
+}

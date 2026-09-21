@@ -1,0 +1,51 @@
+{
+  "status": "final permitted seed replication active; no further training after this",
+  "session": 16218,
+  "data": "data\\phase3\\coverage-v1",
+  "plan": "results/phase3/final-replication-plan.json",
+  "old_test_exposed": true,
+  "new_test_exposed": false,
+  "no_new_commit": true,
+  "training": "results/phase3/instruction-seed2027",
+  "baseline_macro_accuracy": 0.8597374419319534,
+  "baseline_macro_brier": 0.21379736964184576,
+  "next": [
+    "Finish instruction assessment and predefined development robustness",
+    "Choose best existing candidate; at most one matched-seed repetition if critical repair is confirmed without regression",
+    "Freeze, independent Jev and predecessor test, historical regression",
+    "Export, actual reload/SDK/latency, report/cards/checksums, final completion audit; no new training directions"
+  ],
+  "new_validation_tools": [
+    "necro.development_comparison",
+    "necro.freeze_phase3",
+    "necro.package_verification"
+  ],
+  "completed_checks": [
+    "82-test suite passed after per-weight frozen-temperature guard",
+    "2 additional exposed-test freeze guard tests passed",
+    "Ruff passed",
+    "new final test summary scan: no predictions",
+    "old selected full ancestry: 6 stages, 14093 presentations",
+    "87 tests passed after instruction-pair and calibration-objective changes"
+  ],
+  "release_verification_status": "Implemented but not yet run on final weights; real reload, SDK HTTP and latency still pending",
+  "notes": [
+    "Only session 16218 is active: final replication then assessment/robustness",
+    "User explicitly requested closing; no further training after this replication",
+    "Instruction seed 2026 repaired reading-negation consistency from 0 to 1.0 on ten development pairs; macro 87.9784%, Brier 0.181986",
+    "Instruction seed 2026 wall timing includes sleep/standby; timing-audit.json records pauses"
+  ],
+  "training_seconds": 1417.8479100000113,
+  "training_peak_gib": 3.496060848236084,
+  "base_probe_drift": 0.0,
+  "jev_development_session": null,
+  "calibration_objective_plan": "results/phase3/calibration-objective-plan.json",
+  "coverage_macro_accuracy": 0.8736511154222728,
+  "coverage_macro_brier": 0.18850352538099438,
+  "jev_development_macro": 0.9260881466565425,
+  "calibration_objective": "brier",
+  "training_data": "data/phase3/instruction-v2",
+  "training_builder_archive": "data/phase3/instruction-v2/builder.py",
+  "closing_plan": "results/phase3/closing-plan.json",
+  "remaining_training_directions": 0
+}

@@ -1,0 +1,96 @@
+{
+  "overall": {
+    "count": 38,
+    "accuracy": 0.47368421052631576,
+    "nll": 2.0554185339659563,
+    "brier": 0.9770401378181365,
+    "ece_10_bins": 0.48559720477113355,
+    "nll_floor_sensitivity": {
+      "1e-12": 2.0554185339659563,
+      "0.001": 2.0554185339659563,
+      "0.005": 2.0554185339659563,
+      "0.01": 2.0554185339659563
+    }
+  },
+  "groups": {
+    "constructed-condition-v1/zh/noul": {
+      "count": 31,
+      "accuracy": 0.4838709677419355,
+      "nll": 2.081383008245835,
+      "brier": 0.9767815971384077,
+      "ece_10_bins": 0.4793778510238592,
+      "nll_floor_sensitivity": {
+        "1e-12": 2.081383008245835,
+        "0.001": 2.081383008245835,
+        "0.005": 2.081383008245835,
+        "0.01": 2.081383008245835
+      }
+    },
+    "constructed-condition-v1/en/noul": {
+      "count": 7,
+      "accuracy": 0.42857142857142855,
+      "nll": 1.9404330050122058,
+      "brier": 0.9781851036855066,
+      "ece_10_bins": 0.5131400570804909,
+      "nll_floor_sensitivity": {
+        "1e-12": 1.9404330050122058,
+        "0.001": 1.9404330050122058,
+        "0.005": 1.9404330050122058,
+        "0.01": 1.9404330050122058
+      }
+    }
+  },
+  "families": {
+    "numeric_rule": {
+      "count": 38,
+      "accuracy": 0.47368421052631576,
+      "nll": 2.0554185339659563,
+      "brier": 0.9770401378181365,
+      "ece_10_bins": 0.48559720477113355,
+      "nll_floor_sensitivity": {
+        "1e-12": 2.0554185339659563,
+        "0.001": 2.0554185339659563,
+        "0.005": 2.0554185339659563,
+        "0.01": 2.0554185339659563
+      }
+    }
+  },
+  "macro_family_accuracy": 0.47368421052631576,
+  "metadata": {
+    "created_at": "2026-09-21T02:08:48.201976+00:00",
+    "backend": "local",
+    "model": [
+      "necro-unified-primary"
+    ],
+    "dataset_sha256": "7ba58aa547920ac99c03874cd2ee4484963e8678a775e0a92b4e67d056d8c5c6",
+    "evaluated_examples": 38,
+    "full_dataset_examples": 38,
+    "full_dataset_evaluated": true,
+    "evaluated_questions": 38,
+    "elapsed_seconds": 12.58577036857605,
+    "questions_per_second": 57.20746358106807,
+    "input_tokens": 122272,
+    "notes": "Evaluation results for the supplied dataset and recorded model configuration.",
+    "checkpoint": "Qwen/Qwen3.5-0.8B",
+    "adapter": "results/cloud/primary/adapter",
+    "prompt_version": "plain-v1-native-noul-numeric-large-choice",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "temperature": 1.0,
+    "choice_temperature": 1.7817974362806783,
+    "noul_temperature": 2.894538474880756,
+    "score_temperature": 0.5,
+    "batch_size": 4,
+    "batch_tokens": 8192,
+    "torch": "2.10.0+cu128",
+    "transformers": "5.17.0",
+    "device": "cuda",
+    "candidate_mass_mean": 0.9999656863510609,
+    "candidate_mass_min": 0.9994909167289734,
+    "adapter_weights_sha256": "5a8d064464ea15855705c4d9e55a0cb2e55177c28b3ae1bdb33e1168fd78318a",
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "peak_allocated_gib": 2.2931113243103027,
+    "projected_from": "results/cloud/primary/conditions",
+    "source_predictions_sha256": "8f1b5703e0f157d556ae19279a158b1483d18af7357a2305de799a49fb36a580",
+    "timing_scope": "elapsed_seconds describes original full evaluation before projection"
+  }
+}

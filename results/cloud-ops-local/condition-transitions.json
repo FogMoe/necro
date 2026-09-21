@@ -1,0 +1,66 @@
+{
+  "transitions": {
+    "all": {
+      "count": 720,
+      "corrected": 38,
+      "new_errors": 79,
+      "shared_errors": 21
+    },
+    "missing": {
+      "count": 240,
+      "corrected": 8,
+      "new_errors": 0,
+      "shared_errors": 0
+    },
+    "complete": {
+      "count": 240,
+      "corrected": 18,
+      "new_errors": 79,
+      "shared_errors": 21
+    },
+    "gate_false": {
+      "count": 240,
+      "corrected": 12,
+      "new_errors": 0,
+      "shared_errors": 0
+    }
+  },
+  "all_ci": {
+    "method": "paired, stratified by family, resampling source groups with replacement",
+    "repetitions": 2000,
+    "seed": 20260920,
+    "families": {
+      "numeric_rule": {
+        "source_groups": 12,
+        "accuracy_delta": -0.05694444444444444,
+        "accuracy_delta_95ci": [
+          -0.10694444444444444,
+          -0.0082986111111113
+        ]
+      }
+    },
+    "macro_accuracy_delta_95ci": [
+      -0.10694444444444444,
+      -0.0082986111111113
+    ]
+  },
+  "complete_ci": {
+    "method": "paired, stratified by family, resampling source groups with replacement",
+    "repetitions": 2000,
+    "seed": 20260920,
+    "families": {
+      "numeric_rule": {
+        "source_groups": 12,
+        "accuracy_delta": -0.25416666666666665,
+        "accuracy_delta_95ci": [
+          -0.3958333333333333,
+          -0.1
+        ]
+      }
+    },
+    "macro_accuracy_delta_95ci": [
+      -0.3958333333333333,
+      -0.1
+    ]
+  }
+}

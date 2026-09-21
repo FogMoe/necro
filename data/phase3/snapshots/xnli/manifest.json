@@ -1,0 +1,55 @@
+{
+  "dataset": "facebook/xnli",
+  "revision": "698f8e6ef634f838d19dcf896958caa5d727dc79",
+  "files": [
+    {
+      "path": "en/test/0000.parquet",
+      "config": "en",
+      "split": "test",
+      "rows": 5010,
+      "bytes": 308237,
+      "sha256": "8f0fd1e105091e0f11cd37f9b2bc382f16de9949aa9471e1366b2605ba037167"
+    },
+    {
+      "path": "en/train/0000.parquet",
+      "config": "en",
+      "split": "train",
+      "rows": 392702,
+      "bytes": 50161923,
+      "sha256": "6be63cec9ec932a5790de82caee7ee4d00e5a50ef19b79f23b740732da143424"
+    },
+    {
+      "path": "en/validation/0000.parquet",
+      "config": "en",
+      "split": "validation",
+      "rows": 2490,
+      "bytes": 157207,
+      "sha256": "42961a7b66dee147da655d78db8cbaac97b3dbcf898009acffec6cda2d80f2bf"
+    },
+    {
+      "path": "zh/test/0000.parquet",
+      "config": "zh",
+      "split": "test",
+      "rows": 5010,
+      "bytes": 309645,
+      "sha256": "0588db7da3ed00a677dc6ac521e9b3e1c8ecf286ea0c2182b9a6a346b22c4645"
+    },
+    {
+      "path": "zh/train/0000.parquet",
+      "config": "zh",
+      "split": "train",
+      "rows": 392702,
+      "bytes": 47802797,
+      "sha256": "2b328b786fca5061b5a4676ca6d8c2861f2e700e0c1b300ea229f3de27ef8f9f"
+    },
+    {
+      "path": "zh/validation/0000.parquet",
+      "config": "zh",
+      "split": "validation",
+      "rows": 2490,
+      "bytes": 157413,
+      "sha256": "a028221cd83ff84d8dcebc6da36a123a1371bb98ab89b50d82eea31b12aeb68c"
+    }
+  ],
+  "sampling": "Complete split; deterministic individual/source-group sampling later"
+}

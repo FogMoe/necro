@@ -1,0 +1,41 @@
+{
+  "presentations": 4756,
+  "matrix_presentations": 3200,
+  "semantic_presentations": {
+    "False": 2880,
+    "True": 320
+  },
+  "semantic_weight": {
+    "False": 1600.0,
+    "True": 1600.0
+  },
+  "answer_weight": {
+    "False": 1600.0,
+    "True": 1600.0
+  },
+  "joint_cells": 80,
+  "cases": {
+    "disabled": {
+      "presentations": 640,
+      "weight": 355.5555555555507
+    },
+    "missing-0": {
+      "presentations": 640,
+      "weight": 355.5555555555507
+    },
+    "missing-2": {
+      "presentations": 640,
+      "weight": 355.5555555555507
+    },
+    "missing-1": {
+      "presentations": 640,
+      "weight": 355.5555555555507
+    },
+    "complete": {
+      "presentations": 640,
+      "weight": 1777.7777777777892
+    }
+  },
+  "replay_weight": 1556,
+  "total_weight": 4756.0
+}
