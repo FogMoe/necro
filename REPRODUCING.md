@@ -4,7 +4,7 @@ The project is abandoned. The [retrospective](EXPERIMENT_RETROSPECTIVE_2026-09-2
 
 ## Download and verify
 
-The archive is stored directly in Git, including datasets, adapters, tokenizers, and the two original cloud archives. Clone the repository and verify the downloaded files:
+The archive is stored directly in Git, including datasets, adapters, tokenizers, and the two original cloud archives. Repository access is required while the repository remains private. Clone it and verify the downloaded files:
 
 ```sh
 git clone https://github.com/scarletkc/necro.git

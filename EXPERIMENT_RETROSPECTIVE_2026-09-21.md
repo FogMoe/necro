@@ -342,7 +342,7 @@ Only a qualifying recipe would justify one preregistered seed confirmation. Fail
 
 ## 20. Release closure needed to be part of the experiment from the start
 
-A useful candidate would still need independent acceptance after selection. The acceptance cohort must cover the same release-critical semantics through new sources and independently designed formulations. The now-public archive is valuable regression material for future researchers. Anyone who inspects its tests and uses them to shape a candidate should obtain a new independent acceptance set rather than relabel those exposed records as blind evidence.
+A useful candidate would still need independent acceptance after selection. The acceptance cohort must cover the same release-critical semantics through new sources and independently designed formulations. The shared archive is valuable regression material for future researchers. Anyone who inspects its tests and uses them to shape a candidate should obtain a new independent acceptance set rather than relabel those exposed records as blind evidence.
 
 The release objective should be translated into explicit tradeoffs before evaluation. Ordinary small task regressions can be tolerated when an overall gain is meaningful and the affected behavior is understood. Severe condition regressions cannot. The historical two-point family margins, half-point macro-retention margin, and per-language condition requirements provide a starting framework. A new protocol must reconcile retention with the separate requirement for overall improvement, instead of treating mere noninferiority as success.
 
