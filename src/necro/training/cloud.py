@@ -70,7 +70,7 @@ def build_bundle(output):
         {digest(DATA / "test.jsonl"), digest(Path("data/phase5/condition-balance-v1/test.jsonl"))}
     )
     output.mkdir(parents=True)
-    for name in ("src", "tests", "docs", "licenses"):
+    for name in ("src", "tests", "docs", "licenses", "examples"):
         shutil.copytree(name, output / name, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
     for name in (
         "pyproject.toml",
@@ -485,6 +485,8 @@ def main():
     elif args.action == "baselines":
         baselines()
     elif args.action == "train":
+        if (DATA / "selection.json").exists():
+            raise ValueError("Candidate is frozen; no further training in this experiment")
         if args.recipe is None:
             parser.error("train requires a recipe")
         if args.recipe == "lower-rate" and not (OUTPUT / "primary/assessment.json").exists():
