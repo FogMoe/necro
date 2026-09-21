@@ -49,7 +49,7 @@ For a [registered experiment](evaluation.md#registered-experiments), training ve
 
 ## Training method
 
-The base model is frozen and loaded in BF16. LoRA is applied to Linear layers in the language backbone. Inputs are bucketed by length, and gradient checkpointing is enabled. Each run trains for one epoch with warmup followed by linear learning-rate decay.
+The base model is frozen and loaded in BF16. LoRA is applied to Linear layers in the language backbone. Inputs are bucketed by length, and gradient checkpointing is enabled by default. Each run trains for one epoch with warmup followed by linear learning-rate decay.
 
 Select the objective with `--objective`. Both modes mask prompt tokens from the loss.
 
@@ -58,7 +58,9 @@ Select the objective with `--objective`. Both modes mask prompt tokens from the 
 | `answer-ce` | Full-vocabulary cross entropy on correct answer tokens |
 | `candidate-ce` | Cross entropy over candidates for single-token answers, with full-vocabulary answer loss for multi-token numeric labels |
 
-Multi-token answers use teacher forcing, summing token-level negative log likelihoods. A few forward and backward passes are timed before parameter updates begin. After training, the adapter is disabled and base-model logits are checked with the same probe.
+Multi-token answers use teacher forcing, summing token-level negative log likelihoods. Optional positive `training_weight` values multiply each record's answer loss. Their dataset-wide mean must equal one. Gradient accumulation averages by record count, preserving the weights across microbatches; it does not normalize each microbatch's weights separately.
+
+A few forward and backward passes are timed before parameter updates begin, followed by a memory check on the largest padded batch. Use `--profile-only` to stop before weight updates and `--no-gradient-checkpointing` to measure the alternative memory/speed tradeoff. After training, the adapter is disabled and base-model logits are checked with the same probe.
 
 Default settings are defined by `train` in [trainer.py](../src/necro/training/trainer.py). Run `python -m necro.training --help` for command-line options. The actual settings are saved in `run_config.json`.
 
@@ -85,6 +87,8 @@ uv run --extra training python -m necro.training.data.probes
 `probes` generates boundary questions for amounts, status, Score thresholds, and candidate counts. It rejects an existing output file. Historical continuation commands and selection rules are in the [training record](process/improvement-2026-09-20.md).
 
 ## Reviewing results
+
+For the fresh multi-task experiment and portable Linux GPU package, see the [unified retraining record](process/unified-retraining-2026-09-21.md). `--epochs` defaults to one and reshuffles each epoch deterministically; `--expected-revision` rejects an unexpected base before parameter updates.
 
 Compare before/after results on the same questions, including breakdowns by task, language, and question type. Keep the training configuration, raw predictions, calibration files, and test-set fingerprint.
 

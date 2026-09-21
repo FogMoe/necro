@@ -18,7 +18,16 @@ def read(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def freeze(data, run, output, decision_path=None):
+def freeze(
+    data,
+    run,
+    output,
+    decision_path=None,
+    *,
+    reference=Path("results/phase2/v3/selected/adapter"),
+    reference_calibration=Path("results/phase3/baseline/calibration-brier-fit.json"),
+    plan_files=None,
+):
     if output.exists() or (data / "selection.json").exists():
         raise ValueError("Candidate selection already exists")
     preliminary = run / "repair-assessment.json"
@@ -55,8 +64,8 @@ def freeze(data, run, output, decision_path=None):
         or any(raw.get(f"{p}_temperature") != 1 for p in ("choice", "noul", "score"))
     ):
         raise ValueError("Calibration evidence does not match the candidate")
-    predecessor = Path("results/phase2/v3/selected/adapter")
-    reference_fit_path = Path("results/phase3/baseline/calibration-brier-fit.json")
+    predecessor = reference
+    reference_fit_path = reference_calibration
     reference_fit = read(reference_fit_path)
     reference_metadata = read(reference_fit_path.parent / "calibration/summary.json")["metadata"]
     if (
@@ -107,6 +116,14 @@ def freeze(data, run, output, decision_path=None):
     contract["model_id"] = "ScarletKc-Necro-0.8b"
     contract["recommended_temperatures"] = fit["temperatures"]
     (selected / "necro_adapter.json").write_text(json.dumps(contract, indent=2), encoding="utf-8")
+    if plan_files is None:
+        plan_files = [
+            (Path("results/phase4/condition-repair-plan.json"), "repair-plan.json"),
+            (Path("results/phase4/condition-followup-plan.json"), "followup-plan.json"),
+            (Path("results/phase4/condition-matrix-plan.json"), "matrix-plan.json"),
+            (Path("results/phase4/condition-retention-plan.json"), "retention-plan.json"),
+            (Path("results/phase4/final-validation-plan.json"), "validation-plan.json"),
+        ]
     for source, name in (
         (run / "calibration-brier-fit.json", "calibration.json"),
         (reference_fit_path, "reference-calibration.json"),
@@ -114,11 +131,7 @@ def freeze(data, run, output, decision_path=None):
         (preliminary, "preliminary-review.json"),
         (data / "experiment.json", "data-manifest.json"),
         (data / "builder.py", "builder.py"),
-        (Path("results/phase4/condition-repair-plan.json"), "repair-plan.json"),
-        (Path("results/phase4/condition-followup-plan.json"), "followup-plan.json"),
-        (Path("results/phase4/condition-matrix-plan.json"), "matrix-plan.json"),
-        (Path("results/phase4/condition-retention-plan.json"), "retention-plan.json"),
-        (Path("results/phase4/final-validation-plan.json"), "validation-plan.json"),
+        *plan_files,
         (Path("docs/process/release-criteria-2026-09-21.md"), "release-criteria.md"),
     ):
         shutil.copy2(source, output / name)

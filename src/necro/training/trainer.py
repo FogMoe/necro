@@ -22,6 +22,14 @@ from necro.training.data.training_data import audit_disjoint
 
 
 def encode_example(tokenizer, alphabet, example, max_length=2048):
+    weight = example.get("training_weight", 1.0)
+    if (
+        isinstance(weight, bool)
+        or not isinstance(weight, (int, float))
+        or not math.isfinite(weight)
+        or weight <= 0
+    ):
+        raise ValueError(f"训练行 {example['id']} 的 training_weight 必须是有限正数。")
     request = EvaluationRequest.model_validate(example["request"])
     if len(request.questions) != 1:
         raise ValueError("训练行应包含一题。")
@@ -55,6 +63,7 @@ def encode_example(tokenizer, alphabet, example, max_length=2048):
     candidates = [tokenizer.encode(label, add_special_tokens=False) for label in labels]
     return {
         "id": example["id"],
+        "weight": float(weight),
         "input_ids": inputs,
         "target_ids": target,
         "candidate_ids": [tokens[0] for tokens in candidates]
@@ -80,7 +89,7 @@ def collate(rows, pad_id, device):
     }, torch.tensor(targets, device=device)
 
 
-def answer_loss(model, inputs, targets, candidate_ids=None):
+def answer_loss(model, inputs, targets, candidate_ids=None, sample_weights=None):
     import torch
     import torch.nn.functional as F
 
@@ -90,25 +99,36 @@ def answer_loss(model, inputs, targets, candidate_ids=None):
     full_losses = F.cross_entropy(
         logits.transpose(1, 2), targets, ignore_index=-100, reduction="none"
     ).sum(dim=1)
-    if candidate_ids is None:
-        return full_losses.mean()
-    if len(candidate_ids) != len(targets):
+    if candidate_ids is not None and len(candidate_ids) != len(targets):
         raise ValueError("候选监督与 batch 数量不一致。")
-    losses = []
-    for i, candidates in enumerate(candidate_ids):
-        if candidates is None:
-            losses.append(full_losses[i])
-            continue
-        if int((targets[i] != -100).sum()) != 1:
-            raise ValueError("候选内损失仅用于单 token 答案。")
-        ids = torch.tensor(candidates, device=logits.device)
-        if ids.unique().numel() != ids.numel():
-            raise ValueError("候选 token 不可重复。")
-        gold = (ids == targets[i, -1]).nonzero().flatten()
-        if gold.numel() != 1:
-            raise ValueError("正确标签必须恰好属于一个候选。")
-        losses.append(F.cross_entropy(logits[i, -1, ids].unsqueeze(0), gold))
-    return torch.stack(losses).mean()
+    losses = full_losses
+    if candidate_ids is not None:
+        candidates_losses = []
+        for i, candidates in enumerate(candidate_ids):
+            if candidates is None:
+                candidates_losses.append(full_losses[i])
+                continue
+            if int((targets[i] != -100).sum()) != 1:
+                raise ValueError("候选内损失仅用于单 token 答案。")
+            ids = torch.tensor(candidates, device=logits.device)
+            if ids.unique().numel() != ids.numel():
+                raise ValueError("候选 token 不可重复。")
+            gold = (ids == targets[i, -1]).nonzero().flatten()
+            if gold.numel() != 1:
+                raise ValueError("正确标签必须恰好属于一个候选。")
+            candidates_losses.append(F.cross_entropy(logits[i, -1, ids].unsqueeze(0), gold))
+        losses = torch.stack(candidates_losses)
+    if sample_weights is not None:
+        weights = torch.as_tensor(sample_weights, device="cpu", dtype=losses.dtype)
+        if (
+            weights.shape != losses.shape
+            or not torch.isfinite(weights).all()
+            or (weights <= 0).any()
+        ):
+            raise ValueError("每条训练记录必须对应一个有限正权重。")
+        # 全数据平均权重为 1；按微批次重归一化会消除单条批次的重加权效果。
+        losses = losses * weights.to(losses.device)
+    return losses.mean()
 
 
 def make_batches(records, batch_size, seed):
@@ -121,6 +141,16 @@ def make_batches(records, batch_size, seed):
         batches.extend(bucket[i : i + batch_size] for i in range(0, len(bucket), batch_size))
     rng.shuffle(batches)
     return batches
+
+
+def epoch_batches(records, batch_size, seed, epochs):
+    if type(epochs) is not int or epochs < 1:
+        raise ValueError("epochs must be a positive integer")
+    return [
+        batch
+        for epoch in range(epochs)
+        for batch in make_batches(records, batch_size, seed + epoch)
+    ]
 
 
 def emit(value):
@@ -160,6 +190,10 @@ def train(
     initial_adapter: Path | None = None,
     model_id="necro-qwen3.5-0.8b-lora-pilot-v1",
     objective="answer-ce",
+    gradient_checkpointing=True,
+    profile_only=False,
+    epochs=1,
+    expected_revision=None,
 ):
     import torch
     from peft import LoraConfig, PeftModel, get_peft_model
@@ -168,6 +202,8 @@ def train(
         raise ValueError("输出目录已存在；请为新实验选择新目录。")
     if batch_size < 1 or accumulation < 1:
         raise ValueError("批量与梯度累积必须大于 0。")
+    if type(epochs) is not int or epochs < 1:
+        raise ValueError("epochs must be a positive integer")
     if objective not in {"answer-ce", "candidate-ce"}:
         raise ValueError("未知训练目标。")
     if (data_dir / "experiment.json").is_file():
@@ -182,10 +218,16 @@ def train(
     settings = replace(Settings.from_env(), adapter=None)
     scorer = TransformersScorer(settings)
     scorer.load()
+    if expected_revision is not None and scorer.model.config._commit_hash != expected_revision:
+        raise ValueError("Loaded base revision differs from the registered training recipe")
     if scorer.device.type != "cuda":
         raise ValueError("本次训练要求 CUDA。")
     encoded = [encode_example(scorer.tokenizer, scorer.labels, row) for row in training]
-    batches = make_batches(encoded, batch_size, seed)
+    weight_mean = sum(row["weight"] for row in encoded) / len(encoded)
+    if not math.isclose(weight_mean, 1.0, rel_tol=1e-6):
+        raise ValueError("训练权重的全数据均值必须为 1，以保持学习率和回放权重可比。")
+    weighted = any(row["weight"] != 1.0 for row in encoded)
+    batches = epoch_batches(encoded, batch_size, seed, epochs)
     base = scorer.model
     revision = base.config._commit_hash
     probe_inputs, _ = collate([encoded[0]], scorer.tokenizer.pad_token_id, scorer.device)
@@ -227,7 +269,8 @@ def train(
     if any("lora_" not in name for name, _ in trainable):
         raise RuntimeError("检测到 LoRA 之外的可训练权重。")
     parameters = [parameter for _, parameter in trainable]
-    model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
+    if gradient_checkpointing:
+        model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
     model.train()
     output.mkdir(parents=True)
     total_steps = math.ceil(len(batches) / accumulation)
@@ -248,14 +291,22 @@ def train(
         "learning_rate": learning_rate,
         "batch_size": batch_size,
         "gradient_accumulation": accumulation,
-        "epochs": 1,
+        "epochs": epochs,
+        "training_presentations": len(encoded) * epochs,
         "optimizer_steps": total_steps,
         "examples": len(encoded),
         "trainable_parameters": sum(p.numel() for p in parameters),
         "target_modules": targets,
         "max_input_tokens": max(len(row["input_ids"]) for row in encoded),
-        "training_tokens": sum(len(row["input_ids"]) for row in encoded),
+        "training_tokens": sum(len(row["input_ids"]) for row in encoded) * epochs,
         "objective": objective,
+        "gradient_checkpointing": gradient_checkpointing,
+        "profile_only": profile_only,
+        "training_weights": {
+            "mean": weight_mean,
+            "min": min(r["weight"] for r in encoded),
+            "max": max(r["weight"] for r in encoded),
+        },
         "objective_description": "single-token candidate CE; multi-token full-vocabulary CE"
         if objective == "candidate-ce"
         else "full-vocabulary answer-token CE; prompts masked",
@@ -269,7 +320,11 @@ def train(
     emit({"event": "setup", **{k: v for k, v in config.items() if k != "target_modules"}})
     profile_times, profile_tokens = [], 0
     torch.cuda.reset_peak_memory_stats()
-    for i, rows in enumerate(batches[:6]):
+    timed_batches = batches[:6]
+    warmup_batches = min(2, len(timed_batches) - 1)
+    largest = max(batches, key=lambda rows: len(rows) * max(len(r["input_ids"]) for r in rows))
+    # 随机短批次不能验证显存上限；在更新权重前额外检查最大的填充批次。
+    for i, rows in enumerate([*timed_batches, largest]):
         inputs, labels = collate(rows, scorer.tokenizer.pad_token_id, scorer.device)
         start = time.perf_counter()
         loss = answer_loss(
@@ -277,12 +332,13 @@ def train(
             inputs,
             labels,
             [row["candidate_ids"] for row in rows] if objective == "candidate-ce" else None,
+            sample_weights=[row["weight"] for row in rows] if weighted else None,
         )
         loss.backward()
         torch.cuda.synchronize()
         if not torch.isfinite(loss):
             raise RuntimeError("训练损失非有限值。")
-        if i >= 2:
+        if warmup_batches <= i < len(timed_batches):
             profile_times.append(time.perf_counter() - start)
             profile_tokens += inputs["input_ids"].numel()
         model.zero_grad(set_to_none=True)
@@ -290,11 +346,16 @@ def train(
     profile = {
         "event": "profile",
         "seconds_per_microbatch": sum(profile_times) / len(profile_times),
+        "timed_microbatches": len(profile_times),
+        "warmup_microbatches": warmup_batches,
         "estimated_training_seconds": padded_tokens * sum(profile_times) / profile_tokens,
         "peak_allocated_gib": torch.cuda.max_memory_allocated() / 2**30,
+        "largest_batch_padded_tokens": len(largest) * max(len(r["input_ids"]) for r in largest),
     }
     emit(profile)
     (output / "profile.json").write_text(json.dumps(profile, indent=2), encoding="utf-8")
+    if profile_only:
+        return
     torch.manual_seed(seed)
     optimizer = torch.optim.AdamW(parameters, lr=learning_rate, weight_decay=0.01, fused=True)
     warmup = max(1, math.ceil(total_steps * 0.1))
@@ -311,6 +372,7 @@ def train(
                 inputs,
                 labels,
                 [row["candidate_ids"] for row in rows] if objective == "candidate-ce" else None,
+                sample_weights=[row["weight"] for row in rows] if weighted else None,
             )
             (loss * len(rows) / group_size).backward()
             losses.append(float(loss.detach()) * len(rows))
@@ -372,9 +434,21 @@ def main():
     parser.add_argument("--accumulation", type=int, default=4)
     parser.add_argument("--learning-rate", type=float, default=1e-4)
     parser.add_argument("--seed", type=int, default=17)
+    parser.add_argument("--epochs", type=int, default=1)
+    parser.add_argument(
+        "--expected-revision", help="Reject a different base-model revision before updates."
+    )
     parser.add_argument("--initial-adapter", type=Path)
     parser.add_argument("--model-id", default="necro-qwen3.5-0.8b-lora-pilot-v1")
     parser.add_argument("--objective", choices=["answer-ce", "candidate-ce"], default="answer-ce")
+    parser.add_argument(
+        "--gradient-checkpointing", action=argparse.BooleanOptionalAction, default=True
+    )
+    parser.add_argument(
+        "--profile-only",
+        action="store_true",
+        help="Measure forward/backward throughput without updating weights.",
+    )
     args = parser.parse_args()
     train(
         args.data,
@@ -386,6 +460,10 @@ def main():
         initial_adapter=args.initial_adapter,
         model_id=args.model_id,
         objective=args.objective,
+        gradient_checkpointing=args.gradient_checkpointing,
+        profile_only=args.profile_only,
+        epochs=args.epochs,
+        expected_revision=args.expected_revision,
     )
 
 

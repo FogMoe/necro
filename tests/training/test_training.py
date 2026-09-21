@@ -105,6 +105,40 @@ def test_split_audit_catches_translated_groups_and_identical_contexts():
         audit_disjoint([first], [duplicated])
 
 
+@pytest.mark.parametrize("candidate_ids", [None, [[0, 1], [0, 1], None]])
+def test_weighted_loss_preserves_gradients_across_unequal_microbatches(candidate_ids):
+    torch = pytest.importorskip("torch")
+    targets = torch.tensor([[0], [1], [2]])
+    weights = [2.0, 0.5, 0.5]
+    full = torch.tensor(
+        [[[0.3, 0.2, 0.1]], [[0.2, 0.7, 0.4]], [[0.9, 0.8, 0.1]]], requires_grad=True
+    )
+    loss = answer_loss(
+        lambda **kw: SimpleNamespace(logits=full), {}, targets, candidate_ids, weights
+    )
+    loss.backward()
+    plain = full.detach().clone().requires_grad_()
+    answer_loss(lambda **kw: SimpleNamespace(logits=plain), {}, targets, candidate_ids).backward()
+    torch.testing.assert_close(full.grad, plain.grad * torch.tensor(weights).view(-1, 1, 1))
+    split = full.detach().clone().requires_grad_()
+    for start, end in ((0, 1), (1, 3)):
+        part = answer_loss(
+            lambda start=start, end=end, **kw: SimpleNamespace(logits=split[start:end]),
+            {},
+            targets[start:end],
+            candidate_ids[start:end] if candidate_ids else None,
+            weights[start:end],
+        )
+        (part * (end - start) / 3).backward()
+    torch.testing.assert_close(split.grad, full.grad)
+
+
+@pytest.mark.parametrize("weight", [0, -1, float("nan"), float("inf"), True, "1"])
+def test_invalid_training_weight_rejected_before_encoding(weight):
+    with pytest.raises(ValueError, match="training_weight"):
+        encode_example(None, None, {"id": "bad", "training_weight": weight})
+
+
 def test_adapter_rejects_wrong_prompt_before_loading_weights(tmp_path):
     (tmp_path / "necro_adapter.json").write_text(
         json.dumps({"checkpoint": Settings().checkpoint, "prompt_sha256": "wrong"}),
